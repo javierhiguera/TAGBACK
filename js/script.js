@@ -1,11 +1,5 @@
 /* =========================================================
-   TAGBACK — JAVASCRIPT v24
-   - Traducción ES/EN
-   - Intro, cookies, menú móvil, header scroll
-   - Acordeones (servicios y beneficios) horizontales
-   - Validación y envío de formulario (Formspree)
-   - Sombra del mouse no uniforme (radial-gradient)
-   - Proceso: animación de línea al entrar en viewport
+   TAGBACK — JAVASCRIPT v25 (Fondo Global + Mouse)
    ========================================================= */
 
 // --- DICCIONARIO DE IDIOMAS ---
@@ -614,7 +608,7 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
     /* =====================================================
-       ACORDEONES HORIZONTALES
+       ACORDEONES HORIZONTALES (Servicios y Beneficios)
        ===================================================== */
     const accordionItems = document.querySelectorAll(".accordion-item, .service-card");
     accordionItems.forEach(item => {
@@ -625,6 +619,7 @@ document.addEventListener("DOMContentLoaded", () => {
             const isOpen = item.classList.contains("is-open");
             const stack = item.parentElement;
             if (stack) {
+                // Cerrar los otros
                 stack.querySelectorAll(".is-open").forEach(sibling => {
                     if (sibling !== item) {
                         sibling.classList.remove("is-open");
@@ -633,6 +628,7 @@ document.addEventListener("DOMContentLoaded", () => {
                     }
                 });
             }
+            // Alternar el actual
             item.classList.toggle("is-open", !isOpen);
             accHeader.setAttribute("aria-expanded", String(!isOpen));
         });
@@ -765,7 +761,7 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
     /* =====================================================
-       SOMBRA NO UNIFORME SIGUIENDO AL MOUSE
+       EFECTO DEL MOUSE (Luz/Sombra global)
        ===================================================== */
     const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
     const isTouch = window.matchMedia("(pointer: coarse)").matches;
@@ -776,12 +772,10 @@ document.addEventListener("DOMContentLoaded", () => {
         let targetX = mouseX;
         let targetY = mouseY;
         let rafId = null;
-        let isMoving = false;
 
         const onMouseMove = (e) => {
             targetX = e.clientX;
             targetY = e.clientY;
-            isMoving = true;
 
             if (!rafId) {
                 rafId = requestAnimationFrame(updateShadow);
@@ -789,10 +783,11 @@ document.addEventListener("DOMContentLoaded", () => {
         };
 
         const updateShadow = () => {
-            mouseX += (targetX - mouseX) * 0.08;
-            mouseY += (targetY - mouseY) * 0.08;
+            // Suavizado (lerp)
+            mouseX += (targetX - mouseX) * 0.1;
+            mouseY += (targetY - mouseY) * 0.1;
 
-            // Actualiza variables CSS para el gradiente radial
+            // Actualizar variables CSS en la raíz para que afecten al fondo global
             document.documentElement.style.setProperty('--mouse-x', mouseX + 'px');
             document.documentElement.style.setProperty('--mouse-y', mouseY + 'px');
 
