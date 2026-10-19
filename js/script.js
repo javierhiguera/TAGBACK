@@ -1,10 +1,10 @@
 /* =========================================================
-   TAGBACK — JAVASCRIPT v18
+   TAGBACK — JAVASCRIPT v19
    - Traducción ES/EN
    - Intro, cookies, menú móvil, header scroll
    - Acordeones (servicios y beneficios)
    - Validación y envío de formulario
-   - Correos por función en footer
+   - Parallax discreto del fondo (respeta reduced-motion)
    ========================================================= */
 
 // --- DICCIONARIO DE IDIOMAS ---
@@ -446,7 +446,7 @@ const translations = {
 document.addEventListener("DOMContentLoaded", () => {
 
     /* =====================================================
-       FUNCIÓN PARA APLICAR IDIOMA
+       APLICAR IDIOMA
        ===================================================== */
     const applyLanguage = (lang) => {
         const dict = translations[lang];
@@ -455,23 +455,16 @@ document.addEventListener("DOMContentLoaded", () => {
         document.documentElement.lang = lang;
         localStorage.setItem("tagback-lang", lang);
 
-        // Traducir textos
         document.querySelectorAll("[data-i18n]").forEach(el => {
             const key = el.getAttribute("data-i18n");
-            if (dict[key]) {
-                el.textContent = dict[key];
-            }
+            if (dict[key]) el.textContent = dict[key];
         });
 
-        // Traducir placeholders
         document.querySelectorAll("[data-i18n-placeholder]").forEach(el => {
             const key = el.getAttribute("data-i18n-placeholder");
-            if (dict[key]) {
-                el.setAttribute("placeholder", dict[key]);
-            }
+            if (dict[key]) el.setAttribute("placeholder", dict[key]);
         });
 
-        // Actualizar clases de los botones de idioma
         document.querySelectorAll(".lang-btn").forEach(btn => {
             if (btn.getAttribute("data-lang") === lang) {
                 btn.classList.add("active");
@@ -481,16 +474,12 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     };
 
-    /* =====================================================
-       INIT IDIOMA
-       ===================================================== */
     const savedLang = localStorage.getItem("tagback-lang") || "es";
     applyLanguage(savedLang);
 
     document.querySelectorAll(".lang-btn").forEach(btn => {
         btn.addEventListener("click", () => {
-            const lang = btn.getAttribute("data-lang");
-            applyLanguage(lang);
+            applyLanguage(btn.getAttribute("data-lang"));
         });
     });
 
@@ -517,13 +506,12 @@ document.addEventListener("DOMContentLoaded", () => {
             setTimeout(hideIntro, 100);
         } else {
             let alreadyShown = false;
-            try { alreadyShown = sessionStorage.getItem(INTRO_KEY) === "1"; } catch (e) { /* ignorar */ }
-
+            try { alreadyShown = sessionStorage.getItem(INTRO_KEY) === "1"; } catch (e) {}
             if (alreadyShown) {
                 hideIntro();
             } else {
                 setTimeout(hideIntro, 350);
-                try { sessionStorage.setItem(INTRO_KEY, "1"); } catch (e) { /* ignorar */ }
+                try { sessionStorage.setItem(INTRO_KEY, "1"); } catch (e) {}
             }
         }
     }
@@ -536,7 +524,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     if (cookieBanner) {
         let alreadyAccepted = false;
-        try { alreadyAccepted = localStorage.getItem(COOKIE_KEY) === "1"; } catch (e) { /* ignorar */ }
+        try { alreadyAccepted = localStorage.getItem(COOKIE_KEY) === "1"; } catch (e) {}
 
         if (!alreadyAccepted) {
             setTimeout(() => { cookieBanner.classList.add("is-visible"); }, 1200);
@@ -546,7 +534,7 @@ document.addEventListener("DOMContentLoaded", () => {
         const rejectBtn = cookieBanner.querySelector("[data-cookie-reject]");
 
         const closeBanner = (value) => {
-            try { localStorage.setItem(COOKIE_KEY, value); } catch (e) { /* ignorar */ }
+            try { localStorage.setItem(COOKIE_KEY, value); } catch (e) {}
             cookieBanner.classList.remove("is-visible");
             setTimeout(() => {
                 if (cookieBanner.parentNode) cookieBanner.parentNode.removeChild(cookieBanner);
@@ -585,24 +573,22 @@ document.addEventListener("DOMContentLoaded", () => {
 
         menuToggle.addEventListener("click", () => {
             const isOpen = mainNav.classList.contains("is-open");
-            if (isOpen) { closeMenu(); } else { openMenu(); }
+            if (isOpen) closeMenu(); else openMenu();
         });
 
         mainNav.querySelectorAll("a").forEach(link => {
-            link.addEventListener("click", () => { closeMenu(); });
+            link.addEventListener("click", () => closeMenu());
         });
 
         document.addEventListener("keydown", event => {
-            if (event.key === "Escape" && mainNav.classList.contains("is-open")) {
-                closeMenu();
-            }
+            if (event.key === "Escape" && mainNav.classList.contains("is-open")) closeMenu();
         });
 
         let resizeTimer;
         window.addEventListener("resize", () => {
             clearTimeout(resizeTimer);
             resizeTimer = setTimeout(() => {
-                if (window.innerWidth > 900) { closeMenu(); }
+                if (window.innerWidth > 900) closeMenu();
             }, 120);
         });
     }
@@ -626,7 +612,27 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
     /* =====================================================
-       ACORDEONES (Beneficios y Servicios)
+       PARALLAX DISCRETO DEL FONDO
+       Desplaza muy suavemente la capa de luz con el scroll.
+       Respeta prefers-reduced-motion.
+       ===================================================== */
+    const bgLight = document.querySelector(".bg-surface__light");
+    if (bgLight && !window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+        let ticking = false;
+        const updateParallax = () => {
+            const y = window.scrollY * 0.08; /* factor muy bajo */
+            bgLight.style.transform = `translate3d(0, ${y}px, 0)`;
+            ticking = false;
+        };
+        window.addEventListener("scroll", () => {
+            if (ticking) return;
+            ticking = true;
+            window.requestAnimationFrame(updateParallax);
+        }, { passive: true });
+    }
+
+    /* =====================================================
+       ACORDEONES
        ===================================================== */
     const accordionItems = document.querySelectorAll(".accordion-item, .service-card");
     accordionItems.forEach(item => {
