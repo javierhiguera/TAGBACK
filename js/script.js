@@ -1,10 +1,10 @@
 /* =========================================================
-   TAGBACK — JAVASCRIPT v22
+   TAGBACK — JAVASCRIPT v23 (corregido)
    - Traducción ES/EN
    - Intro, cookies, menú móvil, header scroll
    - Acordeones (servicios y beneficios)
-   - Validación y envío de formulario
-   - Fondo Topology: movimiento de capas con el mouse
+   - Validación y envío de formulario (Formspree)
+   - Fondo Topology: movimiento de capas + sombra del mouse
    - Proceso: animación de línea al entrar en viewport
    ========================================================= */
 
@@ -450,7 +450,7 @@ document.addEventListener("DOMContentLoaded", () => {
         if (!dict) return;
 
         document.documentElement.lang = lang;
-        localStorage.setItem("tagback-lang", lang);
+        try { localStorage.setItem("tagback-lang", lang); } catch (e) {}
 
         document.querySelectorAll("[data-i18n]").forEach(el => {
             const key = el.getAttribute("data-i18n");
@@ -471,7 +471,10 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     };
 
-    const savedLang = localStorage.getItem("tagback-lang") || "es";
+    const savedLang = (() => {
+        try { return localStorage.getItem("tagback-lang") || "es"; }
+        catch (e) { return "es"; }
+    })();
     applyLanguage(savedLang);
 
     document.querySelectorAll(".lang-btn").forEach(btn => {
@@ -487,9 +490,11 @@ document.addEventListener("DOMContentLoaded", () => {
     if (intro) {
         const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
         const INTRO_KEY = "tagback-intro-shown";
+        let introHidden = false;
 
         const hideIntro = () => {
-            if (!intro) return;
+            if (!intro || introHidden) return;
+            introHidden = true;
             intro.classList.add("is-hiding");
             intro.setAttribute("aria-hidden", "true");
             const cleanup = () => {
@@ -634,7 +639,9 @@ document.addEventListener("DOMContentLoaded", () => {
     });
 
     /* =====================================================
-       FORMULARIO — envío a projects@tagback.com vía Formspree
+       FORMULARIO — envío vía Formspree
+       ⚠️ Reemplazá "TU_ID" por el ID real de tu formulario
+       (ej: https://formspree.io/f/abcdwxyz)
        ===================================================== */
     const quoteForm = document.querySelector(".quote-form");
     if (quoteForm) {
@@ -643,6 +650,7 @@ document.addEventListener("DOMContentLoaded", () => {
         const submitBtnDefaultText = submitBtn ? submitBtn.textContent : "";
 
         const showFeedback = (type, message) => {
+            if (!formSubmit) return;
             let feedback = quoteForm.querySelector(".form-feedback");
             if (!feedback) {
                 feedback = document.createElement("p");
@@ -668,7 +676,7 @@ document.addEventListener("DOMContentLoaded", () => {
         };
 
         const setFieldError = (field, message) => {
-            const wrapper = field.closest(".form-field");
+            const wrapper = field.closest(".form-field") || field.closest(".form-fieldset");
             if (!wrapper) return;
             let errorEl = wrapper.querySelector(".form-field-error");
             if (!errorEl) {
@@ -698,6 +706,16 @@ document.addEventListener("DOMContentLoaded", () => {
             field.addEventListener("input", () => {
                 if (field.getAttribute("aria-invalid") === "true") validateField(field);
             });
+            if (field.type === "radio") {
+                field.addEventListener("change", () => {
+                    // Validar el grupo completo al cambiar una opción
+                    const group = quoteForm.querySelectorAll(`input[name="${field.name}"]`);
+                    const anyChecked = Array.from(group).some(r => r.checked);
+                    if (anyChecked) {
+                        group.forEach(r => setFieldError(r, ""));
+                    }
+                });
+            }
         });
 
         quoteForm.addEventListener("submit", event => {
@@ -713,14 +731,16 @@ document.addEventListener("DOMContentLoaded", () => {
                 return;
             }
 
-            const action = quoteForm.getAttribute("action");
+            const action = quoteForm.getAttribute("action") || "";
             if (!action || action === "#" || action.includes("TU_ID")) {
                 showFeedback("info", "Estamos configurando el formulario. Mientras tanto, escribinos a hola@tagback.com");
                 return;
             }
 
-            submitBtn.disabled = true;
-            submitBtn.textContent = "Enviando...";
+            if (submitBtn) {
+                submitBtn.disabled = true;
+                submitBtn.textContent = "Enviando...";
+            }
 
             const formData = new FormData(quoteForm);
             fetch(action, {
@@ -737,16 +757,18 @@ document.addEventListener("DOMContentLoaded", () => {
                     throw new Error("Error");
                 }
             }).catch(() => {
-                showFeedback("error", "No pudimos enviar tu consulta. Intentá nuevamente o escribinos a projects@tagback.com");
+                showFeedback("error", "No pudimos enviar tu consulta. Intentá nuevamente o escribinos a hola@tagback.com");
             }).finally(() => {
-                submitBtn.disabled = false;
-                submitBtn.textContent = submitBtnDefaultText;
+                if (submitBtn) {
+                    submitBtn.disabled = false;
+                    submitBtn.textContent = submitBtnDefaultText;
+                }
             });
         });
     }
 
     /* =====================================================
-       FONDO TOPOLOGY — Movimiento de capas con el mouse
+       FONDO TOPOLOGY — Movimiento de capas + sombra del mouse
        ===================================================== */
     const topologyBg = document.querySelector(".topology-bg");
     if (topologyBg) {
@@ -762,6 +784,11 @@ document.addEventListener("DOMContentLoaded", () => {
             let rafId = null;
 
             const onMouseMove = (e) => {
+                // Sombra / resplandor que sigue al mouse
+                document.documentElement.style.setProperty('--mouse-x', e.clientX + 'px');
+                document.documentElement.style.setProperty('--mouse-y', e.clientY + 'px');
+
+                // Coordenadas para el parallax de capas
                 targetX = (e.clientX / window.innerWidth - 0.5) * 2;
                 targetY = (e.clientY / window.innerHeight - 0.5) * 2;
 
