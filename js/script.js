@@ -1,5 +1,10 @@
 /* =========================================================
-   TAGBACK — JAVASCRIPT v17 (Traducción real)
+   TAGBACK — JAVASCRIPT v18
+   - Traducción ES/EN
+   - Intro, cookies, menú móvil, header scroll
+   - Acordeones (servicios y beneficios)
+   - Validación y envío de formulario
+   - Correos por función en footer
    ========================================================= */
 
 // --- DICCIONARIO DE IDIOMAS ---
@@ -15,7 +20,7 @@ const translations = {
         nav_home: "Inicio",
         nav_privacy: "Política de Privacidad",
         nav_cookies: "Política de Cookies",
-        
+
         hero_eyebrow_1: "DISEÑO WEB",
         hero_eyebrow_2: "DESARROLLO",
         hero_eyebrow_3: "PRESENCIA DIGITAL",
@@ -23,7 +28,7 @@ const translations = {
         hero_title_2: "negocios que",
         hero_title_3: "quieren crecer.",
         hero_lead: "Diseñamos y desarrollamos sitios web rápidos, claros y pensados para convertir visitas en oportunidades de negocio.",
-        
+
         services_eyebrow: "01 — SERVICIOS",
         services_title: "Soluciones digitales para negocios que quieren avanzar.",
         services_desc: "Cada proyecto tiene necesidades diferentes. Hacé clic en cada servicio para ver el detalle.",
@@ -35,11 +40,11 @@ const translations = {
         srv_3_desc: "Catálogo de productos organizado, ficha de producto y flujo de compra o consulta. El alcance se define según la plataforma y las integraciones necesarias.",
         srv_4_title: "Mantenimiento web",
         srv_4_desc: "Actualizaciones, ajustes de contenido y soporte técnico para mantener el sitio en funcionamiento. Las condiciones se acuerdan por separado según cada caso.",
-        
+
         why_eyebrow: "02 — BENEFICIOS",
         why_title: "Una web con propósito, no solo apariencia.",
         why_desc: "Cada decisión está pensada para que tu sitio funcione: comunique, convierta y crezca con tu negocio.",
-        
+
         work_eyebrow: "03 — PROYECTOS",
         work_title: "Proyectos que llevan ideas a la web.",
         work_desc: "Cada proyecto parte de una necesidad concreta y se convierte en una experiencia digital diseñada para su propósito.",
@@ -47,7 +52,7 @@ const translations = {
         cat_services: "SERVICIOS",
         cat_gastro: "GASTRONOMÍA",
         cat_church: "IGLESIA",
-        
+
         process_eyebrow: "04 — PROCESO",
         process_title: "De la idea al sitio publicado.",
         process_desc: "Cuatro etapas para llevar tu proyecto desde la primera conversación hasta el sitio online.",
@@ -59,7 +64,7 @@ const translations = {
         proc_3_desc: "Construimos el sitio siguiendo la propuesta aprobada y los requisitos acordados.",
         proc_4_title: "Etapa 04 — Revisión y entrega",
         proc_4_desc: "Revisamos el resultado, realizamos los ajustes incluidos y coordinamos la publicación.",
-        
+
         plans_eyebrow: "05 — PLANES",
         plans_title: "Una solución acorde a tu proyecto.",
         plans_desc: "No todos los negocios necesitan la misma web. Por eso, cada propuesta se define según el alcance, el contenido y las funcionalidades requeridas.",
@@ -88,7 +93,7 @@ const translations = {
         plan_3_f2: "Stack adaptado al proyecto",
         plan_3_f3: "Integraciones según necesidad",
         plan_3_f4: "Condiciones acordadas por escrito",
-        
+
         faq_eyebrow: "06 — PREGUNTAS FRECUENTES",
         faq_title: "Preguntas frecuentes",
         faq_desc: "Las dudas más comunes antes de empezar un proyecto.",
@@ -106,7 +111,7 @@ const translations = {
         faq_6_a: "Los ajustes posteriores pueden presupuestarse por separado o contratarse mediante un servicio de mantenimiento.",
         faq_7_q: "¿Cómo contrato un proyecto?",
         faq_7_a: "Escribinos a hola@tagback.com con una descripción de tu proyecto. Revisaremos tus necesidades y prepararemos una propuesta.",
-        
+
         contact_eyebrow: "07 — CONTACTO",
         contact_title: "Contanos tu idea.",
         contact_desc: "Completá los datos y contanos qué necesitás. Te contactaremos para conversar sobre tu proyecto.",
@@ -126,10 +131,13 @@ const translations = {
         form_msg_ph: "Contanos un poco sobre tu proyecto",
         form_submit: "Enviar consulta",
         form_legal: "Al enviar aceptás nuestra Política de Privacidad.",
-        
+
         cta_title: "Tu idea no se va a hacer sola. Hagámosla realidad.",
-        
-        foot_contact: "CONTACTO",
+
+        foot_contact: "CONTACTO GENERAL",
+        foot_sales: "VENTAS",
+        foot_support: "SOPORTE",
+        foot_privacy: "PRIVACIDAD / LEGAL",
         foot_phone: "TELÉFONO",
         foot_location: "UBICACIÓN",
         foot_tz: "ZONA HORARIA",
@@ -137,16 +145,16 @@ const translations = {
         foot_legal: "LEGAL",
         foot_rights: "Todos los derechos reservados.",
         foot_credit: "Diseño y desarrollo por",
-        
+
         cookie_title: "Uso de cookies",
         cookie_desc: "Usamos cookies para analizar cómo se utiliza este sitio y mejorar la experiencia de navegación.",
         cookie_accept: "Aceptar",
         cookie_reject: "Rechazar",
-        
+
         back_home: "← Volver al inicio",
         legal_eyebrow: "LEGAL",
         legal_updated: "Última actualización: 2025",
-        
+
         privacy_title: "Política de Privacidad",
         privacy_intro: "En tagback respetamos tu privacidad y nos comprometemos a proteger los datos personales que nos compartís. Esta política explica qué información recopilamos, cómo la usamos y qué derechos tenés sobre ella.",
         privacy_h2_1: "1. Responsable del tratamiento",
@@ -228,7 +236,7 @@ const translations = {
         nav_home: "Home",
         nav_privacy: "Privacy Policy",
         nav_cookies: "Cookie Policy",
-        
+
         hero_eyebrow_1: "WEB DESIGN",
         hero_eyebrow_2: "DEVELOPMENT",
         hero_eyebrow_3: "DIGITAL PRESENCE",
@@ -236,7 +244,7 @@ const translations = {
         hero_title_2: "businesses ready",
         hero_title_3: "to grow.",
         hero_lead: "We design and develop fast, clear websites built to turn visits into business opportunities.",
-        
+
         services_eyebrow: "01 — SERVICES",
         services_title: "Digital solutions for businesses ready to move forward.",
         services_desc: "Every project has different needs. Click on each service to see the details.",
@@ -248,11 +256,11 @@ const translations = {
         srv_3_desc: "Organized product catalog, product page, and purchase or inquiry flow. The scope is defined based on the platform and necessary integrations.",
         srv_4_title: "Web maintenance",
         srv_4_desc: "Updates, content adjustments, and technical support to keep the site running. Conditions are agreed separately for each case.",
-        
+
         why_eyebrow: "02 — BENEFITS",
         why_title: "A website with purpose, not just appearance.",
         why_desc: "Every decision is made so your site works: communicates, converts, and grows with your business.",
-        
+
         work_eyebrow: "03 — PROJECTS",
         work_title: "Projects that bring ideas to the web.",
         work_desc: "Every project starts from a specific need and becomes a digital experience designed for its purpose.",
@@ -260,7 +268,7 @@ const translations = {
         cat_services: "SERVICES",
         cat_gastro: "GASTRONOMY",
         cat_church: "CHURCH",
-        
+
         process_eyebrow: "04 — PROCESS",
         process_title: "From idea to published site.",
         process_desc: "Four stages to take your project from the first conversation to the site online.",
@@ -272,7 +280,7 @@ const translations = {
         proc_3_desc: "We build the site following the approved proposal and agreed requirements.",
         proc_4_title: "Stage 04 — Review & delivery",
         proc_4_desc: "We review the result, make the included adjustments, and coordinate the launch.",
-        
+
         plans_eyebrow: "05 — PLANS",
         plans_title: "A solution that fits your project.",
         plans_desc: "Not every business needs the same website. That's why every proposal is defined by scope, content, and required features.",
@@ -301,7 +309,7 @@ const translations = {
         plan_3_f2: "Stack adapted to the project",
         plan_3_f3: "Integrations as needed",
         plan_3_f4: "Conditions agreed in writing",
-        
+
         faq_eyebrow: "06 — FAQ",
         faq_title: "Frequently asked questions",
         faq_desc: "The most common doubts before starting a project.",
@@ -319,7 +327,7 @@ const translations = {
         faq_6_a: "Subsequent adjustments can be quoted separately or contracted through a maintenance service.",
         faq_7_q: "How do I hire a project?",
         faq_7_a: "Write to us at hola@tagback.com with a description of your project. We will review your needs and prepare a proposal.",
-        
+
         contact_eyebrow: "07 — CONTACT",
         contact_title: "Tell us your idea.",
         contact_desc: "Fill in the details and tell us what you need. We will contact you to discuss your project.",
@@ -339,10 +347,13 @@ const translations = {
         form_msg_ph: "Tell us a bit about your project",
         form_submit: "Send inquiry",
         form_legal: "By submitting you accept our Privacy Policy.",
-        
+
         cta_title: "Your idea won't make itself. Let's make it real.",
-        
-        foot_contact: "CONTACT",
+
+        foot_contact: "GENERAL CONTACT",
+        foot_sales: "SALES",
+        foot_support: "SUPPORT",
+        foot_privacy: "PRIVACY / LEGAL",
         foot_phone: "PHONE",
         foot_location: "LOCATION",
         foot_tz: "TIMEZONE",
@@ -350,12 +361,12 @@ const translations = {
         foot_legal: "LEGAL",
         foot_rights: "All rights reserved.",
         foot_credit: "Design & development by",
-        
+
         cookie_title: "Cookie usage",
         cookie_desc: "We use cookies to analyze how this site is used and improve the browsing experience.",
         cookie_accept: "Accept",
         cookie_reject: "Reject",
-        
+
         back_home: "← Back to home",
         legal_eyebrow: "LEGAL",
         legal_updated: "Last updated: 2025",
@@ -444,7 +455,7 @@ document.addEventListener("DOMContentLoaded", () => {
         document.documentElement.lang = lang;
         localStorage.setItem("tagback-lang", lang);
 
-        // Traducir textos (etiquetas)
+        // Traducir textos
         document.querySelectorAll("[data-i18n]").forEach(el => {
             const key = el.getAttribute("data-i18n");
             if (dict[key]) {
@@ -452,7 +463,7 @@ document.addEventListener("DOMContentLoaded", () => {
             }
         });
 
-        // Traducir placeholders (inputs)
+        // Traducir placeholders
         document.querySelectorAll("[data-i18n-placeholder]").forEach(el => {
             const key = el.getAttribute("data-i18n-placeholder");
             if (dict[key]) {
@@ -460,7 +471,7 @@ document.addEventListener("DOMContentLoaded", () => {
             }
         });
 
-        // Actualizar clases de los botones
+        // Actualizar clases de los botones de idioma
         document.querySelectorAll(".lang-btn").forEach(btn => {
             if (btn.getAttribute("data-lang") === lang) {
                 btn.classList.add("active");
@@ -476,8 +487,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const savedLang = localStorage.getItem("tagback-lang") || "es";
     applyLanguage(savedLang);
 
-    const langBtns = document.querySelectorAll(".lang-btn");
-    langBtns.forEach(btn => {
+    document.querySelectorAll(".lang-btn").forEach(btn => {
         btn.addEventListener("click", () => {
             const lang = btn.getAttribute("data-lang");
             applyLanguage(lang);
@@ -613,30 +623,6 @@ document.addEventListener("DOMContentLoaded", () => {
         };
         window.addEventListener("scroll", onScroll, { passive: true });
         updateHeader();
-    }
-
-    /* =====================================================
-       ANIMACIONES
-       ===================================================== */
-    const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-    const animatedElements = document.querySelectorAll(".accordion-item, .work-card, .plan-card, .service-card, .process-item");
-
-    if (!prefersReducedMotion && "IntersectionObserver" in window && animatedElements.length) {
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (!entry.isIntersecting) return;
-                const el = entry.target;
-                const parent = el.parentElement;
-                const siblings = parent ? Array.from(parent.children) : [];
-                const index = siblings.indexOf(el);
-                const delay = Math.min(index, 4) * 80;
-                setTimeout(() => { el.classList.add("visible"); }, delay);
-                observer.unobserve(el);
-            });
-        }, { threshold: 0.10, rootMargin: "0px 0px -40px 0px" });
-        animatedElements.forEach(el => observer.observe(el));
-    } else {
-        animatedElements.forEach(el => el.classList.add("visible"));
     }
 
     /* =====================================================
