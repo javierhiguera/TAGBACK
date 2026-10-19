@@ -226,36 +226,42 @@
 
             <div class="work-grid">
                 <article class="work-card">
-                    <div class="work-card-info">
+                    <div class="work-card-image">
+                        <img src="./assets/proyectos/1/NP_1.png" alt="Vista previa Nivel Pulidos" loading="lazy">
+                    </div>
+                    <div class="work-card-overlay">
                         <div class="work-card-header"><span>NIVELPULIDOS.COM</span><span>2024</span></div>
                         <h3 class="work-card-name">Nivel Pulidos</h3>
                         <span class="work-card-category" data-i18n="cat_services">SERVICIOS</span>
                         <p class="work-card-claim">Sitio corporativo para presentar servicios y facilitar el contacto.</p>
                         <a class="work-card-link" href="#contacto" data-i18n="work_link">Ver proyecto →</a>
                     </div>
-                    <div class="work-card-image"><img src="./assets/proyectos/1/NP_1.png" alt="Vista previa Nivel Pulidos" loading="lazy"></div>
                 </article>
 
                 <article class="work-card">
-                    <div class="work-card-info">
+                    <div class="work-card-image">
+                        <img src="./assets/proyectos/2/foto2.jpg" alt="Vista previa Migaja" loading="lazy">
+                    </div>
+                    <div class="work-card-overlay">
                         <div class="work-card-header"><span>MIGAJA.COM</span><span>2024</span></div>
                         <h3 class="work-card-name">Migaja</h3>
                         <span class="work-card-category" data-i18n="cat_gastro">GASTRONOMÍA</span>
                         <p class="work-card-claim">Web con menú y contacto directo para pedidos por WhatsApp.</p>
                         <a class="work-card-link" href="#contacto" data-i18n="work_link">Ver proyecto →</a>
                     </div>
-                    <div class="work-card-image"><img src="./assets/proyectos/2/foto2.jpg" alt="Vista previa Migaja" loading="lazy"></div>
                 </article>
 
                 <article class="work-card">
-                    <div class="work-card-info">
+                    <div class="work-card-image">
+                        <img src="./assets/proyectos/3/foto3.jpg" alt="Vista previa A los pies del Maestro" loading="lazy">
+                    </div>
+                    <div class="work-card-overlay">
                         <div class="work-card-header"><span>ALOSPIEDSDELMAESTRO.ORG</span><span>2024</span></div>
                         <h3 class="work-card-name">A los pies del Maestro</h3>
                         <span class="work-card-category" data-i18n="cat_church">IGLESIA</span>
                         <p class="work-card-claim">Sitio institucional con landing de contacto para comunicar actividades y recibir consultas.</p>
                         <a class="work-card-link" href="#contacto" data-i18n="work_link">Ver proyecto →</a>
                     </div>
-                    <div class="work-card-image"><img src="./assets/proyectos/3/foto3.jpg" alt="Vista previa A los pies del Maestro" loading="lazy"></div>
                 </article>
             </div>
         </div>
@@ -272,20 +278,20 @@
                 <p class="section-desc" data-i18n="process_desc">Cuatro etapas para llevar tu proyecto desde la primera conversación hasta el sitio online.</p>
             </div>
 
-            <div class="process-list">
-                <details class="process-item">
+            <div class="process-list process-list--animated">
+                <details class="process-item process-item--animated">
                     <summary data-i18n="proc_1_title">Etapa 01 — Descubrimiento</summary>
                     <p data-i18n="proc_1_desc">Conocemos tu negocio, tus objetivos y las necesidades de tu proyecto.</p>
                 </details>
-                <details class="process-item">
+                <details class="process-item process-item--animated">
                     <summary data-i18n="proc_2_title">Etapa 02 — Propuesta</summary>
                     <p data-i18n="proc_2_desc">Definimos el alcance, las funcionalidades, los plazos y el presupuesto.</p>
                 </details>
-                <details class="process-item">
+                <details class="process-item process-item--animated">
                     <summary data-i18n="proc_3_title">Etapa 03 — Diseño y desarrollo</summary>
                     <p data-i18n="proc_3_desc">Construimos el sitio siguiendo la propuesta aprobada y los requisitos acordados.</p>
                 </details>
-                <details class="process-item">
+                <details class="process-item process-item--animated">
                     <summary data-i18n="proc_4_title">Etapa 04 — Revisión y entrega</summary>
                     <p data-i18n="proc_4_desc">Revisamos el resultado, realizamos los ajustes incluidos y coordinamos la publicación.</p>
                 </details>
@@ -457,6 +463,7 @@
 <footer class="site-footer">
     <div class="container footer-inner">
 
+        <!-- COLUMNA 1: CONTACTO (orden pedido) -->
         <div class="footer-contact">
             <div class="footer-contact-meta">
                 <div>
@@ -464,24 +471,21 @@
                     <a href="mailto:hola@tagback.com" class="contact-meta-value">hola@tagback.com</a>
                 </div>
                 <div>
-                    <span class="contact-meta-label" data-i18n="foot_privacy">PRIVACIDAD / LEGAL</span>
-                    <a href="mailto:privacy@tagback.com" class="contact-meta-value">privacy@tagback.com</a>
-                </div>
-                <div>
                     <span class="contact-meta-label" data-i18n="foot_phone">TELÉFONO</span>
                     <a href="tel:+541122790690" class="contact-meta-value">+54 11 2279 0690</a>
-                </div>
-                <div>
-                    <span class="contact-meta-label" data-i18n="foot_location">UBICACIÓN</span>
-                    <span class="contact-meta-value">Florencio Varela · Buenos Aires, Argentina · CP 1888</span>
                 </div>
                 <div>
                     <span class="contact-meta-label" data-i18n="foot_tz">ZONA HORARIA</span>
                     <span class="contact-meta-value">GMT-3 (Argentina)</span>
                 </div>
+                <div class="footer-contact-meta-full">
+                    <span class="contact-meta-label" data-i18n="foot_location">UBICACIÓN</span>
+                    <span class="contact-meta-value">Florencio Varela · Buenos Aires, Argentina · CP 1888</span>
+                </div>
             </div>
         </div>
 
+        <!-- COLUMNA 2: NAVEGACIÓN -->
         <div class="footer-links">
             <strong data-i18n="foot_nav">NAVEGACIÓN</strong>
             <a href="./" data-i18n="nav_home">Inicio</a>
@@ -491,6 +495,7 @@
             <a href="#contacto" data-i18n="nav_contact">Contacto</a>
         </div>
 
+        <!-- COLUMNA 3: LEGAL -->
         <div class="footer-links">
             <strong data-i18n="foot_legal">LEGAL</strong>
             <a href="./privacidad.html" data-i18n="nav_privacy">Política de Privacidad</a>
