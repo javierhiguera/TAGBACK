@@ -1,10 +1,10 @@
 /* =========================================================
-   TAGBACK — JAVASCRIPT v23 (corregido)
+   TAGBACK — JAVASCRIPT v24
    - Traducción ES/EN
    - Intro, cookies, menú móvil, header scroll
-   - Acordeones (servicios y beneficios)
+   - Acordeones (servicios y beneficios) horizontales
    - Validación y envío de formulario (Formspree)
-   - Fondo Topology: movimiento de capas + sombra del mouse
+   - Sombra del mouse no uniforme (radial-gradient)
    - Proceso: animación de línea al entrar en viewport
    ========================================================= */
 
@@ -614,7 +614,7 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
     /* =====================================================
-       ACORDEONES
+       ACORDEONES HORIZONTALES
        ===================================================== */
     const accordionItems = document.querySelectorAll(".accordion-item, .service-card");
     accordionItems.forEach(item => {
@@ -640,8 +640,6 @@ document.addEventListener("DOMContentLoaded", () => {
 
     /* =====================================================
        FORMULARIO — envío vía Formspree
-       ⚠️ Reemplazá "TU_ID" por el ID real de tu formulario
-       (ej: https://formspree.io/f/abcdwxyz)
        ===================================================== */
     const quoteForm = document.querySelector(".quote-form");
     if (quoteForm) {
@@ -708,7 +706,6 @@ document.addEventListener("DOMContentLoaded", () => {
             });
             if (field.type === "radio") {
                 field.addEventListener("change", () => {
-                    // Validar el grupo completo al cambiar una opción
                     const group = quoteForm.querySelectorAll(`input[name="${field.name}"]`);
                     const anyChecked = Array.from(group).some(r => r.checked);
                     if (anyChecked) {
@@ -768,62 +765,53 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
     /* =====================================================
-       FONDO TOPOLOGY — Movimiento de capas + sombra del mouse
+       SOMBRA NO UNIFORME SIGUIENDO AL MOUSE
        ===================================================== */
-    const topologyBg = document.querySelector(".topology-bg");
-    if (topologyBg) {
-        const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-        const isTouch = window.matchMedia("(pointer: coarse)").matches;
+    const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    const isTouch = window.matchMedia("(pointer: coarse)").matches;
 
-        if (!prefersReducedMotion && !isTouch) {
-            const layers = topologyBg.querySelectorAll(".layer");
-            let mouseX = 0;
-            let mouseY = 0;
-            let targetX = 0;
-            let targetY = 0;
-            let rafId = null;
+    if (!prefersReducedMotion && !isTouch) {
+        let mouseX = window.innerWidth / 2;
+        let mouseY = window.innerHeight / 2;
+        let targetX = mouseX;
+        let targetY = mouseY;
+        let rafId = null;
+        let isMoving = false;
 
-            const onMouseMove = (e) => {
-                // Sombra / resplandor que sigue al mouse
-                document.documentElement.style.setProperty('--mouse-x', e.clientX + 'px');
-                document.documentElement.style.setProperty('--mouse-y', e.clientY + 'px');
+        const onMouseMove = (e) => {
+            targetX = e.clientX;
+            targetY = e.clientY;
+            isMoving = true;
 
-                // Coordenadas para el parallax de capas
-                targetX = (e.clientX / window.innerWidth - 0.5) * 2;
-                targetY = (e.clientY / window.innerHeight - 0.5) * 2;
+            if (!rafId) {
+                rafId = requestAnimationFrame(updateShadow);
+            }
+        };
 
-                if (!rafId) {
-                    rafId = requestAnimationFrame(updateLayers);
-                }
-            };
+        const updateShadow = () => {
+            mouseX += (targetX - mouseX) * 0.08;
+            mouseY += (targetY - mouseY) * 0.08;
 
-            const updateLayers = () => {
-                mouseX += (targetX - mouseX) * 0.08;
-                mouseY += (targetY - mouseY) * 0.08;
+            // Actualiza variables CSS para el gradiente radial
+            document.documentElement.style.setProperty('--mouse-x', mouseX + 'px');
+            document.documentElement.style.setProperty('--mouse-y', mouseY + 'px');
 
-                layers.forEach((layer, index) => {
-                    const intensity = (index + 1) * 2;
-                    const scale = 1 + index * 0.2;
-                    layer.style.transform = `translate(${mouseX * intensity}%, ${mouseY * intensity}%) scale(${scale})`;
-                });
+            if (Math.abs(targetX - mouseX) > 0.5 || Math.abs(targetY - mouseY) > 0.5) {
+                rafId = requestAnimationFrame(updateShadow);
+            } else {
+                rafId = null;
+            }
+        };
 
-                if (Math.abs(targetX - mouseX) > 0.001 || Math.abs(targetY - mouseY) > 0.001) {
-                    rafId = requestAnimationFrame(updateLayers);
-                } else {
-                    rafId = null;
-                }
-            };
+        document.addEventListener("mousemove", onMouseMove, { passive: true });
 
-            document.addEventListener("mousemove", onMouseMove, { passive: true });
-
-            window.addEventListener("blur", () => {
-                targetX = 0;
-                targetY = 0;
-                if (!rafId) {
-                    rafId = requestAnimationFrame(updateLayers);
-                }
-            });
-        }
+        window.addEventListener("blur", () => {
+            targetX = window.innerWidth / 2;
+            targetY = window.innerHeight / 2;
+            if (!rafId) {
+                rafId = requestAnimationFrame(updateShadow);
+            }
+        });
     }
 
     /* =====================================================
@@ -831,8 +819,6 @@ document.addEventListener("DOMContentLoaded", () => {
        ===================================================== */
     const processItems = document.querySelectorAll(".process-item--animated");
     if (processItems.length && "IntersectionObserver" in window) {
-        const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-
         if (prefersReducedMotion) {
             processItems.forEach((item) => item.classList.add("is-visible"));
         } else {
