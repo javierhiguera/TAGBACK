@@ -1,5 +1,5 @@
 /* =========================================================
-   TAGBACK — STYLES v37
+   TAGBACK — STYLES v38
    ========================================================= */
 
 @font-face {
@@ -117,16 +117,39 @@ button { cursor: pointer; }
     opacity: 0.25;
 }
 
+/* Efecto de onda continua (Movimiento propio) */
 .waves-group {
     fill: none;
     stroke: var(--blue);
     stroke-width: 1.5;
-    transition: transform 0.1s ease-out;
     transform-origin: center center;
+    animation: wave-anim 8s ease-in-out infinite alternate;
+}
+
+/* Le damos un pequeño delay a las líneas pares para que sea asimétrico */
+.waves-group path:nth-child(even) {
+    animation: wave-anim-reverse 10s ease-in-out infinite alternate;
+}
+
+@keyframes wave-anim {
+    0% { transform: scaleY(1) skewX(0deg); }
+    100% { transform: scaleY(1.05) skewX(2deg); }
+}
+
+@keyframes wave-anim-reverse {
+    0% { transform: scaleY(1) skewX(0deg); }
+    100% { transform: scaleY(0.95) skewX(-2deg); }
+}
+
+/* Caracteres aleatorios del efecto Scramble (Letras) */
+.dud {
+    color: var(--blue) !important;
+    opacity: 0.6;
+    font-weight: 300;
 }
 
 @media (prefers-reduced-motion: reduce) {
-    .global-waves-svg { display: none; }
+    .waves-group { animation: none; }
     .global-waves-bg { background-image: none; }
 }
 
@@ -693,7 +716,7 @@ h1, h2, h3, h4, h5, h6,
 .why .accordion-horizontal { order: 1; width: 100%; }
 
 /* =========================================================
-   WORK / PROYECTOS (Tarjetas más apaisadas)
+   WORK / PROYECTOS
    ========================================================= */
 
 .work { padding-top: 120px; padding-bottom: 140px; background: transparent; border-top: 1px solid var(--line); }
@@ -703,7 +726,7 @@ h1, h2, h3, h4, h5, h6,
     border-radius: var(--radius); 
     overflow: hidden; 
     border: 1px solid var(--line); 
-    aspect-ratio: 3 / 2; /* Más ancho que alto */
+    aspect-ratio: 3 / 2;
     transition: border-color 250ms var(--ease-soft), box-shadow 250ms var(--ease-soft); 
     box-shadow: 0 1px 2px rgba(0, 0, 0, 0.2); 
     background: var(--bg-secondary); 
@@ -724,7 +747,7 @@ h1, h2, h3, h4, h5, h6,
 .work-card-link:hover { color: var(--blue-bright); }
 
 /* =========================================================
-   PROCESO (Layout horizontal de izquierda a derecha)
+   PROCESO
    ========================================================= */
 
 .process { background: transparent; border-top: 1px solid var(--line); }
@@ -877,7 +900,7 @@ h1, h2, h3, h4, h5, h6,
 .pill input[type="radio"]:focus-visible + span { outline: 2px solid var(--blue); outline-offset: 3px; }
 
 /* =========================================================
-   FOOTER (Todo alineado a la izquierda, tipografía unificada)
+   FOOTER — Títulos Blancos y Textos Grises
    ========================================================= */
 
 .site-footer {
@@ -955,7 +978,7 @@ a.contact-meta-value:hover { color: var(--blue); }
     font-family: var(--body); 
     font-size: 0.85rem; /* Unificado */
     letter-spacing: 0.04em; 
-    text-transform: none; /* Quitado el uppercase para que se vea más natural */
+    text-transform: none; 
     border-top: 1px solid var(--line); 
 }
 
@@ -1010,6 +1033,7 @@ a.contact-meta-value:hover { color: var(--blue); }
 .legal-hero { padding-top: 160px; padding-bottom: 60px; background: transparent; border-bottom: 1px solid var(--line); }
 .legal-back { display: inline-flex; align-items: center; gap: 8px; font-family: var(--body); font-size: 0.72rem; letter-spacing: 0.08em; text-transform: uppercase; color: var(--text-secondary); margin-bottom: 32px; transition: color 200ms var(--ease-soft); }
 .legal-back:hover { color: var(--blue); }
+.legal-hero .section-eyebrow { margin-bottom: 12px; }
 .legal-hero h1 { font-size: clamp(2.4rem, 5vw, 4rem); line-height: 1.05; letter-spacing: -0.03em; color: var(--text-primary); margin: 0; max-width: 900px; }
 .legal-content { padding: 80px 0 100px; background: transparent; }
 .legal-content .container { max-width: 820px; }
