@@ -1,5 +1,5 @@
 /* =========================================================
-   TAGBACK — JAVASCRIPT v26
+   TAGBACK — JAVASCRIPT v28 (Final: Scramble + Ondas + Mouse)
    ========================================================= */
 
 const translations = {
@@ -418,7 +418,70 @@ const translations = {
 document.addEventListener("DOMContentLoaded", () => {
 
     /* =====================================================
-       APLICAR IDIOMA
+       CLASE TEXT SCRAMBLE
+       ===================================================== */
+    class TextScramble {
+        constructor(el) {
+            this.el = el;
+            this.chars = '!<>-_\\/[]{}—=+*^?#________';
+            this.update = this.update.bind(this);
+        }
+        
+        setText(newText) {
+            if (!newText) return;
+            
+            const oldText = newText;
+            const length = newText.length;
+            const promise = new Promise((resolve) => this.resolve = resolve);
+            
+            this.queue = [];
+            for (let i = 0; i < length; i++) {
+                const from = oldText[i] || '';
+                const to = newText[i] || '';
+                const start = Math.floor(Math.random() * 40);
+                const end = start + Math.floor(Math.random() * 40);
+                this.queue.push({ from, to, start, end });
+            }
+            
+            cancelAnimationFrame(this.frameRequest);
+            this.frame = 0;
+            this.update();
+            return promise;
+        }
+        
+        update() {
+            let output = '';
+            let complete = 0;
+            
+            for (let i = 0, n = this.queue.length; i < n; i++) {
+                let { from, to, start, end, char } = this.queue[i];
+                if (this.frame >= end) {
+                    complete++;
+                    output += to;
+                } else if (this.frame >= start) {
+                    if (!char || Math.random() < 0.28) {
+                        char = this.chars[Math.floor(Math.random() * this.chars.length)];
+                        this.queue[i].char = char;
+                    }
+                    output += `<span class="dud">${char}</span>`;
+                } else {
+                    output += from;
+                }
+            }
+            
+            this.el.innerHTML = output;
+            
+            if (complete === this.queue.length) {
+                this.resolve();
+            } else {
+                this.frameRequest = requestAnimationFrame(this.update);
+                this.frame++;
+            }
+        }
+    }
+
+    /* =====================================================
+       APLICAR IDIOMA Y TRIGGER SCRAMBLE
        ===================================================== */
     const applyLanguage = (lang) => {
         const dict = translations[lang];
@@ -444,13 +507,27 @@ document.addEventListener("DOMContentLoaded", () => {
                 btn.classList.remove("active");
             }
         });
+
+        // Trigger Scramble
+        const titleSelectors = '.hero h1 span, .section-title';
+        document.querySelectorAll(titleSelectors).forEach(el => {
+            // Evitamos que el efecto se aplique si el texto está vacío o si es el contenedor del span
+            if (el.children.length === 0 && el.textContent.trim() !== '') {
+                const fx = new TextScramble(el);
+                fx.setText(el.textContent);
+            }
+        });
     };
 
     const savedLang = (() => {
         try { return localStorage.getItem("tagback-lang") || "es"; }
         catch (e) { return "es"; }
     })();
-    applyLanguage(savedLang);
+    
+    // Ejecutamos applyLanguage con un delay para que el DOM esté listo
+    setTimeout(() => {
+        applyLanguage(savedLang);
+    }, 400);
 
     document.querySelectorAll(".lang-btn").forEach(btn => {
         btn.addEventListener("click", () => {
@@ -773,11 +850,13 @@ document.addEventListener("DOMContentLoaded", () => {
 
             // Deformación de las ondas (Skew y Translate basados en el mouse)
             if (wavesGroup) {
-                const skewX = (mouseX / window.innerWidth - 0.5) * 20; // -10deg a 10deg
+                const skewX = (mouseX / window.innerWidth - 0.5) * 20; 
                 const skewY = (mouseY / window.innerHeight - 0.5) * 20;
-                const moveX = (mouseX / window.innerWidth - 0.5) * 40; // -20px a 20px
+                const moveX = (mouseX / window.innerWidth - 0.5) * 40; 
                 const moveY = (mouseY / window.innerHeight - 0.5) * 40;
 
+                // Combinamos la animación propia de CSS con la deformación del mouse
+                // Usamos una variable CSS que la animación base no pisa
                 wavesGroup.style.transform = `translate(${moveX}px, ${moveY}px) skew(${skewX}deg, ${skewY}deg)`;
             }
 
