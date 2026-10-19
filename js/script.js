@@ -1,8 +1,7 @@
 /* =========================================================
-   TAGBACK — JAVASCRIPT v25 (Fondo Global + Mouse)
+   TAGBACK — JAVASCRIPT v26
    ========================================================= */
 
-// --- DICCIONARIO DE IDIOMAS ---
 const translations = {
     es: {
         skip_link: "Saltar al contenido principal",
@@ -24,7 +23,6 @@ const translations = {
         hero_title_3: "quieren crecer.",
         hero_lead: "Diseñamos y desarrollamos sitios web rápidos, claros y pensados para convertir visitas en oportunidades de negocio.",
 
-        services_eyebrow: "01 — SERVICIOS",
         services_title: "Soluciones digitales para negocios que quieren avanzar.",
         services_desc: "Cada proyecto tiene necesidades diferentes. Hacé clic en cada servicio para ver el detalle.",
         srv_1_title: "Landing pages",
@@ -36,11 +34,9 @@ const translations = {
         srv_4_title: "Mantenimiento web",
         srv_4_desc: "Actualizaciones, ajustes de contenido y soporte técnico para mantener el sitio en funcionamiento. Las condiciones se acuerdan por separado según cada caso.",
 
-        why_eyebrow: "02 — BENEFICIOS",
         why_title: "Una web con propósito, no solo apariencia.",
         why_desc: "Cada decisión está pensada para que tu sitio funcione: comunique, convierta y crezca con tu negocio.",
 
-        work_eyebrow: "03 — PROYECTOS",
         work_title: "Proyectos que llevan ideas a la web.",
         work_desc: "Cada proyecto parte de una necesidad concreta y se convierte en una experiencia digital diseñada para su propósito.",
         work_link: "Ver proyecto →",
@@ -48,7 +44,6 @@ const translations = {
         cat_gastro: "GASTRONOMÍA",
         cat_church: "IGLESIA",
 
-        process_eyebrow: "04 — PROCESO",
         process_title: "De la idea al sitio publicado.",
         process_desc: "Cuatro etapas para llevar tu proyecto desde la primera conversación hasta el sitio online.",
         proc_1_title: "Etapa 01 — Descubrimiento",
@@ -60,7 +55,6 @@ const translations = {
         proc_4_title: "Etapa 04 — Revisión y entrega",
         proc_4_desc: "Revisamos el resultado, realizamos los ajustes incluidos y coordinamos la publicación.",
 
-        plans_eyebrow: "05 — PLANES",
         plans_title: "Una solución acorde a tu proyecto.",
         plans_desc: "No todos los negocios necesitan la misma web. Por eso, cada propuesta se define según el alcance, el contenido y las funcionalidades requeridas.",
         plan_badge: "RECOMENDADO",
@@ -89,7 +83,6 @@ const translations = {
         plan_3_f3: "Integraciones según necesidad",
         plan_3_f4: "Condiciones acordadas por escrito",
 
-        faq_eyebrow: "06 — PREGUNTAS FRECUENTES",
         faq_title: "Preguntas frecuentes",
         faq_desc: "Las dudas más comunes antes de empezar un proyecto.",
         faq_1_q: "¿Cómo se define el precio de un proyecto?",
@@ -107,7 +100,6 @@ const translations = {
         faq_7_q: "¿Cómo contrato un proyecto?",
         faq_7_a: "Escribinos a hola@tagback.com con una descripción de tu proyecto. Revisaremos tus necesidades y prepararemos una propuesta.",
 
-        contact_eyebrow: "07 — CONTACTO",
         contact_title: "Contanos tu idea.",
         contact_desc: "Completá los datos y contanos qué necesitás. Te contactaremos para conversar sobre tu proyecto.",
         form_title: "Contanos tu idea.",
@@ -126,8 +118,6 @@ const translations = {
         form_msg_ph: "Contanos un poco sobre tu proyecto",
         form_submit: "Enviar consulta",
         form_legal: "Al enviar aceptás nuestra Política de Privacidad.",
-
-        cta_title: "Tu idea no se va a hacer sola. Hagámosla realidad.",
 
         foot_contact: "CONTACTO",
         foot_privacy: "PRIVACIDAD / LEGAL",
@@ -238,7 +228,6 @@ const translations = {
         hero_title_3: "to grow.",
         hero_lead: "We design and develop fast, clear websites built to turn visits into business opportunities.",
 
-        services_eyebrow: "01 — SERVICES",
         services_title: "Digital solutions for businesses ready to move forward.",
         services_desc: "Every project has different needs. Click on each service to see the details.",
         srv_1_title: "Landing pages",
@@ -250,11 +239,9 @@ const translations = {
         srv_4_title: "Web maintenance",
         srv_4_desc: "Updates, content adjustments, and technical support to keep the site running. Conditions are agreed separately for each case.",
 
-        why_eyebrow: "02 — BENEFITS",
         why_title: "A website with purpose, not just appearance.",
         why_desc: "Every decision is made so your site works: communicates, converts, and grows with your business.",
 
-        work_eyebrow: "03 — PROJECTS",
         work_title: "Projects that bring ideas to the web.",
         work_desc: "Every project starts from a specific need and becomes a digital experience designed for its purpose.",
         work_link: "View project →",
@@ -262,7 +249,6 @@ const translations = {
         cat_gastro: "GASTRONOMY",
         cat_church: "CHURCH",
 
-        process_eyebrow: "04 — PROCESS",
         process_title: "From idea to published site.",
         process_desc: "Four stages to take your project from the first conversation to the site online.",
         proc_1_title: "Stage 01 — Discovery",
@@ -274,7 +260,6 @@ const translations = {
         proc_4_title: "Stage 04 — Review & delivery",
         proc_4_desc: "We review the result, make the included adjustments, and coordinate the launch.",
 
-        plans_eyebrow: "05 — PLANS",
         plans_title: "A solution that fits your project.",
         plans_desc: "Not every business needs the same website. That's why every proposal is defined by scope, content, and required features.",
         plan_badge: "RECOMMENDED",
@@ -303,7 +288,6 @@ const translations = {
         plan_3_f3: "Integrations as needed",
         plan_3_f4: "Conditions agreed in writing",
 
-        faq_eyebrow: "06 — FAQ",
         faq_title: "Frequently asked questions",
         faq_desc: "The most common doubts before starting a project.",
         faq_1_q: "How is the project price defined?",
@@ -321,7 +305,6 @@ const translations = {
         faq_7_q: "How do I hire a project?",
         faq_7_a: "Write to us at hola@tagback.com with a description of your project. We will review your needs and prepare a proposal.",
 
-        contact_eyebrow: "07 — CONTACT",
         contact_title: "Tell us your idea.",
         contact_desc: "Fill in the details and tell us what you need. We will contact you to discuss your project.",
         form_title: "Tell us your idea.",
@@ -340,8 +323,6 @@ const translations = {
         form_msg_ph: "Tell us a bit about your project",
         form_submit: "Send inquiry",
         form_legal: "By submitting you accept our Privacy Policy.",
-
-        cta_title: "Your idea won't make itself. Let's make it real.",
 
         foot_contact: "CONTACT",
         foot_privacy: "PRIVACY / LEGAL",
@@ -608,7 +589,7 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
     /* =====================================================
-       ACORDEONES HORIZONTALES (Servicios y Beneficios)
+       ACORDEONES HORIZONTALES
        ===================================================== */
     const accordionItems = document.querySelectorAll(".accordion-item, .service-card");
     accordionItems.forEach(item => {
@@ -619,7 +600,6 @@ document.addEventListener("DOMContentLoaded", () => {
             const isOpen = item.classList.contains("is-open");
             const stack = item.parentElement;
             if (stack) {
-                // Cerrar los otros
                 stack.querySelectorAll(".is-open").forEach(sibling => {
                     if (sibling !== item) {
                         sibling.classList.remove("is-open");
@@ -628,7 +608,6 @@ document.addEventListener("DOMContentLoaded", () => {
                     }
                 });
             }
-            // Alternar el actual
             item.classList.toggle("is-open", !isOpen);
             accHeader.setAttribute("aria-expanded", String(!isOpen));
         });
@@ -761,10 +740,11 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
     /* =====================================================
-       EFECTO DEL MOUSE (Luz/Sombra global)
+       EFECTO DEL MOUSE: Luz y deformación de las ondas
        ===================================================== */
     const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
     const isTouch = window.matchMedia("(pointer: coarse)").matches;
+    const wavesGroup = document.querySelector(".waves-group");
 
     if (!prefersReducedMotion && !isTouch) {
         let mouseX = window.innerWidth / 2;
@@ -778,21 +758,31 @@ document.addEventListener("DOMContentLoaded", () => {
             targetY = e.clientY;
 
             if (!rafId) {
-                rafId = requestAnimationFrame(updateShadow);
+                rafId = requestAnimationFrame(updateShadowAndWaves);
             }
         };
 
-        const updateShadow = () => {
-            // Suavizado (lerp)
+        const updateShadowAndWaves = () => {
+            // Suavizado (lerp) para la luz
             mouseX += (targetX - mouseX) * 0.1;
             mouseY += (targetY - mouseY) * 0.1;
 
-            // Actualizar variables CSS en la raíz para que afecten al fondo global
+            // Actualizar variables CSS para la luz
             document.documentElement.style.setProperty('--mouse-x', mouseX + 'px');
             document.documentElement.style.setProperty('--mouse-y', mouseY + 'px');
 
+            // Deformación de las ondas (Skew y Translate basados en el mouse)
+            if (wavesGroup) {
+                const skewX = (mouseX / window.innerWidth - 0.5) * 20; // -10deg a 10deg
+                const skewY = (mouseY / window.innerHeight - 0.5) * 20;
+                const moveX = (mouseX / window.innerWidth - 0.5) * 40; // -20px a 20px
+                const moveY = (mouseY / window.innerHeight - 0.5) * 40;
+
+                wavesGroup.style.transform = `translate(${moveX}px, ${moveY}px) skew(${skewX}deg, ${skewY}deg)`;
+            }
+
             if (Math.abs(targetX - mouseX) > 0.5 || Math.abs(targetY - mouseY) > 0.5) {
-                rafId = requestAnimationFrame(updateShadow);
+                rafId = requestAnimationFrame(updateShadowAndWaves);
             } else {
                 rafId = null;
             }
@@ -804,7 +794,7 @@ document.addEventListener("DOMContentLoaded", () => {
             targetX = window.innerWidth / 2;
             targetY = window.innerHeight / 2;
             if (!rafId) {
-                rafId = requestAnimationFrame(updateShadow);
+                rafId = requestAnimationFrame(updateShadowAndWaves);
             }
         });
     }
