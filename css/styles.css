@@ -1,9 +1,5 @@
 /* =========================================================
-   TAGBACK — STYLES v34
-   - Paleta: Gris Carbón Claro + Azul Nieve Ceniza
-   - Acordeón Horizontal (Expanding Cards)
-   - Fondo de ondas animado en Hero
-   - Sombra no uniforme siguiendo al mouse
+   TAGBACK — STYLES v36 (Fondo Global + Acordeón Mejorado)
    ========================================================= */
 
 /* =========================================================
@@ -109,26 +105,26 @@ button, input, select, textarea { font: inherit; }
 button { cursor: pointer; }
 
 /* =========================================================
-   FONDO DE ONDAS ANIMADO + SOMBRA DEL MOUSE (HERO)
+   FONDO GLOBAL: ONDAS ANIMADAS + LUZ DEL MOUSE
    ========================================================= */
 
-.hero-waves-bg {
-    position: absolute;
+.global-waves-bg {
+    position: fixed;
     inset: 0;
     z-index: 0;
     overflow: hidden;
     background-color: var(--bg-main);
     pointer-events: none;
-    /* La sombra no uniforme sigue al mouse */
+    /* Sombra/resplandor no uniforme que sigue al mouse */
     background-image: radial-gradient(
         circle 800px at var(--mouse-x, 50vw) var(--mouse-y, 50vh),
-        rgba(139, 163, 199, 0.15) 0%,
+        rgba(139, 163, 199, 0.12) 0%,
         rgba(26, 29, 36, 0) 70%
     );
     transition: background-image 0.1s ease-out;
 }
 
-.hero-waves-svg {
+.global-waves-svg {
     position: absolute;
     inset: 0;
     width: 100%;
@@ -161,7 +157,7 @@ button { cursor: pointer; }
     .waves-group, .waves-group path:nth-child(even) {
         animation: none !important;
     }
-    .hero-waves-bg {
+    .global-waves-bg {
         background-image: none;
     }
 }
@@ -184,7 +180,6 @@ h1, h2, h3, h4, h5, h6,
 .accordion-title,
 .service-card-title,
 .quote-form-title,
-.final-cta h2,
 .hero h1,
 .legal-content h2,
 .legal-content h3 {
@@ -507,7 +502,7 @@ h1, h2, h3, h4, h5, h6,
    SERVICIOS Y BENEFICIOS — ACORDEÓN HORIZONTAL
    ========================================================= */
 
-.services { background: var(--bg-main); }
+.services { background: transparent; }
 
 .services-inner {
     display: grid;
@@ -525,16 +520,15 @@ h1, h2, h3, h4, h5, h6,
     display: flex;
     flex-direction: row;
     gap: 12px;
-    min-height: 480px;
+    min-height: 520px;
     width: 100%;
-    overflow: hidden;
     align-items: stretch;
 }
 
 /* Tarjetas base (Servicios y Beneficios) */
 .service-card, .accordion-item {
     position: relative;
-    flex: 1; /* Todas iguales por defecto */
+    flex: 1;
     background: var(--bg-secondary);
     border: 1px solid var(--line);
     border-radius: var(--radius);
@@ -655,7 +649,7 @@ h1, h2, h3, h4, h5, h6,
     left: 0;
     width: 100%;
     padding: 0 24px 30px 24px;
-    background: var(--bg-secondary);
+    background: var(--bg-alt);
     opacity: 0;
     visibility: hidden;
     transform: translateY(10px);
@@ -702,7 +696,7 @@ h1, h2, h3, h4, h5, h6,
 /* =========================================================
    WHY / BENEFICIOS
    ========================================================= */
-.why { background: var(--bg-main); border-top: 1px solid var(--line); }
+.why { background: transparent; border-top: 1px solid var(--line); }
 .why-inner { display: grid; grid-template-columns: 1.1fr 0.9fr; gap: 60px; align-items: start; }
 .why-intro { order: 2; position: sticky; top: 120px; }
 .why-intro .section-title { margin-bottom: 20px; }
@@ -713,7 +707,7 @@ h1, h2, h3, h4, h5, h6,
    WORK / PROYECTOS
    ========================================================= */
 
-.work { padding-top: 120px; padding-bottom: 140px; background: var(--bg-main); border-top: 1px solid var(--line); }
+.work { padding-top: 120px; padding-bottom: 140px; background: transparent; border-top: 1px solid var(--line); }
 .work-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 24px; }
 .work-card { position: relative; border-radius: var(--radius); overflow: hidden; border: 1px solid var(--line); aspect-ratio: 4 / 5; transition: border-color 250ms var(--ease-soft), box-shadow 250ms var(--ease-soft); box-shadow: 0 1px 2px rgba(0, 0, 0, 0.2); background: var(--bg-secondary); display: block; color: var(--text-primary); cursor: pointer; }
 .work-card:hover { border-color: var(--blue); box-shadow: 0 2px 20px rgba(139, 163, 199, 0.2); }
@@ -732,7 +726,7 @@ h1, h2, h3, h4, h5, h6,
    PROCESO
    ========================================================= */
 
-.process { background: var(--bg-main); border-top: 1px solid var(--line); }
+.process { background: transparent; border-top: 1px solid var(--line); }
 .process-list { display: flex; flex-direction: column; gap: 0; max-width: 900px; border-top: 1px solid var(--line); margin: 0; position: relative; }
 .process-item { border-bottom: 1px solid var(--line); padding: 0; text-align: left; position: relative; }
 .process-item--animated::before { content: ""; position: absolute; top: 0; left: 0; height: 1px; width: 0; background: var(--blue); transition: width 900ms var(--ease-out); transition-delay: var(--process-delay, 0ms); }
@@ -752,7 +746,7 @@ h1, h2, h3, h4, h5, h6,
    PLANES
    ========================================================= */
 
-.plans { background: var(--bg-main); border-top: 1px solid var(--line); }
+.plans { background: transparent; border-top: 1px solid var(--line); }
 .plans-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 20px; align-items: stretch; }
 .plan-card { position: relative; padding: 32px 28px; background: var(--bg-secondary); color: var(--text-primary); border: 1px solid var(--line); border-radius: var(--radius); transition: border-color 250ms var(--ease-soft), box-shadow 250ms var(--ease-soft), background 250ms var(--ease-soft); display: flex; flex-direction: column; height: 100%; cursor: pointer; box-shadow: 0 1px 2px rgba(0, 0, 0, 0.2); }
 .plan-card:hover { border-color: var(--blue); background: var(--bg-alt); }
@@ -771,7 +765,7 @@ h1, h2, h3, h4, h5, h6,
    FAQ
    ========================================================= */
 
-.faq { background: var(--bg-main); border-top: 1px solid var(--line); }
+.faq { background: transparent; border-top: 1px solid var(--line); }
 .faq-list { display: flex; flex-direction: column; max-width: 900px; border-top: 1px solid var(--line); margin: 0; }
 .faq-item { border-bottom: 1px solid var(--line); padding: 0; text-align: left; }
 .faq-item summary { display: flex; align-items: center; justify-content: space-between; gap: 20px; padding: 24px 0; cursor: pointer; list-style: none; font-family: var(--body); font-size: 1rem; font-weight: 500; color: var(--text-primary); transition: color 200ms var(--ease-soft); text-align: left; }
@@ -785,7 +779,7 @@ h1, h2, h3, h4, h5, h6,
    CONTACT Y FORMULARIO
    ========================================================= */
 
-.contact { background: var(--bg-main); border-top: 1px solid var(--line); }
+.contact { background: transparent; border-top: 1px solid var(--line); }
 .contact-grid { display: grid; grid-template-columns: 1fr; gap: 40px; align-items: start; max-width: 720px; margin: 0 auto; }
 
 .quote-form { width: 100%; padding: 36px; background: var(--bg-secondary); border: 1px solid var(--line); border-radius: var(--radius); box-shadow: 0 1px 2px rgba(0, 0, 0, 0.2); }
@@ -828,20 +822,12 @@ h1, h2, h3, h4, h5, h6,
 .pill input[type="radio"]:focus-visible + span { outline: 2px solid var(--blue); outline-offset: 3px; }
 
 /* =========================================================
-   CTA FINAL
-   ========================================================= */
-
-.final-cta { padding: 90px 0; background: var(--blue); text-align: center; color: var(--bg-main); }
-.final-cta .container { max-width: 1000px; }
-.final-cta h2 { font-size: clamp(1.6rem, 3.5vw, 2.8rem); line-height: 1.1; color: var(--bg-main); margin: 0; font-weight: 900; letter-spacing: -0.025em; }
-
-/* =========================================================
    FOOTER — Títulos Blancos y Textos Grises
    ========================================================= */
 
 .site-footer {
     padding-top: 70px;
-    background: var(--bg-main);
+    background: transparent;
     border-top: 1px solid var(--line);
     color: var(--text-secondary);
 }
@@ -969,6 +955,13 @@ a.contact-meta-value:hover { color: var(--blue); }
 a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visible, summary:focus-visible, select:focus-visible { outline: 2px solid var(--blue); outline-offset: 3px; border-radius: 4px; }
 ::selection { background: var(--blue); color: var(--bg-main); }
 ::-moz-selection { background: var(--blue); color: var(--bg-main); }
+
+/* Corrección para que no se oculte el texto al seleccionar en fondos azules */
+.final-cta ::selection, .button-primary ::selection { 
+    background: var(--bg-main); 
+    color: var(--blue); 
+}
+
 #planes, #trabajos, #contacto, #faq, #servicios, #proceso, #beneficios { scroll-margin-top: 96px; }
 
 @media (prefers-reduced-motion: reduce) {
@@ -1149,9 +1142,6 @@ a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visib
     .form-field-full { grid-column: auto; }
     .quote-form-submit .button { width: 100%; }
 
-    .final-cta { padding: 60px 0; }
-    .final-cta h2 { font-size: 1.5rem; }
-
     .footer-contact-meta { gap: 18px; }
 
     .legal-hero { padding-top: 110px; padding-bottom: 40px; }
@@ -1191,7 +1181,6 @@ a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visib
     .form-field textarea { min-height: 100px; font-size: 0.88rem; }
     .pill-group { gap: 6px; }
     .pill span { padding: 8px 14px; font-size: 0.68rem; }
-    .final-cta h2 { font-size: 1.35rem; }
     .footer-links { gap: 18px; }
     .footer-bottom { font-size: 0.6rem; gap: 12px; }
     .legal-hero { padding-top: 100px; }
@@ -1202,6 +1191,6 @@ a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visib
 }
 
 @media print {
-    .site-header, .menu-toggle, .final-cta, .quote-form-submit, .tb-intro, .cookie-banner, .hero-waves-bg { display: none !important; }
+    .site-header, .menu-toggle, .tb-intro, .cookie-banner, .global-waves-bg { display: none !important; }
     body { background: white; color: black; }
 }
