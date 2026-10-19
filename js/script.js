@@ -1,10 +1,10 @@
 /* =========================================================
-   TAGBACK — JAVASCRIPT v20
+   TAGBACK — JAVASCRIPT v21
    - Traducción ES/EN
    - Intro, cookies, menú móvil, header scroll
    - Acordeones (servicios y beneficios)
    - Validación y envío de formulario
-   - Sin parallax ni animaciones continuas de fondo
+   - Fondo Topology: movimiento de capas con el mouse
    ========================================================= */
 
 // --- DICCIONARIO DE IDIOMAS ---
@@ -742,6 +742,65 @@ document.addEventListener("DOMContentLoaded", () => {
                 submitBtn.textContent = submitBtnDefaultText;
             });
         });
+    }
+
+    /* =====================================================
+       FONDO TOPOLOGY — Movimiento de capas con el mouse
+       ===================================================== */
+    const topologyBg = document.querySelector(".topology-bg");
+    if (topologyBg) {
+        const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+        const isTouch = window.matchMedia("(pointer: coarse)").matches;
+
+        // Solo activamos el movimiento si hay mouse y no se pidió reducir movimiento
+        if (!prefersReducedMotion && !isTouch) {
+            const layers = topologyBg.querySelectorAll(".layer");
+            let mouseX = 0;
+            let mouseY = 0;
+            let targetX = 0;
+            let targetY = 0;
+            let rafId = null;
+
+            const onMouseMove = (e) => {
+                // Normalizamos a un rango de -1 a 1
+                targetX = (e.clientX / window.innerWidth - 0.5) * 2;
+                targetY = (e.clientY / window.innerHeight - 0.5) * 2;
+
+                if (!rafId) {
+                    rafId = requestAnimationFrame(updateLayers);
+                }
+            };
+
+            const updateLayers = () => {
+                // Suavizado (lerp) para que no sea brusco
+                mouseX += (targetX - mouseX) * 0.08;
+                mouseY += (targetY - mouseY) * 0.08;
+
+                layers.forEach((layer, index) => {
+                    const intensity = (index + 1) * 2; // Cada capa se mueve un poco más
+                    const scale = 1 + index * 0.2;
+                    layer.style.transform = `translate(${mouseX * intensity}%, ${mouseY * intensity}%) scale(${scale})`;
+                });
+
+                // Si todavía no llegó al objetivo, seguimos animando
+                if (Math.abs(targetX - mouseX) > 0.001 || Math.abs(targetY - mouseY) > 0.001) {
+                    rafId = requestAnimationFrame(updateLayers);
+                } else {
+                    rafId = null;
+                }
+            };
+
+            document.addEventListener("mousemove", onMouseMove, { passive: true });
+
+            // Limpieza si el usuario cambia de pestaña o algo similar
+            window.addEventListener("blur", () => {
+                targetX = 0;
+                targetY = 0;
+                if (!rafId) {
+                    rafId = requestAnimationFrame(updateLayers);
+                }
+            });
+        }
     }
 
     /* =====================================================
