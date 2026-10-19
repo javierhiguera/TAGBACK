@@ -73,26 +73,35 @@
     <section class="hero">
         <div class="hero-waves-bg" aria-hidden="true">
             <div class="hero-waves-glow"></div>
+            <!-- SVG Modificado para efecto Túnel Dinámico con Gradiente -->
             <svg class="hero-waves-svg" viewBox="0 0 1440 900" preserveAspectRatio="none">
+                <defs>
+                    <linearGradient id="gradient-wave" x1="0%" y1="0%" x2="100%" y2="100%">
+                        <stop offset="0%" stop-color="#8ba3c7" stop-opacity="0.8"/>
+                        <stop offset="50%" stop-color="#a8bcdb" stop-opacity="0.4"/>
+                        <stop offset="100%" stop-color="#8ba3c7" stop-opacity="0.9"/>
+                    </linearGradient>
+                </defs>
                 <g class="waves-group">
-                    <path d="M50,-100 C 100,200 0,400 100,600 C 200,800 50,1000 50,1000" />
-                    <path d="M90,-100 C 140,200 40,400 140,600 C 240,800 90,1000 90,1000" />
-                    <path d="M120,-100 C 170,200 70,400 170,600 C 270,800 120,1000 120,1000" />
-                    <path d="M220,-100 C 270,200 170,400 270,600 C 370,800 220,1000 220,1000" />
-                    <path d="M260,-100 C 310,200 210,400 310,600 C 410,800 260,1000 260,1000" />
-                    <path d="M440,-100 C 490,200 390,400 490,600 C 590,800 440,1000 440,1000" />
-                    <path d="M480,-100 C 530,200 430,400 530,600 C 630,800 480,1000 480,1000" />
-                    <path d="M510,-100 C 560,200 460,400 560,600 C 660,800 510,1000 510,1000" />
-                    <path d="M650,-100 C 700,200 600,400 700,600 C 800,800 650,1000 650,1000" />
-                    <path d="M800,-100 C 850,200 750,400 850,600 C 950,800 800,1000 800,1000" />
-                    <path d="M830,-100 C 880,200 780,400 880,600 C 980,800 830,1000 830,1000" />
-                    <path d="M860,-100 C 910,200 810,400 910,600 C 1010,800 860,1000 860,1000" />
-                    <path d="M1000,-100 C 1050,200 950,400 1050,600 C 1150,800 1000,1000 1000,1000" />
-                    <path d="M1030,-100 C 1080,200 980,400 1080,600 C 1180,800 1030,1000 1030,1000" />
-                    <path d="M1150,-100 C 1200,200 1100,400 1200,600 C 1300,800 1150,1000 1150,1000" />
-                    <path d="M1300,-100 C 1350,200 1250,400 1350,600 C 1450,800 1300,1000 1300,1000" />
-                    <path d="M1340,-100 C 1390,200 1290,400 1390,600 C 1490,800 1340,1000 1340,1000" />
-                    <path d="M1400,-100 C 1450,200 1350,400 1450,600 C 1550,800 1400,1000 1400,1000" />
+                    <!-- Generamos un patrón de anillos concéntricos curvados para el efecto túnel -->
+                    <path d="M 400,900 C 200,600 200,300 400,0" />
+                    <path d="M 440,900 C 240,600 240,300 440,0" />
+                    <path d="M 480,900 C 280,600 280,300 480,0" />
+                    <path d="M 520,900 C 320,600 320,300 520,0" />
+                    <path d="M 560,900 C 360,600 360,300 560,0" />
+                    <path d="M 600,900 C 400,600 400,300 600,0" />
+                    <path d="M 640,900 C 440,600 440,300 640,0" />
+                    <path d="M 680,900 C 480,600 480,300 680,0" />
+                    <path d="M 720,900 C 520,600 520,300 720,0" />
+                    <path d="M 760,900 C 560,600 560,300 760,0" />
+                    <path d="M 800,900 C 600,600 600,300 800,0" />
+                    <path d="M 840,900 C 640,600 640,300 840,0" />
+                    <path d="M 880,900 C 680,600 680,300 880,0" />
+                    <path d="M 920,900 C 720,600 720,300 920,0" />
+                    <path d="M 960,900 C 760,600 760,300 960,0" />
+                    <path d="M 1000,900 C 800,600 800,300 1000,0" />
+                    <path d="M 1040,900 C 840,600 840,300 1040,0" />
+                    <path d="M 1080,900 C 880,600 880,300 1080,0" />
                 </g>
             </svg>
         </div>
@@ -192,7 +201,8 @@
                 <p class="section-desc" data-i18n="why_desc">Cada decisión está pensada para que tu sitio funcione: comunique, convierta y crezca con tu negocio.</p>
             </div>
 
-            <div class="accordion-stack accordion-horizontal">
+            <!-- Tarjetas apiladas -->
+            <div class="accordion-stack">
                 <div class="accordion-item">
                     <button type="button" class="accordion-header" aria-expanded="false">
                         <span class="accordion-num">01</span>
@@ -495,6 +505,7 @@
 
 <footer class="site-footer">
     <div class="container footer-inner">
+        <!-- Columna 1: Contacto -->
         <div class="footer-contact">
             <div class="footer-contact-meta">
                 <div>
@@ -516,6 +527,7 @@
             </div>
         </div>
 
+        <!-- Columna 2: Navegación -->
         <div class="footer-links">
             <strong data-i18n="foot_nav">NAVEGACIÓN</strong>
             <a href="./" data-i18n="nav_home">Inicio</a>
@@ -525,6 +537,7 @@
             <a href="#contacto" data-i18n="nav_contact">Contacto</a>
         </div>
 
+        <!-- Columna 3: Legal -->
         <div class="footer-links">
             <strong data-i18n="foot_legal">LEGAL</strong>
             <a href="./privacidad.html" data-i18n="nav_privacy">Política de Privacidad</a>
@@ -532,6 +545,7 @@
         </div>
     </div>
 
+    <!-- Copyright y Créditos (Izquierda y Derecha) -->
     <div class="container footer-bottom">
         <span class="footer-copyright">
             © <span data-current-year>2026</span> tagback. <span data-i18n="foot_rights">Todos los derechos reservados.</span>
