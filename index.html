@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>tagback — Diseño y desarrollo web</title>
     <meta name="description" content="tagback diseña y desarrolla sitios web: landing pages, sitios corporativos, tiendas online y mantenimiento. Presencia digital profesional para tu negocio.">
-    <meta name="theme-color" content="#0B0D12">
+    <meta name="theme-color" content="#0A1410">
     <meta name="robots" content="index, follow">
     <meta name="author" content="tagback">
     <link rel="canonical" href="https://javierhiguera.github.io/TAGBACK/">
@@ -33,6 +33,16 @@
 
 <body>
 <a class="skip-link" href="#main" data-i18n="skip_link">Saltar al contenido principal</a>
+
+<!-- SUPERFICIE TÉCNICA — capas de fondo fijas -->
+<div class="bg-surface" aria-hidden="true">
+    <div class="bg-surface__grid"></div>
+    <div class="bg-surface__ticks"></div>
+    <div class="bg-surface__light"></div>
+    <div class="bg-surface__sweep"></div>
+    <div class="bg-surface__grain"></div>
+    <div class="bg-surface__vignette"></div>
+</div>
 
 <header class="site-header">
     <div class="container header-inner">
@@ -64,7 +74,7 @@
 
 <main id="main">
 
-    <!-- HERO — fondo oscuro -->
+    <!-- HERO -->
     <section class="hero">
         <div class="container">
             <div class="hero-eyebrow">
@@ -86,7 +96,7 @@
         </div>
     </section>
 
-    <!-- SERVICIOS — fondo claro -->
+    <!-- SERVICIOS -->
     <section class="services section" id="servicios">
         <div class="container services-inner">
             <div class="services-intro">
@@ -151,7 +161,7 @@
         </div>
     </section>
 
-    <!-- BENEFICIOS — fondo claro -->
+    <!-- BENEFICIOS -->
     <section class="why section" id="beneficios">
         <div class="container why-inner">
             <div class="why-intro">
@@ -205,7 +215,7 @@
         </div>
     </section>
 
-    <!-- PROYECTOS — fondo oscuro -->
+    <!-- PROYECTOS -->
     <section class="work section" id="trabajos">
         <div class="container">
             <div class="section-head">
@@ -253,7 +263,7 @@
         </div>
     </section>
 
-    <!-- PROCESO — fondo claro -->
+    <!-- PROCESO -->
     <section class="process section" id="proceso">
         <div class="container">
             <div class="section-head">
@@ -285,7 +295,7 @@
         </div>
     </section>
 
-    <!-- PLANES — fondo oscuro, tarjetas #171A21, precio azul -->
+    <!-- PLANES -->
     <section class="plans section" id="planes">
         <div class="container">
             <div class="section-head">
@@ -340,7 +350,7 @@
         </div>
     </section>
 
-    <!-- FAQ — fondo claro, separadores discretos -->
+    <!-- FAQ -->
     <section class="faq section" id="faq">
         <div class="container">
             <div class="section-head">
@@ -384,7 +394,7 @@
         </div>
     </section>
 
-    <!-- CONTACTO — fondo oscuro, formulario contrastado -->
+    <!-- CONTACTO -->
     <section class="contact section" id="contacto">
         <div class="container">
             <div class="section-head">
@@ -436,7 +446,7 @@
         </div>
     </section>
 
-    <!-- CTA FINAL — azul (único bloque azul) -->
+    <!-- CTA FINAL -->
     <section class="final-cta">
         <div class="container">
             <h2 data-i18n="cta_title">Tu idea no se va a hacer sola. Hagámosla realidad.</h2>
@@ -445,11 +455,10 @@
 
 </main>
 
-<!-- FOOTER — fondo oscuro con correos por función -->
+<!-- FOOTER -->
 <footer class="site-footer">
     <div class="container footer-inner">
 
-        <!-- COLUMNA 1: CONTACTO POR FUNCIÓN -->
         <div class="footer-contact">
             <div class="footer-contact-meta">
                 <div>
@@ -466,7 +475,7 @@
                 </div>
                 <div>
                     <span class="contact-meta-label" data-i18n="foot_privacy">PRIVACIDAD / LEGAL</span>
-                    <a href="mailto:privacidad@tagback.com" class="contact-meta-value">privacidad@tagback.com</a>
+                    <a href="mailto:privacy@tagback.com" class="contact-meta-value">privacy@tagback.com</a>
                 </div>
                 <div>
                     <span class="contact-meta-label" data-i18n="foot_phone">TELÉFONO</span>
@@ -483,7 +492,6 @@
             </div>
         </div>
 
-        <!-- COLUMNA 2: NAVEGACIÓN -->
         <div class="footer-links">
             <strong data-i18n="foot_nav">NAVEGACIÓN</strong>
             <a href="./" data-i18n="nav_home">Inicio</a>
@@ -493,7 +501,6 @@
             <a href="#contacto" data-i18n="nav_contact">Contacto</a>
         </div>
 
-        <!-- COLUMNA 3: LEGAL -->
         <div class="footer-links">
             <strong data-i18n="foot_legal">LEGAL</strong>
             <a href="./privacidad.html" data-i18n="nav_privacy">Política de Privacidad</a>
@@ -502,7 +509,6 @@
 
     </div>
 
-    <!-- FOOTER BOTTOM -->
     <div class="container footer-bottom">
         <span class="footer-copyright">
             © <span data-current-year>2026</span> tagback. <span data-i18n="foot_rights">Todos los derechos reservados.</span>
