@@ -34,12 +34,40 @@
 <body>
 <a class="skip-link" href="#main" data-i18n="skip_link">Saltar al contenido principal</a>
 
-<!-- FONDO DE CAPAS ANIMADO -->
-<div class="topology-bg" aria-hidden="true">
-    <div class="layer layer-1"></div>
-    <div class="layer layer-2"></div>
-    <div class="layer layer-3"></div>
-    <div class="layer layer-4"></div>
+<!-- FONDO DE ONDAS ANIMADO -->
+<div class="hero-waves-bg" aria-hidden="true">
+    <div class="hero-waves-glow"></div>
+    <svg class="hero-waves-svg" viewBox="0 0 1440 900" preserveAspectRatio="none">
+        <g class="waves-group">
+            <path d="M100,-100 C 150,200 50,400 150,600 C 250,800 100,1000 100,1000" />
+            <path d="M150,-100 C 200,200 100,400 200,600 C 300,800 150,1000 150,1000" />
+            <path d="M200,-100 C 250,200 150,400 250,600 C 350,800 200,1000 200,1000" />
+            <path d="M250,-100 C 300,200 200,400 300,600 C 400,800 250,1000 250,1000" />
+            <path d="M300,-100 C 350,200 250,400 350,600 C 450,800 300,1000 300,1000" />
+            <path d="M350,-100 C 400,200 300,400 400,600 C 500,800 350,1000 350,1000" />
+            <path d="M400,-100 C 450,200 350,400 450,600 C 550,800 400,1000 400,1000" />
+            <path d="M450,-100 C 500,200 400,400 500,600 C 600,800 450,1000 450,1000" />
+            <path d="M500,-100 C 550,200 450,400 550,600 C 650,800 500,1000 500,1000" />
+            <path d="M550,-100 C 600,200 500,400 600,600 C 700,800 550,1000 550,1000" />
+            <path d="M600,-100 C 650,200 550,400 650,600 C 750,800 600,1000 600,1000" />
+            <path d="M650,-100 C 700,200 600,400 700,600 C 800,800 650,1000 650,1000" />
+            <path d="M700,-100 C 750,200 650,400 750,600 C 850,800 700,1000 700,1000" />
+            <path d="M750,-100 C 800,200 700,400 800,600 C 900,800 750,1000 750,1000" />
+            <path d="M800,-100 C 850,200 750,400 850,600 C 950,800 800,1000 800,1000" />
+            <path d="M850,-100 C 900,200 800,400 900,600 C 1000,800 850,1000 850,1000" />
+            <path d="M900,-100 C 950,200 850,400 950,600 C 1050,800 900,1000 900,1000" />
+            <path d="M950,-100 C 1000,200 900,400 1000,600 C 1100,800 950,1000 950,1000" />
+            <path d="M1000,-100 C 1050,200 950,400 1050,600 C 1150,800 1000,1000 1000,1000" />
+            <path d="M1050,-100 C 1100,200 1000,400 1100,600 C 1200,800 1050,1000 1050,1000" />
+            <path d="M1100,-100 C 1150,200 1050,400 1150,600 C 1250,800 1100,1000 1100,1000" />
+            <path d="M1150,-100 C 1200,200 1100,400 1200,600 C 1300,800 1150,1000 1150,1000" />
+            <path d="M1200,-100 C 1250,200 1150,400 1250,600 C 1350,800 1200,1000 1200,1000" />
+            <path d="M1250,-100 C 1300,200 1200,400 1300,600 C 1400,800 1250,1000 1250,1000" />
+            <path d="M1300,-100 C 1350,200 1250,400 1350,600 C 1450,800 1300,1000 1300,1000" />
+            <path d="M1350,-100 C 1400,200 1300,400 1400,600 C 1500,800 1350,1000 1350,1000" />
+            <path d="M1400,-100 C 1450,200 1350,400 1450,600 C 1550,800 1400,1000 1400,1000" />
+        </g>
+    </svg>
 </div>
 
 <header class="site-header">
@@ -103,7 +131,8 @@
                 <p class="section-desc" data-i18n="services_desc">Cada proyecto tiene necesidades diferentes. Hacé clic en cada servicio para ver el detalle.</p>
             </div>
 
-            <div class="services-cards">
+            <div class="services-cards accordion-horizontal">
+                <!-- Item 1 -->
                 <article class="service-card">
                     <button type="button" class="service-card-header" aria-expanded="false">
                         <span class="service-card-num">01</span>
@@ -116,7 +145,7 @@
                         </div>
                     </div>
                 </article>
-
+                <!-- Item 2 -->
                 <article class="service-card">
                     <button type="button" class="service-card-header" aria-expanded="false">
                         <span class="service-card-num">02</span>
@@ -129,7 +158,7 @@
                         </div>
                     </div>
                 </article>
-
+                <!-- Item 3 -->
                 <article class="service-card">
                     <button type="button" class="service-card-header" aria-expanded="false">
                         <span class="service-card-num">03</span>
@@ -142,7 +171,7 @@
                         </div>
                     </div>
                 </article>
-
+                <!-- Item 4 -->
                 <article class="service-card">
                     <button type="button" class="service-card-header" aria-expanded="false">
                         <span class="service-card-num">04</span>
@@ -168,46 +197,81 @@
                 <p class="section-desc" data-i18n="why_desc">Cada decisión está pensada para que tu sitio funcione: comunique, convierta y crezca con tu negocio.</p>
             </div>
 
-            <div class="accordion-stack accordion-stack--right">
+            <div class="accordion-stack accordion-horizontal">
+                <!-- Item 1 -->
                 <div class="accordion-item">
                     <button type="button" class="accordion-header" aria-expanded="false">
                         <span class="accordion-num">01</span>
                         <h3 class="accordion-title">Diseño</h3>
                         <span class="accordion-icon" aria-hidden="true"></span>
                     </button>
-                    <div class="accordion-panel"><div class="accordion-panel-inner"><div class="accordion-panel-content"><p>Una identidad visual coherente con tu negocio, tus servicios y el público al que querés llegar.</p></div></div></div>
+                    <div class="accordion-panel">
+                        <div class="accordion-panel-inner">
+                            <div class="accordion-panel-content">
+                                <p>Una identidad visual coherente con tu negocio, tus servicios y el público al que querés llegar.</p>
+                            </div>
+                        </div>
+                    </div>
                 </div>
+                <!-- Item 2 -->
                 <div class="accordion-item">
                     <button type="button" class="accordion-header" aria-expanded="false">
                         <span class="accordion-num">02</span>
                         <h3 class="accordion-title">Responsive</h3>
                         <span class="accordion-icon" aria-hidden="true"></span>
                     </button>
-                    <div class="accordion-panel"><div class="accordion-panel-inner"><div class="accordion-panel-content"><p>Sitios adaptados a celulares, tablets y computadoras para facilitar la navegación.</p></div></div></div>
+                    <div class="accordion-panel">
+                        <div class="accordion-panel-inner">
+                            <div class="accordion-panel-content">
+                                <p>Sitios adaptados a celulares, tablets y computadoras para facilitar la navegación.</p>
+                            </div>
+                        </div>
+                    </div>
                 </div>
+                <!-- Item 3 -->
                 <div class="accordion-item">
                     <button type="button" class="accordion-header" aria-expanded="false">
                         <span class="accordion-num">03</span>
                         <h3 class="accordion-title">Rendimiento</h3>
                         <span class="accordion-icon" aria-hidden="true"></span>
                     </button>
-                    <div class="accordion-panel"><div class="accordion-panel-inner"><div class="accordion-panel-content"><p>Código y recursos optimizados para favorecer tiempos de carga y una navegación fluida.</p></div></div></div>
+                    <div class="accordion-panel">
+                        <div class="accordion-panel-inner">
+                            <div class="accordion-panel-content">
+                                <p>Código y recursos optimizados para favorecer tiempos de carga y una navegación fluida.</p>
+                            </div>
+                        </div>
+                    </div>
                 </div>
+                <!-- Item 4 -->
                 <div class="accordion-item">
                     <button type="button" class="accordion-header" aria-expanded="false">
                         <span class="accordion-num">04</span>
                         <h3 class="accordion-title">Experiencia de usuario</h3>
                         <span class="accordion-icon" aria-hidden="true"></span>
                     </button>
-                    <div class="accordion-panel"><div class="accordion-panel-inner"><div class="accordion-panel-content"><p>Contenido organizado y llamadas a la acción que ayudan a encontrar información y contactar con tu negocio.</p></div></div></div>
+                    <div class="accordion-panel">
+                        <div class="accordion-panel-inner">
+                            <div class="accordion-panel-content">
+                                <p>Contenido organizado y llamadas a la acción que ayudan a encontrar información y contactar con tu negocio.</p>
+                            </div>
+                        </div>
+                    </div>
                 </div>
+                <!-- Item 5 -->
                 <div class="accordion-item">
                     <button type="button" class="accordion-header" aria-expanded="false">
                         <span class="accordion-num">05</span>
                         <h3 class="accordion-title">Escalabilidad</h3>
                         <span class="accordion-icon" aria-hidden="true"></span>
                     </button>
-                    <div class="accordion-panel"><div class="accordion-panel-inner"><div class="accordion-panel-content"><p>Una estructura preparada para incorporar nuevas secciones y funcionalidades según las necesidades del proyecto.</p></div></div></div>
+                    <div class="accordion-panel">
+                        <div class="accordion-panel-inner">
+                            <div class="accordion-panel-content">
+                                <p>Una estructura preparada para incorporar nuevas secciones y funcionalidades según las necesidades del proyecto.</p>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -410,7 +474,7 @@
             </div>
 
             <div class="contact-grid">
-                <form class="quote-form" action="https://formspree.io/f/projects@tagback.com" method="POST" novalidate>
+                <form class="quote-form" action="https://formspree.io/f/TU_ID" method="POST" novalidate>
                     <h3 class="quote-form-title" data-i18n="form_title">Contanos tu idea.</h3>
                     <p class="quote-form-lead" data-i18n="form_lead">Completá los datos y te contactamos.</p>
 
@@ -463,7 +527,7 @@
 <footer class="site-footer">
     <div class="container footer-inner">
 
-        <!-- COLUMNA 1: CONTACTO (orden pedido) -->
+        <!-- COLUMNA 1: CONTACTO -->
         <div class="footer-contact">
             <div class="footer-contact-meta">
                 <div>
