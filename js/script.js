@@ -1,10 +1,10 @@
 /* =========================================================
-   TAGBACK — JAVASCRIPT v19
+   TAGBACK — JAVASCRIPT v20
    - Traducción ES/EN
    - Intro, cookies, menú móvil, header scroll
    - Acordeones (servicios y beneficios)
    - Validación y envío de formulario
-   - Parallax discreto del fondo (respeta reduced-motion)
+   - Sin parallax ni animaciones continuas de fondo
    ========================================================= */
 
 // --- DICCIONARIO DE IDIOMAS ---
@@ -134,9 +134,7 @@ const translations = {
 
         cta_title: "Tu idea no se va a hacer sola. Hagámosla realidad.",
 
-        foot_contact: "CONTACTO GENERAL",
-        foot_sales: "VENTAS",
-        foot_support: "SOPORTE",
+        foot_contact: "CONTACTO",
         foot_privacy: "PRIVACIDAD / LEGAL",
         foot_phone: "TELÉFONO",
         foot_location: "UBICACIÓN",
@@ -350,9 +348,7 @@ const translations = {
 
         cta_title: "Your idea won't make itself. Let's make it real.",
 
-        foot_contact: "GENERAL CONTACT",
-        foot_sales: "SALES",
-        foot_support: "SUPPORT",
+        foot_contact: "CONTACT",
         foot_privacy: "PRIVACY / LEGAL",
         foot_phone: "PHONE",
         foot_location: "LOCATION",
@@ -612,26 +608,6 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
     /* =====================================================
-       PARALLAX DISCRETO DEL FONDO
-       Desplaza muy suavemente la capa de luz con el scroll.
-       Respeta prefers-reduced-motion.
-       ===================================================== */
-    const bgLight = document.querySelector(".bg-surface__light");
-    if (bgLight && !window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
-        let ticking = false;
-        const updateParallax = () => {
-            const y = window.scrollY * 0.08; /* factor muy bajo */
-            bgLight.style.transform = `translate3d(0, ${y}px, 0)`;
-            ticking = false;
-        };
-        window.addEventListener("scroll", () => {
-            if (ticking) return;
-            ticking = true;
-            window.requestAnimationFrame(updateParallax);
-        }, { passive: true });
-    }
-
-    /* =====================================================
        ACORDEONES
        ===================================================== */
     const accordionItems = document.querySelectorAll(".accordion-item, .service-card");
@@ -657,7 +633,7 @@ document.addEventListener("DOMContentLoaded", () => {
     });
 
     /* =====================================================
-       FORMULARIO
+       FORMULARIO — envío a projects@tagback.com vía Formspree
        ===================================================== */
     const quoteForm = document.querySelector(".quote-form");
     if (quoteForm) {
@@ -760,7 +736,7 @@ document.addEventListener("DOMContentLoaded", () => {
                     throw new Error("Error");
                 }
             }).catch(() => {
-                showFeedback("error", "No pudimos enviar tu consulta. Intentá nuevamente.");
+                showFeedback("error", "No pudimos enviar tu consulta. Intentá nuevamente o escribinos a projects@tagback.com");
             }).finally(() => {
                 submitBtn.disabled = false;
                 submitBtn.textContent = submitBtnDefaultText;
