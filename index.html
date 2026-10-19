@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>tagback — Diseño y desarrollo web</title>
     <meta name="description" content="tagback diseña y desarrolla sitios web: landing pages, sitios corporativos, tiendas online y mantenimiento. Presencia digital profesional para tu negocio.">
-    <meta name="theme-color" content="#0A1410">
+    <meta name="theme-color" content="#1A1D24">
     <meta name="robots" content="index, follow">
     <meta name="author" content="tagback">
     <link rel="canonical" href="https://javierhiguera.github.io/TAGBACK/">
@@ -24,7 +24,7 @@
     <meta name="twitter:description" content="Diseñamos y desarrollamos sitios web rápidos, claros y pensados para convertir visitas en oportunidades de negocio.">
     <meta name="twitter:image" content="https://javierhiguera.github.io/TAGBACK/favicon/tagback.svg">
 
-    <link rel="icon" type="image/png" href="./favicon/tagback.svg">
+    <link rel="icon" type="image/svg+xml" href="./favicon/tagback.svg">
     <link rel="alternate icon" href="./favicon/favicon.ico">
 
     <script>document.documentElement.classList.remove('no-js');</script>
@@ -44,10 +44,17 @@
         <nav class="main-nav" id="main-navigation" aria-label="Navegación principal">
             <a href="#servicios" data-i18n="nav_services">Servicios</a>
             <a href="#trabajos" data-i18n="nav_projects">Proyectos</a>
-            <a href="#proceso" data-i18n="nav_process">Proceso</a>
             <a href="#planes" data-i18n="nav_plans">Planes</a>
-            <a href="#faq" data-i18n="nav_faq">Preguntas</a>
             <a href="#contacto" data-i18n="nav_contact">Contacto</a>
+            <div class="nav-more">
+                <button class="nav-more-toggle" type="button" aria-expanded="false" aria-controls="nav-more-menu">Más <span aria-hidden="true">+</span></button>
+                <div class="nav-more-menu" id="nav-more-menu" hidden>
+                    <a href="#proceso" data-i18n="nav_process">Proceso</a>
+                    <a href="#faq" data-i18n="nav_faq">Preguntas</a>
+                    <a href="./privacidad.html" data-i18n="nav_privacy">Política de Privacidad</a>
+                    <a href="./cookies.html" data-i18n="nav_cookies">Política de Cookies</a>
+                </div>
+            </div>
         </nav>
 
         <div class="lang-switcher" aria-label="Selector de idioma">
@@ -104,20 +111,7 @@
                 </p>
             </div>
             
-            <div class="hero-features">
-                <div class="hero-feature">
-                    <svg class="hero-feature-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
-                    <span data-i18n="hero_eyebrow_1">DISEÑO WEB</span>
-                </div>
-                <div class="hero-feature">
-                    <svg class="hero-feature-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>
-                    <span data-i18n="hero_eyebrow_2">DESARROLLO</span>
-                </div>
-                <div class="hero-feature">
-                    <svg class="hero-feature-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
-                    <span data-i18n="hero_eyebrow_3">PRESENCIA DIGITAL</span>
-                </div>
-            </div>
+            
         </div>
     </section>
 
@@ -182,6 +176,23 @@
                         </div>
                     </div>
                 </article>
+            </div>
+            <div class="services-signature">
+                <p class="services-signature-label">Diseño · tecnología · crecimiento</p>
+                <div class="hero-features">
+                <div class="hero-feature">
+                    <svg class="hero-feature-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
+                    <span data-i18n="hero_eyebrow_1">DISEÑO WEB</span>
+                </div>
+                <div class="hero-feature">
+                    <svg class="hero-feature-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>
+                    <span data-i18n="hero_eyebrow_2">DESARROLLO</span>
+                </div>
+                <div class="hero-feature">
+                    <svg class="hero-feature-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+                    <span data-i18n="hero_eyebrow_3">PRESENCIA DIGITAL</span>
+                </div>
+            </div>
             </div>
         </div>
     </section>
@@ -286,41 +297,41 @@
 
             <div class="work-grid">
                 <article class="work-card">
+                    <div class="work-card-header"><span>NIVELPULIDOS.COM</span><span>2024</span></div>
+                    <h3 class="work-card-name">Nivel Pulidos</h3>
                     <div class="work-card-image">
                         <img src="./assets/proyectos/1/NP_1.png" alt="Vista previa Nivel Pulidos" loading="lazy">
                     </div>
                     <div class="work-card-overlay">
-                        <div class="work-card-header"><span>NIVELPULIDOS.COM</span><span>2024</span></div>
-                        <h3 class="work-card-name">Nivel Pulidos</h3>
                         <span class="work-card-category" data-i18n="cat_services">SERVICIOS</span>
                         <p class="work-card-claim">Sitio corporativo para presentar servicios y facilitar el contacto.</p>
-                        <a class="work-card-link" href="#contacto" data-i18n="work_link">Ver proyecto →</a>
+                        <a class="work-card-link" href="#contacto" data-i18n="work_link">Consultar proyecto →</a>
                     </div>
                 </article>
 
                 <article class="work-card">
+                    <div class="work-card-header"><span>MIGAJA.COM</span><span>2024</span></div>
+                    <h3 class="work-card-name">Migaja</h3>
                     <div class="work-card-image">
                         <img src="./assets/proyectos/2/foto2.jpg" alt="Vista previa Migaja" loading="lazy">
                     </div>
                     <div class="work-card-overlay">
-                        <div class="work-card-header"><span>MIGAJA.COM</span><span>2024</span></div>
-                        <h3 class="work-card-name">Migaja</h3>
                         <span class="work-card-category" data-i18n="cat_gastro">GASTRONOMÍA</span>
                         <p class="work-card-claim">Web con menú y contacto directo para pedidos por WhatsApp.</p>
-                        <a class="work-card-link" href="#contacto" data-i18n="work_link">Ver proyecto →</a>
+                        <a class="work-card-link" href="#contacto" data-i18n="work_link">Consultar proyecto →</a>
                     </div>
                 </article>
 
                 <article class="work-card">
+                    <div class="work-card-header"><span>ALOSPIEDSDELMAESTRO.ORG</span><span>2024</span></div>
+                    <h3 class="work-card-name">A los pies del Maestro</h3>
                     <div class="work-card-image">
                         <img src="./assets/proyectos/3/foto3.jpg" alt="Vista previa A los pies del Maestro" loading="lazy">
                     </div>
                     <div class="work-card-overlay">
-                        <div class="work-card-header"><span>ALOSPIEDSDELMAESTRO.ORG</span><span>2024</span></div>
-                        <h3 class="work-card-name">A los pies del Maestro</h3>
                         <span class="work-card-category" data-i18n="cat_church">IGLESIA</span>
                         <p class="work-card-claim">Sitio institucional con landing de contacto para comunicar actividades y recibir consultas.</p>
-                        <a class="work-card-link" href="#contacto" data-i18n="work_link">Ver proyecto →</a>
+                        <a class="work-card-link" href="#contacto" data-i18n="work_link">Consultar proyecto →</a>
                     </div>
                 </article>
             </div>
@@ -368,7 +379,7 @@
             </div>
 
             <div class="plans-grid">
-                <a href="#contacto" class="plan-card">
+                <a href="#contacto" class="plan-card" data-plan="landing">
                     <span class="plan-label" data-i18n="plan_1_label">LANDING</span>
                     <h3 data-i18n="plan_1_title">Landing page</h3>
                     <p class="plan-price">Desde USD 350 <small data-i18n="plan_1_sub">Pago único · alcance definido</small></p>
@@ -381,7 +392,7 @@
                     </ul>
                 </a>
 
-                <a href="#contacto" class="plan-card plan-card--featured">
+                <a href="#contacto" class="plan-card plan-card--featured" data-plan="web-corporativa">
                     <span class="plan-badge" data-i18n="plan_badge">RECOMENDADO</span>
                     <span class="plan-label" data-i18n="plan_2_label">SITIO</span>
                     <h3 data-i18n="plan_2_title">Web corporativa</h3>
@@ -395,7 +406,7 @@
                     </ul>
                 </a>
 
-                <a href="#contacto" class="plan-card">
+                <a href="#contacto" class="plan-card" data-plan="personalizado">
                     <span class="plan-label" data-i18n="plan_3_label">A MEDIDA</span>
                     <h3 data-i18n="plan_3_title">Proyecto personalizado</h3>
                     <p class="plan-price">A cotizar <small data-i18n="plan_3_sub">Según alcance y funcionalidades</small></p>
@@ -414,13 +425,21 @@
     <!-- FAQ -->
     <section class="faq section" id="faq">
         <div class="container">
-            <div class="section-head">
-                <div>
-                    <h2 class="section-title" data-i18n="faq_title">Preguntas frecuentes</h2>
+            <div class="faq-layout">
+                <div class="faq-aside" aria-hidden="true">
+                    <div class="faq-orbit faq-orbit-one"></div>
+                    <div class="faq-orbit faq-orbit-two"></div>
+                    <span class="faq-mark">?</span>
+                    <span class="faq-aside-caption">FAQ / TAGBACK</span>
                 </div>
-            </div>
-
-            <div class="faq-list">
+                <div class="faq-content">
+                    <div class="section-head">
+                        <div>
+                            <h2 class="section-title" data-i18n="faq_title">Preguntas frecuentes</h2>
+                            <p class="section-desc" data-i18n="faq_desc">Las dudas más comunes antes de empezar un proyecto.</p>
+                        </div>
+                    </div>
+                    <div class="faq-list">
                 <details class="faq-item">
                     <summary data-i18n="faq_1_q">¿Cómo se define el precio de un proyecto?</summary>
                     <p data-i18n="faq_1_a">El precio depende del tipo de sitio, la cantidad de secciones, las funcionalidades y el contenido. Los planes de landing y web corporativa tienen un valor de referencia desde USD 350 y USD 700. Los proyectos a medida se cotizan según su alcance.</p>
@@ -449,6 +468,8 @@
                     <summary data-i18n="faq_7_q">¿Cómo contrato un proyecto?</summary>
                     <p data-i18n="faq_7_a">Escribinos a hola@tagback.com con una descripción de tu proyecto. Revisaremos tus necesidades y prepararemos una propuesta.</p>
                 </details>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
@@ -582,6 +603,7 @@
     </div>
 </div>
 
-<script src="./js/script.js"></script>
+<script src="./js/script.js" defer></script>
+<script src="./js/script-enhancements.js" defer></script>
 </body>
 </html>
