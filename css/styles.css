@@ -1,5 +1,5 @@
 /* =========================================================
-   TAGBACK — STYLES v43 (final, sin duplicados)
+   TAGBACK — STYLES v44 (Optimizado y Unificado)
    Azul único: #8ba3c7
    ========================================================= */
 
@@ -706,17 +706,15 @@ h1, h2, h3, h4, h5, h6,
     flex-direction: column;
     gap: 0;
     position: relative;
-    /* Un pequeño padding abajo para que la última tarjeta no se corte */
     padding-bottom: 10px; 
 }
 
-/* La tarjeta. Le damos una altura mínima fija para que todas sean iguales */
 .why .accordion-item {
     position: relative;
     background: var(--bg-secondary);
     border: 1px solid var(--line-strong);
     border-radius: var(--radius);
-    margin-bottom: -40px; /* El efecto de superposición */
+    margin-bottom: -40px;
     transition: transform 0.4s var(--ease-out), margin-bottom 0.4s var(--ease-out), box-shadow 0.4s ease, border-color 0.4s ease;
     box-shadow: 0 -5px 20px rgba(0,0,0,0.3);
     transform-origin: center top;
@@ -724,7 +722,6 @@ h1, h2, h3, h4, h5, h6,
     z-index: 1;
 }
 
-/* Al hacer hover o abrirse, se separa */
 .why .accordion-item:hover,
 .why .accordion-item.is-open {
     transform: translateY(-10px) scale(1.01);
@@ -735,7 +732,6 @@ h1, h2, h3, h4, h5, h6,
 }
 .why .accordion-item:last-child { margin-bottom: 0; }
 
-/* Cabecera de la tarjeta */
 .why .accordion-header {
     min-height: 100px;
     display: flex;
@@ -759,19 +755,16 @@ h1, h2, h3, h4, h5, h6,
     flex-shrink: 0;
 }
 
-/* TÍTULO HORIZONTAL Y FORZADO */
 .why .accordion-title {
     font-size: clamp(1.1rem, 1.4vw, 1.3rem);
     margin: 0;
     flex: 1;
-    /* Forzamos a que siempre sea horizontal */
     writing-mode: horizontal-tb !important;
     text-orientation: initial !important;
     transform: none !important;
     white-space: normal;
 }
 
-/* Icono de + / - */
 .why .accordion-icon {
     width: 24px; height: 24px;
     position: relative;
@@ -790,7 +783,6 @@ h1, h2, h3, h4, h5, h6,
 .why .accordion-icon::after  { width: 1.5px; height: 18px; }
 .why .is-open .accordion-icon::after { transform: translate(-50%, -50%) rotate(90deg); }
 
-/* Panel del contenido */
 .why .accordion-panel {
     position: relative;
     height: auto;
@@ -810,25 +802,12 @@ h1, h2, h3, h4, h5, h6,
     overflow: hidden;
 }
 .why .accordion-panel-content {
-    padding: 0 0 0 54px; /* Alineado con el título */
+    padding: 0 0 0 54px;
     font-size: 0.95rem;
     border-left: none;
     margin-top: 10px;
     color: var(--text-secondary);
     line-height: 1.7;
-}
-
-/* Responsive */
-@media (max-width: 1100px) {
-    .why-inner { grid-template-columns: 1fr; gap: 40px; }
-    .why-intro { position: static; order: 1; text-align: left; margin-bottom: 20px; }
-    .why .accordion-stack { order: 2; }
-}
-@media (max-width: 768px) {
-    .why .accordion-item { margin-bottom: 12px; } /* En móvil quitamos la superposición para que no se pisen */
-    .why .accordion-item:hover, .why .accordion-item.is-open { transform: none; }
-    .why .accordion-header { padding: 20px; }
-    .why .accordion-panel-content { padding-left: 20px; }
 }
 
 /* =========================================================
@@ -1623,14 +1602,14 @@ a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visib
 }
 
 /* =========================================================
-   RESPONSIVE
+   RESPONSIVE UNIFICADO Y CORREGIDO
    ========================================================= */
 @media (max-width: 1100px) {
     :root { --section-padding: 80px; }
     .services-inner { grid-template-columns: 1fr; gap: 40px; }
     .services-intro { position: static; }
     .why-inner { grid-template-columns: 1fr; gap: 40px; }
-    .why-intro { position: static; order: 1; text-align: left; }
+    .why-intro { position: static; order: 1; text-align: left; margin-bottom: 20px; }
     .why .accordion-stack { order: 2; }
     .work-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
     .plans-grid { grid-template-columns: 1fr; }
@@ -1720,6 +1699,7 @@ a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visib
     .section-title { font-size: 1.9rem; }
     .section-desc { font-size: 0.9rem; }
 
+    /* Servicios en móvil */
     .accordion-horizontal { flex-direction: column; min-height: auto; gap: 8px; }
     .service-card, .accordion-item { flex: none !important; width: 100%; flex-direction: column; }
     .service-card-header, .accordion-header {
@@ -1768,8 +1748,16 @@ a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visib
     .service-card.is-open .service-card-panel p,
     .accordion-item.is-open .accordion-panel-content { opacity: 1; }
 
-    .why .accordion-item { margin-bottom: 12px; }
-    .why .accordion-item:hover, .why .accordion-item.is-open { transform: none; box-shadow: 0 4px 12px rgba(0,0,0,0.2); }
+    /* Beneficios en móvil: Quitamos la superposición y el hover táctil */
+    .why .accordion-item { 
+        margin-bottom: 12px !important; 
+        transform: none !important;
+    }
+    .why .accordion-item:hover, 
+    .why .accordion-item.is-open { 
+        transform: none !important; 
+        box-shadow: 0 4px 12px rgba(0,0,0,0.2); 
+    }
     .why .accordion-header { padding: 20px; }
     .why .accordion-panel-content { padding-left: 20px; }
 
