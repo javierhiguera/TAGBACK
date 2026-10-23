@@ -1,5 +1,5 @@
 /* =========================================================
-   TAGBACK — STYLES v44 (Optimizado y Unificado)
+   TAGBACK — STYLES v45 (Hero dinámico, Acordeón fluido, Iconos)
    Azul único: #8ba3c7
    ========================================================= */
 
@@ -118,7 +118,7 @@ button { cursor: pointer; }
 }
 
 /* =========================================================
-   HERO + ONDAS
+   HERO + ONDAS DINÁMICAS
    ========================================================= */
 .hero {
     position: relative;
@@ -142,38 +142,33 @@ button { cursor: pointer; }
         transparent 75%
     );
     pointer-events: none;
+    mix-blend-mode: screen;
 }
 .hero-waves-svg {
     position: absolute; inset: 0;
     width: 100%; height: 100%;
-    opacity: 0.35;
-    filter: drop-shadow(0 0 9px rgba(139, 163, 199, 0.18));
-}
-.waves-group {
-    fill: none;
-    stroke: var(--blue);
-    stroke-width: 1.1;
-    transform-origin: center center;
+    opacity: 0.7;
+    filter: drop-shadow(0 0 12px rgba(139, 163, 199, 0.25));
 }
 .waves-group path {
-    transform-box: fill-box;
-    transform-origin: center;
-    animation: organic-path-drift 10s ease-in-out infinite alternate;
+    fill: none;
+    stroke: var(--blue);
+    stroke-linecap: round;
+    transform-origin: center center;
+    animation: wave-breathe 6s ease-in-out infinite alternate, wave-drift 12s ease-in-out infinite alternate;
 }
-.waves-group path:nth-child(2n) {
-    animation-name: organic-path-drift-reverse;
-    animation-duration: 13s;
-}
-.waves-group path:nth-child(3n) { opacity: 0.42; animation-delay: -3s; }
-.waves-group path:nth-child(4n) { opacity: 0.7; }
+/* Mezcla de grosores (líneas finas y gruesas) */
+.waves-group path:nth-child(3n+1) { stroke-width: 0.6; opacity: 0.4; animation-duration: 7s, 14s; }
+.waves-group path:nth-child(3n+2) { stroke-width: 1.8; opacity: 0.9; animation-duration: 5s, 10s; animation-delay: -2s; }
+.waves-group path:nth-child(3n)   { stroke-width: 1.2; opacity: 0.6; animation-duration: 8s, 16s; animation-delay: -4s; }
 
-@keyframes organic-path-drift {
-    0%   { transform: translate(0, 0) scaleX(1); }
-    100% { transform: translate(5px, 2px) scaleX(1.018); }
+@keyframes wave-breathe {
+    0%   { transform: scaleY(0.98) scaleX(1.02); opacity: 0.5; }
+    100% { transform: scaleY(1.05) scaleX(0.98); opacity: 1; }
 }
-@keyframes organic-path-drift-reverse {
-    0%   { transform: translate(0, 0) scaleY(1); }
-    100% { transform: translate(-4px, -3px) scaleY(1.02); }
+@keyframes wave-drift {
+    0%   { transform: translate(0, 0); }
+    100% { transform: translate(10px, -15px); }
 }
 
 .site-header, main, .site-footer { position: relative; z-index: 2; }
@@ -263,7 +258,7 @@ h1, h2, h3, h4, h5, h6,
 }
 
 /* =========================================================
-   HEADER
+   HEADER Y MENÚS (Alineados y estilizados)
    ========================================================= */
 .site-header {
     position: fixed;
@@ -322,20 +317,24 @@ h1, h2, h3, h4, h5, h6,
 .main-nav > a:hover::after { transform: scaleX(1); transform-origin: left center; }
 .main-nav a:focus-visible { outline: 2px solid var(--blue); outline-offset: 4px; border-radius: 2px; }
 
+/* Selector de idioma casi invisible */
 .lang-switcher {
     display: flex;
     align-items: center;
-    gap: 2px;
+    gap: 4px;
     padding: 4px;
-    border: 1px solid var(--line);
+    border: 1px solid var(--line-strong);
     border-radius: 4px;
-    background: rgba(255, 255, 255, 0.03);
-    margin-left: 12px;
-    opacity: 0.42;
-    transition: opacity 0.2s ease;
+    background: rgba(255, 255, 255, 0.02);
+    margin-left: 16px;
+    opacity: 0.15; /* Casi invisible */
+    transition: opacity 0.3s ease, background 0.3s ease;
 }
 .lang-switcher:hover,
-.lang-switcher:focus-within { opacity: 0.88; }
+.lang-switcher:focus-within {
+    opacity: 1;
+    background: rgba(255, 255, 255, 0.06);
+}
 .lang-btn {
     background: transparent;
     border: 0;
@@ -343,11 +342,11 @@ h1, h2, h3, h4, h5, h6,
     font-family: var(--body);
     font-size: 0.68rem;
     letter-spacing: 0.08em;
-    padding: 5px 6px;
+    padding: 5px 8px;
     border-radius: 2px;
-    transition: color 200ms var(--ease-soft);
+    transition: color 200ms var(--ease-soft), background 200ms var(--ease-soft);
 }
-.lang-btn.active { color: #fff; background: transparent; }
+.lang-btn.active { color: var(--bg-main); background: var(--text-primary); font-weight: 600; }
 .lang-btn:hover:not(.active) { color: var(--text-primary); }
 
 .menu-toggle {
@@ -518,7 +517,7 @@ h1, h2, h3, h4, h5, h6,
 .button:disabled, .button[disabled] { opacity: 0.55; cursor: not-allowed; pointer-events: none; }
 
 /* =========================================================
-   SERVICIOS (Acordeón Fluido)
+   SERVICIOS (Acordeón Fluido Corregido)
    ========================================================= */
 .services-inner {
     display: grid;
@@ -588,11 +587,12 @@ h1, h2, h3, h4, h5, h6,
     margin: 0;
     color: var(--text-primary);
     line-height: 1.2;
-    transition: transform 480ms var(--ease-out), color 300ms ease;
+    transition: transform 480ms var(--ease-out), color 300ms ease, opacity 300ms ease;
 }
 .service-card-title { font-size: 1.35rem; letter-spacing: -0.02em; }
 .accordion-title { font-size: 1.15rem; }
 
+/* Efecto de texto vertical sin recortes al abrir */
 .service-card:not(.is-open) .service-card-title,
 .accordion-item:not(.is-open) .accordion-title {
     writing-mode: vertical-rl;
@@ -601,55 +601,20 @@ h1, h2, h3, h4, h5, h6,
     margin-top: auto;
     margin-bottom: 20px;
     white-space: nowrap;
+    opacity: 0.7;
 }
 .service-card.is-open .service-card-title,
 .accordion-item.is-open .accordion-title {
     writing-mode: horizontal-tb;
     text-orientation: initial;
-    transform: translateY(-5px);
+    transform: translateY(0);
     margin-top: 0;
     margin-bottom: 0;
     color: #fff;
+    opacity: 1;
 }
 
-.service-card-icon, .accordion-icon {
-    width: 22px; height: 22px; flex-shrink: 0;
-    color: var(--blue);
-    position: relative;
-    transition: transform 300ms var(--ease-soft), background 300ms var(--ease-soft);
-    margin-top: auto;
-}
-.accordion-icon { width: 20px; height: 20px; }
-
-.service-card-icon::before, .service-card-icon::after,
-.accordion-icon::before, .accordion-icon::after {
-    content: "";
-    position: absolute;
-    top: 50%; left: 50%;
-    background: currentColor;
-    transition: transform 300ms var(--ease-soft), opacity 250ms var(--ease-soft);
-}
-.service-card-icon::before { width: 16px; height: 1.5px; transform: translate(-50%, -50%); }
-.service-card-icon::after  { width: 1.5px; height: 16px; transform: translate(-50%, -50%); }
-.accordion-icon::before    { width: 14px; height: 1.5px; transform: translate(-50%, -50%); }
-.accordion-icon::after     { width: 1.5px; height: 14px; transform: translate(-50%, -50%); }
-
-.service-card.is-open .service-card-icon {
-    transform: rotate(45deg);
-    background-color: var(--blue);
-    border-radius: 4px;
-    color: var(--bg-main);
-}
-.service-card.is-open .service-card-icon::after {
-    opacity: 0;
-    transform: translate(-50%, -50%) rotate(90deg);
-}
-.accordion-item.is-open .accordion-icon { transform: rotate(180deg); }
-.accordion-item.is-open .accordion-icon::after {
-    opacity: 0;
-    transform: translate(-50%, -50%) rotate(90deg);
-}
-
+/* El panel interno maneja la opacidad y visibilidad para evitar saltos */
 .service-card-panel, .accordion-panel {
     position: absolute;
     bottom: 0; left: 0;
@@ -658,8 +623,8 @@ h1, h2, h3, h4, h5, h6,
     background: var(--bg-alt);
     opacity: 0;
     visibility: hidden;
-    transform: translateY(10px);
-    transition: opacity 400ms var(--ease-soft) 100ms, transform 400ms var(--ease-soft) 100ms, visibility 0ms linear 500ms;
+    transform: translateY(15px);
+    transition: opacity 400ms var(--ease-soft) 0ms, transform 400ms var(--ease-soft) 0ms, visibility 0ms linear 400ms;
     pointer-events: none;
     z-index: 2;
     height: 100%;
@@ -673,7 +638,7 @@ h1, h2, h3, h4, h5, h6,
     visibility: visible;
     transform: translateY(0);
     pointer-events: auto;
-    transition: opacity 400ms var(--ease-soft) 150ms, transform 400ms var(--ease-soft) 150ms, visibility 0ms linear 0ms;
+    transition: opacity 400ms var(--ease-soft) 200ms, transform 400ms var(--ease-soft) 200ms, visibility 0ms linear 0ms;
 }
 .service-card-panel-inner, .accordion-panel-inner { width: 100%; }
 .service-card-panel p, .accordion-panel-content {
@@ -687,7 +652,7 @@ h1, h2, h3, h4, h5, h6,
 .accordion-panel-content { padding: 0 0 0 20px; font-size: 0.9rem; }
 
 /* =========================================================
-   WHY / BENEFICIOS (Tarjetas apiladas, horizontales y uniformes)
+   WHY / BENEFICIOS (Tarjetas apiladas + Iconos SVG)
    ========================================================= */
 .why { border-top: 1px solid var(--line); overflow: hidden; }
 .why-inner {
@@ -744,15 +709,26 @@ h1, h2, h3, h4, h5, h6,
     border: 0;
     text-align: left;
 }
-.why .accordion-num {
+/* Iconos SVG en lugar de números */
+.why .accordion-icon-wrap {
     display: grid;
     place-items: center;
-    width: 34px; height: 34px;
-    border: 1px solid var(--line-strong);
+    width: 42px; height: 42px;
+    border: 1px solid rgba(139, 163, 199, 0.4);
+    border-radius: 50%;
     color: var(--blue);
-    font-size: 0.75rem;
-    border-radius: 4px;
     flex-shrink: 0;
+    background: radial-gradient(circle, rgba(139, 163, 199, 0.1), transparent 70%);
+    transition: transform 0.4s var(--ease-out), border-color 0.4s ease, background 0.4s ease;
+}
+.why .accordion-icon-wrap svg {
+    width: 20px;
+    height: 20px;
+}
+.why .accordion-item.is-open .accordion-icon-wrap {
+    border-color: var(--blue);
+    background: radial-gradient(circle, rgba(139, 163, 199, 0.3), transparent 70%);
+    transform: scale(1.05);
 }
 
 .why .accordion-title {
@@ -765,13 +741,13 @@ h1, h2, h3, h4, h5, h6,
     white-space: normal;
 }
 
-.why .accordion-icon {
+.why .accordion-icon-plus {
     width: 24px; height: 24px;
     position: relative;
     flex-shrink: 0;
 }
-.why .accordion-icon::before,
-.why .accordion-icon::after {
+.why .accordion-icon-plus::before,
+.why .accordion-icon-plus::after {
     content: "";
     position: absolute;
     background: var(--blue);
@@ -779,9 +755,9 @@ h1, h2, h3, h4, h5, h6,
     transform: translate(-50%, -50%);
     transition: transform 0.3s ease;
 }
-.why .accordion-icon::before { width: 18px; height: 1.5px; }
-.why .accordion-icon::after  { width: 1.5px; height: 18px; }
-.why .is-open .accordion-icon::after { transform: translate(-50%, -50%) rotate(90deg); }
+.why .accordion-icon-plus::before { width: 18px; height: 1.5px; }
+.why .accordion-icon-plus::after  { width: 1.5px; height: 18px; }
+.why .is-open .accordion-icon-plus::after { transform: translate(-50%, -50%) rotate(90deg); }
 
 .why .accordion-panel {
     position: relative;
@@ -802,7 +778,7 @@ h1, h2, h3, h4, h5, h6,
     overflow: hidden;
 }
 .why .accordion-panel-content {
-    padding: 0 0 0 54px;
+    padding: 0 0 0 62px; /* Ajustado para alinear con el icono */
     font-size: 0.95rem;
     border-left: none;
     margin-top: 10px;
@@ -1131,7 +1107,7 @@ h1, h2, h3, h4, h5, h6,
 }
 
 /* =========================================================
-   FAQ (SIN EL ASIDE DECORATIVO)
+   FAQ
    ========================================================= */
 .faq { border-top: 1px solid var(--line); }
 .faq-content .section-head { margin-bottom: 28px; }
@@ -1312,7 +1288,7 @@ h1, h2, h3, h4, h5, h6,
 .pill input[type="radio"]:focus-visible + span { outline: 2px solid var(--blue); outline-offset: 3px; }
 
 /* =========================================================
-   FOOTER (3 Columnas a la derecha)
+   FOOTER
    ========================================================= */
 .site-footer {
     padding-top: 70px;
@@ -1602,7 +1578,7 @@ a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visib
 }
 
 /* =========================================================
-   RESPONSIVE UNIFICADO Y CORREGIDO
+   RESPONSIVE UNIFICADO
    ========================================================= */
 @media (max-width: 1100px) {
     :root { --section-padding: 80px; }
@@ -1722,6 +1698,8 @@ a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visib
     .service-card.is-open .service-card-title,
     .accordion-item.is-open .accordion-title { flex: 1; transform: none; }
     .service-card-icon, .accordion-icon { margin-top: 0; margin-left: auto; }
+    .service-card-icon::before, .service-card-icon::after { width: 12px; height: 1.5px; }
+    .service-card-icon::after { width: 1.5px; height: 12px; }
 
     .service-card-panel, .accordion-panel {
         position: relative;
@@ -1748,7 +1726,7 @@ a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visib
     .service-card.is-open .service-card-panel p,
     .accordion-item.is-open .accordion-panel-content { opacity: 1; }
 
-    /* Beneficios en móvil: Quitamos la superposición y el hover táctil */
+    /* Beneficios en móvil */
     .why .accordion-item { 
         margin-bottom: 12px !important; 
         transform: none !important;
