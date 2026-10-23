@@ -73,7 +73,7 @@
     <section class="hero">
         <div class="hero-waves-bg" aria-hidden="true">
             <div class="hero-waves-glow"></div>
-            <!-- SVG Modificado para efecto Túnel Dinámico con Gradiente -->
+            <!-- SVG con efecto de onda dinámico, combinando líneas gruesas y finas -->
             <svg class="hero-waves-svg" viewBox="0 0 1440 900" preserveAspectRatio="none">
                 <defs>
                     <linearGradient id="gradient-wave" x1="0%" y1="0%" x2="100%" y2="100%">
@@ -83,25 +83,25 @@
                     </linearGradient>
                 </defs>
                 <g class="waves-group">
-                    <!-- Generamos un patrón de anillos concéntricos curvados para el efecto túnel -->
-                    <path d="M 400,900 C 200,600 200,300 400,0" />
-                    <path d="M 440,900 C 240,600 240,300 440,0" />
-                    <path d="M 480,900 C 280,600 280,300 480,0" />
-                    <path d="M 520,900 C 320,600 320,300 520,0" />
-                    <path d="M 560,900 C 360,600 360,300 560,0" />
-                    <path d="M 600,900 C 400,600 400,300 600,0" />
-                    <path d="M 640,900 C 440,600 440,300 640,0" />
-                    <path d="M 680,900 C 480,600 480,300 680,0" />
-                    <path d="M 720,900 C 520,600 520,300 720,0" />
-                    <path d="M 760,900 C 560,600 560,300 760,0" />
-                    <path d="M 800,900 C 600,600 600,300 800,0" />
-                    <path d="M 840,900 C 640,600 640,300 840,0" />
-                    <path d="M 880,900 C 680,600 680,300 880,0" />
-                    <path d="M 920,900 C 720,600 720,300 920,0" />
-                    <path d="M 960,900 C 760,600 760,300 960,0" />
-                    <path d="M 1000,900 C 800,600 800,300 1000,0" />
-                    <path d="M 1040,900 C 840,600 840,300 1040,0" />
-                    <path d="M 1080,900 C 880,600 880,300 1080,0" />
+                    <!-- Primera capa: líneas gruesas -->
+                    <path d="M 300,900 C 150,650 150,350 300,0" />
+                    <path d="M 420,900 C 270,650 270,350 420,0" />
+                    <path d="M 540,900 C 390,650 390,350 540,0" />
+                    <path d="M 660,900 C 510,650 510,350 660,0" />
+                    <path d="M 780,900 C 630,650 630,350 780,0" />
+                    <path d="M 900,900 C 750,650 750,350 900,0" />
+                    <path d="M 1020,900 C 870,650 870,350 1020,0" />
+                    <path d="M 1140,900 C 990,650 990,350 1140,0" />
+                    
+                    <!-- Segunda capa: líneas finas intercaladas -->
+                    <path d="M 360,900 C 210,650 210,350 360,0" />
+                    <path d="M 480,900 C 330,650 330,350 480,0" />
+                    <path d="M 600,900 C 450,650 450,350 600,0" />
+                    <path d="M 720,900 C 570,650 570,350 720,0" />
+                    <path d="M 840,900 C 690,650 690,350 840,0" />
+                    <path d="M 960,900 C 810,650 810,350 960,0" />
+                    <path d="M 1080,900 C 930,650 930,350 1080,0" />
+                    <path d="M 1200,900 C 1050,650 1050,350 1200,0" />
                 </g>
             </svg>
         </div>
@@ -186,13 +186,16 @@
                 <p class="section-desc" data-i18n="why_desc">Cada decisión está pensada para que tu sitio funcione: comunique, convierta y crezca con tu negocio.</p>
             </div>
 
-            <!-- Tarjetas apiladas -->
+            <!-- Tarjetas apiladas con iconos SVG -->
             <div class="accordion-stack">
                 <div class="accordion-item">
                     <button type="button" class="accordion-header" aria-expanded="false">
-                        <span class="accordion-num">01</span>
+                        <span class="accordion-icon-wrap" aria-hidden="true">
+                            <!-- Icono Diseño (Lápiz) -->
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20h9"></path><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"></path></svg>
+                        </span>
                         <h3 class="accordion-title">Diseño</h3>
-                        <span class="accordion-icon" aria-hidden="true"></span>
+                        <span class="accordion-icon-plus" aria-hidden="true"></span>
                     </button>
                     <div class="accordion-panel">
                         <div class="accordion-panel-inner">
@@ -204,9 +207,12 @@
                 </div>
                 <div class="accordion-item">
                     <button type="button" class="accordion-header" aria-expanded="false">
-                        <span class="accordion-num">02</span>
+                        <span class="accordion-icon-wrap" aria-hidden="true">
+                            <!-- Icono Responsive (Monitor/Móvil) -->
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"></rect><line x1="8" y1="21" x2="16" y2="21"></line><line x1="12" y1="17" x2="12" y2="21"></line></svg>
+                        </span>
                         <h3 class="accordion-title">Responsive</h3>
-                        <span class="accordion-icon" aria-hidden="true"></span>
+                        <span class="accordion-icon-plus" aria-hidden="true"></span>
                     </button>
                     <div class="accordion-panel">
                         <div class="accordion-panel-inner">
@@ -218,9 +224,12 @@
                 </div>
                 <div class="accordion-item">
                     <button type="button" class="accordion-header" aria-expanded="false">
-                        <span class="accordion-num">03</span>
+                        <span class="accordion-icon-wrap" aria-hidden="true">
+                            <!-- Icono Rendimiento (Rayo) -->
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon></svg>
+                        </span>
                         <h3 class="accordion-title">Rendimiento</h3>
-                        <span class="accordion-icon" aria-hidden="true"></span>
+                        <span class="accordion-icon-plus" aria-hidden="true"></span>
                     </button>
                     <div class="accordion-panel">
                         <div class="accordion-panel-inner">
@@ -232,9 +241,12 @@
                 </div>
                 <div class="accordion-item">
                     <button type="button" class="accordion-header" aria-expanded="false">
-                        <span class="accordion-num">04</span>
+                        <span class="accordion-icon-wrap" aria-hidden="true">
+                            <!-- Icono Experiencia de Usuario (Usuario) -->
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg>
+                        </span>
                         <h3 class="accordion-title">Experiencia de usuario</h3>
-                        <span class="accordion-icon" aria-hidden="true"></span>
+                        <span class="accordion-icon-plus" aria-hidden="true"></span>
                     </button>
                     <div class="accordion-panel">
                         <div class="accordion-panel-inner">
@@ -246,9 +258,12 @@
                 </div>
                 <div class="accordion-item">
                     <button type="button" class="accordion-header" aria-expanded="false">
-                        <span class="accordion-num">05</span>
+                        <span class="accordion-icon-wrap" aria-hidden="true">
+                            <!-- Icono Escalabilidad (Gráfico) -->
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="20" x2="12" y2="10"></line><line x1="18" y1="20" x2="18" y2="4"></line><line x1="6" y1="20" x2="6" y2="16"></line></svg>
+                        </span>
                         <h3 class="accordion-title">Escalabilidad</h3>
-                        <span class="accordion-icon" aria-hidden="true"></span>
+                        <span class="accordion-icon-plus" aria-hidden="true"></span>
                     </button>
                     <div class="accordion-panel">
                         <div class="accordion-panel-inner">
