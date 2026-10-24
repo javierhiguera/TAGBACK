@@ -1,5 +1,5 @@
 /* =========================================================
-   TAGBACK — STYLES v45 (Hero dinámico, Acordeón fluido, Iconos)
+   TAGBACK — STYLES v46 (Iconos geométricos, Hero dinámico)
    Azul único: #8ba3c7
    ========================================================= */
 
@@ -26,7 +26,7 @@
 }
 
 /* =========================================================
-   VARIABLES (UNA SOLA VEZ)
+   VARIABLES
    ========================================================= */
 :root {
     /* AZUL ÚNICO */
@@ -157,7 +157,6 @@ button { cursor: pointer; }
     transform-origin: center center;
     animation: wave-breathe 6s ease-in-out infinite alternate, wave-drift 12s ease-in-out infinite alternate;
 }
-/* Mezcla de grosores (líneas finas y gruesas) */
 .waves-group path:nth-child(3n+1) { stroke-width: 0.6; opacity: 0.4; animation-duration: 7s, 14s; }
 .waves-group path:nth-child(3n+2) { stroke-width: 1.8; opacity: 0.9; animation-duration: 5s, 10s; animation-delay: -2s; }
 .waves-group path:nth-child(3n)   { stroke-width: 1.2; opacity: 0.6; animation-duration: 8s, 16s; animation-delay: -4s; }
@@ -327,7 +326,7 @@ h1, h2, h3, h4, h5, h6,
     border-radius: 4px;
     background: rgba(255, 255, 255, 0.02);
     margin-left: 16px;
-    opacity: 0.15; /* Casi invisible */
+    opacity: 0.15;
     transition: opacity 0.3s ease, background 0.3s ease;
 }
 .lang-switcher:hover,
@@ -652,7 +651,7 @@ h1, h2, h3, h4, h5, h6,
 .accordion-panel-content { padding: 0 0 0 20px; font-size: 0.9rem; }
 
 /* =========================================================
-   WHY / BENEFICIOS (Tarjetas apiladas + Iconos SVG)
+   WHY / BENEFICIOS (Tarjetas apiladas + Iconos Geométricos)
    ========================================================= */
 .why { border-top: 1px solid var(--line); overflow: hidden; }
 .why-inner {
@@ -709,27 +708,54 @@ h1, h2, h3, h4, h5, h6,
     border: 0;
     text-align: left;
 }
-/* Iconos SVG en lugar de números */
-.why .accordion-icon-wrap {
-    display: grid;
-    place-items: center;
-    width: 42px; height: 42px;
-    border: 1px solid rgba(139, 163, 199, 0.4);
-    border-radius: 50%;
-    color: var(--blue);
+
+/* NUEVOS ICONOS GEOMÉTRICOS (Estilo Proceso) */
+.why .geo-icon {
+    display: block;
+    width: 42px; 
+    height: 42px;
     flex-shrink: 0;
-    background: radial-gradient(circle, rgba(139, 163, 199, 0.1), transparent 70%);
-    transition: transform 0.4s var(--ease-out), border-color 0.4s ease, background 0.4s ease;
+    border: 1px solid rgba(139, 163, 199, 0.5);
+    background: radial-gradient(circle, rgba(139, 163, 199, 0.2), transparent 68%);
+    position: relative;
+    transition: transform 0.4s var(--ease-out), border-color 0.4s ease, box-shadow 0.4s ease, background 0.4s ease;
 }
-.why .accordion-icon-wrap svg {
-    width: 20px;
-    height: 20px;
+/* Variaciones de forma */
+.why .geo-icon--circle { border-radius: 50%; }
+.why .geo-icon--diamond { transform: rotate(45deg); }
+.why .geo-icon--drop { border-radius: 50% 50% 4px 50%; }
+.why .geo-icon--ring { border-radius: 50%; box-shadow: inset 0 0 0 6px rgba(139, 163, 199, 0.1); }
+
+/* Puntos / Formas centrales */
+.why .geo-icon::before,
+.why .geo-icon::after {
+    content: "";
+    position: absolute;
+    top: 50%; left: 50%;
+    transform: translate(-50%, -50%);
+    background: var(--blue);
+    border-radius: 50%;
+    transition: transform 0.4s var(--ease-out), opacity 0.4s ease;
 }
-.why .accordion-item.is-open .accordion-icon-wrap {
+/* Icono 1: Círculo con punto */
+.why .geo-icon--circle::before { width: 4px; height: 4px; }
+/* Icono 2: Diamante con cuadrado interno (se des-rotar para que quede recto) */
+.why .geo-icon--diamond::before { width: 8px; height: 8px; border-radius: 1px; transform: translate(-50%, -50%) rotate(-45deg); }
+/* Icono 3: Gota con línea */
+.why .geo-icon--drop::before { width: 12px; height: 1.5px; border-radius: 0; }
+/* Icono 4: Anillo grueso con punto */
+.why .geo-icon--ring::before { width: 6px; height: 6px; opacity: 0; transform: translate(-50%, -50%) scale(0); }
+.why .geo-icon--ring::after { width: 20px; height: 20px; border: 1px solid var(--blue); background: transparent; border-radius: 50%; }
+
+/* Hover / Abierto */
+.why .accordion-item.is-open .geo-icon {
     border-color: var(--blue);
-    background: radial-gradient(circle, rgba(139, 163, 199, 0.3), transparent 70%);
-    transform: scale(1.05);
+    background: radial-gradient(circle, rgba(139, 163, 199, 0.4), transparent 70%);
+    box-shadow: 0 0 24px 4px rgba(139, 163, 199, 0.2);
 }
+.why .accordion-item.is-open .geo-icon--diamond { transform: rotate(135deg); }
+.why .accordion-item.is-open .geo-icon--drop { border-radius: 4px 50% 50% 50%; }
+.why .accordion-item.is-open .geo-icon--ring::before { opacity: 1; transform: translate(-50%, -50%) scale(1); }
 
 .why .accordion-title {
     font-size: clamp(1.1rem, 1.4vw, 1.3rem);
@@ -778,7 +804,7 @@ h1, h2, h3, h4, h5, h6,
     overflow: hidden;
 }
 .why .accordion-panel-content {
-    padding: 0 0 0 62px; /* Ajustado para alinear con el icono */
+    padding: 0 0 0 62px;
     font-size: 0.95rem;
     border-left: none;
     margin-top: 10px;
@@ -891,7 +917,7 @@ h1, h2, h3, h4, h5, h6,
 .work-card-link:hover { color: var(--blue-bright); }
 
 /* =========================================================
-   PROCESO
+   PROCESO (Se mantienen los iconos originales para esta sección)
    ========================================================= */
 .process { border-top: 1px solid var(--line); }
 .process-list {
@@ -1736,7 +1762,7 @@ a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visib
         transform: none !important; 
         box-shadow: 0 4px 12px rgba(0,0,0,0.2); 
     }
-    .why .accordion-header { padding: 20px; }
+    .why .accordion-header { padding: 20px; gap: 14px; }
     .why .accordion-panel-content { padding-left: 20px; }
 
     .work { padding-top: 80px; padding-bottom: 80px; }
