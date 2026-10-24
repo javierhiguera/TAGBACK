@@ -1,7 +1,6 @@
-
 /* =========================================================
-   TAGBACK — JAVASCRIPT v40
-   Traducciones + navegación + formulario + interacciones
+   TAGBACK — JAVASCRIPT v41
+   Traducciones + Navegación + Formulario + WebGL (Neural Noise)
    ========================================================= */
 
 const translations = {
@@ -428,11 +427,186 @@ document.addEventListener("DOMContentLoaded", () => {
     const $ = (selector, root = document) => root.querySelector(selector);
     const $$ = (selector, root = document) => Array.from(root.querySelectorAll(selector));
 
-    const reducedMotion = window.matchMedia(
-        "(prefers-reduced-motion: reduce)"
-    ).matches;
-
+    const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
     const finePointer = window.matchMedia("(pointer: fine)").matches;
+
+    /* =====================================================
+       NEURAL NOISE (WebGL Hero Background)
+       ===================================================== */
+    const canvas = document.getElementById('neural-canvas');
+    if (canvas) {
+        let gl;
+        let uniforms;
+        let animationFrameId;
+        const pointer = { x: 0, y: 0, tX: 0, tY: 0 };
+        
+        // Azul Tagback (#8ba3c7) normalizado a 0-1
+        const color = [139 / 255, 163 / 255, 199 / 255]; 
+        const speed = 0.001;
+
+        const initShader = () => {
+            const vsSource = `
+                precision mediump float;
+                varying vec2 vUv;
+                attribute vec2 a_position;
+                void main() {
+                    vUv = 0.5 * (a_position + 1.0);
+                    gl_Position = vec4(a_position, 0.0, 1.0);
+                }
+            `;
+            const fsSource = `
+                precision mediump float;
+                varying vec2 vUv;
+                uniform float u_time;
+                uniform float u_ratio;
+                uniform vec2 u_pointer_position;
+                uniform vec3 u_color;
+                uniform float u_speed;
+                vec2 rotate(vec2 uv, float th) {
+                    return mat2(cos(th), sin(th), -sin(th), cos(th)) * uv;
+                }
+                float neuro_shape(vec2 uv, float t, float p) {
+                    vec2 sine_acc = vec2(0.0);
+                    vec2 res = vec2(0.0);
+                    float scale = 8.0;
+                    for (int j = 0; j < 15; j++) {
+                        uv = rotate(uv, 1.0);
+                        sine_acc = rotate(sine_acc, 1.0);
+                        vec2 layer = uv * scale + float(j) + sine_acc - t;
+                        sine_acc += sin(layer) + 2.4 * p;
+                        res += (0.5 + 0.5 * cos(layer)) / scale;
+                        scale *= 1.2;
+                    }
+                    return res.x + res.y;
+                }
+                void main() {
+                    vec2 uv = 0.5 * vUv;
+                    uv.x *= u_ratio;
+                    vec2 pointer = vUv - u_pointer_position;
+                    pointer.x *= u_ratio;
+                    float p = clamp(length(pointer), 0.0, 1.0);
+                    p = 0.5 * pow(1.0 - p, 2.0);
+                    float t = u_speed * u_time;
+                    vec3 col = vec3(0.0);
+                    float noise = neuro_shape(uv, t, p);
+                    noise = 1.2 * pow(noise, 3.0);
+                    noise += pow(noise, 10.0);
+                    noise = max(0.0, noise - 0.5);
+                    noise *= (1.0 - length(vUv - 0.5));
+                    col = u_color * noise;
+                    gl_FragColor = vec4(col, noise);
+                }
+            `;
+            
+            gl = canvas.getContext('webgl', { alpha: true, antialias: true }) || canvas.getContext('experimental-webgl', { alpha: true, antialias: true });
+            if (!gl) return null;
+
+            const createShader = (source, type) => {
+                const shader = gl.createShader(type);
+                gl.shaderSource(shader, source);
+                gl.compileShader(shader);
+                if (!gl.getShaderParameter(shader, gl.COMPILE_STATUS)) {
+                    console.error('Shader error:', gl.getShaderInfoLog(shader));
+                    return null;
+                }
+                return shader;
+            };
+
+            const createProgram = (vs, fs) => {
+                const program = gl.createProgram();
+                gl.attachShader(program, vs);
+                gl.attachShader(program, fs);
+                gl.linkProgram(program);
+                if (!gl.getProgramParameter(program, gl.LINK_STATUS)) {
+                    console.error('Program error:', gl.getProgramInfoLog(program));
+                    return null;
+                }
+                return program;
+            };
+
+            const vertexShader = createShader(vsSource, gl.VERTEX_SHADER);
+            const fragmentShader = createShader(fsSource, gl.FRAGMENT_SHADER);
+            const shaderProgram = createProgram(vertexShader, fragmentShader);
+            if (!shaderProgram) return null;
+
+            uniforms = {};
+            const uniformCount = gl.getProgramParameter(shaderProgram, gl.ACTIVE_UNIFORMS);
+            for (let i = 0; i < uniformCount; i++) {
+                const uniformName = gl.getActiveUniform(shaderProgram, i).name;
+                uniforms[uniformName] = gl.getUniformLocation(shaderProgram, uniformName);
+            }
+
+            const vertices = new Float32Array([-1, -1, 1, -1, -1, 1, 1, 1]);
+            const vertexBuffer = gl.createBuffer();
+            gl.bindBuffer(gl.ARRAY_BUFFER, vertexBuffer);
+            gl.bufferData(gl.ARRAY_BUFFER, vertices, gl.STATIC_DRAW);
+            gl.useProgram(shaderProgram);
+            
+            const positionLocation = gl.getAttribLocation(shaderProgram, 'a_position');
+            gl.enableVertexAttribArray(positionLocation);
+            gl.vertexAttribPointer(positionLocation, 2, gl.FLOAT, false, 0, 0);
+            
+            gl.uniform3f(uniforms.u_color, color[0], color[1], color[2]);
+            gl.uniform1f(uniforms.u_speed, speed);
+
+            return gl;
+        };
+
+        const resizeCanvas = () => {
+            const devicePixelRatio = Math.min(window.devicePixelRatio, 2);
+            canvas.width = canvas.clientWidth * devicePixelRatio;
+            canvas.height = canvas.clientHeight * devicePixelRatio;
+            if (uniforms && uniforms.u_ratio) {
+                gl.uniform1f(uniforms.u_ratio, canvas.width / canvas.height);
+            }
+            gl.viewport(0, 0, canvas.width, canvas.height);
+        };
+
+        const render = () => {
+            const currentTime = performance.now();
+            pointer.x += (pointer.tX - pointer.x) * 0.2;
+            pointer.y += (pointer.tY - pointer.y) * 0.2;
+            
+            if (gl && uniforms) {
+                gl.uniform1f(uniforms.u_time, currentTime);
+                const rect = canvas.getBoundingClientRect();
+                const relX = (pointer.x - rect.left) / rect.width;
+                const relY = 1 - ((pointer.y - rect.top) / rect.height);
+                gl.uniform2f(uniforms.u_pointer_position, relX, relY);
+                gl.drawArrays(gl.TRIANGLE_STRIP, 0, 4);
+            }
+            animationFrameId = requestAnimationFrame(render);
+        };
+
+        const setupEvents = () => {
+            const updateMousePosition = (x, y) => {
+                pointer.tX = x;
+                pointer.tY = y;
+            };
+            const pointermove = (e) => updateMousePosition(e.clientX, e.clientY);
+            const touchmove = (e) => {
+                if (e.targetTouches[0]) updateMousePosition(e.targetTouches[0].clientX, e.targetTouches[0].clientY);
+            };
+            
+            window.addEventListener('pointermove', pointermove, { passive: true });
+            window.addEventListener('touchmove', touchmove, { passive: true });
+            
+            return () => {
+                window.removeEventListener('pointermove', pointermove);
+                window.removeEventListener('touchmove', touchmove);
+            };
+        };
+
+        if (!reducedMotion) {
+            gl = initShader();
+            if (gl) {
+                setupEvents();
+                resizeCanvas();
+                window.addEventListener('resize', resizeCanvas);
+                render();
+            }
+        }
+    }
 
     /* =====================================================
        IDIOMA
@@ -450,7 +624,6 @@ document.addEventListener("DOMContentLoaded", () => {
 
         $$("[data-i18n]").forEach((el) => {
             const key = el.getAttribute("data-i18n");
-
             if (Object.prototype.hasOwnProperty.call(dict, key)) {
                 el.textContent = dict[key];
             }
@@ -458,7 +631,6 @@ document.addEventListener("DOMContentLoaded", () => {
 
         $$("[data-i18n-placeholder]").forEach((el) => {
             const key = el.getAttribute("data-i18n-placeholder");
-
             if (Object.prototype.hasOwnProperty.call(dict, key)) {
                 el.setAttribute("placeholder", dict[key]);
             }
@@ -466,7 +638,6 @@ document.addEventListener("DOMContentLoaded", () => {
 
         $$("[data-i18n-aria-label]").forEach((el) => {
             const key = el.getAttribute("data-i18n-aria-label");
-
             if (Object.prototype.hasOwnProperty.call(dict, key)) {
                 el.setAttribute("aria-label", dict[key]);
             }
@@ -474,35 +645,26 @@ document.addEventListener("DOMContentLoaded", () => {
 
         $$(".lang-btn").forEach((btn) => {
             const active = btn.getAttribute("data-lang") === lang;
-
             btn.classList.toggle("active", active);
             btn.setAttribute("aria-pressed", String(active));
         });
 
-        // Portfolio: actualizar los enlaces sin perder ES/EN.
         $$(".work-card-link").forEach((link) => {
             link.textContent = dict.work_link;
         });
 
-        // Botones del menú móvil.
         const menuToggle = $(".menu-toggle");
-
         if (menuToggle) {
-            menuToggle.setAttribute(
-                "aria-label",
-                lang === "en" ? "Open menu" : "Abrir menú"
-            );
+            menuToggle.setAttribute("aria-label", lang === "en" ? "Open menu" : "Abrir menú");
         }
     };
 
     let savedLang = "es";
-
     try {
         savedLang = localStorage.getItem("tagback-lang") || "es";
     } catch (_) {}
 
     if (!translations[savedLang]) savedLang = "es";
-
     applyLanguage(savedLang);
 
     $$(".lang-btn").forEach((btn) => {
@@ -523,7 +685,6 @@ document.addEventListener("DOMContentLoaded", () => {
 
         const hideIntro = () => {
             if (introHidden) return;
-
             introHidden = true;
             intro.classList.add("is-hiding");
             intro.setAttribute("aria-hidden", "true");
@@ -534,15 +695,11 @@ document.addEventListener("DOMContentLoaded", () => {
                 }
             };
 
-            intro.addEventListener("transitionend", cleanup, {
-                once: true
-            });
-
+            intro.addEventListener("transitionend", cleanup, { once: true });
             window.setTimeout(cleanup, 700);
         };
 
         let alreadyShown = false;
-
         try {
             alreadyShown = sessionStorage.getItem(INTRO_KEY) === "1";
         } catch (_) {}
@@ -551,7 +708,6 @@ document.addEventListener("DOMContentLoaded", () => {
             hideIntro();
         } else {
             window.setTimeout(hideIntro, 350);
-
             try {
                 sessionStorage.setItem(INTRO_KEY, "1");
             } catch (_) {}
@@ -567,7 +723,6 @@ document.addEventListener("DOMContentLoaded", () => {
 
     if (cookieBanner) {
         let cookieChoice = null;
-
         try {
             cookieChoice = localStorage.getItem(COOKIE_KEY);
         } catch (_) {}
@@ -599,17 +754,8 @@ document.addEventListener("DOMContentLoaded", () => {
         const acceptBtn = $("[data-cookie-accept]", cookieBanner);
         const rejectBtn = $("[data-cookie-reject]", cookieBanner);
 
-        if (acceptBtn) {
-            acceptBtn.addEventListener("click", () => {
-                closeBanner("1");
-            });
-        }
-
-        if (rejectBtn) {
-            rejectBtn.addEventListener("click", () => {
-                closeBanner("0");
-            });
-        }
+        if (acceptBtn) acceptBtn.addEventListener("click", () => closeBanner("1"));
+        if (rejectBtn) rejectBtn.addEventListener("click", () => closeBanner("0"));
     }
 
     /* =====================================================
@@ -626,14 +772,8 @@ document.addEventListener("DOMContentLoaded", () => {
             document.body.classList.remove("menu-open");
             mainNav.classList.remove("is-open");
             menuToggle.classList.remove("active");
-
             menuToggle.setAttribute("aria-expanded", "false");
-            menuToggle.setAttribute(
-                "aria-label",
-                document.documentElement.lang === "en"
-                    ? "Open menu"
-                    : "Abrir menú"
-            );
+            menuToggle.setAttribute("aria-label", document.documentElement.lang === "en" ? "Open menu" : "Abrir menú");
         };
 
         const openMenu = () => {
@@ -641,14 +781,8 @@ document.addEventListener("DOMContentLoaded", () => {
             document.body.classList.add("menu-open");
             mainNav.classList.add("is-open");
             menuToggle.classList.add("active");
-
             menuToggle.setAttribute("aria-expanded", "true");
-            menuToggle.setAttribute(
-                "aria-label",
-                document.documentElement.lang === "en"
-                    ? "Close menu"
-                    : "Cerrar menú"
-            );
+            menuToggle.setAttribute("aria-label", document.documentElement.lang === "en" ? "Close menu" : "Cerrar menú");
         };
 
         menuToggle.addEventListener("click", () => {
@@ -664,20 +798,15 @@ document.addEventListener("DOMContentLoaded", () => {
         });
 
         document.addEventListener("keydown", (event) => {
-            if (
-                event.key === "Escape" &&
-                mainNav.classList.contains("is-open")
-            ) {
+            if (event.key === "Escape" && mainNav.classList.contains("is-open")) {
                 closeMenu();
                 menuToggle.focus();
             }
         });
 
         let resizeTimer;
-
         window.addEventListener("resize", () => {
             window.clearTimeout(resizeTimer);
-
             resizeTimer = window.setTimeout(() => {
                 if (window.innerWidth > 900) {
                     closeMenu();
@@ -708,7 +837,6 @@ document.addEventListener("DOMContentLoaded", () => {
 
         moreToggle.addEventListener("click", (event) => {
             event.stopPropagation();
-
             if (moreMenu.hidden) {
                 openMore();
             } else {
@@ -740,23 +868,17 @@ document.addEventListener("DOMContentLoaded", () => {
 
     if (header) {
         let ticking = false;
-
         const updateHeader = () => {
             header.classList.toggle("scrolled", window.scrollY > 20);
             ticking = false;
         };
-
         const onScroll = () => {
             if (ticking) return;
-
             ticking = true;
             window.requestAnimationFrame(updateHeader);
         };
 
-        window.addEventListener("scroll", onScroll, {
-            passive: true
-        });
-
+        window.addEventListener("scroll", onScroll, { passive: true });
         updateHeader();
     }
 
@@ -765,11 +887,7 @@ document.addEventListener("DOMContentLoaded", () => {
        ===================================================== */
 
     $$(".accordion-item, .service-card").forEach((item) => {
-        const accHeader = $(
-            ".accordion-header, .service-card-header",
-            item
-        );
-
+        const accHeader = $(".accordion-header, .service-card-header", item);
         if (!accHeader) return;
 
         accHeader.addEventListener("click", () => {
@@ -777,33 +895,18 @@ document.addEventListener("DOMContentLoaded", () => {
             const stack = item.parentElement;
 
             if (stack) {
-                $$(".accordion-item, .service-card", stack).forEach(
-                    (sibling) => {
-                        if (sibling === item) return;
-
-                        sibling.classList.remove("is-open");
-
-                        const siblingHeader = $(
-                            ".accordion-header, .service-card-header",
-                            sibling
-                        );
-
-                        if (siblingHeader) {
-                            siblingHeader.setAttribute(
-                                "aria-expanded",
-                                "false"
-                            );
-                        }
+                $$(".accordion-item, .service-card", stack).forEach((sibling) => {
+                    if (sibling === item) return;
+                    sibling.classList.remove("is-open");
+                    const siblingHeader = $(".accordion-header, .service-card-header", sibling);
+                    if (siblingHeader) {
+                        siblingHeader.setAttribute("aria-expanded", "false");
                     }
-                );
+                });
             }
 
             item.classList.toggle("is-open", !wasOpen);
-
-            accHeader.setAttribute(
-                "aria-expanded",
-                String(!wasOpen)
-            );
+            accHeader.setAttribute("aria-expanded", String(!wasOpen));
         });
     });
 
@@ -815,29 +918,19 @@ document.addEventListener("DOMContentLoaded", () => {
 
     const choosePlan = (value) => {
         if (!value) return false;
-
-        const radio = projectRadios.find(
-            (item) => item.value === value
-        );
-
+        const radio = projectRadios.find((item) => item.value === value);
         if (!radio) return false;
 
         radio.checked = true;
-
-        radio.dispatchEvent(
-            new Event("change", { bubbles: true })
-        );
+        radio.dispatchEvent(new Event("change", { bubbles: true }));
 
         const fieldset = radio.closest("fieldset");
-
         if (fieldset) {
             fieldset.classList.add("is-prefilled");
-
             window.setTimeout(() => {
                 fieldset.classList.remove("is-prefilled");
             }, 1400);
         }
-
         return true;
     };
 
@@ -845,58 +938,31 @@ document.addEventListener("DOMContentLoaded", () => {
         const selectCardPlan = () => {
             const plan = card.getAttribute("data-plan");
             if (!plan) return;
-
             try {
-                sessionStorage.setItem(
-                    "tagback-selected-plan",
-                    plan
-                );
+                sessionStorage.setItem("tagback-selected-plan", plan);
             } catch (_) {}
-
             choosePlan(plan);
         };
 
         card.addEventListener("click", (event) => {
-            // No interceptar enlaces o controles internos.
-            if (
-                event.target.closest(
-                    "a, button, input, select, textarea, label"
-                )
-            ) {
+            if (event.target.closest("a, button, input, select, textarea, label")) {
                 return;
             }
-
             selectCardPlan();
         });
 
-        // Permite seleccionar tarjetas accesibles por teclado.
-        if (
-            card.tagName !== "A" &&
-            card.tagName !== "BUTTON" &&
-            !card.hasAttribute("tabindex")
-        ) {
+        if (card.tagName !== "A" && card.tagName !== "BUTTON" && !card.hasAttribute("tabindex")) {
             card.setAttribute("tabindex", "0");
         }
 
-        if (
-            card.getAttribute("role") === "button" ||
-            card.hasAttribute("data-plan")
-        ) {
+        if (card.getAttribute("role") === "button" || card.hasAttribute("data-plan")) {
             card.addEventListener("keydown", (event) => {
-                if (
-                    event.target !== card ||
-                    (event.key !== "Enter" && event.key !== " ")
-                ) {
+                if (event.target !== card || (event.key !== "Enter" && event.key !== " ")) {
                     return;
                 }
-
-                if (
-                    card.tagName === "A" ||
-                    card.tagName === "BUTTON"
-                ) {
+                if (card.tagName === "A" || card.tagName === "BUTTON") {
                     return;
                 }
-
                 event.preventDefault();
                 selectCardPlan();
             });
@@ -905,10 +971,8 @@ document.addEventListener("DOMContentLoaded", () => {
 
     const applyPlanFromLocation = () => {
         let selected = "";
-
         try {
-            selected =
-                sessionStorage.getItem("tagback-selected-plan") || "";
+            selected = sessionStorage.getItem("tagback-selected-plan") || "";
         } catch (_) {}
 
         const params = new URLSearchParams(window.location.search);
@@ -931,10 +995,8 @@ document.addEventListener("DOMContentLoaded", () => {
 
     faqItems.forEach((item) => {
         if (item.tagName !== "DETAILS") return;
-
         item.addEventListener("toggle", () => {
             if (!item.open) return;
-
             faqItems.forEach((other) => {
                 if (other !== item && other.tagName === "DETAILS") {
                     other.open = false;
@@ -952,21 +1014,16 @@ document.addEventListener("DOMContentLoaded", () => {
     if (quoteForm) {
         const formSubmit = $(".quote-form-submit", quoteForm);
         const submitBtn = $('button[type="submit"]', quoteForm);
-        const submitBtnDefaultText = submitBtn
-            ? submitBtn.textContent
-            : "";
+        const submitBtnDefaultText = submitBtn ? submitBtn.textContent : "";
 
         const showFeedback = (type, message) => {
             if (!formSubmit) return;
-
             let feedback = $(".form-feedback", quoteForm);
-
             if (!feedback) {
                 feedback = document.createElement("p");
                 feedback.className = "form-feedback";
                 formSubmit.appendChild(feedback);
             }
-
             feedback.className = `form-feedback form-feedback--${type}`;
             feedback.textContent = message;
             feedback.setAttribute("role", "status");
@@ -975,52 +1032,32 @@ document.addEventListener("DOMContentLoaded", () => {
 
         const clearFeedback = () => {
             const feedback = $(".form-feedback", quoteForm);
-
             if (feedback) feedback.remove();
         };
 
         const getFieldError = (field) => {
             const lang = document.documentElement.lang;
-
             if (field.validity.valueMissing) {
-                return lang === "en"
-                    ? "This field is required."
-                    : "Este campo es obligatorio.";
+                return lang === "en" ? "This field is required." : "Este campo es obligatorio.";
             }
-
-            if (
-                field.validity.typeMismatch &&
-                field.type === "email"
-            ) {
-                return lang === "en"
-                    ? "Enter a valid email address."
-                    : "Ingresá un correo electrónico válido.";
+            if (field.validity.typeMismatch && field.type === "email") {
+                return lang === "en" ? "Enter a valid email address." : "Ingresá un correo electrónico válido.";
             }
-
             if (!field.checkValidity()) {
-                return lang === "en"
-                    ? "Check this field."
-                    : "Revisá este dato.";
+                return lang === "en" ? "Check this field." : "Revisá este dato.";
             }
-
             return "";
         };
 
         const setFieldError = (field, message) => {
-            const wrapper =
-                field.closest(".form-field") ||
-                field.closest(".form-fieldset");
-
+            const wrapper = field.closest(".form-field") || field.closest(".form-fieldset");
             if (!wrapper) return;
-
             let errorEl = $(".form-field-error", wrapper);
-
             if (!errorEl) {
                 errorEl = document.createElement("span");
                 errorEl.className = "form-field-error";
                 wrapper.appendChild(errorEl);
             }
-
             if (message) {
                 field.setAttribute("aria-invalid", "true");
                 errorEl.textContent = message;
@@ -1039,27 +1076,16 @@ document.addEventListener("DOMContentLoaded", () => {
         };
 
         const validateRadioGroup = (field) => {
-            const group = $$(
-                `input[name="${CSS.escape(field.name)}"]`,
-                quoteForm
-            );
-
+            const group = $$(`input[name="${CSS.escape(field.name)}"]`, quoteForm);
             if (!group.length) return true;
-
             const anyChecked = group.some((radio) => radio.checked);
-
             if (anyChecked) {
                 group.forEach((radio) => setFieldError(radio, ""));
                 return true;
             }
-
             group.forEach((radio) => {
-                setFieldError(
-                    radio,
-                    getFieldError(radio)
-                );
+                setFieldError(radio, getFieldError(radio));
             });
-
             return false;
         };
 
@@ -1071,19 +1097,15 @@ document.addEventListener("DOMContentLoaded", () => {
                     validateField(field);
                 }
             });
-
             field.addEventListener("input", () => {
                 if (field.getAttribute("aria-invalid") === "true") {
                     validateField(field);
                 }
             });
-
             field.addEventListener("change", () => {
                 if (field.type === "radio") {
                     validateRadioGroup(field);
-                } else if (
-                    field.getAttribute("aria-invalid") === "true"
-                ) {
+                } else if (field.getAttribute("aria-invalid") === "true") {
                     validateField(field);
                 }
             });
@@ -1093,38 +1115,22 @@ document.addEventListener("DOMContentLoaded", () => {
             event.preventDefault();
             clearFeedback();
 
-            const fields = $$(
-                "input, textarea, select",
-                quoteForm
-            );
-
+            const fields = $$("input, textarea, select", quoteForm);
             let allValid = true;
             const processedRadioGroups = new Set();
 
             fields.forEach((field) => {
                 if (field.type === "radio") {
                     if (processedRadioGroups.has(field.name)) return;
-
                     processedRadioGroups.add(field.name);
-
-                    if (!validateRadioGroup(field)) {
-                        allValid = false;
-                    }
-
+                    if (!validateRadioGroup(field)) allValid = false;
                     return;
                 }
-
-                if (!validateField(field)) {
-                    allValid = false;
-                }
+                if (!validateField(field)) allValid = false;
             });
 
             if (!allValid) {
-                const firstInvalid = $(
-                    '[aria-invalid="true"]',
-                    quoteForm
-                );
-
+                const firstInvalid = $('[aria-invalid="true"]', quoteForm);
                 if (firstInvalid) firstInvalid.focus();
                 return;
             }
@@ -1132,69 +1138,37 @@ document.addEventListener("DOMContentLoaded", () => {
             const action = quoteForm.getAttribute("action") || "";
             const lang = document.documentElement.lang;
 
-            if (
-                !action ||
-                action === "#" ||
-                action.includes("TU_ID")
-            ) {
-                showFeedback(
-                    "info",
-                    lang === "en"
-                        ? "The form is being configured. In the meantime, email hola@tagback.com."
-                        : "Estamos configurando el formulario. Mientras tanto, escribinos a hola@tagback.com."
-                );
-
+            if (!action || action === "#" || action.includes("TU_ID")) {
+                showFeedback("info", lang === "en" ? "The form is being configured. In the meantime, email hola@tagback.com." : "Estamos configurando el formulario. Mientras tanto, escribinos a hola@tagback.com.");
                 return;
             }
 
             if (submitBtn) {
                 submitBtn.disabled = true;
                 submitBtn.setAttribute("aria-busy", "true");
-                submitBtn.textContent =
-                    lang === "en" ? "Sending..." : "Enviando...";
+                submitBtn.textContent = lang === "en" ? "Sending..." : "Enviando...";
             }
 
             try {
                 const formData = new FormData(quoteForm);
-
                 const response = await fetch(action, {
                     method: "POST",
                     body: formData,
-                    headers: {
-                        Accept: "application/json"
-                    }
+                    headers: { Accept: "application/json" }
                 });
 
-                if (!response.ok) {
-                    throw new Error("Form submission failed");
-                }
+                if (!response.ok) throw new Error("Form submission failed");
 
-                showFeedback(
-                    "success",
-                    lang === "en"
-                        ? "Your inquiry was sent successfully."
-                        : "Tu consulta fue enviada correctamente."
-                );
-
+                showFeedback("success", lang === "en" ? "Your inquiry was sent successfully." : "Tu consulta fue enviada correctamente.");
                 quoteForm.reset();
 
-                $$('[aria-invalid="true"]', quoteForm).forEach(
-                    (field) => field.removeAttribute("aria-invalid")
-                );
-
+                $$('[aria-invalid="true"]', quoteForm).forEach((field) => field.removeAttribute("aria-invalid"));
                 $$(".form-field-error", quoteForm).forEach((error) => {
                     error.textContent = "";
                     error.classList.remove("is-visible");
                 });
-
             } catch (_) {
-                showFeedback(
-                    "error",
-                    lang === "en"
-                        ? "We couldn't send your inquiry. Try again or email hola@tagback.com."
-                        : "No pudimos enviar tu consulta. Intentá nuevamente o escribinos a hola@tagback.com."
-                );
-
+                showFeedback("error", lang === "en" ? "We couldn't send your inquiry. Try again or email hola@tagback.com." : "No pudimos enviar tu consulta. Intentá nuevamente o escribinos a hola@tagback.com.");
             } finally {
                 if (submitBtn) {
                     submitBtn.disabled = false;
@@ -1206,17 +1180,13 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
     /* =====================================================
-       CURSOR REACTIVO
-       Solo actualiza variables CSS.
-       No modifica transform de .waves-group.
+       CURSOR REACTIVO (Global CSS Variables)
        ===================================================== */
 
     if (!reducedMotion && finePointer) {
         let rafId = 0;
-
         let x = window.innerWidth * 0.5;
         let y = window.innerHeight * 0.35;
-
         let targetX = x;
         let targetY = y;
 
@@ -1224,51 +1194,29 @@ document.addEventListener("DOMContentLoaded", () => {
             x += (targetX - x) * 0.12;
             y += (targetY - y) * 0.12;
 
-            document.documentElement.style.setProperty(
-                "--mouse-x",
-                `${x}px`
-            );
+            document.documentElement.style.setProperty("--mouse-x", `${x}px`);
+            document.documentElement.style.setProperty("--mouse-y", `${y}px`);
 
-            document.documentElement.style.setProperty(
-                "--mouse-y",
-                `${y}px`
-            );
-
-            if (
-                Math.abs(targetX - x) > 0.4 ||
-                Math.abs(targetY - y) > 0.4
-            ) {
-                rafId = window.requestAnimationFrame(
-                    updateCursorLight
-                );
+            if (Math.abs(targetX - x) > 0.4 || Math.abs(targetY - y) > 0.4) {
+                rafId = window.requestAnimationFrame(updateCursorLight);
             } else {
                 rafId = 0;
             }
         };
 
-        document.addEventListener(
-            "pointermove",
-            (event) => {
-                targetX = event.clientX;
-                targetY = event.clientY;
-
-                if (!rafId) {
-                    rafId = window.requestAnimationFrame(
-                        updateCursorLight
-                    );
-                }
-            },
-            { passive: true }
-        );
+        document.addEventListener("pointermove", (event) => {
+            targetX = event.clientX;
+            targetY = event.clientY;
+            if (!rafId) {
+                rafId = window.requestAnimationFrame(updateCursorLight);
+            }
+        }, { passive: true });
 
         window.addEventListener("blur", () => {
             targetX = window.innerWidth * 0.5;
             targetY = window.innerHeight * 0.35;
-
             if (!rafId) {
-                rafId = window.requestAnimationFrame(
-                    updateCursorLight
-                );
+                rafId = window.requestAnimationFrame(updateCursorLight);
             }
         });
     }
@@ -1281,37 +1229,22 @@ document.addEventListener("DOMContentLoaded", () => {
 
     if (processItems.length) {
         if (reducedMotion) {
-            processItems.forEach((item) => {
-                item.classList.add("is-visible");
-            });
+            processItems.forEach((item) => item.classList.add("is-visible"));
         } else if ("IntersectionObserver" in window) {
-            const processObserver = new IntersectionObserver(
-                (entries, observer) => {
-                    entries.forEach((entry) => {
-                        if (!entry.isIntersecting) return;
-
-                        entry.target.classList.add("is-visible");
-                        observer.unobserve(entry.target);
-                    });
-                },
-                {
-                    threshold: 0.15,
-                    rootMargin: "0px 0px -10% 0px"
-                }
-            );
+            const processObserver = new IntersectionObserver((entries, observer) => {
+                entries.forEach((entry) => {
+                    if (!entry.isIntersecting) return;
+                    entry.target.classList.add("is-visible");
+                    observer.unobserve(entry.target);
+                });
+            }, { threshold: 0.15, rootMargin: "0px 0px -10% 0px" });
 
             processItems.forEach((item, index) => {
-                item.style.setProperty(
-                    "--process-delay",
-                    `${index * 120}ms`
-                );
-
+                item.style.setProperty("--process-delay", `${index * 120}ms`);
                 processObserver.observe(item);
             });
         } else {
-            processItems.forEach((item) => {
-                item.classList.add("is-visible");
-            });
+            processItems.forEach((item) => item.classList.add("is-visible"));
         }
     }
 
@@ -1323,7 +1256,6 @@ document.addEventListener("DOMContentLoaded", () => {
 
     if (yearEls.length) {
         const currentYear = new Date().getFullYear();
-
         yearEls.forEach((el) => {
             el.textContent = currentYear;
         });
