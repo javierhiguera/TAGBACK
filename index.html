@@ -71,7 +71,6 @@
 <main id="main">
 
     <section class="hero">
-        <!-- El contenedor del Canvas para el WebGL (Neural Noise) -->
         <div class="hero-canvas-container" aria-hidden="true">
             <canvas id="neural-canvas"></canvas>
         </div>
@@ -240,45 +239,45 @@
                 <p class="section-desc" data-i18n="work_desc">Cada proyecto parte de una necesidad concreta y se convierte en una experiencia digital diseñada para su propósito.</p>
             </div>
 
-            <div class="work-grid">
-                <article class="work-card">
-                    <div class="work-card-header"><span>NIVELPULIDOS.COM</span><span>2024</span></div>
-                    <h3 class="work-card-name">Nivel Pulidos</h3>
-                    <div class="work-card-image">
-                        <img src="./assets/proyectos/1/NP_1.png" alt="Vista previa Nivel Pulidos" loading="lazy">
-                    </div>
-                    <div class="work-card-overlay">
-                        <span class="work-card-category" data-i18n="cat_services">SERVICIOS</span>
-                        <p class="work-card-claim">Sitio corporativo para presentar servicios y facilitar el contacto.</p>
-                        <a class="work-card-link" href="#contacto" data-i18n="work_link">Consultar proyecto →</a>
-                    </div>
-                </article>
+            <!-- Contenedor de Carpetas de Vidrio -->
+            <div class="glass-folders-grid" id="glass-folders-container">
+                
+                <!-- Carpeta 1: Nivel Pulidos -->
+                <div class="gf-root" 
+                     data-label="Nivel Pulidos" 
+                     data-meta="Servicios" 
+                     data-tone="light" 
+                     data-art="aurora" 
+                     data-seed="3" 
+                     data-action="add" 
+                     data-place="bottom-left"
+                     data-files='[{"name":"Inicio.png","meta":"PNG","art":"ember"},{"name":"Servicios.png","meta":"PNG","art":"dusk"},{"name":"Contacto.pdf","meta":"PDF"}]'>
+                </div>
 
-                <article class="work-card">
-                    <div class="work-card-header"><span>MIGAJA.COM</span><span>2024</span></div>
-                    <h3 class="work-card-name">Migaja</h3>
-                    <div class="work-card-image">
-                        <img src="./assets/proyectos/2/foto2.jpg" alt="Vista previa Migaja" loading="lazy">
-                    </div>
-                    <div class="work-card-overlay">
-                        <span class="work-card-category" data-i18n="cat_gastro">GASTRONOMÍA</span>
-                        <p class="work-card-claim">Web con menú y contacto directo para pedidos por WhatsApp.</p>
-                        <a class="work-card-link" href="#contacto" data-i18n="work_link">Consultar proyecto →</a>
-                    </div>
-                </article>
+                <!-- Carpeta 2: Migaja (con menú) -->
+                <div class="gf-root" 
+                     data-label="Migaja" 
+                     data-meta="Gastronomía" 
+                     data-tone="light" 
+                     data-art="none" 
+                     data-seed="7" 
+                     data-action="more" 
+                     data-place="top-left"
+                     data-files='[{"name":"Menu.pdf","meta":"PDF"},{"name":"Fotos Local","meta":"12 img","art":"verdant"},{"name":"Logo.svg","meta":"SVG"}]'>
+                </div>
 
-                <article class="work-card">
-                    <div class="work-card-header"><span>ALOSPIEDSDELMAESTRO.ORG</span><span>2024</span></div>
-                    <h3 class="work-card-name">A los pies del Maestro</h3>
-                    <div class="work-card-image">
-                        <img src="./assets/proyectos/3/foto3.jpg" alt="Vista previa A los pies del Maestro" loading="lazy">
-                    </div>
-                    <div class="work-card-overlay">
-                        <span class="work-card-category" data-i18n="cat_church">IGLESIA</span>
-                        <p class="work-card-claim">Sitio institucional con landing de contacto para comunicar actividades y recibir consultas.</p>
-                        <a class="work-card-link" href="#contacto" data-i18n="work_link">Consultar proyecto →</a>
-                    </div>
-                </article>
+                <!-- Carpeta 3: A los pies del Maestro (Oscura) -->
+                <div class="gf-root" 
+                     data-label="A los pies del Maestro" 
+                     data-meta="Iglesia" 
+                     data-tone="dark" 
+                     data-art="ember" 
+                     data-seed="11" 
+                     data-action="none" 
+                     data-place="top-right"
+                     data-files='[{"name":"Historia.docx","meta":"DOCX"},{"name":"Predicas.mp3","meta":"MP3"},{"name":"Eventos","meta":"5 img","art":"aurora"}]'>
+                </div>
+
             </div>
         </div>
     </section>
