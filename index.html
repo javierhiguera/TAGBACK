@@ -43,17 +43,10 @@
         <nav class="main-nav" id="main-navigation" aria-label="Navegación principal">
             <a href="#servicios" data-i18n="nav_services">Servicios</a>
             <a href="#trabajos" data-i18n="nav_projects">Proyectos</a>
+            <a href="#proceso" data-i18n="nav_process">Proceso</a>
             <a href="#planes" data-i18n="nav_plans">Planes</a>
+            <a href="#faq" data-i18n="nav_faq">Preguntas</a>
             <a href="#contacto" data-i18n="nav_contact">Contacto</a>
-            <div class="nav-more">
-                <button class="nav-more-toggle" type="button" aria-expanded="false" aria-controls="nav-more-menu">Más <span aria-hidden="true">+</span></button>
-                <div class="nav-more-menu" id="nav-more-menu" hidden>
-                    <a href="#proceso" data-i18n="nav_process">Proceso</a>
-                    <a href="#faq" data-i18n="nav_faq">Preguntas</a>
-                    <a href="./privacidad.html" data-i18n="nav_privacy">Política de Privacidad</a>
-                    <a href="./cookies.html" data-i18n="nav_cookies">Política de Cookies</a>
-                </div>
-            </div>
         </nav>
 
         <div class="lang-switcher" aria-label="Selector de idioma">
@@ -78,11 +71,11 @@
         <div class="container hero-grid">
             <div class="hero-content">
                 <h1>
-                    <span class="reveal-line"><span data-i18n="hero_title_1">Webs claras para</span></span>
-                    <span class="reveal-line"><span><span data-i18n="hero_title_2">negocios que</span> <em data-i18n="hero_title_3">quieren crecer.</em></span></span>
+                    <span class="reveal-line"><span data-i18n="hero_title_1">Conectar con el mundo</span></span>
+                    <span class="reveal-line"><span><span data-i18n="hero_title_2">empieza por encontrar</span> <em data-i18n="hero_title_3">tu lugar.</em></span></span>
                 </h1>
                 <p class="hero-lead" data-i18n="hero_lead">
-                    Diseñamos y desarrollamos sitios web rápidos, claros y pensados para convertir visitas en oportunidades de negocio.
+                    Diseñamos sitios web a medida que reflejan quién sos, transmiten lo que te hace diferente y acercan tu marca a las personas que querés alcanzar.
                 </p>
             </div>
         </div>
@@ -95,12 +88,13 @@
                 <p class="section-desc" data-i18n="services_desc">Cada proyecto tiene necesidades diferentes. Hacé clic en cada servicio para ver el detalle.</p>
             </div>
 
-            <div class="services-cards accordion-horizontal">
+            <div class="services-cards">
                 <article class="service-card">
                     <button type="button" class="service-card-header" aria-expanded="false">
+                        <span class="geo-icon geo-icon--circle" aria-hidden="true"></span>
                         <span class="service-card-num">01</span>
                         <h3 class="service-card-title" data-i18n="srv_1_title">Landing pages</h3>
-                        <span class="service-card-icon" aria-hidden="true"></span>
+                        <span class="service-card-icon-plus" aria-hidden="true"></span>
                     </button>
                     <div class="service-card-panel">
                         <div class="service-card-panel-inner">
@@ -110,9 +104,10 @@
                 </article>
                 <article class="service-card">
                     <button type="button" class="service-card-header" aria-expanded="false">
+                        <span class="geo-icon geo-icon--diamond" aria-hidden="true"></span>
                         <span class="service-card-num">02</span>
                         <h3 class="service-card-title" data-i18n="srv_2_title">Sitios web corporativos</h3>
-                        <span class="service-card-icon" aria-hidden="true"></span>
+                        <span class="service-card-icon-plus" aria-hidden="true"></span>
                     </button>
                     <div class="service-card-panel">
                         <div class="service-card-panel-inner">
@@ -122,9 +117,10 @@
                 </article>
                 <article class="service-card">
                     <button type="button" class="service-card-header" aria-expanded="false">
+                        <span class="geo-icon geo-icon--drop" aria-hidden="true"></span>
                         <span class="service-card-num">03</span>
                         <h3 class="service-card-title" data-i18n="srv_3_title">Tiendas online</h3>
-                        <span class="service-card-icon" aria-hidden="true"></span>
+                        <span class="service-card-icon-plus" aria-hidden="true"></span>
                     </button>
                     <div class="service-card-panel">
                         <div class="service-card-panel-inner">
@@ -134,9 +130,10 @@
                 </article>
                 <article class="service-card">
                     <button type="button" class="service-card-header" aria-expanded="false">
+                        <span class="geo-icon geo-icon--ring" aria-hidden="true"></span>
                         <span class="service-card-num">04</span>
                         <h3 class="service-card-title" data-i18n="srv_4_title">Mantenimiento web</h3>
-                        <span class="service-card-icon" aria-hidden="true"></span>
+                        <span class="service-card-icon-plus" aria-hidden="true"></span>
                     </button>
                     <div class="service-card-panel">
                         <div class="service-card-panel-inner">
@@ -155,12 +152,11 @@
                 <p class="section-desc" data-i18n="why_desc">Cada decisión está pensada para que tu sitio funcione: comunique, convierta y crezca con tu negocio.</p>
             </div>
 
-            <div class="accordion-stack">
+            <div class="accordion-horizontal">
                 <div class="accordion-item">
                     <button type="button" class="accordion-header" aria-expanded="false">
-                        <span class="geo-icon geo-icon--circle" aria-hidden="true"></span>
+                        <span class="accordion-num">01</span>
                         <h3 class="accordion-title">Diseño</h3>
-                        <span class="accordion-icon-plus" aria-hidden="true"></span>
                     </button>
                     <div class="accordion-panel">
                         <div class="accordion-panel-inner">
@@ -172,9 +168,8 @@
                 </div>
                 <div class="accordion-item">
                     <button type="button" class="accordion-header" aria-expanded="false">
-                        <span class="geo-icon geo-icon--diamond" aria-hidden="true"></span>
+                        <span class="accordion-num">02</span>
                         <h3 class="accordion-title">Responsive</h3>
-                        <span class="accordion-icon-plus" aria-hidden="true"></span>
                     </button>
                     <div class="accordion-panel">
                         <div class="accordion-panel-inner">
@@ -186,9 +181,8 @@
                 </div>
                 <div class="accordion-item">
                     <button type="button" class="accordion-header" aria-expanded="false">
-                        <span class="geo-icon geo-icon--drop" aria-hidden="true"></span>
+                        <span class="accordion-num">03</span>
                         <h3 class="accordion-title">Rendimiento</h3>
-                        <span class="accordion-icon-plus" aria-hidden="true"></span>
                     </button>
                     <div class="accordion-panel">
                         <div class="accordion-panel-inner">
@@ -200,9 +194,8 @@
                 </div>
                 <div class="accordion-item">
                     <button type="button" class="accordion-header" aria-expanded="false">
-                        <span class="geo-icon geo-icon--ring" aria-hidden="true"></span>
+                        <span class="accordion-num">04</span>
                         <h3 class="accordion-title">Experiencia de usuario</h3>
-                        <span class="accordion-icon-plus" aria-hidden="true"></span>
                     </button>
                     <div class="accordion-panel">
                         <div class="accordion-panel-inner">
@@ -214,9 +207,8 @@
                 </div>
                 <div class="accordion-item">
                     <button type="button" class="accordion-header" aria-expanded="false">
-                        <span class="geo-icon geo-icon--diamond" aria-hidden="true"></span>
+                        <span class="accordion-num">05</span>
                         <h3 class="accordion-title">Escalabilidad</h3>
-                        <span class="accordion-icon-plus" aria-hidden="true"></span>
                     </button>
                     <div class="accordion-panel">
                         <div class="accordion-panel-inner">
@@ -240,7 +232,6 @@
             </div>
 
             <div class="work-grid">
-                <!-- Proyecto 1 -->
                 <article class="work-card">
                     <div class="work-card-header"><span>NIVELPULIDOS.COM</span><span>2024</span></div>
                     <h3 class="work-card-name">Nivel Pulidos</h3>
@@ -254,7 +245,6 @@
                     </div>
                 </article>
 
-                <!-- Proyecto 2 -->
                 <article class="work-card">
                     <div class="work-card-header"><span>MIGAJA.COM</span><span>2024</span></div>
                     <h3 class="work-card-name">Migaja</h3>
@@ -268,7 +258,6 @@
                     </div>
                 </article>
 
-                <!-- Proyecto 3 -->
                 <article class="work-card">
                     <div class="work-card-header"><span>ALOSPIEDSDELMAESTRO.ORG</span><span>2024</span></div>
                     <h3 class="work-card-name">A los pies del Maestro</h3>
@@ -327,7 +316,7 @@
                 <a href="#contacto" class="plan-card" data-plan="landing" data-cta="Elegir este plan ↗">
                     <span class="plan-label" data-i18n="plan_1_label">LANDING</span>
                     <h3 data-i18n="plan_1_title">Landing page</h3>
-                    <p class="plan-price">Desde USD 350 <small data-i18n="plan_1_sub">Pago único · alcance definido</small></p>
+                    <p class="plan-price">Desde USD 250 <small data-i18n="plan_1_sub">Pago único · alcance definido</small></p>
                     <p class="plan-desc" data-i18n="plan_1_desc">Para presentar un servicio, producto o propuesta comercial en una página enfocada.</p>
                     <ul class="plan-features">
                         <li data-i18n="plan_1_f1">Una página con secciones definidas</li>
@@ -341,7 +330,7 @@
                     <span class="plan-badge" data-i18n="plan_badge">RECOMENDADO</span>
                     <span class="plan-label" data-i18n="plan_2_label">SITIO</span>
                     <h3 data-i18n="plan_2_title">Web corporativa</h3>
-                    <p class="plan-price">Desde USD 700 <small data-i18n="plan_2_sub">Pago único · según alcance</small></p>
+                    <p class="plan-price">Desde USD 500 <small data-i18n="plan_2_sub">Pago único · según alcance</small></p>
                     <p class="plan-desc" data-i18n="plan_2_desc">Para empresas y profesionales que necesitan presentar su negocio, servicios y canales de contacto.</p>
                     <ul class="plan-features">
                         <li data-i18n="plan_2_f1">Varias secciones y páginas internas</li>
@@ -378,7 +367,7 @@
             <div class="faq-list">
                 <details class="faq-item">
                     <summary data-i18n="faq_1_q">¿Cómo se define el precio de un proyecto?</summary>
-                    <p data-i18n="faq_1_a">El precio depende del tipo de sitio, la cantidad de secciones, las funcionalidades y el contenido. Los planes de landing y web corporativa tienen un valor de referencia desde USD 350 y USD 700. Los proyectos a medida se cotizan según su alcance.</p>
+                    <p data-i18n="faq_1_a">El precio depende del tipo de sitio, la cantidad de secciones, las funcionalidades y el contenido. Los planes de landing y web corporativa tienen un valor de referencia desde USD 250 y USD 500. Los proyectos a medida se cotizan según su alcance.</p>
                 </details>
                 <details class="faq-item">
                     <summary data-i18n="faq_2_q">¿Qué incluye el presupuesto?</summary>
