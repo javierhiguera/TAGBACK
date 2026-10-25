@@ -1087,24 +1087,9 @@ h1, h2, h3, h4, h5, h6,
 .pill input[type="radio"]:focus-visible + span { outline: 2px solid var(--blue); outline-offset: 3px; }
 
 /* =========================================================
-   STACK TECNOLÓGICO E INTEGRACIONES
+   STACK TECNOLÓGICO E INTEGRACIONES (CINTA ÚNICA)
    ========================================================= */
 .tech-stack { border-top: 1px solid var(--line); }
-
-.tech-category { margin-bottom: 40px; }
-.tech-category:last-child { margin-bottom: 0; }
-
-.tech-category-title {
-    font-family: var(--body);
-    font-size: 0.72rem;
-    font-weight: 500;
-    letter-spacing: 0.12em;
-    text-transform: uppercase;
-    color: var(--blue);
-    margin: 0 0 16px;
-    padding-bottom: 10px;
-    border-bottom: 1px solid var(--line);
-}
 
 .tech-marquee {
     position: relative;
@@ -1118,7 +1103,7 @@ h1, h2, h3, h4, h5, h6,
     display: flex;
     gap: 12px;
     width: max-content;
-    animation: scroll-marquee 35s linear infinite;
+    animation: scroll-marquee 40s linear infinite;
 }
 
 .tech-track:hover {
@@ -1155,7 +1140,11 @@ h1, h2, h3, h4, h5, h6,
     flex-shrink: 0;
     object-fit: contain;
     display: block;
-    filter: drop-shadow(0 0 2px rgba(0,0,0,0.2));
+}
+
+/* Filtro para que los logos externos queden del mismo azul */
+.tech-icon-blue {
+    filter: brightness(0) saturate(100%) invert(68%) sepia(14%) saturate(1024%) hue-rotate(177deg) brightness(91%) contrast(85%);
 }
 
 .tech-item span {
