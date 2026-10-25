@@ -1,12 +1,12 @@
 /* =========================================================
-   TAGBACK — JAVASCRIPT v47
-   Traducciones + Navegación + Formulario + WebGL (Neural Noise)
+   TAGBACK — JAVASCRIPT v48 (Nuevos Textos y Formulario)
    ========================================================= */
 
 const translations = {
     es: {
         skip_link: "Saltar al contenido principal",
         nav_services: "Servicios",
+        nav_solutions: "Soluciones",
         nav_benefits: "Beneficios",
         nav_projects: "Proyectos",
         nav_process: "Proceso",
@@ -17,86 +17,84 @@ const translations = {
         nav_privacy: "Política de Privacidad",
         nav_cookies: "Política de Cookies",
 
-        hero_eyebrow_1: "DISEÑO WEB",
-        hero_eyebrow_2: "DESARROLLO",
-        hero_eyebrow_3: "PRESENCIA DIGITAL",
-        hero_title_1: "Conectar con el mundo",
-        hero_title_2: "empieza por encontrar",
-        hero_title_3: "tu lugar.",
-        hero_lead: "Diseñamos sitios web a medida que reflejan quién sos, transmiten lo que te hace diferente y acercan tu marca a las personas que querés alcanzar.",
+        hero_title_1: "Tu lugar en internet",
+        hero_title_2: "empieza",
+        hero_title_3: "acá.",
+        hero_lead: "Diseñamos y desarrollamos sitios web, tiendas online, aplicaciones y sistemas a medida para transformar tus ideas en soluciones digitales funcionales.",
 
-        services_title: "Qué podemos desarrollar",
-        services_desc: "Diseñamos y desarrollamos productos digitales desde cero, adaptados a tus objetivos, procesos y usuarios. Desde una herramienta específica hasta una plataforma completa.",
+        services_title: "Soluciones digitales para cada necesidad.",
+        services_desc: "Desde una página web hasta un sistema personalizado, desarrollamos herramientas digitales adaptadas a los objetivos de tu negocio.",
         
-        why_title: "Beneficios",
-        why_desc: "Comunicamos resultados concretos del servicio, no repetimos características técnicas.",
+        solutions_title: "Una solución para lo que necesitás.",
+        solutions_desc: "Analizamos tu idea y desarrollamos herramientas digitales adaptadas a tus objetivos, tus procesos y las funcionalidades que necesitás.",
 
-        work_title: "Proyectos que llevan ideas a la web.",
-        work_desc: "Cada proyecto parte de una necesidad concreta y se convierte en una experiencia digital diseñada para su propósito.",
+        why_title: "Tecnología pensada para tu proyecto.",
+        why_desc: "Desarrollamos soluciones digitales con objetivos claros, atención al detalle y posibilidades de evolución.",
+
+        work_title: "Ideas convertidas en soluciones digitales.",
+        work_desc: "Conocé nuestros proyectos y ejemplos de desarrollo. Cada trabajo refleja una necesidad y una solución construida mediante diseño y tecnología.",
         work_link: "Consultar proyecto →",
         cat_services: "SERVICIOS",
         cat_gastro: "GASTRONOMÍA",
         cat_church: "IGLESIA",
 
-        process_title: "De la idea al sitio publicado.",
-        process_desc: "Cuatro etapas para llevar tu proyecto desde la primera conversación hasta el sitio online.",
-        proc_1_title: "Etapa 01 — Descubrimiento",
-        proc_1_desc: "Conocemos tu negocio, tus objetivos y las necesidades de tu proyecto.",
-        proc_2_title: "Etapa 02 — Propuesta",
-        proc_2_desc: "Definimos el alcance, las funcionalidades, los plazos y el presupuesto.",
-        proc_3_title: "Etapa 03 — Diseño y desarrollo",
-        proc_3_desc: "Construimos el sitio siguiendo la propuesta aprobada y los requisitos acordados.",
-        proc_4_title: "Etapa 04 — Revisión y entrega",
-        proc_4_desc: "Revisamos el resultado, realizamos los ajustes incluidos y coordinamos la publicación.",
+        process_title: "De la idea al resultado.",
+        process_desc: "Un proceso organizado para transformar tus necesidades en una solución digital funcional.",
+        proc_1_title: "Análisis",
+        proc_1_desc: "Comprendemos tu idea, tus objetivos y el problema que necesitás resolver.",
+        proc_2_title: "Planificación",
+        proc_2_desc: "Definimos el alcance, las funcionalidades y las prioridades del proyecto.",
+        proc_3_title: "Desarrollo",
+        proc_3_desc: "Construimos la solución acordada con atención al diseño y al funcionamiento.",
+        proc_4_title: "Pruebas",
+        proc_4_desc: "Verificamos las funcionalidades y corregimos los problemas detectados.",
+        proc_5_title: "Publicación y entrega",
+        proc_5_desc: "Preparamos la puesta en funcionamiento y entregamos los elementos acordados.",
 
-        plans_title: "Una solución acorde a tu proyecto.",
-        plans_desc: "No todos los negocios necesitan la misma web. Por eso, cada propuesta se define según el alcance, el contenido y las funcionalidades requeridas.",
+        plans_title: "Una solución para cada etapa.",
+        plans_desc: "Diferentes alternativas para crear tu presencia digital, vender por internet o desarrollar herramientas personalizadas.",
         plan_badge: "RECOMENDADO",
-        plan_1_label: "LANDING",
-        plan_1_title: "Landing page",
-        plan_1_sub: "Pago único · alcance definido",
-        plan_1_desc: "Para presentar un servicio, producto o propuesta comercial en una página enfocada.",
-        plan_1_f1: "Una página con secciones definidas",
-        plan_1_f2: "Diseño responsive",
-        plan_1_f3: "Formulario o canal de contacto",
-        plan_1_f4: "No incluye dominio ni hosting",
-        plan_2_label: "SITIO",
-        plan_2_title: "Web corporativa",
-        plan_2_sub: "Pago único · según alcance",
-        plan_2_desc: "Para empresas y profesionales que necesitan presentar su negocio, servicios y canales de contacto.",
-        plan_2_f1: "Varias secciones y páginas internas",
-        plan_2_f2: "Estructura de contenidos",
-        plan_2_f3: "Formulario o canal de contacto",
-        plan_2_f4: "No incluye dominio ni hosting",
-        plan_3_label: "A MEDIDA",
-        plan_3_title: "Proyecto personalizado",
-        plan_3_sub: "Según alcance y funcionalidades",
-        plan_3_desc: "Para tiendas online, integraciones o cualquier proyecto que requiera un desarrollo específico.",
-        plan_3_f1: "Alcance a definir juntos",
-        plan_3_f2: "Stack adaptado al proyecto",
-        plan_3_f3: "Integraciones según necesidad",
-        plan_3_f4: "Condiciones acordadas por escrito",
+        plan_1_label: "STARTER",
+        plan_1_title: "Web Starter",
+        plan_1_sub: "Según alcance",
+        plan_1_desc: "Una presencia digital profesional para emprendedores y proyectos que necesitan comenzar en internet.",
+        plan_2_label: "BUSINESS",
+        plan_2_title: "Web Business",
+        plan_2_sub: "Según alcance",
+        plan_2_desc: "Un sitio más completo para empresas y negocios que buscan presentar sus servicios y recibir consultas.",
+        plan_3_label: "COMMERCE",
+        plan_3_title: "Web Commerce",
+        plan_3_sub: "Según alcance",
+        plan_3_desc: "Una solución digital para exhibir productos y desarrollar un canal de ventas online.",
+        plan_4_label: "A MEDIDA",
+        plan_4_title: "Desarrollo a medida",
+        plan_4_sub: "Según funcionalidades",
+        plan_4_desc: "Aplicaciones, sistemas de gestión, automatizaciones e integraciones adaptadas a necesidades específicas.",
 
         faq_title: "Preguntas frecuentes",
-        faq_desc: "Las dudas más comunes antes de empezar un proyecto.",
-        faq_1_q: "¿Cómo se define el precio de un proyecto?",
-        faq_1_a: "El precio depende del tipo de sitio, la cantidad de secciones, las funcionalidades y el contenido. Los planes de landing y web corporativa tienen un valor de referencia desde USD 250 y USD 500. Los proyectos a medida se cotizan según su alcance.",
-        faq_2_q: "¿Qué incluye el presupuesto?",
-        faq_2_a: "El presupuesto detalla el alcance del trabajo y los servicios incluidos. El dominio y el hosting no están incluidos salvo que se indique lo contrario.",
-        faq_3_q: "¿Cuánto tarda en estar listo el sitio?",
-        faq_3_a: "El plazo depende de la complejidad del sitio y de la disponibilidad del contenido necesario. Se define antes de comenzar el trabajo.",
-        faq_4_q: "¿Cómo se define el diseño?",
-        faq_4_a: "La propuesta visual se adapta a la identidad, los objetivos y las necesidades de cada proyecto.",
-        faq_5_q: "¿El sitio va a funcionar en celulares y tablets?",
-        faq_5_a: "Los sitios se desarrollan con diseño responsive para adaptarse a diferentes tamaños de pantalla.",
-        faq_6_q: "¿Puedo pedir modificaciones después de la entrega?",
-        faq_6_a: "Los ajustes posteriores pueden presupuestarse por separado o contratarse mediante un servicio de mantenimiento.",
-        faq_7_q: "¿Cómo contrato un proyecto?",
-        faq_7_a: "Escribinos a hola@tagback.com con una descripción de tu proyecto. Revisaremos tus necesidades y prepararemos una propuesta.",
+        faq_desc: "Resolvemos las dudas más comunes antes de empezar.",
+        faq_1_q: "¿Qué tipo de proyectos desarrollan?",
+        faq_1_a: "Sitios web, tiendas online, aplicaciones, sistemas de gestión, automatizaciones e integraciones, además de soluciones digitales personalizadas.",
+        faq_2_q: "¿Cómo sé qué solución necesito?",
+        faq_2_a: "Contanos tus objetivos y necesidades para evaluar qué tipo de desarrollo se adapta mejor a tu proyecto.",
+        faq_3_q: "¿El hosting está incluido?",
+        faq_3_a: "Depende del proyecto y de las condiciones del servicio contratado.",
+        faq_4_q: "¿El dominio está incluido?",
+        faq_4_a: "Depende del plan. El registro y la renovación pueden generar costos adicionales.",
+        faq_5_q: "¿Puedo ampliar mi proyecto en el futuro?",
+        faq_5_a: "Las posibilidades de ampliación dependen de la arquitectura y las características técnicas de la solución.",
+        faq_6_q: "¿Recibo el código de mi proyecto?",
+        faq_6_a: "La entrega del código, los archivos y los derechos de uso se establecen en las condiciones acordadas.",
+        faq_7_q: "¿Ofrecen mantenimiento?",
+        faq_7_a: "El mantenimiento y el soporte dependen de las condiciones contratadas para cada proyecto.",
+        faq_8_q: "¿Cómo se cotiza un desarrollo a medida?",
+        faq_8_a: "Evaluamos las funcionalidades, las integraciones y la complejidad para definir el alcance y preparar una propuesta.",
+        faq_9_q: "¿Cuánto tarda el desarrollo?",
+        faq_9_a: "El plazo depende de los requerimientos y la complejidad del proyecto.",
 
-        contact_title: "Contanos tu idea.",
-        contact_desc: "Completá los datos y contanos qué necesitás. Te contactaremos para conversar sobre tu proyecto.",
-        form_title: "Contanos tu idea.",
+        contact_title: "Contanos tu proyecto.",
+        contact_desc: "Queremos conocer tu idea y entender qué necesitás resolver. Describinos tu proyecto para evaluar una solución acorde a tus objetivos.",
+        form_title: "Contanos tu proyecto.",
         form_lead: "Completá los datos y te contactamos.",
         form_name: "Nombre *",
         form_name_ph: "Tu nombre",
@@ -105,9 +103,16 @@ const translations = {
         form_phone: "Teléfono",
         form_phone_ph: "Ingresá tu número de teléfono",
         form_type: "Tipo de proyecto *",
-        form_type_1: "Landing page",
-        form_type_2: "Web corporativa",
-        form_type_3: "Proyecto personalizado",
+        form_type_1: "Sitio web",
+        form_type_2: "Tienda online",
+        form_type_3: "Aplicación web",
+        form_type_4: "Sistema de gestión",
+        form_type_5: "Reservas y turnos",
+        form_type_6: "Automatización",
+        form_type_7: "Inteligencia artificial",
+        form_type_8: "SaaS",
+        form_type_9: "Marketplace",
+        form_type_10: "Otro proyecto",
         form_msg: "Mensaje *",
         form_msg_ph: "Contanos un poco sobre tu proyecto",
         form_submit: "Enviar consulta",
@@ -206,6 +211,7 @@ const translations = {
     en: {
         skip_link: "Skip to main content",
         nav_services: "Services",
+        nav_solutions: "Solutions",
         nav_benefits: "Benefits",
         nav_projects: "Projects",
         nav_process: "Process",
@@ -216,86 +222,84 @@ const translations = {
         nav_privacy: "Privacy Policy",
         nav_cookies: "Cookie Policy",
 
-        hero_eyebrow_1: "WEB DESIGN",
-        hero_eyebrow_2: "DEVELOPMENT",
-        hero_eyebrow_3: "DIGITAL PRESENCE",
-        hero_title_1: "Connecting with the world",
-        hero_title_2: "starts with finding",
-        hero_title_3: "your place.",
-        hero_lead: "We design custom websites that reflect who you are, showcase what makes you different, and bring your brand closer to the people you want to reach.",
+        hero_title_1: "Your place on the internet",
+        hero_title_2: "starts",
+        hero_title_3: "here.",
+        hero_lead: "We design and develop websites, online stores, applications, and custom systems to transform your ideas into functional digital solutions.",
 
-        services_title: "What we can develop",
-        services_desc: "We design and develop digital products from scratch, adapted to your goals, processes and users. From a specific tool to a complete platform.",
+        services_title: "Digital solutions for every need.",
+        services_desc: "From a web page to a customized system, we develop digital tools adapted to your business goals.",
         
-        why_title: "Benefits",
-        why_desc: "The benefits section communicates concrete results of the service, not just technical features.",
+        solutions_title: "A solution for what you need.",
+        solutions_desc: "We analyze your idea and develop digital tools adapted to your goals, processes, and the features you need.",
 
-        work_title: "Projects that bring ideas to the web.",
-        work_desc: "Every project starts from a specific need and becomes a digital experience designed for its purpose.",
+        why_title: "Technology designed for your project.",
+        why_desc: "We develop digital solutions with clear objectives, attention to detail, and possibilities for evolution.",
+
+        work_title: "Ideas turned into digital solutions.",
+        work_desc: "Discover our projects and development examples. Each work reflects a need and a solution built through design and technology.",
         work_link: "Discuss project →",
         cat_services: "SERVICES",
         cat_gastro: "GASTRONOMY",
         cat_church: "CHURCH",
 
-        process_title: "From idea to published site.",
-        process_desc: "Four stages to take your project from the first conversation to the site online.",
-        proc_1_title: "Stage 01 — Discovery",
-        proc_1_desc: "We learn about your business, goals, and project needs.",
-        proc_2_title: "Stage 02 — Proposal",
-        proc_2_desc: "We define the scope, features, timelines, and budget.",
-        proc_3_title: "Stage 03 — Design & development",
-        proc_3_desc: "We build the site following the approved proposal and agreed requirements.",
-        proc_4_title: "Stage 04 — Review & delivery",
-        proc_4_desc: "We review the result, make the included adjustments, and coordinate the launch.",
+        process_title: "From idea to result.",
+        process_desc: "An organized process to transform your needs into a functional digital solution.",
+        proc_1_title: "Analysis",
+        proc_1_desc: "We understand your idea, your goals, and the problem you need to solve.",
+        proc_2_title: "Planning",
+        proc_2_desc: "We define the scope, features, and priorities of the project.",
+        proc_3_title: "Development",
+        proc_3_desc: "We build the agreed solution with attention to design and functionality.",
+        proc_4_title: "Testing",
+        proc_4_desc: "We verify the features and correct any detected issues.",
+        proc_5_title: "Launch & delivery",
+        proc_5_desc: "We prepare the launch and deliver the agreed elements.",
 
-        plans_title: "A solution that fits your project.",
-        plans_desc: "Not every business needs the same website. That's why every proposal is defined by scope, content, and required features.",
+        plans_title: "A solution for every stage.",
+        plans_desc: "Different alternatives to create your digital presence, sell online, or develop customized tools.",
         plan_badge: "RECOMMENDED",
-        plan_1_label: "LANDING",
-        plan_1_title: "Landing page",
-        plan_1_sub: "One-time payment · defined scope",
-        plan_1_desc: "To present a service, product, or commercial proposal on a focused page.",
-        plan_1_f1: "One page with defined sections",
-        plan_1_f2: "Responsive design",
-        plan_1_f3: "Form or contact channel",
-        plan_1_f4: "Domain and hosting not included",
-        plan_2_label: "SITE",
-        plan_2_title: "Corporate website",
-        plan_2_sub: "One-time payment · according to scope",
-        plan_2_desc: "For companies and professionals who need to present their business, services, and contact channels.",
-        plan_2_f1: "Multiple sections and internal pages",
-        plan_2_f2: "Content structure",
-        plan_2_f3: "Form or contact channel",
-        plan_2_f4: "Domain and hosting not included",
-        plan_3_label: "CUSTOM",
-        plan_3_title: "Custom project",
-        plan_3_sub: "According to scope and features",
-        plan_3_desc: "For online stores, integrations, or any project that requires specific development.",
-        plan_3_f1: "Scope to define together",
-        plan_3_f2: "Stack adapted to the project",
-        plan_3_f3: "Integrations as needed",
-        plan_3_f4: "Conditions agreed in writing",
+        plan_1_label: "STARTER",
+        plan_1_title: "Web Starter",
+        plan_1_sub: "According to scope",
+        plan_1_desc: "A professional digital presence for entrepreneurs and projects that need to start on the internet.",
+        plan_2_label: "BUSINESS",
+        plan_2_title: "Web Business",
+        plan_2_sub: "According to scope",
+        plan_2_desc: "A more complete site for companies and businesses looking to present their services and receive inquiries.",
+        plan_3_label: "COMMERCE",
+        plan_3_title: "Web Commerce",
+        plan_3_sub: "According to scope",
+        plan_3_desc: "A digital solution to display products and develop an online sales channel.",
+        plan_4_label: "CUSTOM",
+        plan_4_title: "Custom development",
+        plan_4_sub: "According to features",
+        plan_4_desc: "Applications, management systems, automations, and integrations adapted to specific needs.",
 
         faq_title: "Frequently asked questions",
-        faq_desc: "The most common doubts before starting a project.",
-        faq_1_q: "How is the project price defined?",
-        faq_1_a: "The price depends on the type of site, number of sections, features, and content. Landing and corporate plans have a reference value starting at USD 250 and USD 500. Custom projects are quoted according to their scope.",
-        faq_2_q: "What does the budget include?",
-        faq_2_a: "The budget details the scope of work and included services. Domain and hosting are not included unless stated otherwise.",
-        faq_3_q: "How long does it take for the site to be ready?",
-        faq_3_a: "The timeline depends on the complexity of the site and the availability of the necessary content. It is defined before starting work.",
-        faq_4_q: "How is the design defined?",
-        faq_4_a: "The visual proposal adapts to the identity, goals, and needs of each project.",
-        faq_5_q: "Will the site work on mobile and tablets?",
-        faq_5_a: "Sites are developed with responsive design to adapt to different screen sizes.",
-        faq_6_q: "Can I request modifications after delivery?",
-        faq_6_a: "Subsequent adjustments can be quoted separately or contracted through a maintenance service.",
-        faq_7_q: "How do I hire a project?",
-        faq_7_a: "Write to us at hola@tagback.com with a description of your project. We will review your needs and prepare a proposal.",
+        faq_desc: "We resolve the most common doubts before starting.",
+        faq_1_q: "What type of projects do you develop?",
+        faq_1_a: "Websites, online stores, applications, management systems, automations, and integrations, as well as customized digital solutions.",
+        faq_2_q: "How do I know what solution I need?",
+        faq_2_a: "Tell us your goals and needs so we can evaluate what type of development best suits your project.",
+        faq_3_q: "Is hosting included?",
+        faq_3_a: "It depends on the project and the conditions of the contracted service.",
+        faq_4_q: "Is the domain included?",
+        faq_4_a: "It depends on the plan. Registration and renewal may generate additional costs.",
+        faq_5_q: "Can I expand my project in the future?",
+        faq_5_a: "Expansion possibilities depend on the architecture and technical characteristics of the solution.",
+        faq_6_q: "Do I receive the code for my project?",
+        faq_6_a: "The delivery of the code, files, and usage rights are established in the agreed conditions.",
+        faq_7_q: "Do you offer maintenance?",
+        faq_7_a: "Maintenance and support depend on the conditions contracted for each project.",
+        faq_8_q: "How is custom development quoted?",
+        faq_8_a: "We evaluate the features, integrations, and complexity to define the scope and prepare a proposal.",
+        faq_9_q: "How long does development take?",
+        faq_9_a: "The timeline depends on the requirements and complexity of the project.",
 
-        contact_title: "Tell us your idea.",
-        contact_desc: "Fill in the details and tell us what you need. We will contact you to discuss your project.",
-        form_title: "Tell us your idea.",
+        contact_title: "Tell us about your project.",
+        contact_desc: "We want to know your idea and understand what you need to solve. Describe your project so we can evaluate a solution according to your goals.",
+        form_title: "Tell us about your project.",
         form_lead: "Fill in the details and we'll contact you.",
         form_name: "Name *",
         form_name_ph: "Your name",
@@ -304,9 +308,16 @@ const translations = {
         form_phone: "Phone",
         form_phone_ph: "Enter your phone number",
         form_type: "Project type *",
-        form_type_1: "Landing page",
-        form_type_2: "Corporate website",
-        form_type_3: "Custom project",
+        form_type_1: "Website",
+        form_type_2: "Online store",
+        form_type_3: "Web application",
+        form_type_4: "Management system",
+        form_type_5: "Bookings & appointments",
+        form_type_6: "Automation",
+        form_type_7: "Artificial intelligence",
+        form_type_8: "SaaS",
+        form_type_9: "Marketplace",
+        form_type_10: "Other project",
         form_msg: "Message *",
         form_msg_ph: "Tell us a bit about your project",
         form_submit: "Send inquiry",
@@ -775,6 +786,34 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
     /* =====================================================
+       ACORDEONES DE SERVICIOS
+       ===================================================== */
+
+    $$(".service-card").forEach((item) => {
+        const accHeader = $(".service-card-header", item);
+        if (!accHeader) return;
+
+        accHeader.addEventListener("click", () => {
+            const wasOpen = item.classList.contains("is-open");
+            const stack = item.parentElement;
+
+            if (stack) {
+                $$(".service-card", stack).forEach((sibling) => {
+                    if (sibling === item) return;
+                    sibling.classList.remove("is-open");
+                    const siblingHeader = $(".service-card-header", sibling);
+                    if (siblingHeader) {
+                        siblingHeader.setAttribute("aria-expanded", "false");
+                    }
+                });
+            }
+
+            item.classList.toggle("is-open", !wasOpen);
+            accHeader.setAttribute("aria-expanded", String(!wasOpen));
+        });
+    });
+
+    /* =====================================================
        FAQ: UNA PREGUNTA ABIERTA POR VEZ + HOVER
        ===================================================== */
 
@@ -783,7 +822,6 @@ document.addEventListener("DOMContentLoaded", () => {
     faqItems.forEach((item) => {
         if (item.tagName !== "DETAILS") return;
         
-        // Al hacer toggle, cerrar los demás
         item.addEventListener("toggle", () => {
             if (!item.open) return;
             faqItems.forEach((other) => {
@@ -793,7 +831,6 @@ document.addEventListener("DOMContentLoaded", () => {
             });
         });
 
-        // Abrir con hover en desktop
         item.addEventListener("mouseenter", () => {
             if (window.innerWidth > 768 && item.tagName === "DETAILS") {
                 faqItems.forEach(other => {
