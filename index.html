@@ -84,7 +84,7 @@
         </div>
     </section>
 
-    <!-- 2. SERVICIOS (Acordeón Horizontal con Iconos) -->
+    <!-- 2. SERVICIOS -->
     <section class="services section" id="servicios">
         <div class="container services-inner">
             <div class="services-intro">
@@ -93,7 +93,6 @@
             </div>
 
             <div class="services-cards accordion-horizontal">
-                <!-- 1 -->
                 <article class="service-card">
                     <button type="button" class="service-card-header" aria-expanded="false">
                         <svg class="service-card-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"></rect><line x1="8" y1="21" x2="16" y2="21"></line><line x1="12" y1="17" x2="12" y2="21"></line></svg>
@@ -105,7 +104,6 @@
                         </div>
                     </div>
                 </article>
-                <!-- 2 -->
                 <article class="service-card">
                     <button type="button" class="service-card-header" aria-expanded="false">
                         <svg class="service-card-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="21" r="1"></circle><circle cx="20" cy="21" r="1"></circle><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path></svg>
@@ -117,7 +115,6 @@
                         </div>
                     </div>
                 </article>
-                <!-- 3 -->
                 <article class="service-card">
                     <button type="button" class="service-card-header" aria-expanded="false">
                         <svg class="service-card-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="2" width="14" height="20" rx="2" ry="2"></rect><line x1="12" y1="18" x2="12.01" y2="18"></line></svg>
@@ -129,7 +126,6 @@
                         </div>
                     </div>
                 </article>
-                <!-- 4 -->
                 <article class="service-card">
                     <button type="button" class="service-card-header" aria-expanded="false">
                         <svg class="service-card-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="20" x2="12" y2="10"></line><line x1="18" y1="20" x2="18" y2="4"></line><line x1="6" y1="20" x2="6" y2="16"></line></svg>
@@ -141,7 +137,6 @@
                         </div>
                     </div>
                 </article>
-                <!-- 5 -->
                 <article class="service-card">
                     <button type="button" class="service-card-header" aria-expanded="false">
                         <svg class="service-card-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg>
@@ -153,7 +148,6 @@
                         </div>
                     </div>
                 </article>
-                <!-- 6 -->
                 <article class="service-card">
                     <button type="button" class="service-card-header" aria-expanded="false">
                         <svg class="service-card-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M18 10h-1.26A8 8 0 1 0 9 20h9a5 5 0 0 0 0-10z"></path></svg>
@@ -549,38 +543,75 @@
             <!-- LANGUAGES & RUNTIMES -->
             <div class="tech-category">
                 <h3 class="tech-category-title">LANGUAGES &amp; RUNTIMES</h3>
-                <div class="tech-grid">
-                    <div class="tech-item">
-                        <img src="https://cdn.simpleicons.org/html5" alt="HTML5" loading="lazy" width="28" height="28">
-                        <span>HTML5</span>
-                    </div>
-                    <div class="tech-item">
-                        <img src="https://cdn.simpleicons.org/css3" alt="CSS3" loading="lazy" width="28" height="28">
-                        <span>CSS3</span>
-                    </div>
-                    <div class="tech-item">
-                        <img src="https://cdn.simpleicons.org/javascript" alt="JavaScript" loading="lazy" width="28" height="28">
-                        <span>JavaScript</span>
-                    </div>
-                    <div class="tech-item">
-                        <img src="https://cdn.simpleicons.org/typescript" alt="TypeScript" loading="lazy" width="28" height="28">
-                        <span>TypeScript</span>
-                    </div>
-                    <div class="tech-item">
-                        <img src="https://cdn.simpleicons.org/nodedotjs" alt="Node.js" loading="lazy" width="28" height="28">
-                        <span>Node.js</span>
-                    </div>
-                    <div class="tech-item">
-                        <img src="https://cdn.simpleicons.org/php" alt="PHP" loading="lazy" width="28" height="28">
-                        <span>PHP</span>
-                    </div>
-                    <div class="tech-item">
-                        <img src="https://cdn.simpleicons.org/python" alt="Python" loading="lazy" width="28" height="28">
-                        <span>Python</span>
-                    </div>
-                    <div class="tech-item">
-                        <img src="https://cdn.simpleicons.org/mysql" alt="SQL" loading="lazy" width="28" height="28">
-                        <span>SQL</span>
+                <div class="tech-marquee">
+                    <div class="tech-track">
+                        <!-- Set 1 -->
+                        <div class="tech-item">
+                            <img src="https://cdn.simpleicons.org/html5/8ba3c7" alt="HTML5" loading="lazy" width="24" height="24">
+                            <span>HTML5</span>
+                        </div>
+                        <div class="tech-item">
+                            <img src="https://cdn.simpleicons.org/css3/8ba3c7" alt="CSS3" loading="lazy" width="24" height="24">
+                            <span>CSS3</span>
+                        </div>
+                        <div class="tech-item">
+                            <img src="https://cdn.simpleicons.org/javascript/8ba3c7" alt="JavaScript" loading="lazy" width="24" height="24">
+                            <span>JavaScript</span>
+                        </div>
+                        <div class="tech-item">
+                            <img src="https://cdn.simpleicons.org/typescript/8ba3c7" alt="TypeScript" loading="lazy" width="24" height="24">
+                            <span>TypeScript</span>
+                        </div>
+                        <div class="tech-item">
+                            <img src="https://cdn.simpleicons.org/nodedotjs/8ba3c7" alt="Node.js" loading="lazy" width="24" height="24">
+                            <span>Node.js</span>
+                        </div>
+                        <div class="tech-item">
+                            <img src="https://cdn.simpleicons.org/php/8ba3c7" alt="PHP" loading="lazy" width="24" height="24">
+                            <span>PHP</span>
+                        </div>
+                        <div class="tech-item">
+                            <img src="https://cdn.simpleicons.org/python/8ba3c7" alt="Python" loading="lazy" width="24" height="24">
+                            <span>Python</span>
+                        </div>
+                        <div class="tech-item">
+                            <img src="https://cdn.simpleicons.org/mysql/8ba3c7" alt="SQL" loading="lazy" width="24" height="24">
+                            <span>SQL</span>
+                        </div>
+
+                        <!-- Set 2 (duplicado para loop) -->
+                        <div class="tech-item" aria-hidden="true">
+                            <img src="https://cdn.simpleicons.org/html5/8ba3c7" alt="" loading="lazy" width="24" height="24">
+                            <span>HTML5</span>
+                        </div>
+                        <div class="tech-item" aria-hidden="true">
+                            <img src="https://cdn.simpleicons.org/css3/8ba3c7" alt="" loading="lazy" width="24" height="24">
+                            <span>CSS3</span>
+                        </div>
+                        <div class="tech-item" aria-hidden="true">
+                            <img src="https://cdn.simpleicons.org/javascript/8ba3c7" alt="" loading="lazy" width="24" height="24">
+                            <span>JavaScript</span>
+                        </div>
+                        <div class="tech-item" aria-hidden="true">
+                            <img src="https://cdn.simpleicons.org/typescript/8ba3c7" alt="" loading="lazy" width="24" height="24">
+                            <span>TypeScript</span>
+                        </div>
+                        <div class="tech-item" aria-hidden="true">
+                            <img src="https://cdn.simpleicons.org/nodedotjs/8ba3c7" alt="" loading="lazy" width="24" height="24">
+                            <span>Node.js</span>
+                        </div>
+                        <div class="tech-item" aria-hidden="true">
+                            <img src="https://cdn.simpleicons.org/php/8ba3c7" alt="" loading="lazy" width="24" height="24">
+                            <span>PHP</span>
+                        </div>
+                        <div class="tech-item" aria-hidden="true">
+                            <img src="https://cdn.simpleicons.org/python/8ba3c7" alt="" loading="lazy" width="24" height="24">
+                            <span>Python</span>
+                        </div>
+                        <div class="tech-item" aria-hidden="true">
+                            <img src="https://cdn.simpleicons.org/mysql/8ba3c7" alt="" loading="lazy" width="24" height="24">
+                            <span>SQL</span>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -588,30 +619,59 @@
             <!-- FRAMEWORKS & LIBRARIES -->
             <div class="tech-category">
                 <h3 class="tech-category-title">FRAMEWORKS &amp; LIBRARIES</h3>
-                <div class="tech-grid">
-                    <div class="tech-item">
-                        <img src="https://cdn.simpleicons.org/astro" alt="Astro" loading="lazy" width="28" height="28">
-                        <span>Astro</span>
-                    </div>
-                    <div class="tech-item">
-                        <img src="https://cdn.simpleicons.org/react" alt="React" loading="lazy" width="28" height="28">
-                        <span>React</span>
-                    </div>
-                    <div class="tech-item">
-                        <img src="https://cdn.simpleicons.org/vuedotjs" alt="Vue.js" loading="lazy" width="28" height="28">
-                        <span>Vue.js</span>
-                    </div>
-                    <div class="tech-item">
-                        <img src="https://cdn.simpleicons.org/tailwindcss" alt="Tailwind CSS" loading="lazy" width="28" height="28">
-                        <span>Tailwind CSS</span>
-                    </div>
-                    <div class="tech-item">
-                        <img src="https://cdn.simpleicons.org/bootstrap" alt="Bootstrap" loading="lazy" width="28" height="28">
-                        <span>Bootstrap</span>
-                    </div>
-                    <div class="tech-item">
-                        <img src="https://cdn.simpleicons.org/sass" alt="Sass" loading="lazy" width="28" height="28">
-                        <span>Sass</span>
+                <div class="tech-marquee">
+                    <div class="tech-track">
+                        <!-- Set 1 -->
+                        <div class="tech-item">
+                            <img src="https://cdn.simpleicons.org/astro/8ba3c7" alt="Astro" loading="lazy" width="24" height="24">
+                            <span>Astro</span>
+                        </div>
+                        <div class="tech-item">
+                            <img src="https://cdn.simpleicons.org/react/8ba3c7" alt="React" loading="lazy" width="24" height="24">
+                            <span>React</span>
+                        </div>
+                        <div class="tech-item">
+                            <img src="https://cdn.simpleicons.org/vuedotjs/8ba3c7" alt="Vue.js" loading="lazy" width="24" height="24">
+                            <span>Vue.js</span>
+                        </div>
+                        <div class="tech-item">
+                            <img src="https://cdn.simpleicons.org/tailwindcss/8ba3c7" alt="Tailwind CSS" loading="lazy" width="24" height="24">
+                            <span>Tailwind CSS</span>
+                        </div>
+                        <div class="tech-item">
+                            <img src="https://cdn.simpleicons.org/bootstrap/8ba3c7" alt="Bootstrap" loading="lazy" width="24" height="24">
+                            <span>Bootstrap</span>
+                        </div>
+                        <div class="tech-item">
+                            <img src="https://cdn.simpleicons.org/sass/8ba3c7" alt="Sass" loading="lazy" width="24" height="24">
+                            <span>Sass</span>
+                        </div>
+
+                        <!-- Set 2 -->
+                        <div class="tech-item" aria-hidden="true">
+                            <img src="https://cdn.simpleicons.org/astro/8ba3c7" alt="" loading="lazy" width="24" height="24">
+                            <span>Astro</span>
+                        </div>
+                        <div class="tech-item" aria-hidden="true">
+                            <img src="https://cdn.simpleicons.org/react/8ba3c7" alt="" loading="lazy" width="24" height="24">
+                            <span>React</span>
+                        </div>
+                        <div class="tech-item" aria-hidden="true">
+                            <img src="https://cdn.simpleicons.org/vuedotjs/8ba3c7" alt="" loading="lazy" width="24" height="24">
+                            <span>Vue.js</span>
+                        </div>
+                        <div class="tech-item" aria-hidden="true">
+                            <img src="https://cdn.simpleicons.org/tailwindcss/8ba3c7" alt="" loading="lazy" width="24" height="24">
+                            <span>Tailwind CSS</span>
+                        </div>
+                        <div class="tech-item" aria-hidden="true">
+                            <img src="https://cdn.simpleicons.org/bootstrap/8ba3c7" alt="" loading="lazy" width="24" height="24">
+                            <span>Bootstrap</span>
+                        </div>
+                        <div class="tech-item" aria-hidden="true">
+                            <img src="https://cdn.simpleicons.org/sass/8ba3c7" alt="" loading="lazy" width="24" height="24">
+                            <span>Sass</span>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -619,34 +679,57 @@
             <!-- DATA & AI -->
             <div class="tech-category">
                 <h3 class="tech-category-title">DATA &amp; AI</h3>
-                <div class="tech-grid">
-                    <div class="tech-item">
-                        <img src="https://cdn.simpleicons.org/elasticsearch" alt="Elasticsearch" loading="lazy" width="28" height="28">
-                        <span>Elasticsearch</span>
-                    </div>
-                    <div class="tech-item">
-                        <img src="https://cdn.simpleicons.org/openai" alt="OpenAI API" loading="lazy" width="28" height="28">
-                        <span>OpenAI API</span>
-                    </div>
-                    <div class="tech-item">
-                        <img src="https://cdn.simpleicons.org/openai" alt="OpenAI GPT" loading="lazy" width="28" height="28">
-                        <span>OpenAI GPT</span>
-                    </div>
-                    <div class="tech-item">
-                        <img src="https://cdn.simpleicons.org/anthropic" alt="Claude" loading="lazy" width="28" height="28">
-                        <span>Claude</span>
-                    </div>
-                    <div class="tech-item">
-                        <img src="https://cdn.simpleicons.org/vercel" alt="Vercel AI SDK" loading="lazy" width="28" height="28">
-                        <span>Vercel AI SDK</span>
-                    </div>
-                    <div class="tech-item">
-                        <img src="https://cdn.simpleicons.org/exa" alt="Exa" loading="lazy" width="28" height="28">
-                        <span>Exa</span>
-                    </div>
-                    <div class="tech-item">
-                        <img src="https://cdn.simpleicons.org/firecrawl" alt="Firecrawl" loading="lazy" width="28" height="28">
-                        <span>Firecrawl</span>
+                <div class="tech-marquee">
+                    <div class="tech-track">
+                        <!-- Set 1 -->
+                        <div class="tech-item">
+                            <img src="https://cdn.simpleicons.org/elasticsearch/8ba3c7" alt="Elasticsearch" loading="lazy" width="24" height="24">
+                            <span>Elasticsearch</span>
+                        </div>
+                        <div class="tech-item tech-item--text">
+                            <span>OpenAI API</span>
+                        </div>
+                        <div class="tech-item tech-item--text">
+                            <span>OpenAI GPT</span>
+                        </div>
+                        <div class="tech-item tech-item--text">
+                            <span>Claude</span>
+                        </div>
+                        <div class="tech-item">
+                            <img src="https://cdn.simpleicons.org/vercel/8ba3c7" alt="Vercel AI SDK" loading="lazy" width="24" height="24">
+                            <span>Vercel AI SDK</span>
+                        </div>
+                        <div class="tech-item tech-item--text">
+                            <span>Exa</span>
+                        </div>
+                        <div class="tech-item tech-item--text">
+                            <span>Firecrawl</span>
+                        </div>
+
+                        <!-- Set 2 -->
+                        <div class="tech-item" aria-hidden="true">
+                            <img src="https://cdn.simpleicons.org/elasticsearch/8ba3c7" alt="" loading="lazy" width="24" height="24">
+                            <span>Elasticsearch</span>
+                        </div>
+                        <div class="tech-item tech-item--text" aria-hidden="true">
+                            <span>OpenAI API</span>
+                        </div>
+                        <div class="tech-item tech-item--text" aria-hidden="true">
+                            <span>OpenAI GPT</span>
+                        </div>
+                        <div class="tech-item tech-item--text" aria-hidden="true">
+                            <span>Claude</span>
+                        </div>
+                        <div class="tech-item" aria-hidden="true">
+                            <img src="https://cdn.simpleicons.org/vercel/8ba3c7" alt="" loading="lazy" width="24" height="24">
+                            <span>Vercel AI SDK</span>
+                        </div>
+                        <div class="tech-item tech-item--text" aria-hidden="true">
+                            <span>Exa</span>
+                        </div>
+                        <div class="tech-item tech-item--text" aria-hidden="true">
+                            <span>Firecrawl</span>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -654,34 +737,67 @@
             <!-- E-COMMERCE & CMS -->
             <div class="tech-category">
                 <h3 class="tech-category-title">E-COMMERCE &amp; CMS</h3>
-                <div class="tech-grid">
-                    <div class="tech-item">
-                        <img src="https://cdn.simpleicons.org/shopify" alt="Shopify" loading="lazy" width="28" height="28">
-                        <span>Shopify</span>
-                    </div>
-                    <div class="tech-item">
-                        <img src="https://cdn.simpleicons.org/shopify" alt="Shopify Plus" loading="lazy" width="28" height="28">
-                        <span>Shopify Plus</span>
-                    </div>
-                    <div class="tech-item">
-                        <img src="https://cdn.simpleicons.org/tiendanube" alt="Tiendanube" loading="lazy" width="28" height="28">
-                        <span>Tiendanube</span>
-                    </div>
-                    <div class="tech-item">
-                        <img src="https://cdn.simpleicons.org/mercadolibre" alt="Mercado Libre" loading="lazy" width="28" height="28">
-                        <span>Mercado Libre</span>
-                    </div>
-                    <div class="tech-item">
-                        <img src="https://cdn.simpleicons.org/wordpress" alt="WordPress" loading="lazy" width="28" height="28">
-                        <span>WordPress</span>
-                    </div>
-                    <div class="tech-item">
-                        <img src="https://cdn.simpleicons.org/woocommerce" alt="WooCommerce" loading="lazy" width="28" height="28">
-                        <span>WooCommerce</span>
-                    </div>
-                    <div class="tech-item">
-                        <img src="https://cdn.simpleicons.org/strapi" alt="Strapi" loading="lazy" width="28" height="28">
-                        <span>Strapi</span>
+                <div class="tech-marquee">
+                    <div class="tech-track">
+                        <!-- Set 1 -->
+                        <div class="tech-item">
+                            <img src="https://cdn.simpleicons.org/shopify/8ba3c7" alt="Shopify" loading="lazy" width="24" height="24">
+                            <span>Shopify</span>
+                        </div>
+                        <div class="tech-item">
+                            <img src="https://cdn.simpleicons.org/shopify/8ba3c7" alt="Shopify Plus" loading="lazy" width="24" height="24">
+                            <span>Shopify Plus</span>
+                        </div>
+                        <div class="tech-item">
+                            <img src="https://cdn.simpleicons.org/tiendanube/8ba3c7" alt="Tiendanube" loading="lazy" width="24" height="24">
+                            <span>Tiendanube</span>
+                        </div>
+                        <div class="tech-item">
+                            <img src="https://cdn.simpleicons.org/mercadolibre/8ba3c7" alt="Mercado Libre" loading="lazy" width="24" height="24">
+                            <span>Mercado Libre</span>
+                        </div>
+                        <div class="tech-item">
+                            <img src="https://cdn.simpleicons.org/wordpress/8ba3c7" alt="WordPress" loading="lazy" width="24" height="24">
+                            <span>WordPress</span>
+                        </div>
+                        <div class="tech-item">
+                            <img src="https://cdn.simpleicons.org/woocommerce/8ba3c7" alt="WooCommerce" loading="lazy" width="24" height="24">
+                            <span>WooCommerce</span>
+                        </div>
+                        <div class="tech-item">
+                            <img src="https://cdn.simpleicons.org/strapi/8ba3c7" alt="Strapi" loading="lazy" width="24" height="24">
+                            <span>Strapi</span>
+                        </div>
+
+                        <!-- Set 2 -->
+                        <div class="tech-item" aria-hidden="true">
+                            <img src="https://cdn.simpleicons.org/shopify/8ba3c7" alt="" loading="lazy" width="24" height="24">
+                            <span>Shopify</span>
+                        </div>
+                        <div class="tech-item" aria-hidden="true">
+                            <img src="https://cdn.simpleicons.org/shopify/8ba3c7" alt="" loading="lazy" width="24" height="24">
+                            <span>Shopify Plus</span>
+                        </div>
+                        <div class="tech-item" aria-hidden="true">
+                            <img src="https://cdn.simpleicons.org/tiendanube/8ba3c7" alt="" loading="lazy" width="24" height="24">
+                            <span>Tiendanube</span>
+                        </div>
+                        <div class="tech-item" aria-hidden="true">
+                            <img src="https://cdn.simpleicons.org/mercadolibre/8ba3c7" alt="" loading="lazy" width="24" height="24">
+                            <span>Mercado Libre</span>
+                        </div>
+                        <div class="tech-item" aria-hidden="true">
+                            <img src="https://cdn.simpleicons.org/wordpress/8ba3c7" alt="" loading="lazy" width="24" height="24">
+                            <span>WordPress</span>
+                        </div>
+                        <div class="tech-item" aria-hidden="true">
+                            <img src="https://cdn.simpleicons.org/woocommerce/8ba3c7" alt="" loading="lazy" width="24" height="24">
+                            <span>WooCommerce</span>
+                        </div>
+                        <div class="tech-item" aria-hidden="true">
+                            <img src="https://cdn.simpleicons.org/strapi/8ba3c7" alt="" loading="lazy" width="24" height="24">
+                            <span>Strapi</span>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -689,22 +805,41 @@
             <!-- DEVELOPMENT TOOLS -->
             <div class="tech-category">
                 <h3 class="tech-category-title">DEVELOPMENT TOOLS</h3>
-                <div class="tech-grid">
-                    <div class="tech-item">
-                        <img src="https://cdn.simpleicons.org/git" alt="Git" loading="lazy" width="28" height="28">
-                        <span>Git</span>
-                    </div>
-                    <div class="tech-item">
-                        <img src="https://cdn.simpleicons.org/github" alt="GitHub" loading="lazy" width="28" height="28">
-                        <span>GitHub</span>
-                    </div>
-                    <div class="tech-item">
-                        <img src="https://cdn.simpleicons.org/visualstudiocode" alt="Visual Studio Code" loading="lazy" width="28" height="28">
-                        <span>Visual Studio Code</span>
-                    </div>
-                    <div class="tech-item">
-                        <img src="https://cdn.simpleicons.org/playwright" alt="Playwright" loading="lazy" width="28" height="28">
-                        <span>Playwright</span>
+                <div class="tech-marquee">
+                    <div class="tech-track">
+                        <!-- Set 1 -->
+                        <div class="tech-item">
+                            <img src="https://cdn.simpleicons.org/git/8ba3c7" alt="Git" loading="lazy" width="24" height="24">
+                            <span>Git</span>
+                        </div>
+                        <div class="tech-item">
+                            <img src="https://cdn.simpleicons.org/github/8ba3c7" alt="GitHub" loading="lazy" width="24" height="24">
+                            <span>GitHub</span>
+                        </div>
+                        <div class="tech-item">
+                            <img src="https://cdn.simpleicons.org/visualstudiocode/8ba3c7" alt="Visual Studio Code" loading="lazy" width="24" height="24">
+                            <span>Visual Studio Code</span>
+                        </div>
+                        <div class="tech-item tech-item--text">
+                            <span>Playwright</span>
+                        </div>
+
+                        <!-- Set 2 -->
+                        <div class="tech-item" aria-hidden="true">
+                            <img src="https://cdn.simpleicons.org/git/8ba3c7" alt="" loading="lazy" width="24" height="24">
+                            <span>Git</span>
+                        </div>
+                        <div class="tech-item" aria-hidden="true">
+                            <img src="https://cdn.simpleicons.org/github/8ba3c7" alt="" loading="lazy" width="24" height="24">
+                            <span>GitHub</span>
+                        </div>
+                        <div class="tech-item" aria-hidden="true">
+                            <img src="https://cdn.simpleicons.org/visualstudiocode/8ba3c7" alt="" loading="lazy" width="24" height="24">
+                            <span>Visual Studio Code</span>
+                        </div>
+                        <div class="tech-item tech-item--text" aria-hidden="true">
+                            <span>Playwright</span>
+                        </div>
                     </div>
                 </div>
             </div>
