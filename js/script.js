@@ -1,6 +1,11 @@
 /* =========================================================
-   TAGBACK — JAVASCRIPT v43
+   TAGBACK — JAVASCRIPT v44
    Traducciones + Navegación + Formulario + WebGL (Neural Noise)
+   Cambios v44:
+   - Hero ES/EN nuevos
+   - Precios planes USD 250 / USD 500 / A cotizar
+   - FAQ con nuevo copy de precios
+   - Menú completo (sin "Más")
    ========================================================= */
 
 const translations = {
@@ -19,10 +24,10 @@ const translations = {
         hero_eyebrow_1: "DISEÑO WEB",
         hero_eyebrow_2: "DESARROLLO",
         hero_eyebrow_3: "PRESENCIA DIGITAL",
-        hero_title_1: "Webs claras para",
-        hero_title_2: "negocios que",
-        hero_title_3: "quieren crecer.",
-        hero_lead: "Diseñamos y desarrollamos sitios web rápidos, claros y pensados para convertir visitas en oportunidades de negocio.",
+        hero_title_1: "Conectar con el mundo",
+        hero_title_2: "empieza por encontrar",
+        hero_title_3: "tu lugar.",
+        hero_lead: "Diseñamos sitios web a medida que reflejan quién sos, transmiten lo que te hace diferente y acercan tu marca a las personas que querés alcanzar.",
 
         services_title: "Soluciones digitales para negocios que quieren avanzar.",
         services_desc: "Cada proyecto tiene necesidades diferentes. Hacé clic en cada servicio para ver el detalle.",
@@ -87,7 +92,7 @@ const translations = {
         faq_title: "Preguntas frecuentes",
         faq_desc: "Las dudas más comunes antes de empezar un proyecto.",
         faq_1_q: "¿Cómo se define el precio de un proyecto?",
-        faq_1_a: "El precio depende del tipo de sitio, la cantidad de secciones, las funcionalidades y el contenido. Los planes de landing y web corporativa tienen un valor de referencia desde USD 350 y USD 700. Los proyectos a medida se cotizan según su alcance.",
+        faq_1_a: "El precio depende del tipo de sitio, la cantidad de secciones, las funcionalidades y el contenido. Los planes de landing y web corporativa tienen un valor de referencia desde USD 250 y USD 500. Los proyectos a medida se cotizan según su alcance.",
         faq_2_q: "¿Qué incluye el presupuesto?",
         faq_2_a: "El presupuesto detalla el alcance del trabajo y los servicios incluidos. El dominio y el hosting no están incluidos salvo que se indique lo contrario.",
         faq_3_q: "¿Cuánto tarda en estar listo el sitio?",
@@ -225,10 +230,10 @@ const translations = {
         hero_eyebrow_1: "WEB DESIGN",
         hero_eyebrow_2: "DEVELOPMENT",
         hero_eyebrow_3: "DIGITAL PRESENCE",
-        hero_title_1: "Clear websites for",
-        hero_title_2: "businesses ready",
-        hero_title_3: "to grow.",
-        hero_lead: "We design and develop fast, clear websites built to turn visits into business opportunities.",
+        hero_title_1: "Connecting with the world",
+        hero_title_2: "starts with finding",
+        hero_title_3: "your place.",
+        hero_lead: "We design custom websites that reflect who you are, showcase what makes you different, and bring your brand closer to the people you want to reach.",
 
         services_title: "Digital solutions for businesses ready to move forward.",
         services_desc: "Every project has different needs. Click on each service to see the details.",
@@ -293,7 +298,7 @@ const translations = {
         faq_title: "Frequently asked questions",
         faq_desc: "The most common doubts before starting a project.",
         faq_1_q: "How is the project price defined?",
-        faq_1_a: "The price depends on the type of site, number of sections, features, and content. Landing and corporate plans have a reference value starting at USD 350 and USD 700. Custom projects are quoted according to their scope.",
+        faq_1_a: "The price depends on the type of site, number of sections, features, and content. Landing and corporate plans have a reference value starting at USD 250 and USD 500. Custom projects are quoted according to their scope.",
         faq_2_q: "What does the budget include?",
         faq_2_a: "The budget details the scope of work and included services. Domain and hosting are not included unless stated otherwise.",
         faq_3_q: "How long does it take for the site to be ready?",
@@ -439,7 +444,7 @@ document.addEventListener("DOMContentLoaded", () => {
         let uniforms;
         let animationFrameId;
         const pointer = { x: 0, y: 0, tX: 0, tY: 0 };
-        const color = [139 / 255, 163 / 255, 199 / 255]; 
+        const color = [139 / 255, 163 / 255, 199 / 255];
         const speed = 0.001;
 
         const initShader = () => {
@@ -495,7 +500,7 @@ document.addEventListener("DOMContentLoaded", () => {
                     gl_FragColor = vec4(col, noise);
                 }
             `;
-            
+
             gl = canvas.getContext('webgl', { alpha: true, antialias: true }) || canvas.getContext('experimental-webgl', { alpha: true, antialias: true });
             if (!gl) return null;
 
@@ -539,11 +544,11 @@ document.addEventListener("DOMContentLoaded", () => {
             gl.bindBuffer(gl.ARRAY_BUFFER, vertexBuffer);
             gl.bufferData(gl.ARRAY_BUFFER, vertices, gl.STATIC_DRAW);
             gl.useProgram(shaderProgram);
-            
+
             const positionLocation = gl.getAttribLocation(shaderProgram, 'a_position');
             gl.enableVertexAttribArray(positionLocation);
             gl.vertexAttribPointer(positionLocation, 2, gl.FLOAT, false, 0, 0);
-            
+
             gl.uniform3f(uniforms.u_color, color[0], color[1], color[2]);
             gl.uniform1f(uniforms.u_speed, speed);
 
@@ -564,7 +569,7 @@ document.addEventListener("DOMContentLoaded", () => {
             const currentTime = performance.now();
             pointer.x += (pointer.tX - pointer.x) * 0.2;
             pointer.y += (pointer.tY - pointer.y) * 0.2;
-            
+
             if (gl && uniforms) {
                 gl.uniform1f(uniforms.u_time, currentTime);
                 const rect = canvas.getBoundingClientRect();
@@ -585,10 +590,10 @@ document.addEventListener("DOMContentLoaded", () => {
             const touchmove = (e) => {
                 if (e.targetTouches[0]) updateMousePosition(e.targetTouches[0].clientX, e.targetTouches[0].clientY);
             };
-            
+
             window.addEventListener('pointermove', pointermove, { passive: true });
             window.addEventListener('touchmove', touchmove, { passive: true });
-            
+
             return () => {
                 window.removeEventListener('pointermove', pointermove);
                 window.removeEventListener('touchmove', touchmove);
@@ -773,53 +778,6 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
     /* =====================================================
-       MENÚ SECUNDARIO "MÁS"
-       ===================================================== */
-
-    const moreToggle = $(".nav-more-toggle");
-    const moreMenu = $("#nav-more-menu");
-
-    if (moreToggle && moreMenu) {
-        const closeMore = () => {
-            moreMenu.hidden = true;
-            moreToggle.setAttribute("aria-expanded", "false");
-        };
-
-        const openMore = () => {
-            moreMenu.hidden = false;
-            moreToggle.setAttribute("aria-expanded", "true");
-        };
-
-        closeMore();
-
-        moreToggle.addEventListener("click", (event) => {
-            event.stopPropagation();
-            if (moreMenu.hidden) {
-                openMore();
-            } else {
-                closeMore();
-            }
-        });
-
-        document.addEventListener("click", (event) => {
-            if (!event.target.closest(".nav-more")) {
-                closeMore();
-            }
-        });
-
-        document.addEventListener("keydown", (event) => {
-            if (event.key === "Escape" && !moreMenu.hidden) {
-                closeMore();
-                moreToggle.focus();
-            }
-        });
-
-        $$(".nav-more-menu a").forEach((link) => {
-            link.addEventListener("click", closeMore);
-        });
-    }
-
-    /* =====================================================
        HEADER AL HACER SCROLL
        ===================================================== */
 
@@ -840,7 +798,7 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
     /* =====================================================
-       ACORDEONES DE SERVICIOS
+       ACORDEONES (Servicios y Beneficios) — uno abierto por vez
        ===================================================== */
 
     $$(".accordion-item, .service-card").forEach((item) => {
