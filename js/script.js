@@ -1,5 +1,6 @@
 /* =========================================================
-   TAGBACK — JAVASCRIPT v45
+   TAGBACK — JAVASCRIPT v47
+   Traducciones + Navegación + Formulario + WebGL (Neural Noise)
    ========================================================= */
 
 const translations = {
@@ -24,19 +25,11 @@ const translations = {
         hero_title_3: "tu lugar.",
         hero_lead: "Diseñamos sitios web a medida que reflejan quién sos, transmiten lo que te hace diferente y acercan tu marca a las personas que querés alcanzar.",
 
-        services_title: "Soluciones digitales para negocios que quieren avanzar.",
-        services_desc: "Cada proyecto tiene necesidades diferentes. Seleccioná un servicio para ver el detalle.",
-        srv_1_title: "Landing pages",
-        srv_1_desc: "Una página enfocada en presentar una oferta concreta, con secciones definidas y una llamada a la acción principal. Incluye diseño responsive y un canal de contacto.",
-        srv_2_title: "Sitios web corporativos",
-        srv_2_desc: "Sitio con varias secciones o páginas internas para presentar la empresa, sus servicios y sus canales de contacto. Incluye estructura de contenidos y diseño responsive.",
-        srv_3_title: "Tiendas online",
-        srv_3_desc: "Catálogo de productos organizado, ficha de producto y flujo de compra o consulta. El alcance se define según la plataforma y las integraciones necesarias.",
-        srv_4_title: "Mantenimiento web",
-        srv_4_desc: "Actualizaciones, ajustes de contenido y soporte técnico para mantener el sitio en funcionamiento. Las condiciones se acuerdan por separado según cada caso.",
-
-        why_title: "Una web con propósito, no solo apariencia.",
-        why_desc: "Cada decisión está pensada para que tu sitio funcione: comunique, convierta y crezca con tu negocio.",
+        services_title: "Qué podemos desarrollar",
+        services_desc: "Diseñamos y desarrollamos productos digitales desde cero, adaptados a tus objetivos, procesos y usuarios. Desde una herramienta específica hasta una plataforma completa.",
+        
+        why_title: "Beneficios",
+        why_desc: "Comunicamos resultados concretos del servicio, no repetimos características técnicas.",
 
         work_title: "Proyectos que llevan ideas a la web.",
         work_desc: "Cada proyecto parte de una necesidad concreta y se convierte en una experiencia digital diseñada para su propósito.",
@@ -231,19 +224,11 @@ const translations = {
         hero_title_3: "your place.",
         hero_lead: "We design custom websites that reflect who you are, showcase what makes you different, and bring your brand closer to the people you want to reach.",
 
-        services_title: "Digital solutions for businesses ready to move forward.",
-        services_desc: "Every project has different needs. Select a service to see the details.",
-        srv_1_title: "Landing pages",
-        srv_1_desc: "A page focused on presenting a specific offer, with defined sections and a main call to action. Includes responsive design and a contact channel.",
-        srv_2_title: "Corporate websites",
-        srv_2_desc: "A site with multiple sections or internal pages to present the company, its services, and contact channels. Includes content structure and responsive design.",
-        srv_3_title: "Online stores",
-        srv_3_desc: "Organized product catalog, product page, and purchase or inquiry flow. The scope is defined based on the platform and necessary integrations.",
-        srv_4_title: "Web maintenance",
-        srv_4_desc: "Updates, content adjustments, and technical support to keep the site running. Conditions are agreed separately for each case.",
-
-        why_title: "A website with purpose, not just appearance.",
-        why_desc: "Every decision is made so your site works: communicates, converts, and grows with your business.",
+        services_title: "What we can develop",
+        services_desc: "We design and develop digital products from scratch, adapted to your goals, processes and users. From a specific tool to a complete platform.",
+        
+        why_title: "Benefits",
+        why_desc: "The benefits section communicates concrete results of the service, not just technical features.",
 
         work_title: "Projects that bring ideas to the web.",
         work_desc: "Every project starts from a specific need and becomes a digital experience designed for its purpose.",
@@ -788,80 +773,6 @@ document.addEventListener("DOMContentLoaded", () => {
         window.addEventListener("scroll", onScroll, { passive: true });
         updateHeader();
     }
-
-    /* =====================================================
-       ACORDEONES DE BENEFICIOS
-       ===================================================== */
-
-    $$(".accordion-item").forEach((item) => {
-        const accHeader = $(".accordion-header", item);
-        if (!accHeader) return;
-
-        accHeader.addEventListener("click", () => {
-            const wasOpen = item.classList.contains("is-open");
-            const stack = item.parentElement;
-
-            if (stack) {
-                $$(".accordion-item", stack).forEach((sibling) => {
-                    if (sibling === item) return;
-                    sibling.classList.remove("is-open");
-                    const siblingHeader = $(".accordion-header", sibling);
-                    if (siblingHeader) {
-                        siblingHeader.setAttribute("aria-expanded", "false");
-                    }
-                });
-            }
-
-            item.classList.toggle("is-open", !wasOpen);
-            accHeader.setAttribute("aria-expanded", String(!wasOpen));
-        });
-    });
-
-    /* =====================================================
-       ACTIVITY RINGS (Servicios)
-       ===================================================== */
-    const activityItems = $$(".activity-item");
-    const rings = {
-        r1: $(".ring-fill.r1"),
-        r2: $(".ring-fill.r2"),
-        r3: $(".ring-fill.r3")
-    };
-    
-    // Circunferencias (2 * PI * r)
-    const circ = { r1: 2 * Math.PI * 42, r2: 2 * Math.PI * 30, r3: 2 * Math.PI * 18 };
-
-    const updateRings = (activeIndex) => {
-        // Lógica de anillos: si está activo el 1, se llena el 1. Si es el 2, se llenan 1 y 2, etc.
-        // Simulamos un progreso distinto para que se vea dinámico.
-        const p1 = activeIndex >= 1 ? 0.75 : 0.15;
-        const p2 = activeIndex >= 2 ? 0.6 : (activeIndex === 1 ? 0.3 : 0.1);
-        const p3 = activeIndex === 3 ? 0.85 : 0.1;
-
-        if (rings.r1) rings.r1.style.strokeDasharray = `${circ.r1 * p1} ${circ.r1}`;
-        if (rings.r2) rings.r2.style.strokeDasharray = `${circ.r2 * p2} ${circ.r2}`;
-        if (rings.r3) rings.r3.style.strokeDasharray = `${circ.r3 * p3} ${circ.r3}`;
-    };
-
-    // Inicializar
-    updateRings(1);
-
-    activityItems.forEach((item) => {
-        const ringVal = parseInt(item.getAttribute("data-ring"), 10);
-        
-        // Hover effect
-        item.addEventListener("mouseenter", () => {
-            activityItems.forEach(i => i.classList.remove("is-active"));
-            item.classList.add("is-active");
-            updateRings(ringVal);
-        });
-
-        // Click effect (para móviles)
-        item.addEventListener("click", () => {
-            activityItems.forEach(i => i.classList.remove("is-active"));
-            item.classList.add("is-active");
-            updateRings(ringVal);
-        });
-    });
 
     /* =====================================================
        FAQ: UNA PREGUNTA ABIERTA POR VEZ + HOVER
