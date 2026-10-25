@@ -1087,6 +1087,71 @@ h1, h2, h3, h4, h5, h6,
 .pill input[type="radio"]:focus-visible + span { outline: 2px solid var(--blue); outline-offset: 3px; }
 
 /* =========================================================
+   STACK TECNOLÓGICO E INTEGRACIONES
+   ========================================================= */
+.tech-stack { border-top: 1px solid var(--line); }
+
+.tech-category {
+    margin-bottom: 48px;
+}
+.tech-category:last-child {
+    margin-bottom: 0;
+}
+
+.tech-category-title {
+    font-family: var(--body);
+    font-size: 0.72rem;
+    font-weight: 500;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--blue);
+    margin: 0 0 20px;
+    padding-bottom: 12px;
+    border-bottom: 1px solid var(--line);
+}
+
+.tech-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+    gap: 12px;
+}
+
+.tech-item {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    padding: 14px 18px;
+    background: var(--bg-secondary);
+    border: 1px solid var(--line);
+    border-radius: var(--radius);
+    transition: border-color 250ms var(--ease-soft), background 250ms var(--ease-soft), transform 250ms var(--ease-soft);
+    cursor: default;
+}
+
+.tech-item:hover {
+    border-color: var(--blue);
+    background: var(--bg-alt);
+    transform: translateY(-2px);
+}
+
+.tech-item img {
+    width: 28px;
+    height: 28px;
+    flex-shrink: 0;
+    object-fit: contain;
+    display: block;
+}
+
+.tech-item span {
+    font-family: var(--body);
+    font-size: 0.82rem;
+    font-weight: 500;
+    color: var(--text-primary);
+    letter-spacing: 0.02em;
+    line-height: 1.3;
+}
+
+/* =========================================================
    FOOTER
    ========================================================= */
 .site-footer {
@@ -1317,7 +1382,7 @@ a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visib
 ::selection { background: var(--blue); color: var(--bg-main); }
 ::-moz-selection { background: var(--blue); color: var(--bg-main); }
 
-#planes, #trabajos, #contacto, #faq, #servicios, #proceso, #beneficios, #soluciones { scroll-margin-top: 96px; }
+#planes, #trabajos, #contacto, #faq, #servicios, #proceso, #beneficios, #soluciones, #stack { scroll-margin-top: 96px; }
 
 @media (prefers-reduced-motion: reduce) {
     *, *::before, *::after {
@@ -1478,6 +1543,26 @@ a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visib
     .form-field-full { grid-column: auto; }
     .quote-form-submit .button { width: 100%; }
 
+    /* Stack responsive */
+    .tech-grid {
+        grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+        gap: 10px;
+    }
+    .tech-item {
+        padding: 12px 14px;
+        gap: 10px;
+    }
+    .tech-item img {
+        width: 24px;
+        height: 24px;
+    }
+    .tech-item span {
+        font-size: 0.78rem;
+    }
+    .tech-category {
+        margin-bottom: 36px;
+    }
+
     .legal-hero { padding-top: 110px; padding-bottom: 40px; }
     .legal-hero h1 { font-size: 2rem; }
     .legal-content { padding: 50px 0 70px; }
@@ -1520,6 +1605,29 @@ a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visib
     .form-field textarea { min-height: 100px; font-size: 0.88rem; }
     .pill-group { gap: 6px; }
     .pill span { padding: 8px 14px; font-size: 0.68rem; }
+
+    /* Stack responsive chico */
+    .tech-grid {
+        grid-template-columns: 1fr 1fr;
+        gap: 8px;
+    }
+    .tech-item {
+        padding: 10px 12px;
+        gap: 8px;
+    }
+    .tech-item img {
+        width: 22px;
+        height: 22px;
+    }
+    .tech-item span {
+        font-size: 0.74rem;
+    }
+    .tech-category-title {
+        font-size: 0.68rem;
+        margin-bottom: 16px;
+        padding-bottom: 10px;
+    }
+
     .footer-links { gap: 18px; }
     .footer-bottom { font-size: 0.75rem; gap: 12px; }
     .legal-hero { padding-top: 100px; }
