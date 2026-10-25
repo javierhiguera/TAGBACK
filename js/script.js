@@ -1,17 +1,12 @@
 /* =========================================================
-   TAGBACK — JAVASCRIPT v44
-   Traducciones + Navegación + Formulario + WebGL (Neural Noise)
-   Cambios v44:
-   - Hero ES/EN nuevos
-   - Precios planes USD 250 / USD 500 / A cotizar
-   - FAQ con nuevo copy de precios
-   - Menú completo (sin "Más")
+   TAGBACK — JAVASCRIPT v45
    ========================================================= */
 
 const translations = {
     es: {
         skip_link: "Saltar al contenido principal",
         nav_services: "Servicios",
+        nav_benefits: "Beneficios",
         nav_projects: "Proyectos",
         nav_process: "Proceso",
         nav_plans: "Planes",
@@ -30,7 +25,7 @@ const translations = {
         hero_lead: "Diseñamos sitios web a medida que reflejan quién sos, transmiten lo que te hace diferente y acercan tu marca a las personas que querés alcanzar.",
 
         services_title: "Soluciones digitales para negocios que quieren avanzar.",
-        services_desc: "Cada proyecto tiene necesidades diferentes. Hacé clic en cada servicio para ver el detalle.",
+        services_desc: "Cada proyecto tiene necesidades diferentes. Seleccioná un servicio para ver el detalle.",
         srv_1_title: "Landing pages",
         srv_1_desc: "Una página enfocada en presentar una oferta concreta, con secciones definidas y una llamada a la acción principal. Incluye diseño responsive y un canal de contacto.",
         srv_2_title: "Sitios web corporativos",
@@ -218,6 +213,7 @@ const translations = {
     en: {
         skip_link: "Skip to main content",
         nav_services: "Services",
+        nav_benefits: "Benefits",
         nav_projects: "Projects",
         nav_process: "Process",
         nav_plans: "Plans",
@@ -236,7 +232,7 @@ const translations = {
         hero_lead: "We design custom websites that reflect who you are, showcase what makes you different, and bring your brand closer to the people you want to reach.",
 
         services_title: "Digital solutions for businesses ready to move forward.",
-        services_desc: "Every project has different needs. Click on each service to see the details.",
+        services_desc: "Every project has different needs. Select a service to see the details.",
         srv_1_title: "Landing pages",
         srv_1_desc: "A page focused on presenting a specific offer, with defined sections and a main call to action. Includes responsive design and a contact channel.",
         srv_2_title: "Corporate websites",
@@ -421,10 +417,6 @@ const translations = {
         cookies_p_10: "For cookie inquiries, write to us at privacy@tagback.com."
     }
 };
-
-/* =========================================================
-   INICIALIZACIÓN
-   ========================================================= */
 
 document.addEventListener("DOMContentLoaded", () => {
     "use strict";
@@ -798,11 +790,11 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
     /* =====================================================
-       ACORDEONES (Servicios y Beneficios) — uno abierto por vez
+       ACORDEONES DE BENEFICIOS
        ===================================================== */
 
-    $$(".accordion-item, .service-card").forEach((item) => {
-        const accHeader = $(".accordion-header, .service-card-header", item);
+    $$(".accordion-item").forEach((item) => {
+        const accHeader = $(".accordion-header", item);
         if (!accHeader) return;
 
         accHeader.addEventListener("click", () => {
@@ -810,10 +802,10 @@ document.addEventListener("DOMContentLoaded", () => {
             const stack = item.parentElement;
 
             if (stack) {
-                $$(".accordion-item, .service-card", stack).forEach((sibling) => {
+                $$(".accordion-item", stack).forEach((sibling) => {
                     if (sibling === item) return;
                     sibling.classList.remove("is-open");
-                    const siblingHeader = $(".accordion-header, .service-card-header", sibling);
+                    const siblingHeader = $(".accordion-header", sibling);
                     if (siblingHeader) {
                         siblingHeader.setAttribute("aria-expanded", "false");
                     }
@@ -822,6 +814,82 @@ document.addEventListener("DOMContentLoaded", () => {
 
             item.classList.toggle("is-open", !wasOpen);
             accHeader.setAttribute("aria-expanded", String(!wasOpen));
+        });
+    });
+
+    /* =====================================================
+       ACTIVITY RINGS (Servicios)
+       ===================================================== */
+    const activityItems = $$(".activity-item");
+    const rings = {
+        r1: $(".ring-fill.r1"),
+        r2: $(".ring-fill.r2"),
+        r3: $(".ring-fill.r3")
+    };
+    
+    // Circunferencias (2 * PI * r)
+    const circ = { r1: 2 * Math.PI * 42, r2: 2 * Math.PI * 30, r3: 2 * Math.PI * 18 };
+
+    const updateRings = (activeIndex) => {
+        // Lógica de anillos: si está activo el 1, se llena el 1. Si es el 2, se llenan 1 y 2, etc.
+        // Simulamos un progreso distinto para que se vea dinámico.
+        const p1 = activeIndex >= 1 ? 0.75 : 0.15;
+        const p2 = activeIndex >= 2 ? 0.6 : (activeIndex === 1 ? 0.3 : 0.1);
+        const p3 = activeIndex === 3 ? 0.85 : 0.1;
+
+        if (rings.r1) rings.r1.style.strokeDasharray = `${circ.r1 * p1} ${circ.r1}`;
+        if (rings.r2) rings.r2.style.strokeDasharray = `${circ.r2 * p2} ${circ.r2}`;
+        if (rings.r3) rings.r3.style.strokeDasharray = `${circ.r3 * p3} ${circ.r3}`;
+    };
+
+    // Inicializar
+    updateRings(1);
+
+    activityItems.forEach((item) => {
+        const ringVal = parseInt(item.getAttribute("data-ring"), 10);
+        
+        // Hover effect
+        item.addEventListener("mouseenter", () => {
+            activityItems.forEach(i => i.classList.remove("is-active"));
+            item.classList.add("is-active");
+            updateRings(ringVal);
+        });
+
+        // Click effect (para móviles)
+        item.addEventListener("click", () => {
+            activityItems.forEach(i => i.classList.remove("is-active"));
+            item.classList.add("is-active");
+            updateRings(ringVal);
+        });
+    });
+
+    /* =====================================================
+       FAQ: UNA PREGUNTA ABIERTA POR VEZ + HOVER
+       ===================================================== */
+
+    const faqItems = $$(".faq-item");
+
+    faqItems.forEach((item) => {
+        if (item.tagName !== "DETAILS") return;
+        
+        // Al hacer toggle, cerrar los demás
+        item.addEventListener("toggle", () => {
+            if (!item.open) return;
+            faqItems.forEach((other) => {
+                if (other !== item && other.tagName === "DETAILS") {
+                    other.open = false;
+                }
+            });
+        });
+
+        // Abrir con hover en desktop
+        item.addEventListener("mouseenter", () => {
+            if (window.innerWidth > 768 && item.tagName === "DETAILS") {
+                faqItems.forEach(other => {
+                    if (other !== item) other.open = false;
+                });
+                item.open = true;
+            }
         });
     });
 
@@ -901,24 +969,6 @@ document.addEventListener("DOMContentLoaded", () => {
     };
 
     applyPlanFromLocation();
-
-    /* =====================================================
-       FAQ: UNA PREGUNTA ABIERTA POR VEZ
-       ===================================================== */
-
-    const faqItems = $$(".faq-item");
-
-    faqItems.forEach((item) => {
-        if (item.tagName !== "DETAILS") return;
-        item.addEventListener("toggle", () => {
-            if (!item.open) return;
-            faqItems.forEach((other) => {
-                if (other !== item && other.tagName === "DETAILS") {
-                    other.open = false;
-                }
-            });
-        });
-    });
 
     /* =====================================================
        FORMULARIO — FORMSPREE
