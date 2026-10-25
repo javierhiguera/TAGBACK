@@ -1,5 +1,5 @@
 /* =========================================================
-   TAGBACK — STYLES v55 (Acordeón Horizontal + Beneficios Hover)
+   TAGBACK — STYLES v56 (Nuevas Secciones y Textos)
    ========================================================= */
 
 @font-face {
@@ -88,7 +88,7 @@ button, input, select, textarea { font: inherit; }
 button { cursor: pointer; }
 
 /* =========================================================
-   HERO CON NEURAL NOISE
+   HERO
    ========================================================= */
 .hero {
     position: relative;
@@ -97,7 +97,6 @@ button { cursor: pointer; }
     background: var(--bg-main);
     overflow: hidden;
 }
-
 .hero-canvas-container {
     position: absolute;
     inset: 0;
@@ -105,18 +104,8 @@ button { cursor: pointer; }
     pointer-events: none;
     background: radial-gradient(circle at center, #242830 0%, #1A1D24 100%);
 }
-
-.hero-canvas-container canvas {
-    width: 100%;
-    height: 100%;
-    display: block;
-}
-
-.hero .container {
-    position: relative;
-    z-index: 2;
-}
-
+.hero-canvas-container canvas { width: 100%; height: 100%; display: block; }
+.hero .container { position: relative; z-index: 2; }
 .site-header, main, .site-footer { position: relative; z-index: 2; }
 
 /* =========================================================
@@ -312,7 +301,7 @@ h1, h2, h3, h4, h5, h6,
 }
 
 /* =========================================================
-   HERO CONTENT (Difuminado sin cortes)
+   HERO CONTENT
    ========================================================= */
 .hero-grid {
     position: relative;
@@ -384,7 +373,7 @@ h1, h2, h3, h4, h5, h6,
 .button:disabled, .button[disabled] { opacity: 0.55; cursor: not-allowed; pointer-events: none; }
 
 /* =========================================================
-   SERVICIOS (ACORDEÓN HORIZONTAL)
+   SERVICIOS (Acordeón Horizontal)
    ========================================================= */
 .services { border-top: 1px solid var(--line); }
 .services-inner { display: grid; grid-template-columns: 0.9fr 1.1fr; gap: 60px; align-items: start; }
@@ -504,15 +493,15 @@ h1, h2, h3, h4, h5, h6,
 }
 
 /* =========================================================
-   BENEFICIOS (TARJETAS HOVER 2 COLUMNAS)
+   SOLUCIONES A MEDIDA (Antes Beneficios)
    ========================================================= */
-.why { border-top: 1px solid var(--line); background: var(--bg-main); }
-.why-grid {
+.custom-solutions { border-top: 1px solid var(--line); background: var(--bg-main); }
+.solutions-grid {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     gap: 20px;
 }
-.benefit-card {
+.solution-card {
     background: var(--bg-secondary);
     border: 1px solid var(--line);
     border-radius: var(--radius);
@@ -523,12 +512,12 @@ h1, h2, h3, h4, h5, h6,
     transition: background 0.3s ease, border-color 0.3s ease, transform 0.3s ease;
     cursor: default;
 }
-.benefit-card:hover {
+.solution-card:hover {
     background: var(--bg-alt);
     border-color: var(--blue);
     transform: translateY(-2px);
 }
-.benefit-icon {
+.solution-icon {
     width: 24px;
     height: 24px;
     flex-shrink: 0;
@@ -536,8 +525,52 @@ h1, h2, h3, h4, h5, h6,
     margin-top: 4px;
     transition: color 0.3s ease;
 }
-.benefit-card:hover .benefit-icon {
+.solution-card:hover .solution-icon {
     color: var(--blue-bright);
+}
+.solution-content h3 {
+    font-family: var(--title);
+    font-size: 1.1rem;
+    font-weight: 800;
+    color: var(--text-primary);
+    margin: 0 0 8px;
+}
+.solution-content p {
+    font-size: 0.9rem;
+    color: var(--text-secondary);
+    line-height: 1.6;
+    margin: 0;
+    max-height: 0;
+    opacity: 0;
+    overflow: hidden;
+    transition: max-height 0.4s var(--ease-out), opacity 0.4s ease, margin 0.4s ease;
+}
+.solution-card:hover .solution-content p {
+    max-height: 200px;
+    opacity: 1;
+    margin-top: 8px;
+}
+
+/* =========================================================
+   BENEFICIOS (Grilla simple con iconos, siempre visibles)
+   ========================================================= */
+.why { border-top: 1px solid var(--line); background: var(--bg-secondary); }
+.why-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 30px 40px;
+}
+.benefit-item {
+    display: flex;
+    gap: 20px;
+    align-items: flex-start;
+}
+.benefit-icon {
+    width: 24px;
+    height: 24px;
+    flex-shrink: 0;
+    color: var(--blue);
+    margin-top: 4px;
 }
 .benefit-content h3 {
     font-family: var(--title);
@@ -545,23 +578,12 @@ h1, h2, h3, h4, h5, h6,
     font-weight: 800;
     color: var(--text-primary);
     margin: 0 0 8px;
-    transition: color 0.3s ease;
 }
 .benefit-content p {
-    font-size: 0.9rem;
+    font-size: 0.95rem;
     color: var(--text-secondary);
     line-height: 1.6;
     margin: 0;
-    /* Oculto por defecto, visible al hover */
-    max-height: 0;
-    opacity: 0;
-    overflow: hidden;
-    transition: max-height 0.4s var(--ease-out), opacity 0.4s ease, margin 0.4s ease;
-}
-.benefit-card:hover .benefit-content p {
-    max-height: 200px;
-    opacity: 1;
-    margin-top: 8px;
 }
 
 /* =========================================================
@@ -669,7 +691,7 @@ h1, h2, h3, h4, h5, h6,
 .process { border-top: 1px solid var(--line); }
 .process-list {
     display: grid;
-    grid-template-columns: repeat(4, minmax(0, 1fr));
+    grid-template-columns: repeat(5, minmax(0, 1fr));
     gap: 0;
     margin: 0;
     border: 0;
@@ -726,9 +748,11 @@ h1, h2, h3, h4, h5, h6,
     border-radius: 50%;
     box-shadow: inset 0 0 0 8px rgba(139, 163, 199, 0.08);
 }
+.process-item:nth-child(5) summary::before { transform: rotate(45deg); border-radius: 4px; }
 .process-item:nth-child(2) summary::before { animation-delay: 1.2s; }
 .process-item:nth-child(3) summary::before { animation-delay: 2.4s; }
 .process-item:nth-child(4) summary::before { animation-delay: 3.6s; }
+.process-item:nth-child(5) summary::before { animation-delay: 4.8s; }
 
 @keyframes process-pulse {
     0%, 18%, 100% { border-color: rgba(139, 163, 199, 0.35); box-shadow: 0 0 0 0 rgba(139, 163, 199, 0); filter: brightness(0.85); }
@@ -763,13 +787,13 @@ h1, h2, h3, h4, h5, h6,
 .plans { border-top: 1px solid var(--line); }
 .plans-grid {
     display: grid;
-    grid-template-columns: repeat(3, minmax(0, 1fr));
+    grid-template-columns: repeat(4, minmax(0, 1fr));
     gap: 20px;
     align-items: stretch;
 }
 .plan-card {
     position: relative;
-    padding: 32px 28px;
+    padding: 32px 24px;
     background: rgba(36, 40, 48, 0.8);
     color: var(--text-primary);
     border: 1px solid var(--line);
@@ -877,7 +901,7 @@ h1, h2, h3, h4, h5, h6,
 }
 
 /* =========================================================
-   FAQ — CLÁSICO CON HOVER
+   FAQ
    ========================================================= */
 .faq { border-top: 1px solid var(--line); }
 .faq-content .section-head { margin-bottom: 28px; }
@@ -1293,7 +1317,7 @@ a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visib
 ::selection { background: var(--blue); color: var(--bg-main); }
 ::-moz-selection { background: var(--blue); color: var(--bg-main); }
 
-#planes, #trabajos, #contacto, #faq, #servicios, #proceso, #beneficios { scroll-margin-top: 96px; }
+#planes, #trabajos, #contacto, #faq, #servicios, #proceso, #beneficios, #soluciones { scroll-margin-top: 96px; }
 
 @media (prefers-reduced-motion: reduce) {
     *, *::before, *::after {
@@ -1314,9 +1338,9 @@ a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visib
     .services-inner { grid-template-columns: 1fr; gap: 40px; }
     .services-intro { position: static; }
     .work-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
-    .plans-grid { grid-template-columns: 1fr; }
+    .plans-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
     .contact-grid { max-width: 100%; }
-    .process-list { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    .process-list { grid-template-columns: repeat(3, minmax(0, 1fr)); }
 }
 
 @media (max-width: 900px) {
@@ -1425,9 +1449,9 @@ a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visib
     }
     .service-card.is-open .service-card-panel p { opacity: 1; }
 
-    /* Beneficios 2 col a 1 col */
-    .why-grid { grid-template-columns: 1fr; gap: 12px; }
-    .benefit-card { padding: 20px; }
+    /* Soluciones a medida y Beneficios a 1 columna */
+    .solutions-grid, .why-grid { grid-template-columns: 1fr; gap: 12px; }
+    .solution-card, .benefit-item { padding: 20px; gap: 16px; }
     
     .work { padding-top: 80px; padding-bottom: 80px; }
     .work-grid { grid-template-columns: 1fr; gap: 18px; }
@@ -1440,6 +1464,7 @@ a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visib
     .process-item summary::after { bottom: 20px; right: 20px; }
     .process-item p { padding: 0 20px 20px; }
 
+    .plans-grid { grid-template-columns: 1fr; }
     .plan-card { padding: 26px 22px; }
     .plan-price { font-size: 1.5rem; }
 
@@ -1479,8 +1504,8 @@ a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visib
     .section-title { font-size: 1.55rem; }
     .service-card-header { padding: 16px 18px; gap: 12px; }
     .service-card-title { font-size: 1rem; }
-    .benefit-card { padding: 16px; gap: 16px; }
-    .benefit-content h3 { font-size: 1rem; }
+    .solution-card, .benefit-item { padding: 16px; }
+    .solution-content h3, .benefit-content h3 { font-size: 1rem; }
     .work { padding-top: 60px; padding-bottom: 60px; }
     .work-card { padding: 14px; }
     .work-card-name { font-size: 1.2rem; }
