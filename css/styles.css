@@ -27,29 +27,32 @@
 /* =========================================================
    VARIABLES
    ========================================================= */
+/* =========================================================
+   VARIABLES
+   ========================================================= */
 :root {
-    /* --- Acentos: Fiery Red y Prism Pink --- */
-    --blue: #CA0B0A;           /* Fiery Red (Rojo principal) */
-    --blue-bright: #EC9AC2;    /* Prism Pink (Rosa para hovers y destacados) */
-    --blue-dark: #950706;      /* Rojo más oscuro para estados activos */
+    /* --- Acentos: Blue Slate y Dusty Denim --- */
+    --blue: #3e5c76;           /* Blue Slate (azul principal) */
+    --blue-bright: #748cab;    /* Dusty Denim (azul claro para hovers y destacados) */
+    --blue-dark: #1d2d44;      /* Deep Space Blue (azul más oscuro para estados activos) */
 
-    /* --- Fondos: Oscuros con un sutil tinte rojizo --- */
-    --bg-main: #140E0F;        /* Casi negro con tinte rojo */
-    --bg-secondary: #1F1618;   /* Fondo secundario */
-    --bg-alt: #2C1D20;         /* Fondo alternativo (tarjetas abiertas) */
+    /* --- Fondos: Oscuros con tinte azul --- */
+    --bg-main: #0d1321;        /* Ink Black (fondo principal) */
+    --bg-secondary: #1d2d44;   /* Deep Space Blue (fondo secundario) */
+    --bg-alt: #3e5c76;         /* Blue Slate (fondo alternativo / tarjetas abiertas) */
 
-    /* --- Textos: White y rosados --- */
-    --text-primary: #FCFFFE;   /* White (Blanco puro) */
-    --text-secondary: #E8D1D8; /* Blanco con tinte rosa */
-    --text-muted: #A88E94;     /* Gris rosado apagado */
+    /* --- Textos: Eggshell y derivados --- */
+    --text-primary: #f0ebd8;   /* Eggshell (texto principal) */
+    --text-secondary: #d6d0be; /* Eggshell más apagado (texto secundario) */
+    --text-muted: #9a968a;     /* Gris cálido apagado (texto atenuado) */
 
-    /* --- Líneas: Basadas en el rojo y el rosa --- */
-    --line: rgba(202, 11, 10, 0.16);
-    --line-strong: rgba(236, 154, 194, 0.32);
+    /* --- Líneas: Basadas en Blue Slate y Dusty Denim --- */
+    --line: rgba(62, 92, 118, 0.20);
+    --line-strong: rgba(116, 140, 171, 0.40);
 
     /* --- Estados --- */
     --success: #7ED9A8;
-    --error: #EC9AC2;          /* Usamos el Prism Pink para errores */
+    --error: #d98b8b;          /* Rojo suave para errores */
 
     /* --- Tipografías (sin cambios) --- */
     --title: "SFUIDisplayHeavy", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
@@ -67,6 +70,7 @@
     --section-title-size: clamp(2rem, 3.1vw, 2.8rem);
     --section-copy-size: clamp(0.92rem, 1vw, 1rem);
 }
+
 /* =========================================================
    RESET Y BASE
    ========================================================= */
