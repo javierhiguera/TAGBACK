@@ -1092,88 +1092,6 @@ h1, h2, h3, h4, h5, h6,
 .pill input[type="radio"]:focus-visible + span { outline: 2px solid var(--blue); outline-offset: 3px; }
 
 /* =========================================================
-   STACK TECNOLÓGICO E INTEGRACIONES (CINTA ÚNICA)
-   ========================================================= */
-.tech-stack { border-top: 1px solid var(--line); }
-
-.tech-marquee {
-    position: relative;
-    width: 100%;
-    overflow: hidden;
-    mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
-    -webkit-mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
-}
-
-.tech-track {
-    display: flex;
-    gap: 12px;
-    width: max-content;
-    animation: scroll-marquee 40s linear infinite;
-}
-
-.tech-track:hover {
-    animation-play-state: paused;
-}
-
-@keyframes scroll-marquee {
-    0% { transform: translateX(0); }
-    100% { transform: translateX(-50%); }
-}
-
-.tech-item {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    padding: 10px 16px;
-    background: var(--bg-secondary);
-    border: 1px solid var(--line);
-    border-radius: var(--radius);
-    white-space: nowrap;
-    cursor: default;
-    color: var(--text-primary);
-    transition: border-color 250ms var(--ease-soft), background 250ms var(--ease-soft);
-}
-
-.tech-item:hover {
-    border-color: var(--blue);
-    background: var(--bg-alt);
-}
-
-.tech-item img {
-    width: 24px;
-    height: 24px;
-    flex-shrink: 0;
-    object-fit: contain;
-    display: block;
-}
-
-/* Filtro para que los logos externos queden del mismo azul */
-.tech-icon-blue {
-    filter: brightness(0) saturate(100%) invert(68%) sepia(14%) saturate(1024%) hue-rotate(177deg) brightness(91%) contrast(85%);
-}
-
-.tech-item span {
-    font-family: var(--body);
-    font-size: 0.78rem;
-    font-weight: 500;
-    letter-spacing: 0.02em;
-}
-
-.tech-item--text {
-    padding: 10px 16px;
-    background: var(--bg-main);
-    border: 1px dashed var(--line-strong);
-}
-
-.tech-item--text span {
-    font-weight: 600;
-    color: var(--blue);
-    text-transform: uppercase;
-    letter-spacing: 0.06em;
-    font-size: 0.72rem;
-}
-
-/* =========================================================
    FOOTER
    ========================================================= */
 .site-footer {
@@ -1280,9 +1198,7 @@ a.contact-meta-value:hover { color: var(--blue); }
     text-transform: lowercase;
     letter-spacing: -0.01em;
 }
-.footer-credit-text { margin-right: 2px; }
-
-/* =========================================================
+.footer-credit-text { margin-right: 2px; }/* =========================================================
    COOKIES
    ========================================================= */
 .cookie-banner {
@@ -1404,7 +1320,7 @@ a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visib
 ::selection { background: var(--blue); color: var(--bg-main); }
 ::-moz-selection { background: var(--blue); color: var(--bg-main); }
 
-#planes, #trabajos, #contacto, #faq, #servicios, #proceso, #beneficios, #soluciones, #stack { scroll-margin-top: 96px; }
+#planes, #trabajos, #contacto, #faq, #servicios, #proceso, #beneficios, #soluciones { scroll-margin-top: 96px; }
 
 @media (prefers-reduced-motion: reduce) {
     *, *::before, *::after {
@@ -1415,8 +1331,6 @@ a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visib
     }
     .hero h1 .reveal-line > span, .hero-lead, .hero-features { opacity: 1 !important; transform: none !important; filter: none !important; animation: none !important; }
     .work-card, .plan-card, .service-card-title { transition: none !important; }
-    .tech-track { animation: none !important; transform: none !important; flex-wrap: wrap; justify-content: center; width: 100%; }
-    .tech-marquee { mask-image: none; -webkit-mask-image: none; overflow: visible; }
 }
 
 /* =========================================================
