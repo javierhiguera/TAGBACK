@@ -412,9 +412,7 @@ const translations = {
         cookies_h2_7: "7. Contact",
         cookies_p_10: "For cookie inquiries, write to us at privacy@tagback.com."
     }
-};
-
-document.addEventListener("DOMContentLoaded", () => {
+};document.addEventListener("DOMContentLoaded", () => {
     "use strict";
 
     const $ = (selector, root = document) => root.querySelector(selector);
