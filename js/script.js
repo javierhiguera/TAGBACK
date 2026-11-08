@@ -1,5 +1,5 @@
 /* =========================================================
-   TAGBACK — JAVASCRIPT v48 (Nuevos Textos y Formulario)
+   TAGBACK — JAVASCRIPT v49 (Textos corregidos ES/EN)
    ========================================================= */
 
 const translations = {
@@ -20,39 +20,39 @@ const translations = {
         hero_title_1: "Tu lugar en internet",
         hero_title_2: "empieza",
         hero_title_3: "acá.",
-        hero_lead: "Diseñamos y desarrollamos sitios web, tiendas online, aplicaciones y sistemas a medida para transformar tus ideas en soluciones digitales funcionales.",
+        hero_lead: "Diseñamos y desarrollamos sitios web, tiendas online y soluciones digitales a medida para que tu negocio tenga las herramientas necesarias para crecer y conectar con sus clientes.",
 
         services_title: "Soluciones digitales para cada necesidad.",
-        services_desc: "Desde una página web hasta un sistema personalizado, desarrollamos herramientas digitales adaptadas a los objetivos de tu negocio.",
+        services_desc: "Desarrollamos productos digitales que combinan diseño, tecnología y funcionalidad, adaptados a las necesidades de cada proyecto.",
         
-        solutions_title: "Una solución para lo que necesitás.",
-        solutions_desc: "Analizamos tu idea y desarrollamos herramientas digitales adaptadas a tus objetivos, tus procesos y las funcionalidades que necesitás.",
+        solutions_title: "Transformamos necesidades en herramientas digitales.",
+        solutions_desc: "Cada negocio tiene procesos y desafíos diferentes. Desarrollamos soluciones adaptadas a la manera en que necesitás trabajar, gestionar y ofrecer tus servicios.",
 
         why_title: "Tecnología pensada para tu proyecto.",
-        why_desc: "Desarrollamos soluciones digitales con objetivos claros, atención al detalle y posibilidades de evolución.",
+        why_desc: "Cada desarrollo se construye considerando las necesidades del proyecto, la experiencia de sus usuarios y sus posibilidades de crecimiento.",
 
         work_title: "Ideas convertidas en soluciones digitales.",
-        work_desc: "Conocé nuestros proyectos y ejemplos de desarrollo. Cada trabajo refleja una necesidad y una solución construida mediante diseño y tecnología.",
+        work_desc: "Conocé algunos de nuestros proyectos y cómo aplicamos diseño y tecnología para resolver necesidades concretas.",
         work_link: "Consultar proyecto →",
         cat_services: "SERVICIOS",
         cat_gastro: "GASTRONOMÍA",
         cat_church: "IGLESIA",
 
         process_title: "De la idea al resultado.",
-        process_desc: "Un proceso organizado para transformar tus necesidades en una solución digital funcional.",
+        process_desc: "Un proceso organizado para definir, desarrollar y poner en funcionamiento tu proyecto.",
         proc_1_title: "Análisis",
-        proc_1_desc: "Comprendemos tu idea, tus objetivos y el problema que necesitás resolver.",
+        proc_1_desc: "Comprendemos tus objetivos, necesidades y el problema que necesitás resolver.",
         proc_2_title: "Planificación",
-        proc_2_desc: "Definimos el alcance, las funcionalidades y las prioridades del proyecto.",
+        proc_2_desc: "Definimos el alcance, las funcionalidades y las prioridades del desarrollo.",
         proc_3_title: "Desarrollo",
-        proc_3_desc: "Construimos la solución acordada con atención al diseño y al funcionamiento.",
+        proc_3_desc: "Construimos la solución acordada considerando diseño, tecnología y funcionamiento.",
         proc_4_title: "Pruebas",
         proc_4_desc: "Verificamos las funcionalidades y corregimos los problemas detectados.",
         proc_5_title: "Publicación y entrega",
         proc_5_desc: "Preparamos la puesta en funcionamiento y entregamos los elementos acordados.",
 
         plans_title: "Una solución para cada etapa.",
-        plans_desc: "Diferentes alternativas para crear tu presencia digital, vender por internet o desarrollar herramientas personalizadas.",
+        plans_desc: "Alternativas de desarrollo según el alcance, las necesidades y los objetivos de tu proyecto.",
         plan_badge: "RECOMENDADO",
         plan_1_label: "STARTER",
         plan_1_title: "Web Starter",
@@ -93,7 +93,7 @@ const translations = {
         faq_9_a: "El plazo depende de los requerimientos y la complejidad del proyecto.",
 
         contact_title: "Contanos tu proyecto.",
-        contact_desc: "Queremos conocer tu idea y entender qué necesitás resolver. Describinos tu proyecto para evaluar una solución acorde a tus objetivos.",
+        contact_desc: "Describinos qué necesitás y nos pondremos en contacto para conocer los detalles de tu proyecto.",
         form_title: "Contanos tu proyecto.",
         form_lead: "Completá los datos y te contactamos.",
         form_name: "Nombre *",
@@ -225,39 +225,39 @@ const translations = {
         hero_title_1: "Your place on the internet",
         hero_title_2: "starts",
         hero_title_3: "here.",
-        hero_lead: "We design and develop websites, online stores, applications, and custom systems to transform your ideas into functional digital solutions.",
+        hero_lead: "We design and develop websites, online stores, and custom digital solutions so your business has the tools it needs to grow and connect with its customers.",
 
         services_title: "Digital solutions for every need.",
-        services_desc: "From a web page to a customized system, we develop digital tools adapted to your business goals.",
+        services_desc: "We develop digital products that combine design, technology, and functionality, tailored to the needs of each project.",
         
-        solutions_title: "A solution for what you need.",
-        solutions_desc: "We analyze your idea and develop digital tools adapted to your goals, processes, and the features you need.",
+        solutions_title: "We turn needs into digital tools.",
+        solutions_desc: "Every business has different processes and challenges. We develop solutions adapted to the way you need to work, manage, and offer your services.",
 
         why_title: "Technology designed for your project.",
-        why_desc: "We develop digital solutions with clear objectives, attention to detail, and possibilities for evolution.",
+        why_desc: "Each development is built considering the project's needs, its users' experience, and its growth possibilities.",
 
         work_title: "Ideas turned into digital solutions.",
-        work_desc: "Discover our projects and development examples. Each work reflects a need and a solution built through design and technology.",
+        work_desc: "Discover some of our projects and how we apply design and technology to solve concrete needs.",
         work_link: "Discuss project →",
         cat_services: "SERVICES",
         cat_gastro: "GASTRONOMY",
         cat_church: "CHURCH",
 
         process_title: "From idea to result.",
-        process_desc: "An organized process to transform your needs into a functional digital solution.",
+        process_desc: "An organized process to define, develop, and launch your project.",
         proc_1_title: "Analysis",
-        proc_1_desc: "We understand your idea, your goals, and the problem you need to solve.",
+        proc_1_desc: "We understand your goals, needs, and the problem you need to solve.",
         proc_2_title: "Planning",
-        proc_2_desc: "We define the scope, features, and priorities of the project.",
+        proc_2_desc: "We define the scope, features, and development priorities.",
         proc_3_title: "Development",
-        proc_3_desc: "We build the agreed solution with attention to design and functionality.",
+        proc_3_desc: "We build the agreed solution considering design, technology, and functionality.",
         proc_4_title: "Testing",
         proc_4_desc: "We verify the features and correct any detected issues.",
         proc_5_title: "Launch & delivery",
         proc_5_desc: "We prepare the launch and deliver the agreed elements.",
 
         plans_title: "A solution for every stage.",
-        plans_desc: "Different alternatives to create your digital presence, sell online, or develop customized tools.",
+        plans_desc: "Development alternatives according to the scope, needs, and goals of your project.",
         plan_badge: "RECOMMENDED",
         plan_1_label: "STARTER",
         plan_1_title: "Web Starter",
@@ -298,7 +298,7 @@ const translations = {
         faq_9_a: "The timeline depends on the requirements and complexity of the project.",
 
         contact_title: "Tell us about your project.",
-        contact_desc: "We want to know your idea and understand what you need to solve. Describe your project so we can evaluate a solution according to your goals.",
+        contact_desc: "Describe what you need and we'll get in touch to learn the details of your project.",
         form_title: "Tell us about your project.",
         form_lead: "Fill in the details and we'll contact you.",
         form_name: "Name *",
@@ -412,7 +412,9 @@ const translations = {
         cookies_h2_7: "7. Contact",
         cookies_p_10: "For cookie inquiries, write to us at privacy@tagback.com."
     }
-};document.addEventListener("DOMContentLoaded", () => {
+};
+
+document.addEventListener("DOMContentLoaded", () => {
     "use strict";
 
     const $ = (selector, root = document) => root.querySelector(selector);
