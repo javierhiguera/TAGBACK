@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="es" class="no-js">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>404 — Página no encontrada · tagback</title>
+    <meta name="description" content="La página que buscás no existe o fue movida.">
+    <meta name="robots" content="noindex, follow">
+    <link rel="icon" type="image/svg+xml" href="./favicon/tagback.svg">
+    <link rel="alternate icon" type="image/x-icon" href="./favicon/favicon.ico">
+    <link rel="apple-touch-icon" href="./favicon/tagback.png">
+    <script>document.documentElement.classList.remove('no-js');</script>
+    <link rel="stylesheet" href="./css/styles.css">
+</head>
+
+<body>
+<a class="skip-link" href="#main">Saltar al contenido principal</a>
+
+<header class="site-header scrolled">
+    <div class="container header-inner">
+        <a href="./" class="logo" aria-label="tagback — Inicio">
+            <img src="./assets/logo/tagback.svg" alt="" class="logo-icon" width="42" height="42">
+            <span class="logo-text"><span class="logo-wordmark">tagback</span></span>
+        </a>
+        <nav class="main-nav" aria-label="Navegación principal">
+            <a href="./#servicios">Servicios</a>
+            <a href="./#planes">Planes</a>
+            <a href="./#contacto">Contacto</a>
+        </nav>
+    </div>
+</header>
+
+<main id="main">
+    <section class="legal-hero">
+        <div class="container">
+            <a class="legal-back" href="./">← Volver al inicio</a>
+            <h1>404 — Página no encontrada</h1>
+        </div>
+    </section>
+
+    <section class="legal-content">
+        <div class="container">
+            <p>La página que buscás no existe o fue movida.</p>
+            <p>Podés volver al inicio, revisar los <a href="./#planes">planes</a> o <a href="./#contacto">escribirnos</a>.</p>
+            <p style="margin-top:32px;">
+                <a class="button button-primary" href="./">Volver al inicio</a>
+            </p>
+        </div>
+    </section>
+</main>
+
+<footer class="site-footer">
+    <div class="container footer-bottom">
+        <span class="footer-copyright">
+            © <span data-current-year>2026</span> tagback. Todos los derechos reservados.
+        </span>
+    </div>
+</footer>
+
+<script>
+    const y = new Date().getFullYear();
+    document.querySelectorAll('[data-current-year]').forEach(el => el.textContent = y);
+</script>
+</body>
+</html>
