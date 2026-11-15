@@ -1,5 +1,6 @@
 /* =========================================================
-   TAGBACK — JAVASCRIPT v49 (Textos corregidos ES/EN)
+   TAGBACK — JAVASCRIPT v50
+   i18n ES/EN · Reveal · Scrollspy · WhatsApp · Form · Cookies
    ========================================================= */
 
 const translations = {
@@ -17,60 +18,97 @@ const translations = {
         nav_privacy: "Política de Privacidad",
         nav_cookies: "Política de Cookies",
 
-        hero_title_1: "Tu lugar en internet",
-        hero_title_2: "empieza",
-        hero_title_3: "acá.",
-        hero_lead: "Diseñamos y desarrollamos sitios web, tiendas online y soluciones digitales a medida para que tu negocio tenga las herramientas necesarias para crecer y conectar con sus clientes.",
+        /* HERO */
+        hero_title_aria: "Sitios web que te traen clientes, no solo visitas.",
+        hero_lead: "Webs, tiendas online y sistemas a medida para negocios de Argentina.",
+        hero_cta_primary: "Pedí tu presupuesto",
+        hero_cta_whatsapp: "Escribinos por WhatsApp",
 
+        /* SERVICIOS */
         services_title: "Soluciones digitales para cada necesidad.",
-        services_desc: "Desarrollamos productos digitales que combinan diseño, tecnología y funcionalidad, adaptados a las necesidades de cada proyecto.",
-        
-        solutions_title: "Transformamos necesidades en herramientas digitales.",
-        solutions_desc: "Cada negocio tiene procesos y desafíos diferentes. Desarrollamos soluciones adaptadas a la manera en que necesitás trabajar, gestionar y ofrecer tus servicios.",
+        services_desc: "Armamos productos digitales que combinan diseño, tecnología y funcionalidad, adaptados a cada proyecto.",
 
+        /* SOLUCIONES */
+        solutions_title: "¿Qué querés resolver?",
+        solutions_desc: "Contanos tu objetivo y te orientamos hacia la solución que mejor se adapta a tu negocio.",
+
+        /* BENEFICIOS */
         why_title: "Tecnología pensada para tu proyecto.",
         why_desc: "Cada desarrollo se construye considerando las necesidades del proyecto, la experiencia de sus usuarios y sus posibilidades de crecimiento.",
 
+        /* PROYECTOS */
         work_title: "Ideas convertidas en soluciones digitales.",
         work_desc: "Conocé algunos de nuestros proyectos y cómo aplicamos diseño y tecnología para resolver necesidades concretas.",
-        work_link: "Consultar proyecto →",
+        work_link: "Ver sitio →",
+        work_soon: "Próximamente",
         cat_services: "SERVICIOS",
         cat_gastro: "GASTRONOMÍA",
         cat_church: "IGLESIA",
 
+        /* QUIÉNES SOMOS */
+        about_title: "Quiénes somos",
+        about_desc: "Soy Javier Higuera, Ingeniero en Ciberseguridad y desarrollador web. Trabajo con negocios de Argentina que necesitan sitios claros, rápidos y seguros.",
+
+        /* TESTIMONIOS */
+        testimonials_title: "Lo que dicen nuestros clientes",
+
+        /* PROCESO */
         process_title: "De la idea al resultado.",
         process_desc: "Un proceso organizado para definir, desarrollar y poner en funcionamiento tu proyecto.",
         proc_1_title: "Análisis",
         proc_1_desc: "Comprendemos tus objetivos, necesidades y el problema que necesitás resolver.",
+        proc_time_1: "[COMPLETAR: 2–3 días]",
         proc_2_title: "Planificación",
         proc_2_desc: "Definimos el alcance, las funcionalidades y las prioridades del desarrollo.",
+        proc_time_2: "[COMPLETAR: 3–5 días]",
         proc_3_title: "Desarrollo",
         proc_3_desc: "Construimos la solución acordada considerando diseño, tecnología y funcionamiento.",
+        proc_time_3: "[COMPLETAR: según plan]",
         proc_4_title: "Pruebas",
         proc_4_desc: "Verificamos las funcionalidades y corregimos los problemas detectados.",
+        proc_time_4: "[COMPLETAR: 2–3 días]",
         proc_5_title: "Publicación y entrega",
         proc_5_desc: "Preparamos la puesta en funcionamiento y entregamos los elementos acordados.",
+        proc_time_5: "[COMPLETAR: 1–2 días]",
 
+        /* PLANES */
         plans_title: "Una solución para cada etapa.",
         plans_desc: "Alternativas de desarrollo según el alcance, las necesidades y los objetivos de tu proyecto.",
         plan_badge: "RECOMENDADO",
         plan_1_label: "STARTER",
         plan_1_title: "Web Starter",
-        plan_1_sub: "Según alcance",
+        plan_1_sub: "Pago único",
         plan_1_desc: "Una presencia digital profesional para emprendedores y proyectos que necesitan comenzar en internet.",
+        plan_1_f1: "Sitio de hasta 4 secciones",
+        plan_1_f2: "Diseño responsive",
+        plan_1_f3: "Formulario de contacto",
+        plan_1_f4: "Entrega en 15 días",
         plan_2_label: "BUSINESS",
         plan_2_title: "Web Business",
-        plan_2_sub: "Según alcance",
+        plan_2_sub: "Pago único",
         plan_2_desc: "Un sitio más completo para empresas y negocios que buscan presentar sus servicios y recibir consultas.",
+        plan_2_f1: "Sitio de hasta 8 secciones",
+        plan_2_f2: "Blog o novedades",
+        plan_2_f3: "SEO básico",
+        plan_2_f4: "Entrega en 30 días",
         plan_3_label: "COMMERCE",
         plan_3_title: "Web Commerce",
-        plan_3_sub: "Según alcance",
+        plan_3_sub: "Pago único",
         plan_3_desc: "Una solución digital para exhibir productos y desarrollar un canal de ventas online.",
+        plan_3_f1: "Catálogo de productos",
+        plan_3_f2: "Carrito y checkout",
+        plan_3_f3: "Integración con pagos",
+        plan_3_f4: "Entrega en 30 días",
         plan_4_label: "A MEDIDA",
         plan_4_title: "Desarrollo a medida",
-        plan_4_sub: "Según funcionalidades",
+        plan_4_sub: "según funcionalidades",
         plan_4_desc: "Aplicaciones, sistemas de gestión, automatizaciones e integraciones adaptadas a necesidades específicas.",
+        plan_4_f1: "Análisis funcional",
+        plan_4_f2: "Desarrollo a medida",
+        plan_4_f3: "Integraciones y APIs",
+        plan_4_f4: "Plazo según proyecto",
 
+        /* FAQ */
         faq_title: "Preguntas frecuentes",
         faq_desc: "Resolvemos las dudas más comunes antes de empezar.",
         faq_1_q: "¿Qué tipo de proyectos desarrollan?",
@@ -78,20 +116,21 @@ const translations = {
         faq_2_q: "¿Cómo sé qué solución necesito?",
         faq_2_a: "Contanos tus objetivos y necesidades para evaluar qué tipo de desarrollo se adapta mejor a tu proyecto.",
         faq_3_q: "¿El hosting está incluido?",
-        faq_3_a: "Depende del proyecto y de las condiciones del servicio contratado.",
+        faq_3_a: "Incluido el primer año en los planes Starter, Business y Commerce. Después, USD [COMPLETAR: valor anual de hosting]/año.",
         faq_4_q: "¿El dominio está incluido?",
-        faq_4_a: "Depende del plan. El registro y la renovación pueden generar costos adicionales.",
+        faq_4_a: "El dominio .com.ar se registra a tu nombre y se renueva anualmente. [COMPLETAR: ¿incluido en el plan o a cargo del cliente?]",
         faq_5_q: "¿Puedo ampliar mi proyecto en el futuro?",
-        faq_5_a: "Las posibilidades de ampliación dependen de la arquitectura y las características técnicas de la solución.",
+        faq_5_a: "Sí. Las posibilidades de ampliación dependen de la arquitectura y las características técnicas de la solución.",
         faq_6_q: "¿Recibo el código de mi proyecto?",
-        faq_6_a: "La entrega del código, los archivos y los derechos de uso se establecen en las condiciones acordadas.",
+        faq_6_a: "El código es tuyo una vez abonado el proyecto. [COMPLETAR: confirmar si aplica a todos los planes o solo a medida]",
         faq_7_q: "¿Ofrecen mantenimiento?",
-        faq_7_a: "El mantenimiento y el soporte dependen de las condiciones contratadas para cada proyecto.",
+        faq_7_a: "Sí, ofrecemos mantenimiento opcional después de la entrega. [COMPLETAR: valor mensual / qué incluye]",
         faq_8_q: "¿Cómo se cotiza un desarrollo a medida?",
         faq_8_a: "Evaluamos las funcionalidades, las integraciones y la complejidad para definir el alcance y preparar una propuesta.",
         faq_9_q: "¿Cuánto tarda el desarrollo?",
-        faq_9_a: "El plazo depende de los requerimientos y la complejidad del proyecto.",
+        faq_9_a: "Web Starter: 15 días. Web Business y Web Commerce: 30 días. Desarrollo a medida: según proyecto.",
 
+        /* CONTACTO / FORM */
         contact_title: "Contanos tu proyecto.",
         contact_desc: "Describinos qué necesitás y nos pondremos en contacto para conocer los detalles de tu proyecto.",
         form_title: "Contanos tu proyecto.",
@@ -102,6 +141,13 @@ const translations = {
         form_email_ph: "tu@correo.com",
         form_phone: "Teléfono",
         form_phone_ph: "Ingresá tu número de teléfono",
+        form_budget: "Presupuesto estimado (opcional)",
+        form_budget_ph: "Seleccioná un rango",
+        form_budget_1: "Menos de USD 200",
+        form_budget_2: "USD 200 – 350",
+        form_budget_3: "USD 350 – 500",
+        form_budget_4: "Más de USD 500",
+        form_budget_5: "A medida / no sé todavía",
         form_type: "Tipo de proyecto *",
         form_type_1: "Sitio web",
         form_type_2: "Tienda online",
@@ -116,23 +162,34 @@ const translations = {
         form_msg: "Mensaje *",
         form_msg_ph: "Contanos un poco sobre tu proyecto",
         form_submit: "Enviar consulta",
+        form_sending: "Enviando...",
+        form_success: "Tu consulta fue enviada correctamente. Te vamos a contactar a la brevedad.",
+        form_error: "No pudimos enviar tu consulta. Intentá nuevamente o escribinos a hola@tagback.com.",
+        form_pending: "Estamos configurando el formulario. Mientras tanto, escribinos a hola@tagback.com o por WhatsApp.",
+        form_response_time: "Respondemos en el momento dentro del horario de atención.",
         form_legal: "Al enviar aceptás nuestra Política de Privacidad.",
+        form_err_required: "Este campo es obligatorio.",
+        form_err_email: "Ingresá un correo electrónico válido.",
+        form_err_check: "Revisá este dato.",
 
+        /* FOOTER */
         foot_contact: "CONTACTO",
         foot_privacy: "PRIVACIDAD / LEGAL",
         foot_phone: "TELÉFONO",
         foot_location: "UBICACIÓN",
-        foot_tz: "ZONA HORARIA",
+        foot_hours: "HORARIO DE ATENCIÓN",
         foot_nav: "NAVEGACIÓN",
         foot_legal: "LEGAL",
         foot_rights: "Todos los derechos reservados.",
         foot_credit: "Diseño y desarrollo por",
 
+        /* COOKIES */
         cookie_title: "Uso de cookies",
         cookie_desc: "Usamos cookies para analizar cómo se utiliza este sitio y mejorar la experiencia de navegación.",
         cookie_accept: "Aceptar",
         cookie_reject: "Rechazar",
 
+        /* LEGAL */
         back_home: "← Volver al inicio",
         legal_eyebrow: "LEGAL",
         legal_updated: "Última actualización: 2025",
@@ -222,59 +279,86 @@ const translations = {
         nav_privacy: "Privacy Policy",
         nav_cookies: "Cookie Policy",
 
-        hero_title_1: "Your place on the internet",
-        hero_title_2: "starts",
-        hero_title_3: "here.",
-        hero_lead: "We design and develop websites, online stores, and custom digital solutions so your business has the tools it needs to grow and connect with its customers.",
+        hero_title_aria: "Websites that bring you clients, not just visits.",
+        hero_lead: "Websites, online stores and custom systems for businesses in Argentina.",
+        hero_cta_primary: "Request a quote",
+        hero_cta_whatsapp: "Chat on WhatsApp",
 
         services_title: "Digital solutions for every need.",
-        services_desc: "We develop digital products that combine design, technology, and functionality, tailored to the needs of each project.",
-        
-        solutions_title: "We turn needs into digital tools.",
-        solutions_desc: "Every business has different processes and challenges. We develop solutions adapted to the way you need to work, manage, and offer your services.",
+        services_desc: "We build digital products that combine design, technology, and functionality, tailored to each project.",
+
+        solutions_title: "What do you want to solve?",
+        solutions_desc: "Tell us your goal and we'll guide you to the solution that best fits your business.",
 
         why_title: "Technology designed for your project.",
         why_desc: "Each development is built considering the project's needs, its users' experience, and its growth possibilities.",
 
         work_title: "Ideas turned into digital solutions.",
         work_desc: "Discover some of our projects and how we apply design and technology to solve concrete needs.",
-        work_link: "Discuss project →",
+        work_link: "Visit site →",
+        work_soon: "Coming soon",
         cat_services: "SERVICES",
         cat_gastro: "GASTRONOMY",
         cat_church: "CHURCH",
+
+        about_title: "About us",
+        about_desc: "I'm Javier Higuera, Cybersecurity Engineer and web developer. I work with businesses in Argentina that need clear, fast and secure websites.",
+
+        testimonials_title: "What our clients say",
 
         process_title: "From idea to result.",
         process_desc: "An organized process to define, develop, and launch your project.",
         proc_1_title: "Analysis",
         proc_1_desc: "We understand your goals, needs, and the problem you need to solve.",
+        proc_time_1: "[COMPLETAR: 2–3 days]",
         proc_2_title: "Planning",
         proc_2_desc: "We define the scope, features, and development priorities.",
+        proc_time_2: "[COMPLETAR: 3–5 days]",
         proc_3_title: "Development",
         proc_3_desc: "We build the agreed solution considering design, technology, and functionality.",
+        proc_time_3: "[COMPLETAR: per plan]",
         proc_4_title: "Testing",
         proc_4_desc: "We verify the features and correct any detected issues.",
+        proc_time_4: "[COMPLETAR: 2–3 days]",
         proc_5_title: "Launch & delivery",
         proc_5_desc: "We prepare the launch and deliver the agreed elements.",
+        proc_time_5: "[COMPLETAR: 1–2 days]",
 
         plans_title: "A solution for every stage.",
         plans_desc: "Development alternatives according to the scope, needs, and goals of your project.",
         plan_badge: "RECOMMENDED",
         plan_1_label: "STARTER",
         plan_1_title: "Web Starter",
-        plan_1_sub: "According to scope",
+        plan_1_sub: "One-time payment",
         plan_1_desc: "A professional digital presence for entrepreneurs and projects that need to start on the internet.",
+        plan_1_f1: "Site with up to 4 sections",
+        plan_1_f2: "Responsive design",
+        plan_1_f3: "Contact form",
+        plan_1_f4: "Delivery in 15 days",
         plan_2_label: "BUSINESS",
         plan_2_title: "Web Business",
-        plan_2_sub: "According to scope",
+        plan_2_sub: "One-time payment",
         plan_2_desc: "A more complete site for companies and businesses looking to present their services and receive inquiries.",
+        plan_2_f1: "Site with up to 8 sections",
+        plan_2_f2: "Blog or news",
+        plan_2_f3: "Basic SEO",
+        plan_2_f4: "Delivery in 30 days",
         plan_3_label: "COMMERCE",
         plan_3_title: "Web Commerce",
-        plan_3_sub: "According to scope",
+        plan_3_sub: "One-time payment",
         plan_3_desc: "A digital solution to display products and develop an online sales channel.",
+        plan_3_f1: "Product catalog",
+        plan_3_f2: "Cart and checkout",
+        plan_3_f3: "Payment integration",
+        plan_3_f4: "Delivery in 30 days",
         plan_4_label: "CUSTOM",
         plan_4_title: "Custom development",
-        plan_4_sub: "According to features",
+        plan_4_sub: "according to features",
         plan_4_desc: "Applications, management systems, automations, and integrations adapted to specific needs.",
+        plan_4_f1: "Functional analysis",
+        plan_4_f2: "Custom development",
+        plan_4_f3: "Integrations and APIs",
+        plan_4_f4: "Timeline according to project",
 
         faq_title: "Frequently asked questions",
         faq_desc: "We resolve the most common doubts before starting.",
@@ -283,19 +367,19 @@ const translations = {
         faq_2_q: "How do I know what solution I need?",
         faq_2_a: "Tell us your goals and needs so we can evaluate what type of development best suits your project.",
         faq_3_q: "Is hosting included?",
-        faq_3_a: "It depends on the project and the conditions of the contracted service.",
+        faq_3_a: "Included for the first year in the Starter, Business and Commerce plans. After that, USD [COMPLETAR: annual hosting fee]/year.",
         faq_4_q: "Is the domain included?",
-        faq_4_a: "It depends on the plan. Registration and renewal may generate additional costs.",
+        faq_4_a: "The .com.ar domain is registered under your name and renewed annually. [COMPLETAR: included in the plan or paid by the client?]",
         faq_5_q: "Can I expand my project in the future?",
-        faq_5_a: "Expansion possibilities depend on the architecture and technical characteristics of the solution.",
+        faq_5_a: "Yes. Expansion possibilities depend on the architecture and technical characteristics of the solution.",
         faq_6_q: "Do I receive the code for my project?",
-        faq_6_a: "The delivery of the code, files, and usage rights are established in the agreed conditions.",
+        faq_6_a: "The code is yours once the project is paid. [COMPLETAR: confirm if it applies to all plans or only custom]",
         faq_7_q: "Do you offer maintenance?",
-        faq_7_a: "Maintenance and support depend on the conditions contracted for each project.",
+        faq_7_a: "Yes, we offer optional maintenance after delivery. [COMPLETAR: monthly fee / what it includes]",
         faq_8_q: "How is custom development quoted?",
         faq_8_a: "We evaluate the features, integrations, and complexity to define the scope and prepare a proposal.",
         faq_9_q: "How long does development take?",
-        faq_9_a: "The timeline depends on the requirements and complexity of the project.",
+        faq_9_a: "Web Starter: 15 days. Web Business and Web Commerce: 30 days. Custom development: according to project.",
 
         contact_title: "Tell us about your project.",
         contact_desc: "Describe what you need and we'll get in touch to learn the details of your project.",
@@ -307,6 +391,13 @@ const translations = {
         form_email_ph: "you@email.com",
         form_phone: "Phone",
         form_phone_ph: "Enter your phone number",
+        form_budget: "Estimated budget (optional)",
+        form_budget_ph: "Select a range",
+        form_budget_1: "Less than USD 200",
+        form_budget_2: "USD 200 – 350",
+        form_budget_3: "USD 350 – 500",
+        form_budget_4: "More than USD 500",
+        form_budget_5: "Custom / not sure yet",
         form_type: "Project type *",
         form_type_1: "Website",
         form_type_2: "Online store",
@@ -321,13 +412,21 @@ const translations = {
         form_msg: "Message *",
         form_msg_ph: "Tell us a bit about your project",
         form_submit: "Send inquiry",
+        form_sending: "Sending...",
+        form_success: "Your inquiry was sent successfully. We'll contact you shortly.",
+        form_error: "We couldn't send your inquiry. Try again or email hola@tagback.com.",
+        form_pending: "The form is being configured. In the meantime, email hola@tagback.com or reach us on WhatsApp.",
+        form_response_time: "We reply instantly during business hours.",
         form_legal: "By submitting you accept our Privacy Policy.",
+        form_err_required: "This field is required.",
+        form_err_email: "Enter a valid email address.",
+        form_err_check: "Check this field.",
 
         foot_contact: "CONTACT",
         foot_privacy: "PRIVACY / LEGAL",
         foot_phone: "PHONE",
         foot_location: "LOCATION",
-        foot_tz: "TIMEZONE",
+        foot_hours: "BUSINESS HOURS",
         foot_nav: "NAVIGATION",
         foot_legal: "LEGAL",
         foot_rights: "All rights reserved.",
@@ -634,19 +733,60 @@ document.addEventListener("DOMContentLoaded", () => {
             }
         });
 
+        /* Título del hero: reconstruir palabra por palabra en el idioma correcto */
+        const heroTitle = $(".hero-title");
+        if (heroTitle) {
+            const wordsByLang = {
+                es: ["Sitios", "web", "que", "te", "traen", "clientes,", "no", "solo", "visitas."],
+                en: ["Websites", "that", "bring", "you", "clients,", "not", "just", "visits."]
+            };
+            const words = wordsByLang[lang] || wordsByLang.es;
+            // accent word is "clientes," / "clients,"
+            const accentIndex = lang === "en" ? 4 : 5;
+
+            // reconstruimos los 3 reveal-lines
+            const line1Count = lang === "en" ? 4 : 5; // hasta "traen" / "you"
+            const line2Count = 1;
+            // El resto va a línea 3
+
+            const lines = [[], [], []];
+            words.forEach((w, i) => {
+                if (i < line1Count) lines[0].push({ w, i });
+                else if (i < line1Count + line2Count) lines[1].push({ w, i });
+                else lines[2].push({ w, i });
+            });
+
+            heroTitle.setAttribute("aria-label", dict.hero_title_aria || "");
+            heroTitle.innerHTML = lines.map((lineWords) => {
+                const inner = lineWords.map(({ w, i }) => {
+                    const isAccent = i === accentIndex;
+                    const cls = isAccent ? "word word--accent" : "word";
+                    const underline = isAccent ? '<span class="underline" aria-hidden="true"></span>' : "";
+                    return `<span class="${cls}" style="--i:${i + 1}" aria-hidden="true">${w}${underline}</span>`;
+                }).join(" ");
+                return `<span class="reveal-line" aria-hidden="true">${inner}</span>`;
+            }).join("");
+        }
+
         $$(".lang-btn").forEach((btn) => {
             const active = btn.getAttribute("data-lang") === lang;
             btn.classList.toggle("active", active);
             btn.setAttribute("aria-pressed", String(active));
         });
 
-        $$(".work-card-link").forEach((link) => {
-            link.textContent = dict.work_link;
-        });
-
         const menuToggle = $(".menu-toggle");
         if (menuToggle) {
             menuToggle.setAttribute("aria-label", lang === "en" ? "Open menu" : "Abrir menú");
+        }
+
+        /* Actualizar estados del form si están visibles */
+        const feedback = $(".form-feedback");
+        if (feedback) {
+            const type = feedback.classList.contains("form-feedback--success") ? "success"
+                       : feedback.classList.contains("form-feedback--error") ? "error"
+                       : "info";
+            const msgKey = type === "success" ? "form_success" : type === "error" ? "form_error" : "form_pending";
+            feedback.textContent = dict[msgKey] || feedback.textContent;
         }
     };
 
@@ -654,7 +794,6 @@ document.addEventListener("DOMContentLoaded", () => {
     try {
         savedLang = localStorage.getItem("tagback-lang") || "es";
     } catch (_) {}
-
     if (!translations[savedLang]) savedLang = "es";
     applyLanguage(savedLang);
 
@@ -663,6 +802,25 @@ document.addEventListener("DOMContentLoaded", () => {
             applyLanguage(btn.getAttribute("data-lang"));
         });
     });
+
+    /* =====================================================
+       REVEAL ON SCROLL (IntersectionObserver)
+       ===================================================== */
+    if (!reducedMotion && "IntersectionObserver" in window) {
+        const io = new IntersectionObserver((entries) => {
+            entries.forEach((entry) => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add("visible");
+                    io.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.12, rootMargin: "0px 0px -8% 0px" });
+
+        $$(".reveal").forEach((el) => io.observe(el));
+    } else {
+        // Sin IO o con reduced-motion: mostrar todo
+        $$(".reveal").forEach((el) => el.classList.add("visible"));
+    }
 
     /* =====================================================
        COOKIES
@@ -689,6 +847,10 @@ document.addEventListener("DOMContentLoaded", () => {
                     cookieBanner.remove();
                 }
             }, 450);
+
+            // Si acepta, acá se podrían cargar scripts de analytics.
+            // Ejemplo:
+            // if (value === "1") { loadGoogleAnalytics(); }
         };
 
         if (cookieChoice === "0" || cookieChoice === "1") {
@@ -786,6 +948,32 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
     /* =====================================================
+       SCROLLSPY (marca la sección activa en el menú)
+       ===================================================== */
+    const spyLinks = $$('.main-nav > a[href^="#"]');
+    if (spyLinks.length && "IntersectionObserver" in window) {
+        const sectionMap = new Map();
+        spyLinks.forEach((link) => {
+            const id = link.getAttribute("href").slice(1);
+            const section = document.getElementById(id);
+            if (section) sectionMap.set(section, link);
+        });
+
+        const spyObserver = new IntersectionObserver((entries) => {
+            entries.forEach((entry) => {
+                const link = sectionMap.get(entry.target);
+                if (!link) return;
+                if (entry.isIntersecting) {
+                    spyLinks.forEach((l) => l.classList.remove("is-active"));
+                    link.classList.add("is-active");
+                }
+            });
+        }, { rootMargin: "-45% 0px -50% 0px", threshold: 0 });
+
+        sectionMap.forEach((_, section) => spyObserver.observe(section));
+    }
+
+    /* =====================================================
        ACORDEONES DE SERVICIOS
        ===================================================== */
 
@@ -814,14 +1002,14 @@ document.addEventListener("DOMContentLoaded", () => {
     });
 
     /* =====================================================
-       FAQ: UNA PREGUNTA ABIERTA POR VEZ + HOVER
+       FAQ: UNA PREGUNTA ABIERTA POR VEZ
        ===================================================== */
 
     const faqItems = $$(".faq-item");
 
     faqItems.forEach((item) => {
         if (item.tagName !== "DETAILS") return;
-        
+
         item.addEventListener("toggle", () => {
             if (!item.open) return;
             faqItems.forEach((other) => {
@@ -829,15 +1017,6 @@ document.addEventListener("DOMContentLoaded", () => {
                     other.open = false;
                 }
             });
-        });
-
-        item.addEventListener("mouseenter", () => {
-            if (window.innerWidth > 768 && item.tagName === "DETAILS") {
-                faqItems.forEach(other => {
-                    if (other !== item) other.open = false;
-                });
-                item.open = true;
-            }
         });
     });
 
@@ -881,23 +1060,6 @@ document.addEventListener("DOMContentLoaded", () => {
             }
             selectCardPlan();
         });
-
-        if (card.tagName !== "A" && card.tagName !== "BUTTON" && !card.hasAttribute("tabindex")) {
-            card.setAttribute("tabindex", "0");
-        }
-
-        if (card.getAttribute("role") === "button" || card.hasAttribute("data-plan")) {
-            card.addEventListener("keydown", (event) => {
-                if (event.target !== card || (event.key !== "Enter" && event.key !== " ")) {
-                    return;
-                }
-                if (card.tagName === "A" || card.tagName === "BUTTON") {
-                    return;
-                }
-                event.preventDefault();
-                selectCardPlan();
-            });
-        }
     });
 
     const applyPlanFromLocation = () => {
@@ -919,7 +1081,7 @@ document.addEventListener("DOMContentLoaded", () => {
     applyPlanFromLocation();
 
     /* =====================================================
-       FORMULARIO — FORMSPREE
+       FORMULARIO — FORMSPREE + HONEYPOT + ESTADOS
        ===================================================== */
 
     const quoteForm = $(".quote-form");
@@ -928,6 +1090,7 @@ document.addEventListener("DOMContentLoaded", () => {
         const formSubmit = $(".quote-form-submit", quoteForm);
         const submitBtn = $('button[type="submit"]', quoteForm);
         const submitBtnDefaultText = submitBtn ? submitBtn.textContent : "";
+        const honeypotField = $('input[name="website"]', quoteForm);
 
         const showFeedback = (type, message) => {
             if (!formSubmit) return;
@@ -948,16 +1111,18 @@ document.addEventListener("DOMContentLoaded", () => {
             if (feedback) feedback.remove();
         };
 
+        const getDict = () => translations[document.documentElement.lang] || translations.es;
+
         const getFieldError = (field) => {
-            const lang = document.documentElement.lang;
+            const dict = getDict();
             if (field.validity.valueMissing) {
-                return lang === "en" ? "This field is required." : "Este campo es obligatorio.";
+                return dict.form_err_required;
             }
             if (field.validity.typeMismatch && field.type === "email") {
-                return lang === "en" ? "Enter a valid email address." : "Ingresá un correo electrónico válido.";
+                return dict.form_err_email;
             }
             if (!field.checkValidity()) {
-                return lang === "en" ? "Check this field." : "Revisá este dato.";
+                return dict.form_err_check;
             }
             return "";
         };
@@ -1003,6 +1168,7 @@ document.addEventListener("DOMContentLoaded", () => {
         };
 
         $$("input, textarea, select", quoteForm).forEach((field) => {
+            if (field === honeypotField) return;
             field.addEventListener("blur", () => {
                 if (field.type === "radio") {
                     validateRadioGroup(field);
@@ -1028,11 +1194,18 @@ document.addEventListener("DOMContentLoaded", () => {
             event.preventDefault();
             clearFeedback();
 
+            // Honeypot: si el campo oculto tiene valor, es bot. Mostramos éxito falso.
+            if (honeypotField && honeypotField.value.trim() !== "") {
+                showFeedback("success", getDict().form_success);
+                return;
+            }
+
             const fields = $$("input, textarea, select", quoteForm);
             let allValid = true;
             const processedRadioGroups = new Set();
 
             fields.forEach((field) => {
+                if (field === honeypotField) return;
                 if (field.type === "radio") {
                     if (processedRadioGroups.has(field.name)) return;
                     processedRadioGroups.add(field.name);
@@ -1049,17 +1222,17 @@ document.addEventListener("DOMContentLoaded", () => {
             }
 
             const action = quoteForm.getAttribute("action") || "";
-            const lang = document.documentElement.lang;
+            const dict = getDict();
 
-            if (!action || action === "#" || action.includes("TU_ID")) {
-                showFeedback("info", lang === "en" ? "The form is being configured. In the meantime, email hola@tagback.com." : "Estamos configurando el formulario. Mientras tanto, escribinos a hola@tagback.com.");
+            if (!action || action === "#" || action.includes("COMPLETAR") || action.includes("TU_ID")) {
+                showFeedback("info", dict.form_pending);
                 return;
             }
 
             if (submitBtn) {
                 submitBtn.disabled = true;
                 submitBtn.setAttribute("aria-busy", "true");
-                submitBtn.textContent = lang === "en" ? "Sending..." : "Enviando...";
+                submitBtn.textContent = dict.form_sending;
             }
 
             try {
@@ -1072,7 +1245,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
                 if (!response.ok) throw new Error("Form submission failed");
 
-                showFeedback("success", lang === "en" ? "Your inquiry was sent successfully." : "Tu consulta fue enviada correctamente.");
+                showFeedback("success", dict.form_success);
                 quoteForm.reset();
 
                 $$('[aria-invalid="true"]', quoteForm).forEach((field) => field.removeAttribute("aria-invalid"));
@@ -1081,7 +1254,7 @@ document.addEventListener("DOMContentLoaded", () => {
                     error.classList.remove("is-visible");
                 });
             } catch (_) {
-                showFeedback("error", lang === "en" ? "We couldn't send your inquiry. Try again or email hola@tagback.com." : "No pudimos enviar tu consulta. Intentá nuevamente o escribinos a hola@tagback.com.");
+                showFeedback("error", dict.form_error);
             } finally {
                 if (submitBtn) {
                     submitBtn.disabled = false;
@@ -1093,53 +1266,10 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
     /* =====================================================
-       CURSOR REACTIVO (Global CSS Variables)
-       ===================================================== */
-
-    if (!reducedMotion && finePointer) {
-        let rafId = 0;
-        let x = window.innerWidth * 0.5;
-        let y = window.innerHeight * 0.35;
-        let targetX = x;
-        let targetY = y;
-
-        const updateCursorLight = () => {
-            x += (targetX - x) * 0.12;
-            y += (targetY - y) * 0.12;
-
-            document.documentElement.style.setProperty("--mouse-x", `${x}px`);
-            document.documentElement.style.setProperty("--mouse-y", `${y}px`);
-
-            if (Math.abs(targetX - x) > 0.4 || Math.abs(targetY - y) > 0.4) {
-                rafId = window.requestAnimationFrame(updateCursorLight);
-            } else {
-                rafId = 0;
-            }
-        };
-
-        document.addEventListener("pointermove", (event) => {
-            targetX = event.clientX;
-            targetY = event.clientY;
-            if (!rafId) {
-                rafId = window.requestAnimationFrame(updateCursorLight);
-            }
-        }, { passive: true });
-
-        window.addEventListener("blur", () => {
-            targetX = window.innerWidth * 0.5;
-            targetY = window.innerHeight * 0.35;
-            if (!rafId) {
-                rafId = window.requestAnimationFrame(updateCursorLight);
-            }
-        });
-    }
-
-    /* =====================================================
        AÑO ACTUAL
        ===================================================== */
 
     const yearEls = $$("[data-current-year]");
-
     if (yearEls.length) {
         const currentYear = new Date().getFullYear();
         yearEls.forEach((el) => {
