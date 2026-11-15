@@ -4,28 +4,65 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>tagback — Diseño y desarrollo web</title>
-    <meta name="description" content="tagback diseña y desarrolla sitios web: landing pages, sitios corporativos, tiendas online y mantenimiento. Presencia digital profesional para tu negocio.">
+    <title>tagback — Diseño y desarrollo web en Argentina</title>
+    <meta name="description" content="tagback diseña y desarrolla sitios web, tiendas online y sistemas a medida para negocios de Argentina. Buenos Aires, zona sur. Presupuesto sin cargo.">
     <meta name="theme-color" content="#1A1D24">
     <meta name="robots" content="index, follow">
     <meta name="author" content="tagback">
-    <link rel="canonical" href="https://javierhiguera.github.io/TAGBACK/">
+    <!-- FASE 4.7: canonical al dominio propio futuro. Cuando compres tagback.com.ar, esto ya queda bien. -->
+    <link rel="canonical" href="https://tagback.com.ar/">
 
-    <meta property="og:title" content="tagback — Estudio de diseño y desarrollo web">
-    <meta property="og:description" content="Diseñamos y desarrollamos sitios web rápidos, claros y pensados para convertir visitas en oportunidades de negocio.">
+    <!-- FASE 4.1: OG/Twitter con imagen dedicada 1200x630 (tagback.png) -->
+    <meta property="og:title" content="tagback — Diseño y desarrollo web en Argentina">
+    <meta property="og:description" content="Sitios web, tiendas online y sistemas a medida para negocios de Argentina. Presupuesto sin cargo.">
     <meta property="og:type" content="website">
     <meta property="og:locale" content="es_AR">
-    <meta property="og:url" content="https://javierhiguera.github.io/TAGBACK/">
-    <meta property="og:image" content="https://javierhiguera.github.io/TAGBACK/favicon/tagback.png">
+    <meta property="og:url" content="https://tagback.com.ar/">
+    <meta property="og:image" content="https://tagback.com.ar/favicon/tagback.png">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:image:alt" content="tagback — Diseño y desarrollo web">
     <meta property="og:site_name" content="tagback">
     <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="tagback — Estudio de diseño y desarrollo web">
-    <meta name="twitter:description" content="Diseñamos y desarrollamos sitios web rápidos, claros y pensados para convertir visitas en oportunidades de negocio.">
-    <meta name="twitter:image" content="https://javierhiguera.github.io/TAGBACK/favicon/tagback.png">
+    <meta name="twitter:title" content="tagback — Diseño y desarrollo web en Argentina">
+    <meta name="twitter:description" content="Sitios web, tiendas online y sistemas a medida para negocios de Argentina. Presupuesto sin cargo.">
+    <meta name="twitter:image" content="https://tagback.com.ar/favicon/tagback.png">
+    <meta name="twitter:image:alt" content="tagback — Diseño y desarrollo web">
 
     <link rel="icon" type="image/svg+xml" href="./favicon/tagback.svg">
     <link rel="alternate icon" type="image/x-icon" href="./favicon/favicon.ico">
     <link rel="apple-touch-icon" href="./favicon/tagback.png">
+
+    <!-- FASE 4.3: JSON-LD ProfessionalService -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "ProfessionalService",
+      "name": "tagback",
+      "url": "https://tagback.com.ar/",
+      "image": "https://tagback.com.ar/favicon/tagback.png",
+      "description": "Estudio de diseño y desarrollo web. Sitios web, tiendas online y sistemas a medida para negocios de Argentina.",
+      "telephone": "+54 11 2279 0690",
+      "email": "hola@tagback.com",
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Florencio Varela",
+        "addressRegion": "Buenos Aires",
+        "postalCode": "1888",
+        "addressCountry": "AR"
+      },
+      "areaServed": {
+        "@type": "Country",
+        "name": "Argentina"
+      },
+      "founder": {
+        "@type": "Person",
+        "name": "Javier Higuera",
+        "jobTitle": "Ingeniero en Ciberseguridad y desarrollador web"
+      },
+      "sameAs": []
+    }
+    </script>
 
     <script>document.documentElement.classList.remove('no-js');</script>
     <link rel="stylesheet" href="./css/styles.css">
@@ -66,7 +103,9 @@
 
 <main id="main">
 
-    <!-- 1. HERO -->
+    <!-- ============================================================
+         FASE 1.1 + 1.2: HERO nuevo con WhatsApp + animación texto
+         ============================================================ -->
     <section class="hero">
         <div class="hero-canvas-container" aria-hidden="true">
             <canvas id="neural-canvas"></canvas>
@@ -74,27 +113,57 @@
 
         <div class="container hero-grid">
             <div class="hero-content">
-                <h1>
-                    <span class="reveal-line"><span data-i18n="hero_title_1">Tu lugar en internet</span></span>
-                    <span class="reveal-line"><span><span data-i18n="hero_title_2">empieza</span> <em data-i18n="hero_title_3">acá.</em></span></span>
+                <!-- Título palabra por palabra con subrayado en "clientes" -->
+                <h1 class="hero-title" aria-label="Sitios web que te traen clientes, no solo visitas.">
+                    <span class="reveal-line" aria-hidden="true">
+                        <span class="word" style="--i:1">Sitios</span>
+                        <span class="word" style="--i:2">web</span>
+                        <span class="word" style="--i:3">que</span>
+                        <span class="word" style="--i:4">te</span>
+                        <span class="word" style="--i:5">traen</span>
+                    </span>
+                    <span class="reveal-line" aria-hidden="true">
+                        <span class="word word--accent" style="--i:6">clientes,<span class="underline" aria-hidden="true"></span></span>
+                    </span>
+                    <span class="reveal-line" aria-hidden="true">
+                        <span class="word" style="--i:7">no</span>
+                        <span class="word" style="--i:8">solo</span>
+                        <span class="word" style="--i:9">visitas.</span>
+                    </span>
                 </h1>
                 <p class="hero-lead" data-i18n="hero_lead">
-                    Diseñamos y desarrollamos sitios web, tiendas online y soluciones digitales a medida para que tu negocio tenga las herramientas necesarias para crecer y conectar con sus clientes.
+                    Webs, tiendas online y sistemas a medida para negocios de Argentina.
                 </p>
+
+                <!-- FASE 1.1 + 1.2: dos botones, uno a contacto y uno a WhatsApp -->
+                <div class="hero-actions">
+                    <a href="#contacto" class="button button-primary" data-i18n="hero_cta_primary">Pedí tu presupuesto</a>
+                    <a href="https://wa.me/5491122790690?text=Hola%20tagback%2C%20quiero%20consultar%20por%20un%20proyecto"
+                       class="button button-whatsapp"
+                       target="_blank" rel="noopener"
+                       aria-label="Escribinos por WhatsApp">
+                        <svg class="whatsapp-icon" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" width="18" height="18">
+                            <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/>
+                        </svg>
+                        <span data-i18n="hero_cta_whatsapp">Escribinos por WhatsApp</span>
+                    </a>
+                </div>
             </div>
         </div>
     </section>
 
-    <!-- 2. SERVICIOS -->
+    <!-- ============================================================
+         FASE 2.1: SERVICIOS → 4 tarjetas (sitios, tiendas, sistemas, automatizaciones)
+         ============================================================ -->
     <section class="services section" id="servicios">
         <div class="container services-inner">
-            <div class="services-intro">
+            <div class="services-intro reveal">
                 <h2 class="section-title" data-i18n="services_title">Soluciones digitales para cada necesidad.</h2>
-                <p class="section-desc" data-i18n="services_desc">Desarrollamos productos digitales que combinan diseño, tecnología y funcionalidad, adaptados a las necesidades de cada proyecto.</p>
+                <p class="section-desc" data-i18n="services_desc">Armamos productos digitales que combinan diseño, tecnología y funcionalidad, adaptados a cada proyecto.</p>
             </div>
 
             <div class="services-cards accordion-horizontal">
-                <article class="service-card">
+                <article class="service-card reveal" style="--reveal-delay:0ms">
                     <button type="button" class="service-card-header" aria-expanded="false">
                         <svg class="service-card-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"></rect><line x1="8" y1="21" x2="16" y2="21"></line><line x1="12" y1="17" x2="12" y2="21"></line></svg>
                         <h3 class="service-card-title">Sitios web</h3>
@@ -105,58 +174,36 @@
                         </div>
                     </div>
                 </article>
-                <article class="service-card">
+                <article class="service-card reveal" style="--reveal-delay:70ms">
                     <button type="button" class="service-card-header" aria-expanded="false">
                         <svg class="service-card-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="21" r="1"></circle><circle cx="20" cy="21" r="1"></circle><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path></svg>
                         <h3 class="service-card-title">Tiendas online</h3>
                     </button>
                     <div class="service-card-panel">
                         <div class="service-card-panel-inner">
-                            <p>Desarrollamos tiendas digitales para gestionar catálogos, exhibir productos y facilitar las ventas por internet.</p>
+                            <p>Armamos tiendas digitales para gestionar catálogos, exhibir productos y facilitar las ventas por internet.</p>
                         </div>
                     </div>
                 </article>
-                <article class="service-card">
-                    <button type="button" class="service-card-header" aria-expanded="false">
-                        <svg class="service-card-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="2" width="14" height="20" rx="2" ry="2"></rect><line x1="12" y1="18" x2="12.01" y2="18"></line></svg>
-                        <h3 class="service-card-title">Aplicaciones web</h3>
-                    </button>
-                    <div class="service-card-panel">
-                        <div class="service-card-panel-inner">
-                            <p>Construimos aplicaciones y plataformas interactivas con funcionalidades específicas para las necesidades de tu negocio.</p>
-                        </div>
-                    </div>
-                </article>
-                <article class="service-card">
+                <article class="service-card reveal" style="--reveal-delay:140ms">
                     <button type="button" class="service-card-header" aria-expanded="false">
                         <svg class="service-card-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="20" x2="12" y2="10"></line><line x1="18" y1="20" x2="18" y2="4"></line><line x1="6" y1="20" x2="6" y2="16"></line></svg>
-                        <h3 class="service-card-title">Sistemas de gestión</h3>
+                        <h3 class="service-card-title">Sistemas y apps a medida</h3>
                     </button>
                     <div class="service-card-panel">
                         <div class="service-card-panel-inner">
-                            <p>Desarrollamos sistemas para administrar clientes, pedidos, inventarios, turnos y procesos internos.</p>
+                            <p>Construimos aplicaciones y sistemas de gestión para administrar clientes, pedidos, inventarios, turnos y procesos internos.</p>
                         </div>
                     </div>
                 </article>
-                <article class="service-card">
+                <article class="service-card reveal" style="--reveal-delay:210ms">
                     <button type="button" class="service-card-header" aria-expanded="false">
                         <svg class="service-card-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg>
-                        <h3 class="service-card-title">Automatizaciones e integraciones</h3>
+                        <h3 class="service-card-title">Automatizaciones e IA</h3>
                     </button>
                     <div class="service-card-panel">
                         <div class="service-card-panel-inner">
-                            <p>Conectamos plataformas, servicios y APIs para automatizar tareas y optimizar los flujos de trabajo.</p>
-                        </div>
-                    </div>
-                </article>
-                <article class="service-card">
-                    <button type="button" class="service-card-header" aria-expanded="false">
-                        <svg class="service-card-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M18 10h-1.26A8 8 0 1 0 9 20h9a5 5 0 0 0 0-10z"></path></svg>
-                        <h3 class="service-card-title">Desarrollo avanzado</h3>
-                    </button>
-                    <div class="service-card-panel">
-                        <div class="service-card-panel-inner">
-                            <p>Desarrollamos soluciones SaaS, marketplaces, dashboards e incorporaciones de inteligencia artificial según los requerimientos del proyecto.</p>
+                            <p>Conectamos plataformas, servicios y APIs para automatizar tareas, y sumamos funcionalidades de inteligencia artificial cuando aportan valor.</p>
                         </div>
                     </div>
                 </article>
@@ -164,67 +211,71 @@
         </div>
     </section>
 
-    <!-- 3. SOLUCIONES -->
+    <!-- ============================================================
+         FASE 2.1: SOLUCIONES orientada al problema del cliente
+         ============================================================ -->
     <section class="custom-solutions section" id="soluciones">
         <div class="container">
-            <div class="section-head">
+            <div class="section-head reveal">
                 <div>
-                    <h2 class="section-title" data-i18n="solutions_title">Transformamos necesidades en herramientas digitales.</h2>
-                    <p class="section-desc" data-i18n="solutions_desc">Cada negocio tiene procesos y desafíos diferentes. Desarrollamos soluciones adaptadas a la manera en que necesitás trabajar, gestionar y ofrecer tus servicios.</p>
+                    <h2 class="section-title" data-i18n="solutions_title">¿Qué querés resolver?</h2>
+                    <p class="section-desc" data-i18n="solutions_desc">Contanos tu objetivo y te orientamos hacia la solución que mejor se adapta a tu negocio.</p>
                 </div>
             </div>
 
             <div class="solutions-grid">
-                <div class="solution-card">
+                <a href="#planes" class="solution-card reveal" style="--reveal-delay:0ms">
                     <svg class="solution-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg>
                     <div class="solution-content">
-                        <h3>Reservas y turnos</h3>
-                        <p>Organizá agendas, horarios y disponibilidades mediante sistemas de reservas personalizados.</p>
+                        <h3>Quiero recibir reservas</h3>
+                        <p>Organizá agendas, horarios y disponibilidades con un sistema de reservas propio.</p>
                     </div>
-                </div>
-                <div class="solution-card">
-                    <svg class="solution-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg>
-                    <div class="solution-content">
-                        <h3>Gestión comercial</h3>
-                        <p>Centralizá clientes, consultas, oportunidades y operaciones en un mismo entorno.</p>
-                    </div>
-                </div>
-                <div class="solution-card">
+                </a>
+                <a href="#planes" class="solution-card reveal" style="--reveal-delay:70ms">
                     <svg class="solution-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"></path><polyline points="3.27 6.96 12 12.01 20.73 6.96"></polyline><line x1="12" y1="22.08" x2="12" y2="12"></line></svg>
                     <div class="solution-content">
-                        <h3>Venta y comercialización</h3>
-                        <p>Creá plataformas para comercializar productos y servicios, conectar vendedores con compradores y gestionar operaciones.</p>
+                        <h3>Quiero vender online</h3>
+                        <p>Mostrá tu catálogo, gestioná pedidos y abrí un canal de ventas por internet.</p>
                     </div>
-                </div>
-                <div class="solution-card">
-                    <svg class="solution-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"></rect><line x1="8" y1="21" x2="16" y2="21"></line><line x1="12" y1="17" x2="12" y2="21"></line></svg>
+                </a>
+                <a href="#planes" class="solution-card reveal" style="--reveal-delay:140ms">
+                    <svg class="solution-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg>
                     <div class="solution-content">
-                        <h3>Portales y plataformas</h3>
-                        <p>Ofrecé espacios digitales con acceso personalizado, información y funcionalidades específicas para tus usuarios.</p>
+                        <h3>Quiero ordenar mi gestión</h3>
+                        <p>Centralizá clientes, pedidos, inventario y procesos internos en un mismo sistema.</p>
                     </div>
-                </div>
-                <div class="solution-card">
+                </a>
+                <a href="#planes" class="solution-card reveal" style="--reveal-delay:0ms">
                     <svg class="solution-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon></svg>
                     <div class="solution-content">
-                        <h3>Optimización de procesos</h3>
-                        <p>Reducí tareas manuales y conectá las herramientas que utilizás para mejorar tus operaciones.</p>
+                        <h3>Quiero automatizar tareas</h3>
+                        <p>Reducí trabajo manual y conectá las herramientas que ya usás.</p>
                     </div>
-                </div>
-                <div class="solution-card">
+                </a>
+                <a href="#planes" class="solution-card reveal" style="--reveal-delay:70ms">
                     <svg class="solution-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2a10 10 0 1 0 10 10H12V2z"></path><path d="M12 2a10 10 0 0 1 10 10h-10V2z"></path><circle cx="12" cy="12" r="3"></circle></svg>
                     <div class="solution-content">
-                        <h3>Inteligencia artificial</h3>
-                        <p>Incorporá funcionalidades inteligentes para procesar información, asistir usuarios y optimizar tareas.</p>
+                        <h3>Quiero sumar IA</h3>
+                        <p>Incorporá funcionalidades inteligentes para procesar información o asistir usuarios.</p>
                     </div>
-                </div>
+                </a>
+                <a href="#planes" class="solution-card reveal" style="--reveal-delay:140ms">
+                    <svg class="solution-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"></rect><line x1="8" y1="21" x2="16" y2="21"></line><line x1="12" y1="17" x2="12" y2="21"></line></svg>
+                    <div class="solution-content">
+                        <h3>Quiero una plataforma propia</h3>
+                        <p>Portales, marketplaces o plataformas con acceso personalizado para tus usuarios.</p>
+                    </div>
+                </a>
             </div>
         </div>
     </section>
 
-    <!-- 4. BENEFICIOS -->
+    <!-- ============================================================
+         FASE 2.4: BENEFICIOS con datos verificables
+         ============================================================ -->
     <section class="why section" id="beneficios">
         <div class="container">
-            <div class="section-head">
+            <div class="section-head reveal">
                 <div>
                     <h2 class="section-title" data-i18n="why_title">Tecnología pensada para tu proyecto.</h2>
                     <p class="section-desc" data-i18n="why_desc">Cada desarrollo se construye considerando las necesidades del proyecto, la experiencia de sus usuarios y sus posibilidades de crecimiento.</p>
@@ -232,42 +283,42 @@
             </div>
 
             <div class="why-grid">
-                <div class="benefit-item">
+                <div class="benefit-item reveal" style="--reveal-delay:0ms">
                     <svg class="benefit-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><circle cx="12" cy="12" r="6"></circle><circle cx="12" cy="12" r="2"></circle></svg>
                     <div class="benefit-content">
                         <h3>Diseño personalizado</h3>
                         <p>Interfaces diseñadas para representar la identidad de tu marca y facilitar la experiencia de tus usuarios.</p>
                     </div>
                 </div>
-                <div class="benefit-item">
+                <div class="benefit-item reveal" style="--reveal-delay:70ms">
                     <svg class="benefit-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"></rect><line x1="8" y1="21" x2="16" y2="21"></line><line x1="12" y1="17" x2="12" y2="21"></line></svg>
                     <div class="benefit-content">
                         <h3>Adaptabilidad</h3>
                         <p>Experiencias preparadas para funcionar en celulares, tablets y computadoras.</p>
                     </div>
                 </div>
-                <div class="benefit-item">
+                <div class="benefit-item reveal" style="--reveal-delay:140ms">
                     <svg class="benefit-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
                     <div class="benefit-content">
-                        <h3>Rendimiento</h3>
-                        <p>Desarrollos optimizados para ofrecer una navegación fluida y tiempos de carga eficientes.</p>
+                        <h3>Plazos claros</h3>
+                        <p>Definimos un rango de entrega al inicio del proyecto y lo respetamos. `[COMPLETAR: plazo real por plan ya definido en Planes]`</p>
                     </div>
                 </div>
-                <div class="benefit-item">
+                <div class="benefit-item reveal" style="--reveal-delay:0ms">
                     <svg class="benefit-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"></polyline><polyline points="17 6 23 6 23 12"></polyline></svg>
                     <div class="benefit-content">
                         <h3>Escalabilidad</h3>
                         <p>Arquitecturas pensadas para permitir futuras ampliaciones según las necesidades del proyecto.</p>
                     </div>
                 </div>
-                <div class="benefit-item">
+                <div class="benefit-item reveal" style="--reveal-delay:70ms">
                     <svg class="benefit-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path></svg>
                     <div class="benefit-content">
                         <h3>Comunicación directa</h3>
-                        <p>Contacto durante las distintas etapas para mantener claridad sobre el alcance y la evolución del desarrollo.</p>
+                        <p>Respondemos consultas en el momento dentro del horario de atención. Fuera de ese horario, al día hábil siguiente.</p>
                     </div>
                 </div>
-                <div class="benefit-item">
+                <div class="benefit-item reveal" style="--reveal-delay:140ms">
                     <svg class="benefit-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg>
                     <div class="benefit-content">
                         <h3>Transparencia y entrega</h3>
@@ -278,10 +329,12 @@
         </div>
     </section>
 
-    <!-- 5. PROYECTOS -->
+    <!-- ============================================================
+         FASE 1.4: PROYECTOS con links reales
+         ============================================================ -->
     <section class="work section" id="trabajos">
         <div class="container">
-            <div class="section-head">
+            <div class="section-head reveal">
                 <div>
                     <h2 class="section-title" data-i18n="work_title">Ideas convertidas en soluciones digitales.</h2>
                 </div>
@@ -289,87 +342,139 @@
             </div>
 
             <div class="work-grid">
-                <article class="work-card">
-                    <div class="work-card-header"><span>NIVELPULIDOS.COM</span><span>2024</span></div>
+                <article class="work-card reveal" style="--reveal-delay:0ms">
+                    <div class="work-card-header"><span>NIVELPULIDOS.COM.AR</span></div>
                     <h3 class="work-card-name">Nivel Pulidos</h3>
                     <div class="work-card-image">
-                        <img src="./assets/proyectos/1/NP_1.png" alt="Vista previa Nivel Pulidos" loading="lazy">
+                        <img src="./assets/proyectos/1/NP_1.png" alt="Vista previa del sitio de Nivel Pulidos" loading="lazy" width="800" height="600">
                     </div>
                     <div class="work-card-overlay">
                         <span class="work-card-category" data-i18n="cat_services">SERVICIOS</span>
                         <p class="work-card-claim">Sitio corporativo para presentar servicios y facilitar el contacto.</p>
-                        <a class="work-card-link" href="#contacto" data-i18n="work_link">Consultar proyecto →</a>
+                        <a class="work-card-link" href="https://nivelpulidos.com.ar" target="_blank" rel="noopener" data-i18n="work_link">Ver sitio →</a>
                     </div>
                 </article>
 
-                <article class="work-card">
-                    <div class="work-card-header"><span>MIGAJA.COM</span><span>2024</span></div>
-                    <h3 class="work-card-name">Migaja</h3>
+                <article class="work-card reveal" style="--reveal-delay:70ms">
+                    <div class="work-card-header"><span>LAMIGAJA.COM.AR</span></div>
+                    <h3 class="work-card-name">La Migaja</h3>
                     <div class="work-card-image">
-                        <img src="./assets/proyectos/2/foto2.jpg" alt="Vista previa Migaja" loading="lazy">
+                        <img src="./assets/proyectos/2/foto2.jpg" alt="Vista previa de La Migaja" loading="lazy" width="800" height="600">
                     </div>
                     <div class="work-card-overlay">
                         <span class="work-card-category" data-i18n="cat_gastro">GASTRONOMÍA</span>
-                        <p class="work-card-claim">Web con menú y contacto directo para pedidos por WhatsApp.</p>
-                        <a class="work-card-link" href="#contacto" data-i18n="work_link">Consultar proyecto →</a>
+                        <p class="work-card-claim">Web con menú y pedidos por WhatsApp.</p>
+                        <a class="work-card-link" href="https://lamigaja.com.ar" target="_blank" rel="noopener" data-i18n="work_link">Ver sitio →</a>
                     </div>
                 </article>
 
-                <article class="work-card">
-                    <div class="work-card-header"><span>ALOSPIEDSDELMAESTRO.ORG</span><span>2024</span></div>
+                <article class="work-card work-card--soon reveal" style="--reveal-delay:140ms">
+                    <div class="work-card-header"><span>IGLESIA</span></div>
                     <h3 class="work-card-name">A los pies del Maestro</h3>
                     <div class="work-card-image">
-                        <img src="./assets/proyectos/3/foto3.jpg" alt="Vista previa A los pies del Maestro" loading="lazy">
+                        <img src="./assets/proyectos/3/foto3.jpg" alt="Vista previa de A los pies del Maestro" loading="lazy" width="800" height="600">
                     </div>
                     <div class="work-card-overlay">
                         <span class="work-card-category" data-i18n="cat_church">IGLESIA</span>
-                        <p class="work-card-claim">Sitio institucional con landing de contacto para comunicar actividades y recibir consultas.</p>
-                        <a class="work-card-link" href="#contacto" data-i18n="work_link">Consultar proyecto →</a>
+                        <p class="work-card-claim">Sitio institucional con landing de contacto para comunicar actividades.</p>
+                        <span class="work-card-link work-card-link--soon" data-i18n="work_soon">Próximamente</span>
                     </div>
                 </article>
             </div>
         </div>
     </section>
 
-    <!-- 6. PROCESO -->
-    <section class="process section" id="proceso">
+    <!-- ============================================================
+         FASE 1.5: QUIÉNES SOMOS
+         ============================================================ -->
+    <section class="about section" id="quienes-somos">
+        <div class="container about-inner">
+            <div class="about-media reveal">
+                <!-- [COMPLETAR: foto real de Javier] -->
+                <div class="about-photo" aria-hidden="true">
+                    <span>[FOTO]</span>
+                </div>
+            </div>
+            <div class="about-content reveal">
+                <h2 class="section-title" data-i18n="about_title">Quiénes somos</h2>
+                <p class="section-desc" data-i18n="about_desc">
+                    Soy <strong>Javier Higuera</strong>, Ingeniero en Ciberseguridad y desarrollador web. Trabajo con negocios de Argentina que necesitan sitios claros, rápidos y seguros.
+                </p>
+                <p class="section-desc">
+                    `[COMPLETAR: 2-3 líneas de bio — años de experiencia, enfoque, tipo de clientes]`
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================================
+         FASE 1.5: TESTIMONIOS (oculto hasta cargar contenido real)
+         ============================================================ -->
+    <section class="testimonials section" id="testimonios" hidden>
         <div class="container">
             <div class="section-head">
+                <div>
+                    <h2 class="section-title" data-i18n="testimonials_title">Lo que dicen nuestros clientes</h2>
+                </div>
+            </div>
+            <div class="testimonials-grid">
+                <!-- [COMPLETAR: cuando tengas testimonios reales, duplicá este bloque] -->
+                <blockquote class="testimonial-card">
+                    <p>“[COMPLETAR testimonio]”</p>
+                    <footer><strong>[COMPLETAR nombre]</strong> · <span>[COMPLETAR empresa]</span></footer>
+                </blockquote>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================================
+         FASE 2.6: PROCESO numerado con plazos
+         ============================================================ -->
+    <section class="process section" id="proceso">
+        <div class="container">
+            <div class="section-head reveal">
                 <div>
                     <h2 class="section-title" data-i18n="process_title">De la idea al resultado.</h2>
                 </div>
                 <p class="section-desc" data-i18n="process_desc">Un proceso organizado para definir, desarrollar y poner en funcionamiento tu proyecto.</p>
             </div>
 
-            <div class="process-list">
-                <details class="process-item">
-                    <summary data-i18n="proc_1_title">Análisis</summary>
+            <div class="process-list" data-process-line>
+                <details class="process-item reveal" style="--reveal-delay:0ms">
+                    <summary><span class="process-num">01</span> <span data-i18n="proc_1_title">Análisis</span></summary>
                     <p data-i18n="proc_1_desc">Comprendemos tus objetivos, necesidades y el problema que necesitás resolver.</p>
+                    <span class="process-time" data-i18n="proc_time_1">`[COMPLETAR: 2–3 días]`</span>
                 </details>
-                <details class="process-item">
-                    <summary data-i18n="proc_2_title">Planificación</summary>
+                <details class="process-item reveal" style="--reveal-delay:70ms">
+                    <summary><span class="process-num">02</span> <span data-i18n="proc_2_title">Planificación</span></summary>
                     <p data-i18n="proc_2_desc">Definimos el alcance, las funcionalidades y las prioridades del desarrollo.</p>
+                    <span class="process-time" data-i18n="proc_time_2">`[COMPLETAR: 3–5 días]`</span>
                 </details>
-                <details class="process-item">
-                    <summary data-i18n="proc_3_title">Desarrollo</summary>
+                <details class="process-item reveal" style="--reveal-delay:140ms">
+                    <summary><span class="process-num">03</span> <span data-i18n="proc_3_title">Desarrollo</span></summary>
                     <p data-i18n="proc_3_desc">Construimos la solución acordada considerando diseño, tecnología y funcionamiento.</p>
+                    <span class="process-time" data-i18n="proc_time_3">`[COMPLETAR: según plan]`</span>
                 </details>
-                <details class="process-item">
-                    <summary data-i18n="proc_4_title">Pruebas</summary>
+                <details class="process-item reveal" style="--reveal-delay:210ms">
+                    <summary><span class="process-num">04</span> <span data-i18n="proc_4_title">Pruebas</span></summary>
                     <p data-i18n="proc_4_desc">Verificamos las funcionalidades y corregimos los problemas detectados.</p>
+                    <span class="process-time" data-i18n="proc_time_4">`[COMPLETAR: 2–3 días]`</span>
                 </details>
-                <details class="process-item">
-                    <summary data-i18n="proc_5_title">Publicación y entrega</summary>
+                <details class="process-item reveal" style="--reveal-delay:280ms">
+                    <summary><span class="process-num">05</span> <span data-i18n="proc_5_title">Publicación y entrega</span></summary>
                     <p data-i18n="proc_5_desc">Preparamos la puesta en funcionamiento y entregamos los elementos acordados.</p>
+                    <span class="process-time" data-i18n="proc_time_5">`[COMPLETAR: 1–2 días]`</span>
                 </details>
             </div>
         </div>
     </section>
 
-    <!-- 7. PLANES -->
+    <!-- ============================================================
+         FASE 1.3: PLANES con precios, plazos, features y Business recomendado
+         ============================================================ -->
     <section class="plans section" id="planes">
         <div class="container">
-            <div class="section-head">
+            <div class="section-head reveal">
                 <div>
                     <h2 class="section-title" data-i18n="plans_title">Una solución para cada etapa.</h2>
                     <p class="section-desc" data-i18n="plans_desc">Alternativas de desarrollo según el alcance, las necesidades y los objetivos de tu proyecto.</p>
@@ -377,92 +482,120 @@
             </div>
 
             <div class="plans-grid">
-                <a href="#contacto" class="plan-card" data-plan="landing" data-cta="Elegir este plan ↗">
+                <a href="#contacto" class="plan-card reveal" style="--reveal-delay:0ms" data-plan="landing" data-cta="Elegir este plan ↗">
                     <span class="plan-label" data-i18n="plan_1_label">STARTER</span>
                     <h3 data-i18n="plan_1_title">Web Starter</h3>
-                    <p class="plan-price">A cotizar <small data-i18n="plan_1_sub">Según alcance</small></p>
+                    <p class="plan-price">Desde USD 200 <small data-i18n="plan_1_sub">Pago único</small></p>
                     <p class="plan-desc" data-i18n="plan_1_desc">Una presencia digital profesional para emprendedores y proyectos que necesitan comenzar en internet.</p>
+                    <ul class="plan-features">
+                        <li data-i18n="plan_1_f1">Sitio de hasta 4 secciones</li>
+                        <li data-i18n="plan_1_f2">Diseño responsive</li>
+                        <li data-i18n="plan_1_f3">Formulario de contacto</li>
+                        <li data-i18n="plan_1_f4">Entrega en 15 días</li>
+                    </ul>
                 </a>
 
-                <a href="#contacto" class="plan-card" data-plan="web-corporativa" data-cta="Elegir este plan ↗">
+                <a href="#contacto" class="plan-card plan-card--featured reveal" style="--reveal-delay:70ms" data-plan="web-corporativa" data-cta="Elegir este plan ↗">
+                    <span class="plan-badge" data-i18n="plan_badge">RECOMENDADO</span>
                     <span class="plan-label" data-i18n="plan_2_label">BUSINESS</span>
                     <h3 data-i18n="plan_2_title">Web Business</h3>
-                    <p class="plan-price">A cotizar <small data-i18n="plan_2_sub">Según alcance</small></p>
+                    <p class="plan-price">Desde USD 350 <small data-i18n="plan_2_sub">Pago único</small></p>
                     <p class="plan-desc" data-i18n="plan_2_desc">Un sitio más completo para empresas y negocios que buscan presentar sus servicios y recibir consultas.</p>
+                    <ul class="plan-features">
+                        <li data-i18n="plan_2_f1">Sitio de hasta 8 secciones</li>
+                        <li data-i18n="plan_2_f2">Blog o novedades</li>
+                        <li data-i18n="plan_2_f3">SEO básico</li>
+                        <li data-i18n="plan_2_f4">Entrega en 30 días</li>
+                    </ul>
                 </a>
 
-                <a href="#contacto" class="plan-card" data-plan="ecommerce" data-cta="Elegir este plan ↗">
+                <a href="#contacto" class="plan-card reveal" style="--reveal-delay:140ms" data-plan="ecommerce" data-cta="Elegir este plan ↗">
                     <span class="plan-label" data-i18n="plan_3_label">COMMERCE</span>
                     <h3 data-i18n="plan_3_title">Web Commerce</h3>
-                    <p class="plan-price">A cotizar <small data-i18n="plan_3_sub">Según alcance</small></p>
+                    <p class="plan-price">Desde USD 500 <small data-i18n="plan_3_sub">Pago único</small></p>
                     <p class="plan-desc" data-i18n="plan_3_desc">Una solución digital para exhibir productos y desarrollar un canal de ventas online.</p>
+                    <ul class="plan-features">
+                        <li data-i18n="plan_3_f1">Catálogo de productos</li>
+                        <li data-i18n="plan_3_f2">Carrito y checkout</li>
+                        <li data-i18n="plan_3_f3">Integración con pagos</li>
+                        <li data-i18n="plan_3_f4">Entrega en 30 días</li>
+                    </ul>
                 </a>
 
-                <a href="#contacto" class="plan-card plan-card--featured" data-plan="personalizado" data-cta="Elegir este plan ↗">
-                    <span class="plan-badge" data-i18n="plan_badge">RECOMENDADO</span>
+                <a href="#contacto" class="plan-card reveal" style="--reveal-delay:210ms" data-plan="personalizado" data-cta="Agendá una llamada ↗">
                     <span class="plan-label" data-i18n="plan_4_label">A MEDIDA</span>
                     <h3 data-i18n="plan_4_title">Desarrollo a medida</h3>
-                    <p class="plan-price">A cotizar <small data-i18n="plan_4_sub">Según funcionalidades</small></p>
+                    <p class="plan-price">Presupuesto <small data-i18n="plan_4_sub">según funcionalidades</small></p>
                     <p class="plan-desc" data-i18n="plan_4_desc">Aplicaciones, sistemas de gestión, automatizaciones e integraciones adaptadas a necesidades específicas.</p>
+                    <ul class="plan-features">
+                        <li data-i18n="plan_4_f1">Análisis funcional</li>
+                        <li data-i18n="plan_4_f2">Desarrollo a medida</li>
+                        <li data-i18n="plan_4_f3">Integraciones y APIs</li>
+                        <li data-i18n="plan_4_f4">Plazo según proyecto</li>
+                    </ul>
                 </a>
             </div>
         </div>
     </section>
 
-    <!-- 8. FAQ -->
+    <!-- ============================================================
+         FASE 2.5: FAQ con respuestas por defecto + excepción
+         ============================================================ -->
     <section class="faq section" id="faq">
         <div class="container faq-content">
-            <div class="section-head">
+            <div class="section-head reveal">
                 <div>
                     <h2 class="section-title" data-i18n="faq_title">Preguntas frecuentes</h2>
                     <p class="section-desc" data-i18n="faq_desc">Resolvemos las dudas más comunes antes de empezar.</p>
                 </div>
             </div>
             <div class="faq-list">
-                <details class="faq-item">
+                <details class="faq-item reveal" style="--reveal-delay:0ms">
                     <summary data-i18n="faq_1_q">¿Qué tipo de proyectos desarrollan?</summary>
                     <p data-i18n="faq_1_a">Sitios web, tiendas online, aplicaciones, sistemas de gestión, automatizaciones e integraciones, además de soluciones digitales personalizadas.</p>
                 </details>
-                <details class="faq-item">
+                <details class="faq-item reveal" style="--reveal-delay:40ms">
                     <summary data-i18n="faq_2_q">¿Cómo sé qué solución necesito?</summary>
                     <p data-i18n="faq_2_a">Contanos tus objetivos y necesidades para evaluar qué tipo de desarrollo se adapta mejor a tu proyecto.</p>
                 </details>
-                <details class="faq-item">
+                <details class="faq-item reveal" style="--reveal-delay:80ms">
                     <summary data-i18n="faq_3_q">¿El hosting está incluido?</summary>
-                    <p data-i18n="faq_3_a">Depende del proyecto y de las condiciones del servicio contratado.</p>
+                    <p data-i18n="faq_3_a">Incluido el primer año en los planes Starter, Business y Commerce. Después, USD `[COMPLETAR: valor anual de hosting]`/año.</p>
                 </details>
-                <details class="faq-item">
+                <details class="faq-item reveal" style="--reveal-delay:120ms">
                     <summary data-i18n="faq_4_q">¿El dominio está incluido?</summary>
-                    <p data-i18n="faq_4_a">Depende del plan. El registro y la renovación pueden generar costos adicionales.</p>
+                    <p data-i18n="faq_4_a">El dominio .com.ar se registra a tu nombre y se renueva anualmente. `[COMPLETAR: ¿incluido en el plan o a cargo del cliente?]`</p>
                 </details>
-                <details class="faq-item">
+                <details class="faq-item reveal" style="--reveal-delay:160ms">
                     <summary data-i18n="faq_5_q">¿Puedo ampliar mi proyecto en el futuro?</summary>
-                    <p data-i18n="faq_5_a">Las posibilidades de ampliación dependen de la arquitectura y las características técnicas de la solución.</p>
+                    <p data-i18n="faq_5_a">Sí. Las posibilidades de ampliación dependen de la arquitectura y las características técnicas de la solución.</p>
                 </details>
-                <details class="faq-item">
+                <details class="faq-item reveal" style="--reveal-delay:200ms">
                     <summary data-i18n="faq_6_q">¿Recibo el código de mi proyecto?</summary>
-                    <p data-i18n="faq_6_a">La entrega del código, los archivos y los derechos de uso se establecen en las condiciones acordadas.</p>
+                    <p data-i18n="faq_6_a">El código es tuyo una vez abonado el proyecto. `[COMPLETAR: confirmar si aplica a todos los planes o solo a medida]`</p>
                 </details>
-                <details class="faq-item">
+                <details class="faq-item reveal" style="--reveal-delay:240ms">
                     <summary data-i18n="faq_7_q">¿Ofrecen mantenimiento?</summary>
-                    <p data-i18n="faq_7_a">El mantenimiento y el soporte dependen de las condiciones contratadas para cada proyecto.</p>
+                    <p data-i18n="faq_7_a">Sí, ofrecemos mantenimiento opcional después de la entrega. `[COMPLETAR: valor mensual / qué incluye]`</p>
                 </details>
-                <details class="faq-item">
+                <details class="faq-item reveal" style="--reveal-delay:280ms">
                     <summary data-i18n="faq_8_q">¿Cómo se cotiza un desarrollo a medida?</summary>
                     <p data-i18n="faq_8_a">Evaluamos las funcionalidades, las integraciones y la complejidad para definir el alcance y preparar una propuesta.</p>
                 </details>
-                <details class="faq-item">
+                <details class="faq-item reveal" style="--reveal-delay:320ms">
                     <summary data-i18n="faq_9_q">¿Cuánto tarda el desarrollo?</summary>
-                    <p data-i18n="faq_9_a">El plazo depende de los requerimientos y la complejidad del proyecto.</p>
+                    <p data-i18n="faq_9_a">Web Starter: 15 días. Web Business y Web Commerce: 30 días. Desarrollo a medida: según proyecto.</p>
                 </details>
             </div>
         </div>
     </section>
 
-    <!-- 9. CONTACTO -->
+    <!-- ============================================================
+         FASE 2.7: CONTACTO con WhatsApp + presupuesto + estados
+         ============================================================ -->
     <section class="contact section" id="contacto">
         <div class="container">
-            <div class="section-head">
+            <div class="section-head reveal">
                 <div>
                     <h2 class="section-title" data-i18n="contact_title">Contanos tu proyecto.</h2>
                     <p class="section-desc" data-i18n="contact_desc">Describinos qué necesitás y nos pondremos en contacto para conocer los detalles de tu proyecto.</p>
@@ -470,9 +603,15 @@
             </div>
 
             <div class="contact-grid">
-                <form class="quote-form" action="https://formspree.io/f/TU_ID" method="POST" novalidate>
+                <form class="quote-form reveal" action="[COMPLETAR_FORMSPREE_URL]" method="POST" novalidate>
                     <h3 class="quote-form-title" data-i18n="form_title">Contanos tu proyecto.</h3>
                     <p class="quote-form-lead" data-i18n="form_lead">Completá los datos y te contactamos.</p>
+
+                    <!-- honeypot antispam -->
+                    <div class="form-honeypot" aria-hidden="true">
+                        <label for="quote-website">No completar este campo</label>
+                        <input type="text" id="quote-website" name="website" tabindex="-1" autocomplete="off">
+                    </div>
 
                     <div class="quote-form-grid">
                         <div class="form-field">
@@ -483,15 +622,26 @@
                             <label for="quote-email" data-i18n="form_email">Correo electrónico *</label>
                             <input type="email" id="quote-email" name="email" autocomplete="email" data-i18n-placeholder="form_email_ph" placeholder="tu@correo.com" required>
                         </div>
-                        <div class="form-field form-field-full">
+                        <div class="form-field">
                             <label for="quote-phone" data-i18n="form_phone">Teléfono</label>
                             <input type="tel" id="quote-phone" name="phone" autocomplete="tel" inputmode="tel" data-i18n-placeholder="form_phone_ph" placeholder="Ingresá tu número de teléfono">
+                        </div>
+                        <div class="form-field">
+                            <label for="quote-budget" data-i18n="form_budget">Presupuesto estimado (opcional)</label>
+                            <select id="quote-budget" name="budget">
+                                <option value="" data-i18n="form_budget_ph">Seleccioná un rango</option>
+                                <option value="<200" data-i18n="form_budget_1">Menos de USD 200</option>
+                                <option value="200-350" data-i18n="form_budget_2">USD 200 – 350</option>
+                                <option value="350-500" data-i18n="form_budget_3">USD 350 – 500</option>
+                                <option value=">500" data-i18n="form_budget_4">Más de USD 500</option>
+                                <option value="a-medida" data-i18n="form_budget_5">A medida / no sé todavía</option>
+                            </select>
                         </div>
                         <fieldset class="form-field form-field-full form-fieldset">
                             <legend data-i18n="form_type">Tipo de proyecto *</legend>
                             <div class="pill-group">
                                 <label class="pill"><input type="radio" name="project_type" value="landing" required><span data-i18n="form_type_1">Sitio web</span></label>
-                                <label class="pill"><input type="radio" name="project_type" value="web-corporativa"><span data-i18n="form_type_2">Tienda online</span></label>
+                                <label class="pill"><input type="radio" name="project_type" value="ecommerce"><span data-i18n="form_type_2">Tienda online</span></label>
                                 <label class="pill"><input type="radio" name="project_type" value="app-web"><span data-i18n="form_type_3">Aplicación web</span></label>
                                 <label class="pill"><input type="radio" name="project_type" value="sistema"><span data-i18n="form_type_4">Sistema de gestión</span></label>
                                 <label class="pill"><input type="radio" name="project_type" value="reservas"><span data-i18n="form_type_5">Reservas y turnos</span></label>
@@ -510,14 +660,40 @@
 
                     <div class="quote-form-submit">
                         <button type="submit" class="button button-primary" data-i18n="form_submit">Enviar consulta</button>
+                        <p class="form-response-time" data-i18n="form_response_time">Respondemos en el momento dentro del horario de atención.</p>
                         <p class="form-legal-note" data-i18n="form_legal">Al enviar aceptás nuestra Política de Privacidad.</p>
+                    </div>
+
+                    <!-- FASE 1.2: WhatsApp secundario en contacto -->
+                    <div class="contact-whatsapp">
+                        <a href="https://wa.me/5491122790690?text=Hola%20tagback%2C%20quiero%20consultar%20por%20un%20proyecto"
+                           class="button button-whatsapp button-whatsapp--block"
+                           target="_blank" rel="noopener"
+                           aria-label="Escribinos por WhatsApp">
+                            <svg class="whatsapp-icon" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" width="18" height="18">
+                                <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/>
+                            </svg>
+                            <span data-i18n="hero_cta_whatsapp">Escribinos por WhatsApp</span>
+                        </a>
                     </div>
                 </form>
             </div>
         </div>
     </section>
 
-</main><footer class="site-footer">
+</main>
+
+<!-- FASE 1.2: Botón flotante WhatsApp en mobile -->
+<a href="https://wa.me/5491122790690?text=Hola%20tagback%2C%20quiero%20consultar%20por%20un%20proyecto"
+   class="whatsapp-float"
+   target="_blank" rel="noopener"
+   aria-label="Escribinos por WhatsApp">
+    <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" width="28" height="28">
+        <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/>
+    </svg>
+</a>
+
+<footer class="site-footer">
     <div class="container footer-inner">
         <div class="footer-contact">
             <div class="footer-contact-meta">
@@ -530,8 +706,8 @@
                     <a href="tel:+541122790690" class="contact-meta-value">+54 11 2279 0690</a>
                 </div>
                 <div>
-                    <span class="contact-meta-label" data-i18n="foot_tz">ZONA HORARIA</span>
-                    <span class="contact-meta-value">GMT-3 (Argentina)</span>
+                    <span class="contact-meta-label" data-i18n="foot_hours">HORARIO DE ATENCIÓN</span>
+                    <span class="contact-meta-value">Lun a Vie, 9 a 18 h (GMT-3)</span>
                 </div>
                 <div>
                     <span class="contact-meta-label" data-i18n="foot_location">UBICACIÓN</span>
@@ -555,6 +731,9 @@
             <strong data-i18n="foot_legal">LEGAL</strong>
             <a href="./privacidad.html" data-i18n="nav_privacy">Política de Privacidad</a>
             <a href="./cookies.html" data-i18n="nav_cookies">Política de Cookies</a>
+            <a href="https://wa.me/5491122790690?text=Hola%20tagback%2C%20quiero%20consultar%20por%20un%20proyecto"
+               target="_blank" rel="noopener"
+               data-i18n="hero_cta_whatsapp">Escribinos por WhatsApp</a>
         </div>
     </div>
 
