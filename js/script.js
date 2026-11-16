@@ -168,7 +168,6 @@ const translations = {
         cookies_h2_7: "7. Contacto",
         cookies_p_10_a: "Para consultas sobre cookies, escribinos a"
     },
-
     en: {
         skip_link: "Skip to main content",
         nav_services: "Services",
@@ -351,7 +350,7 @@ document.addEventListener("DOMContentLoaded", () => {
         let uniforms;
         let animationFrameId;
         const pointer = { x: 0, y: 0, tX: 0, tY: 0 };
-        const color = [91 / 255, 91 / 255, 246 / 255]; // Índigo
+        const color = [255 / 255, 107 / 255, 0 / 255]; // Naranja Neón
         const speed = 0.001;
 
         const initShader = () => {
