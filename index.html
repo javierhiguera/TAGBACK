@@ -5,14 +5,12 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>tagback — Diseño y desarrollo web en Argentina</title>
-    <meta name="description" content="tagback diseña y desarrolla sitios web, tiendas online y sistemas a medida para negocios de Argentina. Buenos Aires, zona sur. Presupuesto sin cargo.">
-    <meta name="theme-color" content="#1A1D24">
+    <meta name="description" content="tagback diseña y desarrolla sitios web, tiendas online y sistemas a medida para negocios de Argentina. Presupuesto sin cargo.">
+    <meta name="theme-color" content="#121212">
     <meta name="robots" content="index, follow">
     <meta name="author" content="tagback">
-    <!-- FASE 4.7: canonical al dominio propio futuro. Cuando compres tagback.com.ar, esto ya queda bien. -->
     <link rel="canonical" href="https://tagback.com.ar/">
 
-    <!-- FASE 4.1: OG/Twitter con imagen dedicada 1200x630 (tagback.png) -->
     <meta property="og:title" content="tagback — Diseño y desarrollo web en Argentina">
     <meta property="og:description" content="Sitios web, tiendas online y sistemas a medida para negocios de Argentina. Presupuesto sin cargo.">
     <meta property="og:type" content="website">
@@ -33,7 +31,6 @@
     <link rel="alternate icon" type="image/x-icon" href="./favicon/favicon.ico">
     <link rel="apple-touch-icon" href="./favicon/tagback.png">
 
-    <!-- FASE 4.3: JSON-LD ProfessionalService -->
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
@@ -42,7 +39,6 @@
       "url": "https://tagback.com.ar/",
       "image": "https://tagback.com.ar/favicon/tagback.png",
       "description": "Estudio de diseño y desarrollo web. Sitios web, tiendas online y sistemas a medida para negocios de Argentina.",
-      "telephone": "+54 11 2279 0690",
       "email": "hola@tagback.com",
       "address": {
         "@type": "PostalAddress",
@@ -54,13 +50,7 @@
       "areaServed": {
         "@type": "Country",
         "name": "Argentina"
-      },
-      "founder": {
-        "@type": "Person",
-        "name": "Javier Higuera",
-        "jobTitle": "Ingeniero en Ciberseguridad y desarrollador web"
-      },
-      "sameAs": []
+      }
     }
     </script>
 
@@ -103,17 +93,13 @@
 
 <main id="main">
 
-    <!-- ============================================================
-         FASE 1.1 + 1.2: HERO nuevo con WhatsApp + animación texto
-         ============================================================ -->
-    <section class="hero">
+    <section class="hero" id="hero">
         <div class="hero-canvas-container" aria-hidden="true">
             <canvas id="neural-canvas"></canvas>
         </div>
 
         <div class="container hero-grid">
             <div class="hero-content">
-                <!-- Título palabra por palabra con subrayado en "clientes" -->
                 <h1 class="hero-title" aria-label="Sitios web que te traen clientes, no solo visitas.">
                     <span class="reveal-line" aria-hidden="true">
                         <span class="word" style="--i:1">Sitios</span>
@@ -134,27 +120,13 @@
                 <p class="hero-lead" data-i18n="hero_lead">
                     Webs, tiendas online y sistemas a medida para negocios de Argentina.
                 </p>
-
-                <!-- FASE 1.1 + 1.2: dos botones, uno a contacto y uno a WhatsApp -->
                 <div class="hero-actions">
                     <a href="#contacto" class="button button-primary" data-i18n="hero_cta_primary">Pedí tu presupuesto</a>
-                    <a href="https://wa.me/5491122790690?text=Hola%20tagback%2C%20quiero%20consultar%20por%20un%20proyecto"
-                       class="button button-whatsapp"
-                       target="_blank" rel="noopener"
-                       aria-label="Escribinos por WhatsApp">
-                        <svg class="whatsapp-icon" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" width="18" height="18">
-                            <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/>
-                        </svg>
-                        <span data-i18n="hero_cta_whatsapp">Escribinos por WhatsApp</span>
-                    </a>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- ============================================================
-         FASE 2.1: SERVICIOS → 4 tarjetas (sitios, tiendas, sistemas, automatizaciones)
-         ============================================================ -->
     <section class="services section" id="servicios">
         <div class="container services-inner">
             <div class="services-intro reveal">
@@ -188,7 +160,7 @@
                 <article class="service-card reveal" style="--reveal-delay:140ms">
                     <button type="button" class="service-card-header" aria-expanded="false">
                         <svg class="service-card-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="20" x2="12" y2="10"></line><line x1="18" y1="20" x2="18" y2="4"></line><line x1="6" y1="20" x2="6" y2="16"></line></svg>
-                        <h3 class="service-card-title">Sistemas y apps a medida</h3>
+                        <h3 class="service-card-title">Sistemas y apps</h3>
                     </button>
                     <div class="service-card-panel">
                         <div class="service-card-panel-inner">
@@ -199,11 +171,11 @@
                 <article class="service-card reveal" style="--reveal-delay:210ms">
                     <button type="button" class="service-card-header" aria-expanded="false">
                         <svg class="service-card-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg>
-                        <h3 class="service-card-title">Automatizaciones e IA</h3>
+                        <h3 class="service-card-title">Automatizaciones</h3>
                     </button>
                     <div class="service-card-panel">
                         <div class="service-card-panel-inner">
-                            <p>Conectamos plataformas, servicios y APIs para automatizar tareas, y sumamos funcionalidades de inteligencia artificial cuando aportan valor.</p>
+                            <p>Conectamos plataformas, servicios y APIs para automatizar tareas, y sumamos inteligencia artificial cuando aporta valor.</p>
                         </div>
                     </div>
                 </article>
@@ -211,9 +183,6 @@
         </div>
     </section>
 
-    <!-- ============================================================
-         FASE 2.1: SOLUCIONES orientada al problema del cliente
-         ============================================================ -->
     <section class="custom-solutions section" id="soluciones">
         <div class="container">
             <div class="section-head reveal">
@@ -262,7 +231,7 @@
                 <a href="#planes" class="solution-card reveal" style="--reveal-delay:140ms">
                     <svg class="solution-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"></rect><line x1="8" y1="21" x2="16" y2="21"></line><line x1="12" y1="17" x2="12" y2="21"></line></svg>
                     <div class="solution-content">
-                        <h3>Quiero una plataforma propia</h3>
+                        <h3>Quiero una plataforma</h3>
                         <p>Portales, marketplaces o plataformas con acceso personalizado para tus usuarios.</p>
                     </div>
                 </a>
@@ -270,9 +239,6 @@
         </div>
     </section>
 
-    <!-- ============================================================
-         FASE 2.4: BENEFICIOS con datos verificables
-         ============================================================ -->
     <section class="why section" id="beneficios">
         <div class="container">
             <div class="section-head reveal">
@@ -301,7 +267,7 @@
                     <svg class="benefit-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
                     <div class="benefit-content">
                         <h3>Plazos claros</h3>
-                        <p>Definimos un rango de entrega al inicio del proyecto y lo respetamos. `[COMPLETAR: plazo real por plan ya definido en Planes]`</p>
+                        <p>Definimos un rango de entrega al inicio del proyecto y lo respetamos.</p>
                     </div>
                 </div>
                 <div class="benefit-item reveal" style="--reveal-delay:0ms">
@@ -315,7 +281,7 @@
                     <svg class="benefit-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path></svg>
                     <div class="benefit-content">
                         <h3>Comunicación directa</h3>
-                        <p>Respondemos consultas en el momento dentro del horario de atención. Fuera de ese horario, al día hábil siguiente.</p>
+                        <p>Respondemos consultas en el momento dentro del horario de atención.</p>
                     </div>
                 </div>
                 <div class="benefit-item reveal" style="--reveal-delay:140ms">
@@ -329,16 +295,13 @@
         </div>
     </section>
 
-    <!-- ============================================================
-         FASE 1.4: PROYECTOS con links reales
-         ============================================================ -->
     <section class="work section" id="trabajos">
         <div class="container">
             <div class="section-head reveal">
                 <div>
                     <h2 class="section-title" data-i18n="work_title">Ideas convertidas en soluciones digitales.</h2>
                 </div>
-                <p class="section-desc" data-i18n="work_desc">Conocé algunos de nuestros proyectos y cómo aplicamos diseño y tecnología para resolver necesidades concretas.</p>
+                <p class="section-desc" data-i18n="work_desc">Conocé algunos de nuestros proyectos y cómo aplicamos diseño y tecnología.</p>
             </div>
 
             <div class="work-grid">
@@ -346,7 +309,7 @@
                     <div class="work-card-header"><span>NIVELPULIDOS.COM.AR</span></div>
                     <h3 class="work-card-name">Nivel Pulidos</h3>
                     <div class="work-card-image">
-                        <img src="./assets/proyectos/1/NP_1.png" alt="Vista previa del sitio de Nivel Pulidos" loading="lazy" width="800" height="600">
+                        <img src="./assets/proyectos/2/NP_1.png" alt="Vista previa del sitio de Nivel Pulidos" loading="lazy" width="800" height="600">
                     </div>
                     <div class="work-card-overlay">
                         <span class="work-card-category" data-i18n="cat_services">SERVICIOS</span>
@@ -358,12 +321,14 @@
                 <article class="work-card reveal" style="--reveal-delay:70ms">
                     <div class="work-card-header"><span>LAMIGAJA.COM.AR</span></div>
                     <h3 class="work-card-name">La Migaja</h3>
-                    <div class="work-card-image">
-                        <img src="./assets/proyectos/2/foto2.jpg" alt="Vista previa de La Migaja" loading="lazy" width="800" height="600">
+                    <div class="work-card-image iphone-mockup">
+                        <div class="iphone-frame">
+                            <img src="./assets/proyectos/2/migaja.jpeg" alt="App La Migaja" loading="lazy">
+                        </div>
                     </div>
                     <div class="work-card-overlay">
                         <span class="work-card-category" data-i18n="cat_gastro">GASTRONOMÍA</span>
-                        <p class="work-card-claim">Web con menú y pedidos por WhatsApp.</p>
+                        <p class="work-card-claim">Web y aplicación móvil con menú y pedidos directos.</p>
                         <a class="work-card-link" href="https://lamigaja.com.ar" target="_blank" rel="noopener" data-i18n="work_link">Ver sitio →</a>
                     </div>
                 </article>
@@ -384,52 +349,6 @@
         </div>
     </section>
 
-    <!-- ============================================================
-         FASE 1.5: QUIÉNES SOMOS
-         ============================================================ -->
-    <section class="about section" id="quienes-somos">
-        <div class="container about-inner">
-            <div class="about-media reveal">
-                <!-- [COMPLETAR: foto real de Javier] -->
-                <div class="about-photo" aria-hidden="true">
-                    <span>[FOTO]</span>
-                </div>
-            </div>
-            <div class="about-content reveal">
-                <h2 class="section-title" data-i18n="about_title">Quiénes somos</h2>
-                <p class="section-desc" data-i18n="about_desc">
-                    Soy <strong>Javier Higuera</strong>, Ingeniero en Ciberseguridad y desarrollador web. Trabajo con negocios de Argentina que necesitan sitios claros, rápidos y seguros.
-                </p>
-                <p class="section-desc">
-                    `[COMPLETAR: 2-3 líneas de bio — años de experiencia, enfoque, tipo de clientes]`
-                </p>
-            </div>
-        </div>
-    </section>
-
-    <!-- ============================================================
-         FASE 1.5: TESTIMONIOS (oculto hasta cargar contenido real)
-         ============================================================ -->
-    <section class="testimonials section" id="testimonios" hidden>
-        <div class="container">
-            <div class="section-head">
-                <div>
-                    <h2 class="section-title" data-i18n="testimonials_title">Lo que dicen nuestros clientes</h2>
-                </div>
-            </div>
-            <div class="testimonials-grid">
-                <!-- [COMPLETAR: cuando tengas testimonios reales, duplicá este bloque] -->
-                <blockquote class="testimonial-card">
-                    <p>“[COMPLETAR testimonio]”</p>
-                    <footer><strong>[COMPLETAR nombre]</strong> · <span>[COMPLETAR empresa]</span></footer>
-                </blockquote>
-            </div>
-        </div>
-    </section>
-
-    <!-- ============================================================
-         FASE 2.6: PROCESO numerado con plazos
-         ============================================================ -->
     <section class="process section" id="proceso">
         <div class="container">
             <div class="section-head reveal">
@@ -443,35 +362,27 @@
                 <details class="process-item reveal" style="--reveal-delay:0ms">
                     <summary><span class="process-num">01</span> <span data-i18n="proc_1_title">Análisis</span></summary>
                     <p data-i18n="proc_1_desc">Comprendemos tus objetivos, necesidades y el problema que necesitás resolver.</p>
-                    <span class="process-time" data-i18n="proc_time_1">`[COMPLETAR: 2–3 días]`</span>
                 </details>
                 <details class="process-item reveal" style="--reveal-delay:70ms">
                     <summary><span class="process-num">02</span> <span data-i18n="proc_2_title">Planificación</span></summary>
                     <p data-i18n="proc_2_desc">Definimos el alcance, las funcionalidades y las prioridades del desarrollo.</p>
-                    <span class="process-time" data-i18n="proc_time_2">`[COMPLETAR: 3–5 días]`</span>
                 </details>
                 <details class="process-item reveal" style="--reveal-delay:140ms">
                     <summary><span class="process-num">03</span> <span data-i18n="proc_3_title">Desarrollo</span></summary>
                     <p data-i18n="proc_3_desc">Construimos la solución acordada considerando diseño, tecnología y funcionamiento.</p>
-                    <span class="process-time" data-i18n="proc_time_3">`[COMPLETAR: según plan]`</span>
                 </details>
                 <details class="process-item reveal" style="--reveal-delay:210ms">
                     <summary><span class="process-num">04</span> <span data-i18n="proc_4_title">Pruebas</span></summary>
                     <p data-i18n="proc_4_desc">Verificamos las funcionalidades y corregimos los problemas detectados.</p>
-                    <span class="process-time" data-i18n="proc_time_4">`[COMPLETAR: 2–3 días]`</span>
                 </details>
                 <details class="process-item reveal" style="--reveal-delay:280ms">
                     <summary><span class="process-num">05</span> <span data-i18n="proc_5_title">Publicación y entrega</span></summary>
                     <p data-i18n="proc_5_desc">Preparamos la puesta en funcionamiento y entregamos los elementos acordados.</p>
-                    <span class="process-time" data-i18n="proc_time_5">`[COMPLETAR: 1–2 días]`</span>
                 </details>
             </div>
         </div>
     </section>
 
-    <!-- ============================================================
-         FASE 1.3: PLANES con precios, plazos, features y Business recomendado
-         ============================================================ -->
     <section class="plans section" id="planes">
         <div class="container">
             <div class="section-head reveal">
@@ -538,9 +449,6 @@
         </div>
     </section>
 
-    <!-- ============================================================
-         FASE 2.5: FAQ con respuestas por defecto + excepción
-         ============================================================ -->
     <section class="faq section" id="faq">
         <div class="container faq-content">
             <div class="section-head reveal">
@@ -560,11 +468,11 @@
                 </details>
                 <details class="faq-item reveal" style="--reveal-delay:80ms">
                     <summary data-i18n="faq_3_q">¿El hosting está incluido?</summary>
-                    <p data-i18n="faq_3_a">Incluido el primer año en los planes Starter, Business y Commerce. Después, USD `[COMPLETAR: valor anual de hosting]`/año.</p>
+                    <p data-i18n="faq_3_a">Incluido el primer año en los planes Starter, Business y Commerce. Después, USD [COMPLETAR: valor anual de hosting]/año.</p>
                 </details>
                 <details class="faq-item reveal" style="--reveal-delay:120ms">
                     <summary data-i18n="faq_4_q">¿El dominio está incluido?</summary>
-                    <p data-i18n="faq_4_a">El dominio .com.ar se registra a tu nombre y se renueva anualmente. `[COMPLETAR: ¿incluido en el plan o a cargo del cliente?]`</p>
+                    <p data-i18n="faq_4_a">El dominio .com.ar se registra a tu nombre y se renueva anualmente. [COMPLETAR: ¿incluido en el plan o a cargo del cliente?]</p>
                 </details>
                 <details class="faq-item reveal" style="--reveal-delay:160ms">
                     <summary data-i18n="faq_5_q">¿Puedo ampliar mi proyecto en el futuro?</summary>
@@ -572,11 +480,11 @@
                 </details>
                 <details class="faq-item reveal" style="--reveal-delay:200ms">
                     <summary data-i18n="faq_6_q">¿Recibo el código de mi proyecto?</summary>
-                    <p data-i18n="faq_6_a">El código es tuyo una vez abonado el proyecto. `[COMPLETAR: confirmar si aplica a todos los planes o solo a medida]`</p>
+                    <p data-i18n="faq_6_a">El código es tuyo una vez abonado el proyecto. [COMPLETAR: confirmar si aplica a todos los planes o solo a medida]</p>
                 </details>
                 <details class="faq-item reveal" style="--reveal-delay:240ms">
                     <summary data-i18n="faq_7_q">¿Ofrecen mantenimiento?</summary>
-                    <p data-i18n="faq_7_a">Sí, ofrecemos mantenimiento opcional después de la entrega. `[COMPLETAR: valor mensual / qué incluye]`</p>
+                    <p data-i18n="faq_7_a">Sí, ofrecemos mantenimiento opcional después de la entrega. [COMPLETAR: valor mensual / qué incluye]</p>
                 </details>
                 <details class="faq-item reveal" style="--reveal-delay:280ms">
                     <summary data-i18n="faq_8_q">¿Cómo se cotiza un desarrollo a medida?</summary>
@@ -590,9 +498,6 @@
         </div>
     </section>
 
-    <!-- ============================================================
-         FASE 2.7: CONTACTO con WhatsApp + presupuesto + estados
-         ============================================================ -->
     <section class="contact section" id="contacto">
         <div class="container">
             <div class="section-head reveal">
@@ -607,7 +512,6 @@
                     <h3 class="quote-form-title" data-i18n="form_title">Contanos tu proyecto.</h3>
                     <p class="quote-form-lead" data-i18n="form_lead">Completá los datos y te contactamos.</p>
 
-                    <!-- honeypot antispam -->
                     <div class="form-honeypot" aria-hidden="true">
                         <label for="quote-website">No completar este campo</label>
                         <input type="text" id="quote-website" name="website" tabindex="-1" autocomplete="off">
@@ -663,35 +567,12 @@
                         <p class="form-response-time" data-i18n="form_response_time">Respondemos en el momento dentro del horario de atención.</p>
                         <p class="form-legal-note" data-i18n="form_legal">Al enviar aceptás nuestra Política de Privacidad.</p>
                     </div>
-
-                    <!-- FASE 1.2: WhatsApp secundario en contacto -->
-                    <div class="contact-whatsapp">
-                        <a href="https://wa.me/5491122790690?text=Hola%20tagback%2C%20quiero%20consultar%20por%20un%20proyecto"
-                           class="button button-whatsapp button-whatsapp--block"
-                           target="_blank" rel="noopener"
-                           aria-label="Escribinos por WhatsApp">
-                            <svg class="whatsapp-icon" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" width="18" height="18">
-                                <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/>
-                            </svg>
-                            <span data-i18n="hero_cta_whatsapp">Escribinos por WhatsApp</span>
-                        </a>
-                    </div>
                 </form>
             </div>
         </div>
     </section>
 
 </main>
-
-<!-- FASE 1.2: Botón flotante WhatsApp en mobile -->
-<a href="https://wa.me/5491122790690?text=Hola%20tagback%2C%20quiero%20consultar%20por%20un%20proyecto"
-   class="whatsapp-float"
-   target="_blank" rel="noopener"
-   aria-label="Escribinos por WhatsApp">
-    <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" width="28" height="28">
-        <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/>
-    </svg>
-</a>
 
 <footer class="site-footer">
     <div class="container footer-inner">
@@ -731,9 +612,6 @@
             <strong data-i18n="foot_legal">LEGAL</strong>
             <a href="./privacidad.html" data-i18n="nav_privacy">Política de Privacidad</a>
             <a href="./cookies.html" data-i18n="nav_cookies">Política de Cookies</a>
-            <a href="https://wa.me/5491122790690?text=Hola%20tagback%2C%20quiero%20consultar%20por%20un%20proyecto"
-               target="_blank" rel="noopener"
-               data-i18n="hero_cta_whatsapp">Escribinos por WhatsApp</a>
         </div>
     </div>
 
