@@ -350,7 +350,7 @@ document.addEventListener("DOMContentLoaded", () => {
         let uniforms;
         let animationFrameId;
         const pointer = { x: 0, y: 0, tX: 0, tY: 0 };
-        const color = [255 / 255, 107 / 255, 0 / 255]; // Naranja Neón
+        const color = [230 / 255, 115 / 255, 159 / 255]; // Rosa
         const speed = 0.001;
 
         const initShader = () => {
