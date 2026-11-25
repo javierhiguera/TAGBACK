@@ -1,7 +1,3 @@
-/* =========================================================
-   TAGBACK — JAVASCRIPT v48 (Nuevos Textos y Formulario)
-   ========================================================= */
-
 const translations = {
     es: {
         skip_link: "Saltar al contenido principal",
@@ -421,9 +417,6 @@ const translations = {
     const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
     const finePointer = window.matchMedia("(pointer: fine)").matches;
 
-    /* =====================================================
-       NEURAL NOISE (WebGL Hero Background)
-       ===================================================== */
     const canvas = document.getElementById('neural-canvas');
     if (canvas) {
         let gl;
@@ -597,10 +590,6 @@ const translations = {
         }
     }
 
-    /* =====================================================
-       IDIOMA
-       ===================================================== */
-
     const applyLanguage = (lang) => {
         const dict = translations[lang];
         if (!dict) return;
@@ -662,10 +651,6 @@ const translations = {
         });
     });
 
-    /* =====================================================
-       COOKIES
-       ===================================================== */
-
     const COOKIE_KEY = "tagback-cookies-accepted";
     const cookieBanner = $("#cookie-banner");
 
@@ -705,10 +690,6 @@ const translations = {
         if (acceptBtn) acceptBtn.addEventListener("click", () => closeBanner("1"));
         if (rejectBtn) rejectBtn.addEventListener("click", () => closeBanner("0"));
     }
-
-    /* =====================================================
-       MENÚ MÓVIL
-       ===================================================== */
 
     const menuToggle = $(".menu-toggle");
     const mainNav = $(".main-nav");
@@ -763,10 +744,6 @@ const translations = {
         });
     }
 
-    /* =====================================================
-       HEADER AL HACER SCROLL
-       ===================================================== */
-
     if (header) {
         let ticking = false;
         const updateHeader = () => {
@@ -782,10 +759,6 @@ const translations = {
         window.addEventListener("scroll", onScroll, { passive: true });
         updateHeader();
     }
-
-    /* =====================================================
-       ACORDEONES DE SERVICIOS
-       ===================================================== */
 
     $$(".service-card").forEach((item) => {
         const accHeader = $(".service-card-header", item);
@@ -811,10 +784,6 @@ const translations = {
         });
     });
 
-    /* =====================================================
-       FAQ: UNA PREGUNTA ABIERTA POR VEZ + HOVER
-       ===================================================== */
-
     const faqItems = $$(".faq-item");
 
     faqItems.forEach((item) => {
@@ -838,10 +807,6 @@ const translations = {
             }
         });
     });
-
-    /* =====================================================
-       PLANES → FORMULARIO
-       ===================================================== */
 
     const projectRadios = $$('input[name="project_type"]');
 
@@ -915,10 +880,6 @@ const translations = {
     };
 
     applyPlanFromLocation();
-
-    /* =====================================================
-       FORMULARIO — FORMSPREE
-       ===================================================== */
 
     const quoteForm = $(".quote-form");
 
@@ -1090,10 +1051,6 @@ const translations = {
         });
     }
 
-    /* =====================================================
-       CURSOR REACTIVO (Global CSS Variables)
-       ===================================================== */
-
     if (!reducedMotion && finePointer) {
         let rafId = 0;
         let x = window.innerWidth * 0.5;
@@ -1131,10 +1088,6 @@ const translations = {
             }
         });
     }
-
-    /* =====================================================
-       AÑO ACTUAL
-       ===================================================== */
 
     const yearEls = $$("[data-current-year]");
 
