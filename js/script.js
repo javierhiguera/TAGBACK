@@ -489,34 +489,32 @@ document.addEventListener("DOMContentLoaded", () => {
 
     /* PLAN SELECTION */
 
-    const projectRadios = $$('input[name="project_type"]');
+    const hiddenSelectedPlan = $("#selected-plan");
 
     const choosePlan = (value) => {
         if (!value) return false;
 
-        const radio = projectRadios.find((item) => item.value === value);
+        if (hiddenSelectedPlan) {
+            hiddenSelectedPlan.value = value;
+        }
 
-        if (!radio) return false;
+        const field = hiddenSelectedPlan ? hiddenSelectedPlan.closest(".quote-form") : null;
 
-        radio.checked = true;
-        radio.dispatchEvent(new Event("change", { bubbles: true }));
+        if (field) {
+            const messageField = $("#quote-message", field);
 
-        const fieldset = radio.closest("fieldset");
-
-        if (fieldset) {
-            fieldset.classList.add("is-prefilled");
-
-            window.setTimeout(() => {
-                fieldset.classList.remove("is-prefilled");
-            }, 1400);
+            if (messageField && !messageField.value.trim()) {
+                const readable = value.replace(/-/g, " ");
+                messageField.value = `Me interesa el plan ${readable}.`;
+            }
         }
 
         return true;
     };
 
-    $$("[data-plan]").forEach((card) => {
-        const selectCardPlan = () => {
-            const plan = card.getAttribute("data-plan");
+    $$("[data-select-plan]").forEach((link) => {
+        link.addEventListener("click", () => {
+            const plan = link.getAttribute("data-select-plan");
 
             if (!plan) return;
 
@@ -525,30 +523,6 @@ document.addEventListener("DOMContentLoaded", () => {
             } catch (_) {}
 
             choosePlan(plan);
-        };
-
-        card.addEventListener("click", (event) => {
-            if (
-                event.target.closest(
-                    "a, button, input, select, textarea, label, summary"
-                )
-            ) {
-                return;
-            }
-
-            selectCardPlan();
-        });
-
-        if (!["A", "BUTTON"].includes(card.tagName) && !card.hasAttribute("tabindex")) {
-            card.setAttribute("tabindex", "0");
-        }
-
-        card.addEventListener("keydown", (event) => {
-            if (event.target !== card || !["Enter", " "].includes(event.key)) return;
-            if (["A", "BUTTON"].includes(card.tagName)) return;
-
-            event.preventDefault();
-            selectCardPlan();
         });
     });
 
@@ -623,8 +597,7 @@ document.addEventListener("DOMContentLoaded", () => {
         };
 
         const setFieldError = (field, message) => {
-            const wrapper = field.closest(".form-field") ||
-                field.closest(".form-fieldset");
+            const wrapper = field.closest(".form-field");
 
             if (!wrapper) return;
 
@@ -655,45 +628,13 @@ document.addEventListener("DOMContentLoaded", () => {
             return !message;
         };
 
-        const validateRadioGroup = (field) => {
-            const group = $$(
-                `input[name="${CSS.escape(field.name)}"]`,
-                quoteForm
-            );
-
-            if (!group.length) return true;
-
-            const valid = group.some((radio) => radio.checked);
-
-            group.forEach((radio) => {
-                setFieldError(
-                    radio,
-                    valid ? "" : "Seleccioná una opción."
-                );
-            });
-
-            return valid;
-        };
-
         $$("input, textarea, select", quoteForm).forEach((field) => {
             field.addEventListener("blur", () => {
-                if (field.type === "radio") {
-                    validateRadioGroup(field);
-                } else {
-                    validateField(field);
-                }
+                validateField(field);
             });
 
             field.addEventListener("input", () => {
                 if (field.getAttribute("aria-invalid") === "true") {
-                    validateField(field);
-                }
-            });
-
-            field.addEventListener("change", () => {
-                if (field.type === "radio") {
-                    validateRadioGroup(field);
-                } else if (field.getAttribute("aria-invalid") === "true") {
                     validateField(field);
                 }
             });
@@ -704,20 +645,12 @@ document.addEventListener("DOMContentLoaded", () => {
             clearFeedback();
 
             const fields = $$("input, textarea, select", quoteForm);
-            const processedGroups = new Set();
-
             let valid = true;
 
             fields.forEach((field) => {
-                if (field.type === "radio") {
-                    if (processedGroups.has(field.name)) return;
+                if (field.type === "hidden") return;
 
-                    processedGroups.add(field.name);
-
-                    if (!validateRadioGroup(field)) {
-                        valid = false;
-                    }
-                } else if (!validateField(field)) {
+                if (!validateField(field)) {
                     valid = false;
                 }
             });
@@ -768,6 +701,10 @@ document.addEventListener("DOMContentLoaded", () => {
                 );
 
                 quoteForm.reset();
+
+                if (hiddenSelectedPlan) {
+                    hiddenSelectedPlan.value = "";
+                }
 
                 $$('[aria-invalid="true"]', quoteForm).forEach((field) => {
                     field.removeAttribute("aria-invalid");
