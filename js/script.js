@@ -3,18 +3,26 @@ document.addEventListener("DOMContentLoaded", () => {
 
     const $ = (selector, root = document) => root.querySelector(selector);
     const $$ = (selector, root = document) => Array.from(root.querySelectorAll(selector));
+
     const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
     const finePointer = window.matchMedia("(pointer: fine)").matches;
 
     const canvas = $("#neural-canvas");
 
     if (canvas) {
-        const gl = canvas.getContext("webgl", { alpha: true, antialias: true }) || canvas.getContext("experimental-webgl", { alpha: true, antialias: true });
+        const gl = canvas.getContext("webgl", {
+            alpha: true,
+            antialias: true
+        }) || canvas.getContext("experimental-webgl", {
+            alpha: true,
+            antialias: true
+        });
 
         if (gl) {
             const vertexSource = `
                 attribute vec2 a_position;
                 varying vec2 vUv;
+
                 void main() {
                     vUv = 0.5 * (a_position + 1.0);
                     gl_Position = vec4(a_position, 0.0, 1.0);
@@ -23,7 +31,9 @@ document.addEventListener("DOMContentLoaded", () => {
 
             const fragmentSource = `
                 precision mediump float;
+
                 varying vec2 vUv;
+
                 uniform float u_time;
                 uniform float u_ratio;
                 uniform vec2 u_pointer_position;
@@ -31,7 +41,12 @@ document.addEventListener("DOMContentLoaded", () => {
                 uniform float u_speed;
 
                 vec2 rotate(vec2 uv, float angle) {
-                    return mat2(cos(angle), sin(angle), -sin(angle), cos(angle)) * uv;
+                    return mat2(
+                        cos(angle),
+                        sin(angle),
+                        -sin(angle),
+                        cos(angle)
+                    ) * uv;
                 }
 
                 float neuro_shape(vec2 uv, float time, float pointer) {
@@ -42,9 +57,12 @@ document.addEventListener("DOMContentLoaded", () => {
                     for (int i = 0; i < 15; i++) {
                         uv = rotate(uv, 1.0);
                         sine_acc = rotate(sine_acc, 1.0);
+
                         vec2 layer = uv * scale + float(i) + sine_acc - time;
+
                         sine_acc += sin(layer) + 2.4 * pointer;
                         result += (0.5 + 0.5 * cos(layer)) / scale;
+
                         scale *= 1.2;
                     }
 
@@ -58,7 +76,11 @@ document.addEventListener("DOMContentLoaded", () => {
                     vec2 pointer = vUv - u_pointer_position;
                     pointer.x *= u_ratio;
 
-                    float influence = 0.5 * pow(1.0 - clamp(length(pointer), 0.0, 1.0), 2.0);
+                    float influence = 0.5 * pow(
+                        1.0 - clamp(length(pointer), 0.0, 1.0),
+                        2.0
+                    );
+
                     float time = u_speed * u_time;
                     float noise = neuro_shape(uv, time, influence);
 
@@ -107,24 +129,43 @@ document.addEventListener("DOMContentLoaded", () => {
 
                         if (buffer && positionLocation !== -1) {
                             gl.bindBuffer(gl.ARRAY_BUFFER, buffer);
-                            gl.bufferData(gl.ARRAY_BUFFER, new Float32Array([
-                                -1, -1,
-                                1, -1,
-                                -1, 1,
-                                1, 1
-                            ]), gl.STATIC_DRAW);
+
+                            gl.bufferData(
+                                gl.ARRAY_BUFFER,
+                                new Float32Array([
+                                    -1, -1,
+                                    1, -1,
+                                    -1, 1,
+                                    1, 1
+                                ]),
+                                gl.STATIC_DRAW
+                            );
 
                             gl.enableVertexAttribArray(positionLocation);
-                            gl.vertexAttribPointer(positionLocation, 2, gl.FLOAT, false, 0, 0);
+                            gl.vertexAttribPointer(
+                                positionLocation,
+                                2,
+                                gl.FLOAT,
+                                false,
+                                0,
+                                0
+                            );
 
                             const uniform = (name) => gl.getUniformLocation(program, name);
+
                             const timeLocation = uniform("u_time");
                             const ratioLocation = uniform("u_ratio");
                             const pointerLocation = uniform("u_pointer_position");
                             const colorLocation = uniform("u_color");
                             const speedLocation = uniform("u_speed");
 
-                            gl.uniform3f(colorLocation, 139 / 255, 163 / 255, 199 / 255);
+                            gl.uniform3f(
+                                colorLocation,
+                                139 / 255,
+                                163 / 255,
+                                199 / 255
+                            );
+
                             gl.uniform1f(speedLocation, 0.001);
 
                             const pointer = {
@@ -143,8 +184,17 @@ document.addEventListener("DOMContentLoaded", () => {
                                 pointer.x += (pointer.targetX - pointer.x) * 0.12;
                                 pointer.y += (pointer.targetY - pointer.y) * 0.12;
 
-                                gl.uniform1f(timeLocation, reducedMotion ? 0 : time);
-                                gl.uniform2f(pointerLocation, pointer.x, 1 - pointer.y);
+                                gl.uniform1f(
+                                    timeLocation,
+                                    reducedMotion ? 0 : time
+                                );
+
+                                gl.uniform2f(
+                                    pointerLocation,
+                                    pointer.x,
+                                    1 - pointer.y
+                                );
+
                                 gl.drawArrays(gl.TRIANGLE_STRIP, 0, 4);
                             };
 
@@ -152,16 +202,19 @@ document.addEventListener("DOMContentLoaded", () => {
                                 if (!isVisible || reducedMotion) return;
 
                                 draw(time);
+
                                 frameId = window.requestAnimationFrame(animate);
                             };
 
                             const startAnimation = () => {
                                 if (reducedMotion || !isVisible || frameId) return;
+
                                 frameId = window.requestAnimationFrame(animate);
                             };
 
                             const stopAnimation = () => {
                                 if (!frameId) return;
+
                                 window.cancelAnimationFrame(frameId);
                                 frameId = 0;
                             };
@@ -169,6 +222,7 @@ document.addEventListener("DOMContentLoaded", () => {
                             const resizeCanvas = () => {
                                 const rect = canvas.getBoundingClientRect();
                                 const ratio = Math.min(window.devicePixelRatio || 1, 2);
+
                                 const width = Math.max(1, Math.round(rect.width * ratio));
                                 const height = Math.max(1, Math.round(rect.height * ratio));
 
@@ -191,17 +245,32 @@ document.addEventListener("DOMContentLoaded", () => {
 
                                 if (!rect.width || !rect.height) return;
 
-                                pointer.targetX = Math.min(1, Math.max(0, (event.clientX - rect.left) / rect.width));
-                                pointer.targetY = Math.min(1, Math.max(0, (event.clientY - rect.top) / rect.height));
+                                pointer.targetX = Math.min(
+                                    1,
+                                    Math.max(0, (event.clientX - rect.left) / rect.width)
+                                );
+
+                                pointer.targetY = Math.min(
+                                    1,
+                                    Math.max(0, (event.clientY - rect.top) / rect.height)
+                                );
                             };
 
-                            canvas.addEventListener("pointermove", updatePointer, { passive: true });
+                            canvas.addEventListener(
+                                "pointermove",
+                                updatePointer,
+                                { passive: true }
+                            );
 
                             if ("ResizeObserver" in window) {
                                 const observer = new ResizeObserver(resizeCanvas);
                                 observer.observe(canvas);
                             } else {
-                                window.addEventListener("resize", resizeCanvas, { passive: true });
+                                window.addEventListener(
+                                    "resize",
+                                    resizeCanvas,
+                                    { passive: true }
+                                );
                             }
 
                             document.addEventListener("visibilitychange", () => {
@@ -228,6 +297,8 @@ document.addEventListener("DOMContentLoaded", () => {
             }
         }
     }
+
+    /* COOKIES */
 
     const cookieKey = "tagback-cookies-accepted";
     const cookieBanner = $("#cookie-banner");
@@ -265,13 +336,19 @@ document.addEventListener("DOMContentLoaded", () => {
         const rejectButton = $("[data-cookie-reject]", cookieBanner);
 
         if (acceptButton) {
-            acceptButton.addEventListener("click", () => closeCookieBanner("1"));
+            acceptButton.addEventListener("click", () => {
+                closeCookieBanner("1");
+            });
         }
 
         if (rejectButton) {
-            rejectButton.addEventListener("click", () => closeCookieBanner("0"));
+            rejectButton.addEventListener("click", () => {
+                closeCookieBanner("0");
+            });
         }
     }
+
+    /* MOBILE MENU */
 
     const menuToggle = $(".menu-toggle");
     const mainNav = $(".main-nav");
@@ -283,6 +360,7 @@ document.addEventListener("DOMContentLoaded", () => {
             document.body.classList.remove("menu-open");
             mainNav.classList.remove("is-open");
             menuToggle.classList.remove("active");
+
             menuToggle.setAttribute("aria-expanded", "false");
             menuToggle.setAttribute("aria-label", "Abrir menú");
         };
@@ -292,6 +370,7 @@ document.addEventListener("DOMContentLoaded", () => {
             document.body.classList.add("menu-open");
             mainNav.classList.add("is-open");
             menuToggle.classList.add("active");
+
             menuToggle.setAttribute("aria-expanded", "true");
             menuToggle.setAttribute("aria-label", "Cerrar menú");
         };
@@ -312,13 +391,19 @@ document.addEventListener("DOMContentLoaded", () => {
         });
 
         document.addEventListener("click", (event) => {
-            if (mainNav.classList.contains("is-open") && !header.contains(event.target)) {
+            if (
+                mainNav.classList.contains("is-open") &&
+                !header.contains(event.target)
+            ) {
                 closeMenu();
             }
         });
 
         document.addEventListener("keydown", (event) => {
-            if (event.key === "Escape" && mainNav.classList.contains("is-open")) {
+            if (
+                event.key === "Escape" &&
+                mainNav.classList.contains("is-open")
+            ) {
                 closeMenu();
                 menuToggle.focus();
             }
@@ -330,6 +415,8 @@ document.addEventListener("DOMContentLoaded", () => {
             }
         }, { passive: true });
     }
+
+    /* HEADER SCROLL */
 
     if (header) {
         let ticking = false;
@@ -349,12 +436,17 @@ document.addEventListener("DOMContentLoaded", () => {
         updateHeader();
     }
 
+    /* SERVICES ACCORDION */
+
     $$(".service-card").forEach((item) => {
         const button = $(".service-card-header", item);
 
         if (!button) return;
 
-        button.setAttribute("aria-expanded", String(item.classList.contains("is-open")));
+        button.setAttribute(
+            "aria-expanded",
+            String(item.classList.contains("is-open"))
+        );
 
         button.addEventListener("click", () => {
             const shouldOpen = !item.classList.contains("is-open");
@@ -377,6 +469,8 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     });
 
+    /* FAQ */
+
     const faqItems = $$(".faq-item");
 
     faqItems.forEach((item) => {
@@ -392,6 +486,8 @@ document.addEventListener("DOMContentLoaded", () => {
             });
         });
     });
+
+    /* PLAN SELECTION */
 
     const projectRadios = $$('input[name="project_type"]');
 
@@ -432,7 +528,13 @@ document.addEventListener("DOMContentLoaded", () => {
         };
 
         card.addEventListener("click", (event) => {
-            if (event.target.closest("a, button, input, select, textarea, label")) return;
+            if (
+                event.target.closest(
+                    "a, button, input, select, textarea, label, summary"
+                )
+            ) {
+                return;
+            }
 
             selectCardPlan();
         });
@@ -458,6 +560,7 @@ document.addEventListener("DOMContentLoaded", () => {
         } catch (_) {}
 
         const params = new URLSearchParams(window.location.search);
+
         selected = params.get("plan") || selected;
 
         if (selected && choosePlan(selected)) {
@@ -468,6 +571,8 @@ document.addEventListener("DOMContentLoaded", () => {
     };
 
     applyPlanFromLocation();
+
+    /* CONTACT FORM */
 
     const quoteForm = $(".quote-form");
 
@@ -518,7 +623,8 @@ document.addEventListener("DOMContentLoaded", () => {
         };
 
         const setFieldError = (field, message) => {
-            const wrapper = field.closest(".form-field") || field.closest(".form-fieldset");
+            const wrapper = field.closest(".form-field") ||
+                field.closest(".form-fieldset");
 
             if (!wrapper) return;
 
@@ -550,14 +656,20 @@ document.addEventListener("DOMContentLoaded", () => {
         };
 
         const validateRadioGroup = (field) => {
-            const group = $$(`input[name="${CSS.escape(field.name)}"]`, quoteForm);
+            const group = $$(
+                `input[name="${CSS.escape(field.name)}"]`,
+                quoteForm
+            );
 
             if (!group.length) return true;
 
             const valid = group.some((radio) => radio.checked);
 
             group.forEach((radio) => {
-                setFieldError(radio, valid ? "" : "Seleccioná una opción.");
+                setFieldError(
+                    radio,
+                    valid ? "" : "Seleccioná una opción."
+                );
             });
 
             return valid;
@@ -593,6 +705,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
             const fields = $$("input, textarea, select", quoteForm);
             const processedGroups = new Set();
+
             let valid = true;
 
             fields.forEach((field) => {
@@ -649,7 +762,11 @@ document.addEventListener("DOMContentLoaded", () => {
                     throw new Error("No se pudo enviar el formulario.");
                 }
 
-                showFeedback("success", "Tu consulta fue enviada correctamente.");
+                showFeedback(
+                    "success",
+                    "Tu consulta fue enviada correctamente."
+                );
+
                 quoteForm.reset();
 
                 $$('[aria-invalid="true"]', quoteForm).forEach((field) => {
@@ -675,10 +792,14 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     }
 
+    /* CURSOR LIGHT */
+
     if (!reducedMotion && finePointer) {
         let frameId = 0;
+
         let x = window.innerWidth * 0.5;
         let y = window.innerHeight * 0.35;
+
         let targetX = x;
         let targetY = y;
 
@@ -689,7 +810,10 @@ document.addEventListener("DOMContentLoaded", () => {
             document.documentElement.style.setProperty("--mouse-x", `${x}px`);
             document.documentElement.style.setProperty("--mouse-y", `${y}px`);
 
-            if (Math.abs(targetX - x) > 0.4 || Math.abs(targetY - y) > 0.4) {
+            if (
+                Math.abs(targetX - x) > 0.4 ||
+                Math.abs(targetY - y) > 0.4
+            ) {
                 frameId = window.requestAnimationFrame(updateCursorLight);
             } else {
                 frameId = 0;
@@ -714,6 +838,8 @@ document.addEventListener("DOMContentLoaded", () => {
             }
         });
     }
+
+    /* CURRENT YEAR */
 
     $$("[data-current-year]").forEach((element) => {
         element.textContent = new Date().getFullYear();
