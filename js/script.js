@@ -5,7 +5,6 @@ document.addEventListener("DOMContentLoaded", () => {
     const $$ = (selector, root = document) => Array.from(root.querySelectorAll(selector));
 
     const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-    const finePointer = window.matchMedia("(pointer: fine)").matches;
 
     const canvas = $("#neural-canvas");
 
@@ -298,8 +297,6 @@ document.addEventListener("DOMContentLoaded", () => {
         }
     }
 
-    /* COOKIES */
-
     const cookieKey = "tagback-cookies-accepted";
     const cookieBanner = $("#cookie-banner");
 
@@ -347,8 +344,6 @@ document.addEventListener("DOMContentLoaded", () => {
             });
         }
     }
-
-    /* MOBILE MENU */
 
     const menuToggle = $(".menu-toggle");
     const mainNav = $(".main-nav");
@@ -416,8 +411,6 @@ document.addEventListener("DOMContentLoaded", () => {
         }, { passive: true });
     }
 
-    /* HEADER SCROLL */
-
     if (header) {
         let ticking = false;
 
@@ -435,8 +428,6 @@ document.addEventListener("DOMContentLoaded", () => {
 
         updateHeader();
     }
-
-    /* SERVICES ACCORDION */
 
     $$(".service-card").forEach((item) => {
         const button = $(".service-card-header", item);
@@ -469,8 +460,6 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     });
 
-    /* FAQ */
-
     const faqItems = $$(".faq-item");
 
     faqItems.forEach((item) => {
@@ -486,8 +475,6 @@ document.addEventListener("DOMContentLoaded", () => {
             });
         });
     });
-
-    /* PLAN SELECTION */
 
     const hiddenSelectedPlan = $("#selected-plan");
 
@@ -545,8 +532,6 @@ document.addEventListener("DOMContentLoaded", () => {
     };
 
     applyPlanFromLocation();
-
-    /* CONTACT FORM */
 
     const quoteForm = $(".quote-form");
 
@@ -728,55 +713,6 @@ document.addEventListener("DOMContentLoaded", () => {
             }
         });
     }
-
-    /* CURSOR LIGHT */
-
-    if (!reducedMotion && finePointer) {
-        let frameId = 0;
-
-        let x = window.innerWidth * 0.5;
-        let y = window.innerHeight * 0.35;
-
-        let targetX = x;
-        let targetY = y;
-
-        const updateCursorLight = () => {
-            x += (targetX - x) * 0.12;
-            y += (targetY - y) * 0.12;
-
-            document.documentElement.style.setProperty("--mouse-x", `${x}px`);
-            document.documentElement.style.setProperty("--mouse-y", `${y}px`);
-
-            if (
-                Math.abs(targetX - x) > 0.4 ||
-                Math.abs(targetY - y) > 0.4
-            ) {
-                frameId = window.requestAnimationFrame(updateCursorLight);
-            } else {
-                frameId = 0;
-            }
-        };
-
-        document.addEventListener("pointermove", (event) => {
-            targetX = event.clientX;
-            targetY = event.clientY;
-
-            if (!frameId) {
-                frameId = window.requestAnimationFrame(updateCursorLight);
-            }
-        }, { passive: true });
-
-        window.addEventListener("blur", () => {
-            targetX = window.innerWidth * 0.5;
-            targetY = window.innerHeight * 0.35;
-
-            if (!frameId) {
-                frameId = window.requestAnimationFrame(updateCursorLight);
-            }
-        });
-    }
-
-    /* CURRENT YEAR */
 
     $$("[data-current-year]").forEach((element) => {
         element.textContent = new Date().getFullYear();
